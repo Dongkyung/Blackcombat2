@@ -68,3 +68,13 @@ initests01/
 SIRsoft000/
 config.php
 pma/
+
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.idea/
+.editorconfig
+
+/logs
+.well-known/

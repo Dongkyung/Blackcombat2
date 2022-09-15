@@ -749,6 +749,10 @@ if (G5_USE_MOBILE && $set_device) {
     $set_device = false;
 }
 
+if(preg_match("/".G5_MOBILE_AGENT."/i", $_SERVER['HTTP_USER_AGENT'])) {
+    $is_mobile = true;
+}
+
 $_SESSION['ss_is_mobile'] = $is_mobile;
 define('G5_IS_MOBILE', $is_mobile);
 define('G5_DEVICE_BUTTON_DISPLAY', $set_device);

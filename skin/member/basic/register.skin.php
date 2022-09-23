@@ -5,6 +5,11 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 0);
 ?>
 
+<style>
+    #container_title {padding-top:30px;}
+    .register {padding-bottom:30px;}
+</style>
+
 <!-- 회원가입약관 동의 시작 { -->
 <div class="register">
 

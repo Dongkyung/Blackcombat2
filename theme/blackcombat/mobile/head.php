@@ -16,6 +16,10 @@ include_once(G5_LIB_PATH.'/connect.lib.php');
 include_once(G5_LIB_PATH.'/popular.lib.php');
 ?>
 
+<style>
+    #ol_after_private {display:none;}
+</style>
+
 <header id="hd">
     <h1 id="hd_h1"><?php echo $g5['title'] ?></h1>
 
@@ -34,6 +38,9 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
 
         <button type="button" id="gnb_open" class="hd_opener"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/gnb_menu_icon.png" /><span class="sound_only"> 메뉴열기</span></button>
         <div class="mobiel_nav_wrap">
+
+            <?php echo outlogin('theme/basic'); // 외부 로그인 ?>
+
             <div class="mobile_nav">
                 <ul>
                     <li>
@@ -58,10 +65,13 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
                         <a href="<?php echo G5_URL ?>/ranking.php?type=fighter">RANKING</a>
                     </li>
                     <li>
+                        <a href="<?php echo G5_URL ?>/cl.php">C.L</a>
+                    </li>
+                    <li>
                         <a href="<?php echo G5_URL ?>/community">COMMUNITY</a>
                     </li>
                     <li>
-                        <a href="#">GYM</a>
+                        <a href="<?php echo G5_URL ?>/gym.php">GYM</a>
                     </li>
                     <li>
                         <a href="<?php echo G5_URL ?>/rules.php">RULES</a>

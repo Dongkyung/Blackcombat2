@@ -8,6 +8,11 @@ if ($config['cf_cert_use'] && ($config['cf_cert_simple'] || $config['cf_cert_ipi
     add_javascript('<script src="'.G5_JS_URL.'/certify.js?v='.G5_JS_VER.'"></script>', 0);
 ?>
 
+<style>
+    #container_title {padding-top:30px;}
+    .register {padding-bottom:30px;}
+</style>
+
 <!-- 회원정보 입력/수정 시작 { -->
 
 <div class="register">

@@ -1,0 +1,18 @@
+/* GYM */
+.gym_page {  }
+.gym_page_item { margin-bottom: 100px; }
+.gym_page_item:last-child; { margin-bottom: 0px; }
+.gym_page .gym_title { font-family: 'Teko', sans-serif; font-size: 40px; text-align: center; margin-bottom: 20px; }
+.gym_page .gym_title .category { font-family: 'Teko', sans-serif; font-size: 40px; color:#ffffff;  }
+.gym_page .gym_title .script { font-family: 'Great Vibes', cursive; font-size: 14px; color:#ffba3c; margin-top: -10px;  }
+.gym_photo:after { display: block; content: ''; clear: both; }
+.gym_photo_item { float: left; width: 48%; margin: 1%; }
+.gym_photo_item img { width: 100%; }
+.gym_coach:after { display: block; content: ''; clear: both; }
+.gym_coach_item { margin-bottom: 30px; }
+.gym_coach_item img { width: 100%; }
+.gym_info:after { display: block; content: ''; clear: both; }
+.gym_info_item { margin-bottom: 30px; }
+.gym_info_item img { width: 100%; }
+.gym_map_info { margin-top: 10px; }
+.gym_map_info_item { font-size: 14px; line-height: 24px; text-align: center; }

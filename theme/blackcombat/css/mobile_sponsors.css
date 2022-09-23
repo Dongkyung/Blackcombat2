@@ -1,0 +1,11 @@
+/* SPONSOR */
+.sponsors_page { }
+.sponsors_list { width: 90%; margin: 0px auto; }
+.sponsors_list_item { margin: 0px auto 30px auto; }
+.sponsors_list_logo {  background-color: #fffcf2; text-align: center; }
+.sponsors_list_logo img { width: 60%; }
+.sponsors_list_caption { background-color: #f8f6f1; }
+.sponsors_list_info { font-size: 16px; text-align: center; padding: 15px 10px; }
+.sponsors_cooperater { text-align: center; margin-top: 50px; }
+.sponsors_cooperater .guide {font-family: 'Teko', sans-serif; font-size: 20px;}
+.cooperater_logo img { width: 120px; }

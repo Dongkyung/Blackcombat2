@@ -1,11 +1,11 @@
 /* RANKING */
 .event_page {  }
 .event_category { text-align: center; margin-bottom: 30px; }
-.event_category h1.event_category_title {display: inline-block; font-family: 'Great Vibes', cursive; font-size: 54px; font-weight:400; color:#000;}
+.event_category h1.event_category_title {display: inline-block; font-family: 'Teko', sans-serif, cursive; font-size: 54px; font-weight:400; color:#000;}
 .event_category ul {margin-top:20px;}
 .event_category ul:after { display: block; content: ''; clear: both; }
-.event_category li { display: inline-block; line-height: 40px; text-align: center;  margin: 0px 15px; }
-.event_category li a { display: inline-block; font-family: 'Great Vibes', cursive; font-size: 50px; color:#aaa; }
+.event_category li { display: inline-block; line-height: 40px; text-align: center;  margin: 0 15px; }
+.event_category li a { display: inline-block; font-family: 'Teko', sans-serif, cursive; font-size: 28px; color:#aaa; }
 .event_category li a.active { color:#000000; }
 
 .event_keyvisual {

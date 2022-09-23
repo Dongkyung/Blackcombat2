@@ -3,7 +3,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 include_once(G5_LIB_PATH.'/thumbnail.lib.php');
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
-add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
+add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css?v=20220919">', 0);
 
 $board['bo_gallery_width'] = 340;
 $board['bo_gallery_height'] = 195;
@@ -32,7 +32,6 @@ $board['bo_gallery_height'] = 195;
     <div class="sub_visual_items">
         <div class="sub_visual_caption">
             <div class="category">VIDEO</div>
-            <div class="script">Black Combat</div>
         </div>
     </div>
 </div>
@@ -185,7 +184,7 @@ $board['bo_gallery_height'] = 195;
 
                             <div class="gall_info">
                                 <span class="sound_only">작성자 </span><?php echo $list[$i]['name'] ?>
-                                <span class="gall_date"><span class="sound_only">작성일 </span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $list[$i]['datetime2'] ?></span>
+                                <span class="gall_date"><span class="sound_only">작성일 </span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $list[$i]['datetime'] ?></span>
                                 <span class="gall_view"><span class="sound_only">조회 </span><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $list[$i]['wr_hit'] ?></span>
                             </div>
                             <div class="gall_option">

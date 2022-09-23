@@ -6,6 +6,11 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
 ?>
 
+<style>
+    #sit {padding-top:30px;}
+    #sit_rel {display:none;}
+</style>
+
 <?php if($config['cf_kakao_js_apikey']) { ?>
 <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script src="<?php echo G5_JS_URL; ?>/kakaolink.js"></script>

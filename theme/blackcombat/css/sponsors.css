@@ -1,0 +1,14 @@
+/* SPONSOR */
+.sponsors_page { }
+.sponsors_list { width: 90%; margin: 0px auto; }
+.sponsors_list_item { display:flex; flex-direction:row; flex-wrap:nowrap; align-items:center; justify-content:center; width:650px; height:90px; margin:0 auto 30px auto; padding:0; }
+.sponsors_list_logo { flex:0 0 230px; display:flex; flex-direction:column; align-items:center; justify-content:center; width:230px; height:100%; margin:0; padding:0; background-color: #fffcf2; }
+.sponsors_list_logo a { flex:0 0 auto; display:block; width:100%; height:auto; margin:0; padding:0; text-align:center;}
+.sponsors_list_logo img { width: 60%; max-width:60%; height:auto; }
+.sponsors_list_caption { flex:1 1 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; width:auto; height:100%; margin:0; padding:0; background-color: #f8f6f1; }
+.sponsors_list_info { font-size: 16px; color: #000; text-align: center; padding: 15px 10px; }
+.sponsors_cooperater { text-align: center; margin-top: 50px; }
+.sponsors_cooperater .guide {font-family: 'Teko', sans-serif; font-size: 20px;}
+.cooperater_logo {margin-top:20px;}
+.cooperater_logo a {display:block; width:auto; height:auto;}
+.cooperater_logo img { width:100%; max-width:174px; height:auto; }

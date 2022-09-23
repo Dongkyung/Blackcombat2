@@ -9,7 +9,6 @@ include_once(G5_MOBILE_PATH.'/head.php');
         <div class="sub_visual_items">
             <div class="sub_visual_caption">
                 <div class="category">COMPANY</div>
-                <div class="script">Black Combat</div>
             </div>
         </div>
     </div>

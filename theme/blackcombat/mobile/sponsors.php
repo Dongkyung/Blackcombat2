@@ -3,13 +3,14 @@ if (!defined('_INDEX_')) define('_INDEX_', true);
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 include_once(G5_THEME_PATH.'/head.php');
+
+add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_sponsors.css">', 0);
 ?>
 
     <div class="sub_visual">
         <div class="sub_visual_items">
             <div class="sub_visual_caption">
                 <div class="category">SPONSORS</div>
-                <div class="script">Black Combat</div>
             </div>
         </div>
     </div>
@@ -67,7 +68,7 @@ include_once(G5_THEME_PATH.'/head.php');
                     </div>
                 </div>
                 <div class="sponsors_cooperater">
-                    <div class="guide">COOPERATER WITH MONSTERZYM</div>
+                    <div class="guide">COOPERATE WITH MONSTERZYM</div>
                     <div class="cooperater_logo">
                         <a href="https://monsterzym.com/" target="_blank">
                             <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsors_mz.png">

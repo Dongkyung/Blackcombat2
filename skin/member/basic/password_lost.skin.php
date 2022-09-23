@@ -8,6 +8,10 @@ if($config['cf_cert_use'] && ($config['cf_cert_simple'] || $config['cf_cert_ipin
     <script src="<?php echo G5_JS_URL ?>/certify.js?v=<?php echo G5_JS_VER; ?>"></script>    
 <?php } ?>
 
+<style>
+    #container_title {padding-top:30px;}
+</style>
+
 <!-- 회원정보 찾기 시작 { -->
 <div id="find_info" class="new_win<?php if($config['cf_cert_use'] != 0 && $config['cf_cert_find'] != 0) { ?> cert<?php } ?>">
     <div class="new_win_con">

@@ -1,0 +1,40 @@
+.fighter_page {}
+.fighter_page .fighter_info { width: 780px; margin: 0px auto; }
+.fighter_page .fighter_info:after { display: block; content: ''; clear: both; }
+.fighter_page .fighter_data { float: left; width: 50%; color:#FFFFFF; }
+.fighter_page .data_tags { font-size: 11px; margin-bottom: 20px;}
+.fighter_page .data_tags span { display: inline-block; padding: 5px 10px; margin:  0px 2px; background-color: rgba(255, 255, 255, 0.4); }
+.fighter_page .data_name { font-size: 28px; font-weight: bold; }
+.fighter_page .data_ringname { display: block; font-size: 25px; color: rgba(255, 255, 255, 0.6); margin-bottom: 5px; }
+.fighter_page .data_age { font-size: 14px; }
+.fighter_page .sns_link { margin-bottom: 15px; }
+.fighter_page .sns_link a { font-size: 12px; color:#FFF; }
+.fighter_page .data_team { font-size: 12px; color:#FFF; margin-bottom: 30px; }
+.fighter_page .data_bio { font-size: 60px; margin-bottom: 10px; }
+.fighter_page .data_bio:after { display: block; content: ''; clear: both; }
+.fighter_page .data_bio .mini { font-size: 18px; color: #ffba3c; margin-top: -10px; }
+.fighter_page .data_bio_height { float: left; width: 50%; font-family: 'Teko', sans-serif; }
+.fighter_page .data_bio_weight { float: left; width: 50%; font-family: 'Teko', sans-serif; }
+.fighter_page .data_record { font-family: 'Teko', sans-serif; font-size: 50px; margin-bottom: 30px;  }
+.fighter_page .data_record:after { display: block; content: ''; clear: both; }
+.fighter_page .data_record .mini { font-size: 20px; margin-top: -10px; color: #ffba3c; }
+.fighter_page .data_record_win { float: left; width: 33.33%;  }
+.fighter_page .data_record_lose { float: left; width: 33.33%;  }
+.fighter_page .data_record_draw { float: left; width: 33.33%;  }
+.fighter_page .fighter_img { float: left; width: 50%; }
+.fighter_page .fighter_img img { width: 100%; }
+.fighter_page .fighter_match {}
+.fighter_page .fighter_match .match_title { font-family: 'Teko', sans-serif; font-size: 20px; margin-bottom: 10px; }
+.fighter_page .fighter_match .match_list {}
+.fighter_page .fighter_match .match_list li { font-size: 14px; margin-bottom: 5px; }
+.fighter_page .fighter_match .match_list li:last-child; { margin-bottom: 0px; }
+.fighter_page .fighter_match .match_list .match_result { display: inline-block; background-color: rgba(255, 255, 255, 0.3); font-size: 12px; padding: 2px 5px; margin-left: 5px; }
+.fighter_page .fighter_match .match_list .match_result.win { background-color: #ffba3c; color:#333; }
+.fighter_page .fighter_match .match_list .valse { display: inline-block; font-size: 11px; margin: 0px 15px; }
+.fighter_news_page {}
+.fighter_news_page .news_page_title { font-family: 'Teko', sans-serif; font-size: 40px; text-align: center; margin-bottom: 10px; }
+.fighter_news_page .news_page_list {}
+.fighter_news_page .news_page_list ul {}
+.fighter_news_page .news_page_list ul:after { display: block; content: ''; clear: both; }
+.fighter_news_page .news_page_list li { float: left; width: 31.33%; margin: 0px 1% }
+.fighter_news_page .news_page_list li img { width: 100%; }

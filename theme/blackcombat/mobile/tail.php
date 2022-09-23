@@ -22,6 +22,7 @@ if(G5_COMMUNITY_USE === false) {
 
     <div class="footer_copyright">
         <p>Blackcombat © <?php echo date('Y', time()); ?>. All Rights Reserved.</p>
+        <!--<a href="/index.php?device=pc">모바일버전</a>-->
     </div>
 
     <button type="button" id="top_btn" style="display:none;"><i class="fa fa-arrow-up" aria-hidden="true"></i><span class="sound_only">상단으로</span></button>

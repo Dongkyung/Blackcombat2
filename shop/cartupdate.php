@@ -26,6 +26,12 @@ $tmp_cart_id = preg_replace('/[^a-z0-9_\-]/i', '', $tmp_cart_id);
 $act = isset($_POST['act']) ? clean_xss_tags($_POST['act'], 1, 1) : '';
 $post_ct_chk = (isset($_POST['ct_chk']) && is_array($_POST['ct_chk'])) ? $_POST['ct_chk'] : array();
 $post_it_ids = (isset($_POST['it_id']) && is_array($_POST['it_id'])) ? $_POST['it_id'] : array();
+$post_seat_row_type = (isset($_POST['seat_row_type']) && $_POST['seat_row_type'] !== '') ? $_POST['seat_row_type'] : '';
+$post_seat_number = (isset($_POST['seat_number']) && $_POST['seat_number'] !== '') ? $_POST['seat_number'] : '';
+
+if (!$post_seat_row_type || !$post_seat_number) {
+    alert('좌석을 선택해주세요.');
+}
 
 // 레벨(권한)이 상품구입 권한보다 작다면 상품을 구입할 수 없음.
 if ($member['mb_level'] < $default['de_level_sell'])
@@ -279,7 +285,7 @@ else // 장바구니에 담기
         // 장바구니에 Insert
         $comma = '';
         $sql = " INSERT INTO {$g5['g5_shop_cart_table']}
-                        ( od_id, mb_id, it_id, it_name, it_sc_type, it_sc_method, it_sc_price, it_sc_minimum, it_sc_qty, ct_status, ct_price, ct_point, ct_point_use, ct_stock_use, ct_option, ct_qty, ct_notax, io_id, io_type, io_price, ct_time, ct_ip, ct_send_cost, ct_direct, ct_select, ct_select_time )
+                        ( od_id, mb_id, it_id, it_name, it_sc_type, it_sc_method, it_sc_price, it_sc_minimum, it_sc_qty, ct_status, ct_price, ct_point, ct_point_use, ct_stock_use, ct_option, ct_qty, ct_notax, io_id, io_type, io_price, ct_time, ct_ip, ct_send_cost, ct_direct, ct_select, ct_select_time, ct_seat_row_type, ct_seat_number )
                     VALUES ";
 
         for($k=0; $k<$opt_count; $k++) {
@@ -359,7 +365,7 @@ else // 장바구니에 담기
             $io_value = sql_real_escape_string(strip_tags($io_value));
             $remote_addr = get_real_client_ip();
 
-            $sql .= $comma."( '$tmp_cart_id', '{$member['mb_id']}', '{$it['it_id']}', '".addslashes($it['it_name'])."', '{$it['it_sc_type']}', '{$it['it_sc_method']}', '{$it['it_sc_price']}', '{$it['it_sc_minimum']}', '{$it['it_sc_qty']}', '쇼핑', '{$it['it_price']}', '$point', '0', '0', '$io_value', '$ct_qty', '{$it['it_notax']}', '$io_id', '$io_type', '$io_price', '".G5_TIME_YMDHIS."', '$remote_addr', '$ct_send_cost', '$sw_direct', '$ct_select', '$ct_select_time' )";
+            $sql .= $comma."( '$tmp_cart_id', '{$member['mb_id']}', '{$it['it_id']}', '".addslashes($it['it_name'])."', '{$it['it_sc_type']}', '{$it['it_sc_method']}', '{$it['it_sc_price']}', '{$it['it_sc_minimum']}', '{$it['it_sc_qty']}', '쇼핑', '{$it['it_price']}', '$point', '0', '0', '$io_value', '$ct_qty', '{$it['it_notax']}', '$io_id', '$io_type', '$io_price', '".G5_TIME_YMDHIS."', '$remote_addr', '$ct_send_cost', '$sw_direct', '$ct_select', '$ct_select_time', '$post_seat_row_type', '$post_seat_number' )";
             $comma = ' , ';
             $ct_count++;
         }

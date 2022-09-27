@@ -233,6 +233,11 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
                     <input type="checkbox" name="ct_chk[<?php echo $chk_cnt; ?>]" id="ct_chk_<?php echo $chk_cnt; ?>" value="<?php echo $chk_cnt; ?>" class="sct_sel_<?php echo $i; ?>">
                     <input type="hidden" name="ct_id[<?php echo $chk_cnt; ?>]" value="<?php echo $opt['ct_id']; ?>">
                     <?php echo get_text($opt['ct_option']); ?>
+
+                    <?php if($od['od_seat_row_type'] && $od['od_seat_number']) { ?>
+                        <br />
+                        <span>좌석&nbsp;:&nbsp;<?php echo $od['od_seat_row_type']; ?>&nbsp;열&nbsp;<?php echo $od['od_seat_number']; ?></span>
+                    <?php } ?>
                 </td>
                 <td class="td_mngsmall"><?php echo $opt['ct_status']; ?></td>
                 <td class="td_num">

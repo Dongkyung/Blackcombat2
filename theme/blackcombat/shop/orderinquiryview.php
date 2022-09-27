@@ -106,6 +106,7 @@ if($od['od_pg'] == 'lg') {
 	                	<div class="sod_name">
 		                	<a href="<?php echo shop_item_url($row['it_id']); ?>"><?php echo $row['it_name']; ?></a><br>
 		                	<div class="sod_opt"><?php echo get_text($opt['ct_option']); ?></div>
+		                	<div class="sod_opt seat"><?php echo $od['od_seat_row_type']; ?>&nbsp;열&nbsp;<?php echo $od['od_seat_number']; ?></div>
 	                	</div>
 	                </td>
 	                <td headers="th_itqty" class="td_mngsmall"><?php echo number_format($opt['ct_qty']); ?></td>

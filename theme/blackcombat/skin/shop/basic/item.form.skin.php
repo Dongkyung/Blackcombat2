@@ -282,6 +282,15 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	                        <span class="sit_opt_prc">+0원</span>
 	                    </div>
 	                </li>
+
+                    <li class="sit_opt_list">
+                        <div class="opt_name">
+                            <span class="sit_opt_subj">선택 좌석</span>
+                        </div>
+                        <div class="opt_count">
+                            <span style="font-size:1.5em;"><span class="seat_choise_result"></span></span>
+                        </div>
+                    </li>
 	            </ul>
 	            <script>
 	            $(function() {
@@ -316,7 +325,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 
                 <?php if ($is_orderable) { ?>
                     <button type="button" class="open_seat_choice_btn" style="width:100%;">좌석 선택하기</button>
-                    <input type="text" name="seat_value" value="" />
+                    <input type="hidden" name="seat_row_type" value="" />
+                    <input type="hidden" name="seat_number" value="" />
                 <?php } ?>
 	        </div>
 	
@@ -460,8 +470,9 @@ function fsubmit_check(f)
 // 바로구매, 장바구니 폼 전송
 function fitem_submit(f)
 {
-    var seat_value = $('input[name="seat_value"]');
-    if (!seat_value.val()) {
+    var seatRowType = $('input[name="seat_row_type"]');
+    var seatNumber = $('input[name="seat_number"]');
+    if (!seatRowType.val() || !seatNumber.val()) {
         alert('좌석을 선택해주세요.');
         return false;
     }

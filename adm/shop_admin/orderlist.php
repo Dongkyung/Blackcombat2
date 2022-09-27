@@ -371,6 +371,10 @@ if( function_exists('pg_setting_check') ){
             <a href="<?php echo G5_SHOP_URL; ?>/orderinquiryview.php?od_id=<?php echo $row['od_id']; ?>&amp;uid=<?php echo $uid; ?>" class="orderitem"><?php echo $disp_od_id; ?></a>
             <?php echo $od_mobile; ?>
             <?php echo $od_paytype; ?>
+
+            <?php if($row['od_seat_row_type'] && $row['od_seat_number']) { ?>
+                <span style="display:block;">좌석&nbsp;:&nbsp;<?php echo $row['od_seat_row_type']; ?>&nbsp;열&nbsp;<?php echo $row['od_seat_number']; ?></span>
+            <?php } ?>
         </td>
         <td headers="th_odrer" class="td_name"><?php echo $mb_nick; ?></td>
         <td headers="th_odrertel" class="td_tel"><?php echo get_text($row['od_tel']); ?></td>

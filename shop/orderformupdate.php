@@ -2,6 +2,8 @@
 include_once('./_common.php');
 include_once(G5_LIB_PATH.'/mailer.lib.php');
 
+// print_r2($_POST); exit;
+
 //이니시스 lpay 요청으로 왔다면 $default['de_pg_service'] 값을 이니시스로 변경합니다.
 if( in_array($od_settle_case, array('lpay', 'inicis_kakaopay')) ){
     $default['de_pg_service'] = 'inicis';
@@ -546,6 +548,9 @@ $od_memo          = clean_xss_tags($od_memo, 1, 1, 0, 0);
 $od_deposit_name  = clean_xss_tags($od_deposit_name);
 $od_tax_flag      = $default['de_tax_flag_use'];
 
+$od_seat_row_type = isset($_POST['od_seat_row_type']) && $_POST['od_seat_row_type'] !== '' ? clean_xss_tags($_POST['od_seat_row_type']) : '';
+$od_seat_number = isset($_POST['od_seat_number']) && $_POST['od_seat_number'] !== '' ? clean_xss_tags($_POST['od_seat_number']) : '';
+
 // 주문서에 입력
 $sql = " insert {$g5['g5_shop_order_table']}
             set od_id             = '$od_id',
@@ -599,7 +604,9 @@ $sql = " insert {$g5['g5_shop_order_table']}
                 od_ip             = '$REMOTE_ADDR',
                 od_settle_case    = '$od_settle_case',
                 od_other_pay_type = '$od_other_pay_type',
-                od_test           = '{$default['de_card_test']}'
+                od_test           = '{$default['de_card_test']}',
+                od_seat_row_type  = '{$od_seat_row_type}',
+                od_seat_number    = '{$od_seat_number}'
                 ";
 $result = sql_query($sql, false);
 

@@ -349,5 +349,27 @@ switch ($action) {
         }
 
         break;
+    case 'get_purchase_seat_info' :
+        $disabled_seat = array();
+
+        $sql = "select od_seat_row_type, od_seat_number from {$g5['g5_shop_order_table']} where od_status not in ('취소', '주문')";
+        $result = sql_query($sql);
+
+        for($k=0; $row=sql_fetch_array($result); $k++) {
+            $tmpArray = array(
+                'od_seat_row_type' => $row['od_seat_row_type'],
+                'od_seat_number' => $row['od_seat_number']
+            );
+            $disabled_seat[] = $tmpArray;
+        } // for End
+
+        $result = array(
+            'error'  => '',
+            'disabled_seat' => $disabled_seat
+        );
+
+        die(json_encode($result));
+
+        break;
     default :
 }

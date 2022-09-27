@@ -20,6 +20,9 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
         include G5_MOBILE_PATH.'/newwin.inc.php'; // 팝업레이어
     } ?>
 
+    <?php /* ?>
+
+    <!--
     <div id="hd_wr">
         <div id="logo"><a href="<?php echo G5_SHOP_URL; ?>/"><img src="<?php echo G5_DATA_URL; ?>/common/mobile_logo_img" alt="<?php echo $config['cf_title']; ?> 메인"></a></div>
         <div id="hd_btn">
@@ -27,10 +30,11 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
             <button type="button" id="btn_hdsch"><i class="fa fa-search"></i><span class="sound_only">검색열기</span></button>
             <a href="<?php echo G5_SHOP_URL; ?>/mypage.php" id="btn_hduser"><i class="fa fa-user"></i><span class="sound_only">마이페이지</span></a>
             <a href="<?php echo G5_SHOP_URL; ?>/cart.php" id="btn_hdcart"><i class="fa fa-shopping-cart"></i><span class="sound_only">장바구니</span><span class="cart-count"><?php echo get_boxcart_datas_count(); ?></span></a>
-
         </div>
     </div>
+    -->
 
+    <!--
     <form name="frmsearch1" action="<?php echo G5_SHOP_URL; ?>/search.php" onsubmit="return search_submit(this);">
     <aside id="hd_sch">
         <div class="sch_inner">
@@ -40,10 +44,11 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
             <button type="submit" value="검색" class="sch_submit"><i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
         <button type="button" class="btn_close"><i class="fa fa-times"></i><span class="sound_only">닫기</span></button>
-
     </aside>
     </form>
+    -->
 
+    <!--
     <script>
     function search_submit(f) {
         if (f.q.value.length < 2) {
@@ -55,9 +60,64 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 
         return true;
     }
-    </script>     
+    </script>
+    -->
 
+    <!--
     <?php include_once(G5_THEME_MSHOP_PATH.'/category.php'); // 분류 ?>
+    -->
+
+    <?php */ ?>
+
+    <div id="hd_wrapper">
+        <div id="logo">
+            <a href="<?php echo G5_URL ?>"><img src="<?php echo G5_IMG_URL ?>/m_logo.png" alt="<?php echo $config['cf_title']; ?>"></a>
+        </div>
+
+        <button type="button" id="gnb_open" class="hd_opener"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/gnb_menu_icon.png" /><span class="sound_only"> 메뉴열기</span></button>
+        <div class="mobiel_nav_wrap">
+
+            <?php echo outlogin('theme/basic'); // 외부 로그인 ?>
+
+            <div class="mobile_nav">
+                <ul>
+                    <li>
+                        <a href="<?php echo G5_URL ?>/company.php">COMPANY</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo G5_URL ?>/sponsors.php">SPONSORS</a>
+                    </li>
+                    <li>
+                        <a href="#">TICKET</a>
+                    </li>
+                    <li>
+                        <a href="http://www.hegemonyblack.com/main/index.php" target="_blank">STORE</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo G5_URL ?>/event.php?page=1">EVENT</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo G5_URL ?>/video">VIDEO</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo G5_URL ?>/ranking.php?type=fighter">RANKING</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo G5_URL ?>/cl.php">C.L</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo G5_URL ?>/community">COMMUNITY</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo G5_URL ?>/gym.php">GYM</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo G5_URL ?>/rules.php">RULES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 
     <script>
@@ -108,6 +168,61 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
         });
     });
    </script>
+
+    <script>
+        $(function () {
+            //폰트 크기 조정 위치 지정
+            var font_resize_class = get_cookie("ck_font_resize_add_class");
+            if( font_resize_class == 'ts_up' ){
+                $("#text_size button").removeClass("select");
+                $("#size_def").addClass("select");
+            } else if (font_resize_class == 'ts_up2') {
+                $("#text_size button").removeClass("select");
+                $("#size_up").addClass("select");
+            }
+
+            $(".hd_opener").on("click", function() {
+                /*
+                var $this = $(this);
+                var $hd_layer = $this.next(".hd_div");
+
+                if($hd_layer.is(":visible")) {
+                    $hd_layer.hide();
+                    $this.find("span").text("열기");
+                } else {
+                    var $hd_layer2 = $(".hd_div:visible");
+                    $hd_layer2.prev(".hd_opener").find("span").text("열기");
+                    $hd_layer2.hide();
+
+                    $hd_layer.show();
+                    $this.find("span").text("닫기");
+                }
+                */
+            });
+
+            $("#container").on("click", function() {
+                $(".hd_div").hide();
+
+            });
+
+            $(".btn_gnb_op").click(function(){
+                $(this).toggleClass("btn_gnb_cl").next(".gnb_2dul").slideToggle(300);
+
+            });
+
+            $(".hd_closer").on("click", function() {
+                var idx = $(".hd_closer").index($(this));
+                $(".hd_div:visible").hide();
+                $(".hd_opener:eq("+idx+")").find("span").text("열기");
+            });
+
+            $('#gnb_open').click(function(){
+                $('.mobiel_nav_wrap').toggleClass('active');
+                $('body').toggleClass('active');
+                $('#hd_wrapper').toggleClass('active');
+            });
+        });
+        </script>
 </header>
 <?php
     $container_class = array();
@@ -116,4 +231,4 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
     }
 ?>
 <div id="container" class="<?php echo implode(' ', $container_class); ?>">
-    <?php if ((!$bo_table || $w == 's' ) && !defined('_INDEX_')) { ?><h1 id="container_title"><a href="javascript:history.back()" class="btn_back"><i class="fa fa-chevron-left" aria-hidden="true"></i><span class="sound_only">뒤로</span></a> <?php echo $g5['title'] ?></h1><?php }
+    <?php if ((!$bo_table || $w == 's' ) && !defined('_INDEX_')) { ?><h1 id="container_title" style="display:none;"><a href="javascript:history.back()" class="btn_back"><i class="fa fa-chevron-left" aria-hidden="true"></i><span class="sound_only">뒤로</span></a> <?php echo $g5['title'] ?></h1><?php }

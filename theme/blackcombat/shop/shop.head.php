@@ -21,6 +21,23 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carou
 ?>
 
 <!-- 상단 시작 { -->
+<div id="tnb" style="background:#212020;">
+    <div class="inner">
+        <ul id="hd_qnb">
+            <?php if ($is_member) {  ?>
+                <li><a href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=<?php echo G5_BBS_URL ?>/register_form.php">정보수정</a></li>
+                <li><a href="<?php echo G5_BBS_URL ?>/logout.php">로그아웃</a></li>
+                <?php if ($is_admin) {  ?>
+                    <li class="tnb_admin"><a href="<?php echo correct_goto_url(G5_ADMIN_URL); ?>">관리자</a></li>
+                <?php }  ?>
+            <?php } else {  ?>
+                <li><a href="<?php echo G5_BBS_URL ?>/register.php">회원가입</a></li>
+                <li><a href="<?php echo G5_BBS_URL ?>/login.php">로그인</a></li>
+            <?php }  ?>
+        </ul>
+    </div>
+</div>
+
 <div id="hd">
     <h1 id="hd_h1"><?php echo $g5['title'] ?></h1>
     <div id="skip_to_container"><a href="#container">본문 바로가기</a></div>
@@ -28,81 +45,35 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carou
     <?php if(defined('_INDEX_')) { // index에서만 실행
         include G5_BBS_PATH.'/newwin.inc.php'; // 팝업레이어
 	} ?>
-     
-	<div id="tnb">
-    	<div class="inner">
-            <?php if(defined('G5_COMMUNITY_USE') && G5_COMMUNITY_USE) { ?>
-    		<ul id="hd_define">
-    			<li><a href="<?php echo G5_URL ?>/">커뮤니티</a></li>
-    			<li class="active"><a href="<?php echo G5_SHOP_URL ?>/">쇼핑몰</a></li>
-    		</ul>
-            <?php } ?>
-			<ul id="hd_qnb">
-	            <li><a href="<?php echo G5_BBS_URL ?>/faq.php">FAQ</a></li>
-	            <li><a href="<?php echo G5_BBS_URL ?>/qalist.php">1:1문의</a></li>
-	            <li><a href="<?php echo G5_SHOP_URL ?>/personalpay.php">개인결제</a></li>
-	            <li><a href="<?php echo G5_SHOP_URL ?>/itemuselist.php">사용후기</a></li> 
-	            <li><a href="<?php echo G5_SHOP_URL ?>/itemqalist.php">상품문의</a></li>
-				<li class="bd"><a href="<?php echo G5_SHOP_URL; ?>/couponzone.php">쿠폰존</a></li>
-	        </ul>
-		</div>
-	</div>
+
     <div id="hd_wrapper">
+
         <div id="logo">
-        	<a href="<?php echo G5_SHOP_URL; ?>/"><img src="<?php echo G5_DATA_URL; ?>/common/logo_img" alt="<?php echo $config['cf_title']; ?>"></a>
+            <a href="<?php echo G5_URL ?>"><img src="<?php echo G5_IMG_URL ?>/logo.png" alt="<?php echo $config['cf_title']; ?>"></a>
         </div>
-		
-		<div class="hd_sch_wr">
-	        <fieldset id="hd_sch">
-	            <legend>쇼핑몰 전체검색</legend>
-	            <form name="frmsearch1" action="<?php echo G5_SHOP_URL; ?>/search.php" onsubmit="return search_submit(this);">
-	            <label for="sch_str" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
-	            <input type="text" name="q" value="<?php echo stripslashes(get_text(get_search_string($q))); ?>" id="sch_str" required placeholder="검색어를 입력해주세요">
-	            <button type="submit" id="sch_submit" value="검색"><i class="fa fa-search" aria-hidden="true"></i><span class="sound_only">검색</span></button>
-	            </form>
-	            <script>
-	            function search_submit(f) {
-	                if (f.q.value.length < 2) {
-	                    alert("검색어는 두글자 이상 입력하십시오.");
-	                    f.q.select();
-	                    f.q.focus();
-	                    return false;
-	                }
-	                return true;
-	            }
-	            </script>
-	        </fieldset>
-		</div>
-        <!-- 쇼핑몰 배너 시작 { -->
-        <?php // echo display_banner('왼쪽'); ?>
-        <!-- } 쇼핑몰 배너 끝 -->
-        
-        <ul class="hd_login">        
-            <?php if ($is_member) {  ?>
-			<li class="shop_login">
-				<?php echo outlogin('theme/shop_basic'); // 아웃로그인 ?>	
-			</li>
-			<li class="shop_cart"><a href="<?php echo G5_SHOP_URL; ?>/cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="sound_only">장바구니</span><span class="count"><?php echo get_boxcart_datas_count(); ?></span></a></li>
-            <?php } else { ?>
-            <li class="login"><a href="<?php echo G5_BBS_URL ?>/login.php?url=<?php echo $urlencode; ?>">로그인</a></li>
-            <?php }  ?>
-        </ul>
+
+        <div class="menus">
+            <div class="menu_items">
+                <div class="menu_item"><a href="<?php echo G5_URL ?>/company.php" class="menu_item_anchor">COMPANY</a></div>
+                <div class="menu_item"><a href="<?php echo G5_URL ?>/sponsors.php" class="menu_item_anchor">SPONSORS</a></div>
+                <div class="menu_item"><a href="#" class="menu_item_anchor">TICKET</a></div>
+                <div class="menu_item"><a href="http://www.hegemonyblack.com/main/index.php" class="menu_item_anchor" target="_blank">STORE</a></div>
+                <div class="menu_item"><a href="<?php echo G5_URL ?>/event.php?page=1" class="menu_item_anchor">EVENT</a></div>
+                <div class="menu_item"><a href="<?php echo G5_URL ?>/video" class="menu_item_anchor">VIDEO</a></div>
+                <div class="menu_item"><a href="<?php echo G5_URL ?>/ranking.php?type=fighter" class="menu_item_anchor">RANKING</a></div>
+                <div class="menu_item"><a href="<?php echo G5_URL ?>/cl.php" class="menu_item_anchor">C.L</a></div>
+                <div class="menu_item"><a href="<?php echo G5_URL ?>/community" class="menu_item_anchor">COMMUNITY</a></div>
+                <div class="menu_item"><a href="<?php echo G5_URL ?>/gym.php" class="menu_item_anchor">GYM</a></div>
+                <div class="menu_item"><a href="<?php echo G5_URL ?>/rules.php" class="menu_item_anchor">RULES</a></div>
+            </div>
+        </div>
     </div>
 
-    <div id="hd_menu">
-    	<button type="button" id="menu_open"><i class="fa fa-bars" aria-hidden="true"></i> 카테고리</button>
-		<?php include_once(G5_THEME_SHOP_PATH.'/category.php'); // 분류 ?>
-		<ul class="hd_menu">
-            <li><a href="<?php echo shop_type_url(1); ?>">히트상품</a></li>
-            <li><a href="<?php echo shop_type_url(2); ?>">추천상품</a></li>
-            <li><a href="<?php echo shop_type_url(3); ?>">최신상품</a></li>
-            <li><a href="<?php echo shop_type_url(4); ?>">인기상품</a></li>
-            <li><a href="<?php echo shop_type_url(5); ?>">할인상품</a></li>
-        </ul>
-    </div> 
+    <div class="hd_bg left"></div>
+    <div class="hd_bg right"></div>
 </div>
 <!-- } 상단 끝 -->
-        
+
 <div id="side_menu">
 	<ul id="quick">
 		<li><button class="btn_sm_cl1 btn_sm"><i class="fa fa-user-o" aria-hidden="true"></i><span class="qk_tit">마이메뉴</span></button></li>
@@ -157,7 +128,7 @@ jQuery(function ($){
         $(".member_mn").toggle();
         $(".btn_member_mn").toggleClass("btn_member_mn_on");
     });
-    
+
     var active_class = "btn_sm_on",
         side_btn_el = "#quick .btn_sm",
         quick_container = ".qk_con";
@@ -166,7 +137,7 @@ jQuery(function ($){
         e.preventDefault();
 
         var $this = $(this);
-        
+
         if (!$this.hasClass(active_class)) {
             $(side_btn_el).removeClass(active_class);
             $this.addClass(active_class);
@@ -239,7 +210,7 @@ jQuery(function ($){
             </section>
             <!-- } 인기상품 끝 -->
             <?php } ?>
-            
+
             <?php echo display_banner('왼쪽', 'boxbanner.skin.php'); ?>
             <?php echo poll('theme/shop_basic'); // 설문조사 ?>
         </div>

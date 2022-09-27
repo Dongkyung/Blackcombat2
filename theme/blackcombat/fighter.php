@@ -2,6 +2,16 @@
 if (!defined('_INDEX_')) define('_INDEX_', true);
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
+if (G5_IS_MOBILE) {
+    include_once(G5_THEME_MOBILE_PATH.'/index.php');
+    return;
+}
+
+if(G5_COMMUNITY_USE === false) {
+    include_once(G5_THEME_SHOP_PATH.'/index.php');
+    return;
+}
+
 include_once(G5_THEME_PATH.'/head.php');
 
 add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/fighter.css">', 0);
@@ -19,17 +29,19 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                         <div class="fighter_data">
                             <div class="data_tags">
                                 <span>언더그라운드</span>
+                                <span>페더급</span>
+                                <span>블랙컴뱃</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"GodFather"</span>
                                 검정
+                                <span class="data_ringname">"GodFather"</span>
                                 <span class="data_age">FACE AGE 35</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/godfather_black_ip/" target="_blank">@godfather_black_ip</a>
                             </div>
                             <div class="data_team">
-                                팀명 : 싸비 MMA / 본 주짓수 / 라이프짐
+                                팀명 : 블랙컴뱃
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -82,8 +94,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>플라이급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"Joker"</span>
                                 정도한
+                                <span class="data_ringname">"Joker"</span>
                                 <span class="data_age">AGE 35</span>
                             </div>
                             <div class="sns_link">
@@ -142,8 +154,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>언더그라운드</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"KOKO"</span>
                                 소재호
+                                <span class="data_ringname">"KOKO"</span>
                                 <span class="data_age">AGE 38</span>
                             </div>
                             <div class="sns_link">
@@ -199,15 +211,15 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>언더그라운드</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"The Lion"</span>
                                 오반
+                                <span class="data_ringname">"The Lion"</span>
                                 <span class="data_age">AGE 26</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/ovanjinjjada1997/" target="_blank">@ovanjinjjada1997</a>
                             </div>
                             <div class="data_team">
-                                팀명 : 싸비 MMA
+                                팀명 : 소속없음
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -224,7 +236,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     0 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    1 <div class="mini">Lose</div>
+                                    1ovanjinjjada1997 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
                                     0 <div class="mini">Draw</div>
@@ -244,7 +256,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_thelion.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
                         </div>
                     </div>
 
@@ -256,15 +268,15 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>언더그라운드</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"The Mosquitto"</span>
                                 신종훈
+                                <span class="data_ringname">"The Mosquitto"</span>
                                 <span class="data_age">AGE 34</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/shin_jonghun/" target="_blank">@shin_jonghun</a>
                             </div>
                             <div class="data_team">
-                                팀명 : 신종훈 복싱클럽
+                                팀명 : 소속없음
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -313,15 +325,15 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>언더그라운드</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"뚝배기사범"</span>
                                 호철
+                                <span class="data_ringname">"뚝배기사범"</span>
                                 <span class="data_age">AGE 40</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/tetsu.hochul/" target="_blank">@tetsu.hochul</a>
                             </div>
                             <div class="data_team">
-                                팀명 : JS Boxing Gym
+                                팀명 : 소속없음
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -370,8 +382,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>언더그라운드</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"아수라"</span>
                                 김동환
+                                <span class="data_ringname">"아수라"</span>
                                 <span class="data_age">AGE 24</span>
                             </div>
                             <div class="sns_link">
@@ -427,8 +439,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>플라이급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"플래시"</span>
                                 이승철
+                                <span class="data_ringname">"플래시"</span>
                                 <span class="data_age">AGE 24</span>
                             </div>
                             <div class="sns_link">
@@ -484,8 +496,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>플라이급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"Joker"</span>
                                 정도한
+                                <span class="data_ringname">"Joker"</span>
                                 <span class="data_age">AGE 35</span>
                             </div>
                             <div class="sns_link">
@@ -544,15 +556,15 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>밴텀급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"No.7"</span>
                                 손지훈
+                                <span class="data_ringname">"No.7"</span>
                                 <span class="data_age">AGE 29</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/son.1994_/" target="_blank">@son.1994_</a>
                             </div>
                             <div class="data_team">
-                                팀명 : 팀 매드 율하
+                                팀명 : 소속없음
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -601,15 +613,15 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>플라이급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"바이퍼"</span>
                                 김성웅
+                                <span class="data_ringname">"바이퍼"</span>
                                 <span class="data_age">AGE 27</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/viper_ung/" target="_blank">@viper_ung</a>
                             </div>
                             <div class="data_team">
-                                팀명 : 본 주짓수
+                                팀명 : 소속없음
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -658,8 +670,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                 <span>플라이급</span>
             </div>
             <div class="data_name">
-                <span class="data_ringname">"아랑"</span>
                 김민찬
+                <span class="data_ringname">"아랑"</span>
                 <span class="data_age">AGE 16</span>
             </div>
             <div class="sns_link">
@@ -716,15 +728,15 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"유짓수"</span>
                                 유수영
+                                <span class="data_ringname">"유짓수"</span>
                                 <span class="data_age">AGE 28</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/you_jitsu/" target="_blank">@you_jitsu</a>
                             </div>
                             <div class="data_team">
-                                팀명 : 본 주짓수
+                                팀명 : 소속없음
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -773,15 +785,15 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>밴텀급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"김관장"</span>
                                 김성재
+                                <span class="data_ringname">"김관장"</span>
                                 <span class="data_age">AGE 31</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/seongjaek/" target="_blank">@seongjaek</a>
                             </div>
                             <div class="data_team">
-                                팀명 : 모스짐
+                                팀명 : 소속없음
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -830,8 +842,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>밴텀급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"옐로우 몽키"</span>
                                 임정민
+                                <span class="data_ringname">"옐로우 몽키"</span>
                                 <span class="data_age">AGE 27</span>
                             </div>
                             <div class="sns_link">
@@ -887,8 +899,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>밴텀급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"파이톤"</span>
                                 김성빈
+                                <span class="data_ringname">"파이톤"</span>
                                 <span class="data_age">AGE 26</span>
                             </div>
                             <div class="sns_link">
@@ -944,8 +956,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>밴텀급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"황빠따"</span>
                                 황성주
+                                <span class="data_ringname">"황빠따"</span>
                                 <span class="data_age">AGE 32</span>
                             </div>
                             <div class="sns_link">
@@ -1001,8 +1013,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>밴텀금</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"해적왕"</span>
                                 이강남
+                                <span class="data_ringname">"해적왕"</span>
                                 <span class="data_age">AGE 35</span>
                             </div>
                             <div class="sns_link">
@@ -1058,15 +1070,15 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>밴텀급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"매드카우"</span>
                                 이성원
+                                <span class="data_ringname">"매드카우"</span>
                                 <span class="data_age">AGE 24</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/madcow_lee/" target="_blank">@madcow_lee</a>
                             </div>
                             <div class="data_team">
-                                팀명 : 마이티 짐
+                                팀명 : 소속없음
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -1103,7 +1115,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_madcow.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
                         </div>
                     </div>
 
@@ -1115,8 +1127,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>밴텀급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"No.7"</span>
                                 손지훈
+                                <span class="data_ringname">"No.7"</span>
                                 <span class="data_age">AGE 29</span>
                             </div>
                             <div class="sns_link">
@@ -1172,8 +1184,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>밴텀급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"머신건"</span>
                                 류창현
+                                <span class="data_ringname">"머신건"</span>
                                 <span class="data_age">AGE 20</span>
                             </div>
                             <div class="sns_link">
@@ -1229,8 +1241,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>페더급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"찐홍이"</span>
                                 홍종태
+                                <span class="data_ringname">"찐홍이"</span>
                                 <span class="data_age">AGE 37</span>
                             </div>
                             <div class="sns_link">
@@ -1292,8 +1304,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>페더급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"빅마우스"</span>
                                 김동규
+                                <span class="data_ringname">"빅마우스"</span>
                                 <span class="data_age">AGE 31</span>
                             </div>
                             <div class="sns_link">
@@ -1349,8 +1361,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>페더급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"빡세"</span>
                                 이진세
+                                <span class="data_ringname">"빡세"</span>
                                 <span class="data_age">AGE 29</span>
                             </div>
                             <div class="sns_link">
@@ -1406,8 +1418,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>페더급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"진격의거인"</span>
                                 임관우
+                                <span class="data_ringname">"진격의거인"</span>
                                 <span class="data_age">AGE 22</span>
                             </div>
                             <div class="sns_link">
@@ -1463,8 +1475,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>페더급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"쇼타임"</span>
                                 최찬형
+                                <span class="data_ringname">"쇼타임"</span>
                                 <span class="data_age">AGE 19</span>
                             </div>
                             <div class="sns_link">
@@ -1520,8 +1532,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>페더급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"빌런차"</span>
                                 차범준
+                                <span class="data_ringname">"빌런차"</span>
                                 <span class="data_age">AGE 26</span>
                             </div>
                             <div class="sns_link">
@@ -1577,8 +1589,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>페더급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"버드와이저"</span>
                                 윤성욱
+                                <span class="data_ringname">"버드와이저"</span>
                                 <span class="data_age">AGE 24</span>
                             </div>
                             <div class="sns_link">
@@ -1634,8 +1646,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>페더급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"OLK"</span>
                                 김준현
+                                <span class="data_ringname">"OLK"</span>
                                 <span class="data_age">AGE 31</span>
                             </div>
                             <div class="sns_link">
@@ -1691,8 +1703,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>페더급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"리신"</span>
                                 이준용
+                                <span class="data_ringname">"리신"</span>
                                 <span class="data_age">AGE 30</span>
                             </div>
                             <div class="sns_link">
@@ -1748,8 +1760,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>페더급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"무사시"</span>
                                 최서준
+                                <span class="data_ringname">"무사시"</span>
                                 <span class="data_age">AGE 26</span>
                             </div>
                             <div class="sns_link">
@@ -1806,8 +1818,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"유짓수"</span>
                                 유수영
+                                <span class="data_ringname">"유짓수"</span>
                                 <span class="data_age">AGE 28</span>
                             </div>
                             <div class="sns_link">
@@ -1863,15 +1875,15 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"영타이거"</span>
                                 이영훈
+                                <span class="data_ringname">"영타이거"</span>
                                 <span class="data_age">AGE 22</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/blues1392/" target="_blank">@godfather_black_ip</a>
                             </div>
                             <div class="data_team">
-                                팀명 : 팀 파시
+                                팀명 : 소속없음
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -1920,8 +1932,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"헌터"</span>
                                 박종헌
+                                <span class="data_ringname">"헌터"</span>
                                 <span class="data_age">AGE 31</span>
                             </div>
                             <div class="sns_link">
@@ -1977,8 +1989,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"피에로"</span>
                                 이송하
+                                <span class="data_ringname">"피에로"</span>
                                 <span class="data_age">AGE 28</span>
                             </div>
                             <div class="sns_link">
@@ -2034,8 +2046,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"맨티스"</span>
                                 윤다원
+                                <span class="data_ringname">"맨티스"</span>
                                 <span class="data_age">AGE 25</span>
                             </div>
                             <div class="sns_link">
@@ -2091,8 +2103,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"비밀병희"</span>
                                 임병희
+                                <span class="data_ringname">"비밀병희"</span>
                                 <span class="data_age">AGE 27</span>
                             </div>
                             <div class="sns_link">
@@ -2148,8 +2160,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"스몰고릴라"</span>
                                 박한빈
+                                <span class="data_ringname">"스몰고릴라"</span>
                                 <span class="data_age">AGE 29</span>
                             </div>
                             <div class="sns_link">
@@ -2205,15 +2217,15 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"곰주먹"</span>
                                 김정균
+                                <span class="data_ringname">"곰주먹"</span>
                                 <span class="data_age">AGE 29</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/gomjumuk/" target="_blank">@gomjumuk</a>
                             </div>
                             <div class="data_team">
-                                팀명 : 팀 매드 청주
+                                팀명 : 소속없음
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -2262,15 +2274,15 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"노잼"</span>
                                 이청수
+                                <span class="data_ringname">"노잼"</span>
                                 <span class="data_age">AGE 31</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/chung_strong01/" target="_blank">@chung_strong01</a>
                             </div>
                             <div class="data_team">
-                                팀명 : 팀 파시
+                                팀명 : 소속없음
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -2319,15 +2331,15 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"SCP-096"</span>
                                 문병일
+                                <span class="data_ringname">"SCP-096"</span>
                                 <span class="data_age">AGE 31</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/scp096_b.1/" target="_blank">@scp096_b.1</a>
                             </div>
                             <div class="data_team">
-                                팀명 : 팀 매드 청주
+                                팀명 : 소속없음
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -2376,8 +2388,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"김첨지"</span>
                                 손석호
+                                <span class="data_ringname">"김첨지"</span>
                                 <span class="data_age">AGE 31</span>
                             </div>
                             <div class="sns_link">
@@ -2439,8 +2451,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"히드라"</span>
                                 박어진
+                                <span class="data_ringname">"히드라"</span>
                                 <span class="data_age">AGE 22</span>
                             </div>
                             <div class="sns_link">
@@ -2496,8 +2508,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"시크릿 웨폰"</span>
                                 김진수
+                                <span class="data_ringname">"시크릿 웨폰"</span>
                                 <span class="data_age">AGE 21</span>
                             </div>
                             <div class="sns_link">
@@ -2553,8 +2565,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"큐브"</span>
                                 정용완
+                                <span class="data_ringname">"큐브"</span>
                                 <span class="data_age">AGE 26</span>
                             </div>
                             <div class="sns_link">
@@ -2610,8 +2622,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>라이트급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"라온"</span>
                                 최은호
+                                <span class="data_ringname">"라온"</span>
                                 <span class="data_age">AGE 30</span>
                             </div>
                             <div class="sns_link">
@@ -2667,8 +2679,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>중량급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"맘모스"</span>
                                 김명환
+                                <span class="data_ringname">"맘모스"</span>
                                 <span class="data_age">AGE 26</span>
                             </div>
                             <div class="sns_link">
@@ -2724,8 +2736,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>중량급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"화이트 베어"</span>
                                 최원준
+                                <span class="data_ringname">"화이트 베어"</span>
                                 <span class="data_age">AGE 34</span>
                             </div>
                             <div class="sns_link">
@@ -2781,8 +2793,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>중량급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"터미네이터"</span>
                                 박건환
+                                <span class="data_ringname">"터미네이터"</span>
                                 <span class="data_age">AGE 34</span>
                             </div>
                             <div class="sns_link">
@@ -2838,8 +2850,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>중량급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"갓균"</span>
                                 김연균
+                                <span class="data_ringname">"갓균"</span>
                                 <span class="data_age">AGE 26</span>
                             </div>
                             <div class="sns_link">
@@ -2901,8 +2913,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>중량급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"더 퍼지"</span>
                                 남지훈
+                                <span class="data_ringname">"더 퍼지"</span>
                                 <span class="data_age">AGE 26</span>
                             </div>
                             <div class="sns_link">
@@ -2958,8 +2970,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>중량급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"Daddy P"</span>
                                 박용정
+                                <span class="data_ringname">"Daddy P"</span>
                                 <span class="data_age">AGE 28</span>
                             </div>
                             <div class="sns_link">
@@ -3015,8 +3027,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>중량급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"더 마스터"</span>
                                 전현우
+                                <span class="data_ringname">"더 마스터"</span>
                                 <span class="data_age">AGE 26</span>
                             </div>
                             <div class="sns_link">
@@ -3072,8 +3084,8 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span>중량급</span>
                             </div>
                             <div class="data_name">
-                                <span class="data_ringname">"5분의 힘"</span>
                                 이재규
+                                <span class="data_ringname">"5분의 힘"</span>
                                 <span class="data_age">AGE 20</span>
                             </div>
                             <div class="sns_link">

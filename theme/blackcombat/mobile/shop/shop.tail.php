@@ -9,6 +9,7 @@ $admin = get_admin("super");
 </div><!-- container End -->
 
 <div id="ft">
+    <?php /* ?>
     <h2><?php echo $config['cf_title']; ?> 정보</h2>
     <div id="ft_company">
         <a href="<?php echo get_pretty_url('content', 'company'); ?>">회사소개</a>
@@ -35,6 +36,32 @@ $admin = get_admin("super");
     if(G5_DEVICE_BUTTON_DISPLAY && G5_IS_MOBILE) { ?>
     <a href="<?php echo get_device_change_url(); ?>" id="device_change">PC 버전</a>
     <?php } ?>
+
+    <?php */ ?>
+
+    <div class="footer_social">
+        <div class="footer_social_title"><img src="<?php echo G5_THEME_IMG_URL; ?>/footer_social_title.png" /></div>
+
+        <div class="footer_social_items">
+            <div class="footer_social_item"><a href="https://www.youtube.com/channel/UC_IYjiKaQBPq-K1Iq4sM-UQ" class="footer_social_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/footer_social_youtube_icon.png" /></a></div>
+            <div class="footer_social_item"><a href="https://www.instagram.com/blackcombat_official/" class="footer_social_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/footer_social_instagram_icon.png" /></a></div>
+        </div>
+    </div>
+
+    <div class="footer_copyright">
+        <p style="padding-bottom:5px;">회사명 : 블랙컴뱃</p>
+        <p style="padding-bottom:5px;">주소 : 서울 금천구 가산디지털1로 142 1302호 (가산동, 가산 더스카이밸리 1차)</p>
+        <p style="padding-bottom:5px;">사업자 등록번호 : 682-81-02925</p>
+        <p style="padding-bottom:5px;">대표 : 박평화</p>
+        <p style="padding-bottom:5px;">전화 : 070-4193-9293</p>
+        <p style="padding-bottom:5px;">통신판매업신고번호 :</p>
+        <p style="padding-bottom:10px;">개인정보 보호책임자 : 박영광 (pykp3927@gmail.com)</p>
+
+        <p>Blackcombat © <?php echo date('Y', time()); ?>. All Rights Reserved.</p>
+        <!--<a href="/index.php?device=pc">모바일버전</a>-->
+    </div>
+
+    <button type="button" id="top_btn" style="display:none;"><i class="fa fa-arrow-up" aria-hidden="true"></i><span class="sound_only">상단으로</span></button>
 </div>
 
 <?php

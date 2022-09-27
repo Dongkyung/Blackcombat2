@@ -33,7 +33,7 @@ if(G5_COMMUNITY_USE === false) {
 
     <div class="footer_copyright">
         <p>Blackcombat © <?php echo date('Y', time()); ?>. All Rights Reserved.</p>
-        <p style="font-size: 11px; color: #FFF; margin-top: 5px;">Designed by <a href="https://monsterzym.com/" target="_blank"> MONSTERZYM</p>
+        <p style="font-size: 11px; color: #FFF; margin-top: 5px;">Designed by <a href="https://monsterzym.com/" target="_blank"> MONSTERZYM</a></p>
     </div>
 
     <button type="button" id="top_btn">

@@ -28,7 +28,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carou
     <?php if(defined('_INDEX_')) { // index에서만 실행
         include G5_BBS_PATH.'/newwin.inc.php'; // 팝업레이어
 	} ?>
-     
+
 	<div id="tnb">
     	<div class="inner">
             <?php if(defined('G5_COMMUNITY_USE') && G5_COMMUNITY_USE) { ?>
@@ -41,7 +41,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carou
 	            <li><a href="<?php echo G5_BBS_URL ?>/faq.php">FAQ</a></li>
 	            <li><a href="<?php echo G5_BBS_URL ?>/qalist.php">1:1문의</a></li>
 	            <li><a href="<?php echo G5_SHOP_URL ?>/personalpay.php">개인결제</a></li>
-	            <li><a href="<?php echo G5_SHOP_URL ?>/itemuselist.php">사용후기</a></li> 
+	            <li><a href="<?php echo G5_SHOP_URL ?>/itemuselist.php">사용후기</a></li>
 	            <li><a href="<?php echo G5_SHOP_URL ?>/itemqalist.php">상품문의</a></li>
 				<li class="bd"><a href="<?php echo G5_SHOP_URL; ?>/couponzone.php">쿠폰존</a></li>
 	        </ul>
@@ -51,7 +51,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carou
         <div id="logo">
         	<a href="<?php echo G5_SHOP_URL; ?>/"><img src="<?php echo G5_DATA_URL; ?>/common/logo_img" alt="<?php echo $config['cf_title']; ?>"></a>
         </div>
-		
+
 		<div class="hd_sch_wr">
 	        <fieldset id="hd_sch">
 	            <legend>쇼핑몰 전체검색</legend>
@@ -76,11 +76,11 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carou
         <!-- 쇼핑몰 배너 시작 { -->
         <?php // echo display_banner('왼쪽'); ?>
         <!-- } 쇼핑몰 배너 끝 -->
-        
-        <ul class="hd_login">        
+
+        <ul class="hd_login">
             <?php if ($is_member) {  ?>
 			<li class="shop_login">
-				<?php echo outlogin('theme/shop_basic'); // 아웃로그인 ?>	
+				<?php echo outlogin('theme/shop_basic'); // 아웃로그인 ?>
 			</li>
 			<li class="shop_cart"><a href="<?php echo G5_SHOP_URL; ?>/cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="sound_only">장바구니</span><span class="count"><?php echo get_boxcart_datas_count(); ?></span></a></li>
             <?php } else { ?>
@@ -99,10 +99,10 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carou
             <li><a href="<?php echo shop_type_url(4); ?>">인기상품</a></li>
             <li><a href="<?php echo shop_type_url(5); ?>">할인상품</a></li>
         </ul>
-    </div> 
+    </div>
 </div>
 <!-- } 상단 끝 -->
-        
+
 <div id="side_menu">
 	<ul id="quick">
 		<li><button class="btn_sm_cl1 btn_sm"><i class="fa fa-user-o" aria-hidden="true"></i><span class="qk_tit">마이메뉴</span></button></li>
@@ -157,7 +157,7 @@ jQuery(function ($){
         $(".member_mn").toggle();
         $(".btn_member_mn").toggleClass("btn_member_mn_on");
     });
-    
+
     var active_class = "btn_sm_on",
         side_btn_el = "#quick .btn_sm",
         quick_container = ".qk_con";
@@ -166,7 +166,7 @@ jQuery(function ($){
         e.preventDefault();
 
         var $this = $(this);
-        
+
         if (!$this.hasClass(active_class)) {
             $(side_btn_el).removeClass(active_class);
             $this.addClass(active_class);
@@ -239,7 +239,7 @@ jQuery(function ($){
             </section>
             <!-- } 인기상품 끝 -->
             <?php } ?>
-            
+
             <?php echo display_banner('왼쪽', 'boxbanner.skin.php'); ?>
             <?php echo poll('theme/shop_basic'); // 설문조사 ?>
         </div>

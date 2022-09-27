@@ -313,6 +313,11 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            <?php if ($naverpay_button_js) { ?>
 	            <div class="itemform-naverpay"><?php echo $naverpay_request_js.$naverpay_button_js; ?></div>
 	            <?php } ?>
+
+                <?php if ($is_orderable) { ?>
+                    <button type="button" class="open_seat_choice_btn" style="width:100%;">좌석 선택하기</button>
+                    <input type="text" name="seat_value" value="" />
+                <?php } ?>
 	        </div>
 	
 	        <script>
@@ -455,6 +460,12 @@ function fsubmit_check(f)
 // 바로구매, 장바구니 폼 전송
 function fitem_submit(f)
 {
+    var seat_value = $('input[name="seat_value"]');
+    if (!seat_value.val()) {
+        alert('좌석을 선택해주세요.');
+        return false;
+    }
+
     f.action = "<?php echo $action_url; ?>";
     f.target = "";
 

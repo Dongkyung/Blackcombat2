@@ -49,13 +49,6 @@ if($config['cf_add_meta'])
     echo $config['cf_add_meta'].PHP_EOL;
 ?>
 <title><?php echo $g5_head_title; ?></title>
-<meta name="description" content="Who is the King? 블랙컴뱃대회, 챔피언스리그, MMA체육관" />
-<meta name="keywords" content="보충제, 아르기닌, 단백질, 프로틴, 다이어트, 부스터, 비타민" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="블랙컴뱃" />
-<meta property="og:description" content="Who is the King? 블랙컴뱃대회, 챔피언스리그, MMA체육관" />
-            
-<meta property="og:url" content="https://www.monsterzym.com/" />
 <?php
 $shop_css = '';
 if (defined('_SHOP_')) $shop_css = '_shop';

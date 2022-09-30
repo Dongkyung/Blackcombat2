@@ -11,6 +11,10 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
 include_once(G5_LIB_PATH.'/latest.lib.php');
 ?>
 
+<style>
+#ol_after_private {display:none;}
+</style>
+
 <header id="hd">
     <?php if ((!$bo_table || $w == 's' ) && defined('_INDEX_')) { ?><h1><?php echo $config['cf_title'] ?></h1><?php } ?>
 
@@ -88,7 +92,7 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
                         <a href="<?php echo G5_URL ?>/sponsors.php">SPONSORS</a>
                     </li>
                     <li>
-                        <a href="#">TICKET</a>
+                        <a href="<?php echo G5_URL ?>/shop/1663911932">TICKET</a>
                     </li>
                     <li>
                         <a href="http://www.hegemonyblack.com/main/index.php" target="_blank">STORE</a>

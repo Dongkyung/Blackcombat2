@@ -680,6 +680,7 @@ box-shadow:0 1px 10px rgba(0,0,0,.1)}
 .sod_opt ul {display:inline-block;margin:0;padding:0;list-style:none}
 .sod_opt li {color:#000;padding:3px 0;line-height:1.3em}
 .sod_opt li:before {content:"옵션";display:inline-block;margin:1px 5px 2px 0;padding:3px;border-radius:3px;background:#e2eaf6;line-height:1em;color:#3a8afd}
+.sod_opt li.seat_option:before {content:"좌석";}
 .sod_option_btn .mod_options {height:30px;margin:5px 0 0;padding:0 5px;border:1px solid #d4d6db;color:#606060;background:#fff;border-radius:3px}
 .cp_btn {padding:0 10px;border:1px solid #d4d6db;color:#3a8afd;background:#fff;height:26px;border-radius:3px}
 .cp_cancel {padding:0 10px;border:1px solid #aaa;color:#666;background:#fff;height:26px;border-radius:3px}
@@ -1173,6 +1174,7 @@ a.btn_frmline.is-long-text{height:auto;width:160px}
 .sod_frm_mobile .sod_opt{padding:5px 10px 5px 35px}
 .sod_frm_mobile .sod_opt li{color:#777;margin:3px 0;line-height:1.3em}
 .sod_frm_mobile .sod_opt li:before{content:"옵션";display:inline-block;margin:1px 5px 2px 0;font-size:11px;padding:0 5px;border-radius:3px;background:#e2eaf6;line-height:20px;color:#3a8afd}
+.sod_frm_mobile .sod_opt li.seat_option:before {content:"좌석";}
 .sod_frm_mobile .sod_opt .opt_name:before{content:"옵션";display:inline-block;margin:1px 5px 2px 0;font-size:11px;padding:0 5px;border-radius:3px;background:#e2eaf6;line-height:20px;color:#3a8afd}
 .sod_frm_mobile #sod_frm_orderer,.sod_frm_mobile #sod_frm_taker{margin:0 0 30px;border:1px solid #e3e5e8;background:#fff}
 .sod_frm_mobile #sod_frm_orderer #od_addr_jibeon,.sod_frm_mobile #sod_frm_taker #od_b_addr_jibeon{display:inline-block;margin:5px 0 0}

@@ -42,6 +42,8 @@ ob_start();
                         a.ct_status,
                         a.ct_send_cost,
                         a.it_sc_type,
+                        a.ct_seat_row_type,
+                        a.ct_seat_number,
                         b.ca_id,
                         b.ca_id2,
                         b.ca_id3,
@@ -61,6 +63,9 @@ ob_start();
         $comm_vat_mny = 0; // 부가세
         $comm_free_mny = 0; // 면세금액
         $tot_tax_mny = 0;
+
+        $od_seat_row_type = '';
+        $od_seat_number = '';
 
         for ($i=0; $row=sql_fetch_array($result); $i++)
         {
@@ -183,7 +188,13 @@ ob_start();
             </div>
             <div class="li_op_wr">
                 <span class="total_img"><?php echo $image; ?></span>
-                <div class="sod_opt"><?php echo $it_options; ?></div>
+                <div class="sod_opt">
+                    <?php echo $it_options; ?>
+
+                    <ul>
+                        <li>좌석 : <?php echo $row['ct_seat_row_type']; ?> 열 <?php echo $row['ct_seat_number']; ?> (+0원)</li>
+                    </ul>
+                </div>
                 <div class="li_mod" ><?php echo $cp_button; ?></div>
             </div>
 
@@ -201,6 +212,9 @@ ob_start();
         <?php
             $tot_point      += $point;
             $tot_sell_price += $sell_price;
+
+            $od_seat_row_type = $row['ct_seat_row_type'];
+            $od_seat_number = $row['ct_seat_number'];
         } // for 끝
 
         if ($i == 0) {
@@ -278,6 +292,8 @@ if($is_kakaopay_use) {
     <input type="hidden" name="item_coupon" value="0">
     <input type="hidden" name="od_coupon" value="0">
     <input type="hidden" name="od_send_coupon" value="0">
+    <input type="hidden" name="od_seat_row_type" value="<?php echo $od_seat_row_type; ?>">
+    <input type="hidden" name="od_seat_number" value="<?php echo $od_seat_number; ?>">
 
     <?php echo $content; ?>
 

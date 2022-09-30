@@ -7,6 +7,22 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
 ?>
 
 <style>
+    #sit_inf_open {display:none;}
+    .open_seat_choice_btn {
+        float: left;
+        margin-right: 5px;
+        height: 50px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 1.25em;
+        border: 1px solid #b3b3b3;
+    }
+    #btn_option .sl_option {
+        max-height: 300px;
+    }
+</style>
+
+<style>
     #sit {padding-top:30px;}
     #sit_rel {display:none;}
 </style>
@@ -305,6 +321,14 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
                         <span class="sit_opt_prc">+0원</span>
                     </div>
                 </li>
+                <li class="sit_opt_list">
+                    <div class="opt_name">
+                        <span class="sit_opt_subj">선택 좌석</span>
+                    </div>
+                    <div class="opt_count">
+                        <span style="font-size:1.5em;"><span class="seat_choise_result"></span></span>
+                    </div>
+                </li>
             </ul>
             <script>
             $(function() {
@@ -321,6 +345,12 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
         <p id="sit_ov_soldout">상품의 재고가 부족하여 구매할 수 없습니다.</p>
         <?php } ?>
         <div id="sit_ov_btn">
+            <?php if ($is_orderable) { ?>
+                <button type="button" class="open_seat_choice_btn" style="width:100%;">좌석 선택하기</button>
+                <input type="hidden" name="seat_row_type" value="" />
+                <input type="hidden" name="seat_number" value="" />
+            <?php } ?>
+
             <?php if ($is_orderable) { ?>
             <input type="submit" onclick="document.pressed=this.value;" value="장바구니" id="sit_btn_cart">
             <input type="submit" onclick="document.pressed=this.value;" value="바로구매" id="sit_btn_buy" class="btn_submit">
@@ -624,6 +654,13 @@ function fsubmit_check(f)
 // 바로구매, 장바구니 폼 전송
 function fitem_submit(f)
 {
+    var seatRowType = $('input[name="seat_row_type"]');
+    var seatNumber = $('input[name="seat_number"]');
+    if (!seatRowType.val() || !seatNumber.val()) {
+        alert('좌석을 선택해주세요.');
+        return false;
+    }
+
     f.action = "<?php echo $action_url; ?>";
     f.target = "";
 

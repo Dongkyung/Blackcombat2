@@ -207,6 +207,7 @@ box-shadow:0 0 5px #eee}
 .sod_opt li {color:#777;margin:3px 0;line-height:1.3em}
 .sod_opt li:before {content:"옵션";display:inline-block;margin:1px 5px 2px 0;font-size:11px;padding:0 5px;border-radius:3px;background:#e2eaf6;line-height:20px;color:#3a8afd}
 .sod_opt .opt_name:before {content:"옵션";display:inline-block;margin:1px 5px 2px 0;font-size:11px;padding:0 5px;border-radius:3px;background:#e2eaf6;line-height:20px;color:#3a8afd}
+.sod_opt .opt_name.seat_option:before {content:"좌석";}
 
 #sit_opt_added {margin:0;padding:0;border-bottom:0;background:#fff;list-style:none}
 #sit_opt_added li {padding:10px 15px;margin:5px 0;border:1px solid #e6e9ed;background:#f9f9f9;position:relative}

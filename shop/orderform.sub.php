@@ -122,7 +122,12 @@ if($is_kakaopay_use) {
             $it_name = '<b>' . stripslashes($row['it_name']) . '</b>';
             $it_options = print_item_options($row['it_id'], $s_cart_id);
             if($it_options) {
-                $it_name .= '<div class="sod_opt">'.$it_options.'</div>';
+                $it_name .= '<div class="sod_opt">';
+                $it_name .= $it_options;
+                $it_name .= '<ul style="display:block;">';
+                $it_name .= '<li class="seat_option">좌석 : ' . $row['ct_seat_row_type'] . ' 열 ' . $row['ct_seat_number'] . '</li>';
+               $it_name .= '</ul>';
+                $it_name .= '</div>';
             }
 
             // 복합과세금액

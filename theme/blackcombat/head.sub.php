@@ -49,6 +49,7 @@ if($config['cf_add_meta'])
     echo $config['cf_add_meta'].PHP_EOL;
 ?>
 <title><?php echo $g5_head_title; ?></title>
+
 <?php
 $shop_css = '';
 if (defined('_SHOP_')) $shop_css = '_shop';
@@ -97,6 +98,21 @@ if(G5_IS_MOBILE) {
 if(!defined('G5_IS_ADMIN'))
     echo $config['cf_add_script'];
 ?>
+
+<meta name="type" content="website" />
+<meta name="title" content="블랙컴뱃 - BLACKCOMBAT" />
+<meta name="description" content="Who is the king? The Revolution of MMA, Black Combat" />
+<meta name="keywords" content="블랙컴뱃, MMA, 이종격투기, 종합격투기, 주짓수, 격투대회, 체육관, MMA체육관" />
+<meta name="image" content="https://www.blackcombat-official.com/theme/blackcombat/img/logo.png" />
+<meta name="url" content="https://www.blackcombat-official.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="블랙컴뱃 - BLACKCOMBAT" />
+<meta property="og:description" content="Who is the king? The Revolution of MMA, Black Combat" />
+<meta property="og:keywords" content="블랙컴뱃, MMA, 이종격투기, 종합격투기, 주짓수, 격투대회, 체육관, MMA체육관" />
+<meta property="og:image" content="https://www.blackcombat-official.com/theme/blackcombat/img/logo.png" />
+<meta property="og:url" content="https://www.blackcombat-official.com/" />
+<link rel="canonical" href="https://www.blackcombat-official.com/">
+<meta name="robots" content="index,follow" />
 </head>
 <body<?php echo isset($g5['body_script']) ? $g5['body_script'] : ''; ?>>
 <?php

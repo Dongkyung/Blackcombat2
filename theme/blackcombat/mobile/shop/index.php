@@ -3,6 +3,11 @@ include_once('./_common.php');
 
 define("_INDEX_", TRUE);
 
+if (!$it_id) {
+    //echo G5_URL; exit;
+    header( 'Location: ' . G5_URL . '/shop/1663911932' );
+}
+
 include_once(G5_THEME_MSHOP_PATH.'/shop.head.php');
 ?>
 

@@ -35,7 +35,7 @@ if($od['od_pg'] == 'lg') {
         $st_count1 = $st_count2 = 0;
         $custom_cancel = false;
 
-        $sql = " select it_id, it_name, cp_price, ct_send_cost, it_sc_type
+        $sql = " select it_id, it_name, cp_price, ct_send_cost, it_sc_type, ct_seat_row_type, ct_seat_number
                     from {$g5['g5_shop_cart_table']}
                     where od_id = '$od_id'
                     group by it_id
@@ -109,6 +109,7 @@ if($od['od_pg'] == 'lg') {
 
                 </div>
                 <div class="sod_opt"><span class="opt_name"><?php echo get_text($opt['ct_option']); ?></span></div>
+                <div class="sod_opt"><span class="opt_name seat_option"><?php echo $row['ct_seat_row_type']; ?> 열 <?php echo $row['ct_seat_number']; ?></span></div>
                 <div class="li_prqty">
                     <span class="prqty_price li_prqty_sp"><span>판매가 </span><?php echo number_format($opt_price); ?></span>
                     <span class="prqty_qty li_prqty_sp"><span>수량 </span><?php echo number_format($opt['ct_qty']); ?></span>

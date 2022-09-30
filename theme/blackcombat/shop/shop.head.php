@@ -56,7 +56,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carou
             <div class="menu_items">
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/company.php" class="menu_item_anchor">COMPANY</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/sponsors.php" class="menu_item_anchor">SPONSORS</a></div>
-                <div class="menu_item"><a href="#" class="menu_item_anchor">TICKET</a></div>
+                <div class="menu_item"><a href="<?php echo G5_URL ?>/shop/1663911932" class="menu_item_anchor">TICKET</a></div>
                 <div class="menu_item"><a href="http://www.hegemonyblack.com/main/index.php" class="menu_item_anchor" target="_blank">STORE</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/event.php?page=1" class="menu_item_anchor">EVENT</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/video" class="menu_item_anchor">VIDEO</a></div>

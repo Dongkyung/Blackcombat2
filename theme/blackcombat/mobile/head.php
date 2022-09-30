@@ -50,7 +50,7 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
                         <a href="<?php echo G5_URL ?>/sponsors.php">SPONSORS</a>
                     </li>
                     <li>
-                        <a href="<?php echo G5_URL ?>/shop/1663911932">TICKET</a>
+                        <a href="<?php echo G5_URL ?>/shop/1664545281">TICKET</a>
                     </li>
                     <li>
                         <a href="http://www.hegemonyblack.com/main/index.php" target="_blank">STORE</a>

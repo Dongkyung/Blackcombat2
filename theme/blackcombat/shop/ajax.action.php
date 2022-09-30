@@ -352,6 +352,8 @@ switch ($action) {
     case 'get_purchase_seat_info' :
         $disabled_seat = array();
 
+        $sql = sql_query("update {$g5['g5_shop_order_table']} set od_status = '취소' where od_status = '주문' and od_time <= date_add(now(), INTERVAL -10 MINUTE)");
+
         $sql = "select od_seat_row_type, od_seat_number from {$g5['g5_shop_order_table']} where od_status not in ('취소')";
         $result = sql_query($sql);
 

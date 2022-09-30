@@ -7,7 +7,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
 
 <!-- 로그인 후 외부로그인 시작 -->
 <aside id="ol_after">
-   
+
     <h2>나의 회원정보</h2>
     <div id="ol_after_hd" class="ol">
         <span class="profile_img">

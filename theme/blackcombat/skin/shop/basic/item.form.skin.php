@@ -316,6 +316,10 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	
 	        <div id="sit_ov_btn">
 	            <?php if ($is_orderable) { ?>
+                <input type="hidden" name="seat_row_type" value="" />
+                <input type="hidden" name="seat_number" value="" />
+                <button type="button" class="open_seat_choice_btn" style="width:100%;">좌석 선택하기</button>
+
 	            <button type="submit" onclick="document.pressed=this.value;" value="장바구니" class="sit_btn_cart">장바구니</button>
 	            <button type="submit" onclick="document.pressed=this.value;" value="바로구매" class="sit_btn_buy">바로구매</button>
 	            <?php } ?>
@@ -327,12 +331,6 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            <?php if ($naverpay_button_js) { ?>
 	            <div class="itemform-naverpay"><?php echo $naverpay_request_js.$naverpay_button_js; ?></div>
 	            <?php } ?>
-
-                <?php if ($is_orderable) { ?>
-                    <button type="button" class="open_seat_choice_btn" style="width:100%;">좌석 선택하기</button>
-                    <input type="hidden" name="seat_row_type" value="" />
-                    <input type="hidden" name="seat_number" value="" />
-                <?php } ?>
 	        </div>
 	
 	        <script>

@@ -6,7 +6,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
 ?>
 
 <!-- 로그인 후 외부로그인 시작 -->
-<aside id="ol_after" class="ol">
+<aside id="ol_after" class="ol asdasd">
    
     <h2>나의 회원정보</h2>
     <div id="ol_after_hd">
@@ -17,6 +17,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
         <strong><?php echo $nick ?>님</strong>
         <div id="ol_after_btn">
 	        <?php if ($is_admin == 'super' || $is_auth) { ?><a href="<?php echo G5_ADMIN_URL ?>" class="btn_admin"><i class="fa fa-cog fa-spin fa-fw"></i><span class="sound_only">관리자</span></a><?php } ?>
+            <a href="<?php echo G5_URL ?>/shop/mypage.php">마이페이지</a>
+
 	        <a href="<?php echo G5_BBS_URL ?>/logout.php" id="ol_after_logout">로그아웃</a>
 	    </div>
     </div>

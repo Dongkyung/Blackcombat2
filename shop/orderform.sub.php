@@ -125,7 +125,7 @@ if($is_kakaopay_use) {
                 $it_name .= '<div class="sod_opt">';
                 $it_name .= $it_options;
                 $it_name .= '<ul style="display:block;">';
-                $it_name .= '<li class="seat_option">좌석 : ' . $row['ct_seat_row_type'] . ' 열 ' . $row['ct_seat_number'] . '</li>';
+                $it_name .= '<li class="seat_option" style="font-size:14px;">좌석정보 : ' . $row['ct_seat_row_type'] . ' 열 ' . $row['ct_seat_number'] . '</li>';
                $it_name .= '</ul>';
                 $it_name .= '</div>';
             }

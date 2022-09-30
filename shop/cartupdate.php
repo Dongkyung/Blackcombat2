@@ -29,6 +29,9 @@ $post_it_ids = (isset($_POST['it_id']) && is_array($_POST['it_id'])) ? $_POST['i
 $post_seat_row_type = (isset($_POST['seat_row_type']) && $_POST['seat_row_type'] !== '') ? $_POST['seat_row_type'] : '';
 $post_seat_number = (isset($_POST['seat_number']) && $_POST['seat_number'] !== '') ? $_POST['seat_number'] : '';
 
+$sql = " delete from {$g5['g5_shop_cart_table']} where od_id = '$tmp_cart_id' ";
+sql_query($sql);
+
 if (!$post_seat_row_type || !$post_seat_number) {
     alert('좌석을 선택해주세요.');
 }

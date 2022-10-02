@@ -32,6 +32,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carou
                     <li class="tnb_admin"><a href="<?php echo correct_goto_url(G5_ADMIN_URL); ?>">관리자</a></li>
                 <?php }  ?>
             <?php } else {  ?>
+                <li><a href="<?php echo G5_URL ?>/shop/orderinquiry.php">비회원 주문조회</a></li>
                 <li><a href="<?php echo G5_BBS_URL ?>/register.php">회원가입</a></li>
                 <li><a href="<?php echo G5_BBS_URL ?>/login.php">로그인</a></li>
             <?php }  ?>

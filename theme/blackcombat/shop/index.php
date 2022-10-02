@@ -1,6 +1,10 @@
 <?php
 include_once('./_common.php');
 
+if (!$it_id) {
+    header("location: " . G5_URL . '/shop/1664545281');
+}
+
 if (G5_IS_MOBILE) {
     include_once(G5_THEME_MSHOP_PATH.'/index.php');
     return;

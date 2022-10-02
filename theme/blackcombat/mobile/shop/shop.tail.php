@@ -1675,6 +1675,8 @@ if ($config['cf_analytics']) {
         }
 
         (function ($) {
+            var ajax_url = g5_theme_shop_url || g5_shop_url;
+
             if ($('.open_seat_choice_btn').length) {
                 $('.open_seat_choice_btn').on('click', function(e) {
                     e.preventDefault();
@@ -1781,58 +1783,83 @@ if ($config['cf_analytics']) {
                     setRowTypeObj.val(rowType);
                     setNumberObj.val(setNumber);
 
-                    var optionSelectObj = $('#it_option_1');
-                    var selectedOptionObj = '';
+                    // 좌석 선택 시 해당 좌석의 주문확인
+                    $.ajax({
+                        url: ajax_url + "/ajax.action.php",
+                        type: "POST",
+                        data: {
+                            "action":"get_purchase_seat_order_search",
+                            "od_seat_row_type": rowType,
+                            "od_seat_number": setNumber
+                        },
+                        dataType: "text",
+                        async: true,
+                        cache: false,
+                        success: function(data, textStatus) {
+                            if (data === 'Y')
+                            {
+                                alert('이미 결제가 완료된 좌석입니다.');
+                                location.reload();
+                                return false;
+                            }
+                            else
+                            {
+                                var optionSelectObj = $('#it_option_1');
+                                var selectedOptionObj = '';
 
-                    if (rowType === 'VVIP')
-                    {
-                        selectedOptionObj = optionSelectObj.find('option[data-seat="VVIP"]').prop('selected', true);
-                    }
-                    else if (rowType === 'VIP1' || rowType === 'VIP2' || rowType === 'VIP3')
-                    {
-                        selectedOptionObj = optionSelectObj.find('option[data-seat="VIP"]').prop('selected', true);
-                    }
-                    else
-                    {
-                        selectedOptionObj = optionSelectObj.find('option[data-seat="NORMAL"]').prop('selected', true);
-                    }
+                                if (rowType === 'VVIP')
+                                {
+                                    selectedOptionObj = optionSelectObj.find('option[data-seat="VVIP"]').prop('selected', true);
+                                }
+                                else if (rowType === 'VIP1' || rowType === 'VIP2' || rowType === 'VIP3')
+                                {
+                                    selectedOptionObj = optionSelectObj.find('option[data-seat="VIP"]').prop('selected', true);
+                                }
+                                else
+                                {
+                                    selectedOptionObj = optionSelectObj.find('option[data-seat="NORMAL"]').prop('selected', true);
+                                }
 
-                    var it_id = $('input[name="it_id[]"]').val();
-                    var optionResultObj = $('#sit_sel_option');
-                    var optionValue = selectedOptionObj.val();
-                    var optionValue_split = optionValue.split(',');
+                                var it_id = $('input[name="it_id[]"]').val();
+                                var optionResultObj = $('#sit_sel_option');
+                                var optionValue = selectedOptionObj.val();
+                                var optionValue_split = optionValue.split(',');
 
-                    var optionResultHtml = ''+
-                        '<ul id="sit_opt_added">'+
-                        '   <li class="sit_opt_list">'+
-                        '       <input type="hidden" name="io_type[' + it_id + '][]" value="0">'+
-                        '       <input type="hidden" name="io_id[' + it_id + '][]" value="' + optionValue_split[0] + '">'+
-                        '       <input type="hidden" name="io_value[' + it_id + '][]" value="좌석:' + optionValue_split[0] + '">'+
-                        '       <input type="hidden" class="io_price" value="' + optionValue_split[1] + '">'+
-                        '       <input type="hidden" class="io_stock" value="' + optionValue_split[2] + '">'+
-                        '       <div class="opt_name"><span class="sit_opt_subj">좌석:' + optionValue_split[0] + ' (' + rowType + ' 열 ' + setNumber + ')</span></div>'+
-                        '       <div class="opt_count">'+
-                        '           <input type="hidden" name="ct_qty[' + it_id + '][]" value="1" class="num_input" size="5">'+
-                        '           <span class="sit_opt_prc">+' + number_format(optionValue_split[1]) + '원</span>'+
-                        '           <button type="button" class="sit_opt_del"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">삭제</span></button>'+
-                        '       </div>'+
-                        '   </li>'+
-                        '</ul>'+
-                        '';
+                                var optionResultHtml = ''+
+                                    '<ul id="sit_opt_added">'+
+                                    '   <li class="sit_opt_list">'+
+                                    '       <input type="hidden" name="io_type[' + it_id + '][]" value="0">'+
+                                    '       <input type="hidden" name="io_id[' + it_id + '][]" value="' + optionValue_split[0] + '">'+
+                                    '       <input type="hidden" name="io_value[' + it_id + '][]" value="좌석:' + optionValue_split[0] + '">'+
+                                    '       <input type="hidden" class="io_price" value="' + optionValue_split[1] + '">'+
+                                    '       <input type="hidden" class="io_stock" value="' + optionValue_split[2] + '">'+
+                                    '       <div class="opt_name"><span class="sit_opt_subj">좌석:' + optionValue_split[0] + ' (' + rowType + ' 열 ' + setNumber + ')</span></div>'+
+                                    '       <div class="opt_count">'+
+                                    '           <input type="hidden" name="ct_qty[' + it_id + '][]" value="1" class="num_input" size="5">'+
+                                    '           <span class="sit_opt_prc">+' + number_format(optionValue_split[1]) + '원</span>'+
+                                    '           <button type="button" class="sit_opt_del"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">삭제</span></button>'+
+                                    '       </div>'+
+                                    '   </li>'+
+                                    '</ul>'+
+                                    '';
 
-                    optionResultObj.html(optionResultHtml);
+                                optionResultObj.html(optionResultHtml);
 
-                    $('#sit_tot_price').text(number_format(optionValue_split[1]));
+                                $('#sit_tot_price').text(number_format(optionValue_split[1]));
 
-                    alert('좌석이 선택되었습니다.');
+                                alert('좌석이 선택되었습니다.');
 
-                    $('.seat_choise_result').html(rowType + ' 열 ' + setNumber);
+                                $('.seat_choise_result').html(rowType + ' 열 ' + setNumber);
 
-                    $('.seat_choice_popup').fadeOut(300);
+                                $('.seat_choice_popup').fadeOut(300);
+                            }
+                        },
+                        error : function(request, status, error){
+                            alert("false ajax :"+request.responseText);
+                        }
+                    });
                 }
             });
-
-            var ajax_url = g5_theme_shop_url || g5_shop_url;
 
             $.ajax({
                 url: ajax_url + "/ajax.action.php",

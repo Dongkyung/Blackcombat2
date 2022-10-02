@@ -4,7 +4,6 @@ include_once('./_common.php');
 define("_INDEX_", TRUE);
 
 if (!$it_id) {
-    //echo G5_URL; exit;
     header( 'Location: ' . G5_URL . '/shop/1663911932' );
 }
 

@@ -6,7 +6,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 ?>
 
 <div id="mb_login" class="mbskin">
+    <?php if (preg_match("/orderinquiry.php$/", $url)) { ?>
+    <h1>비회원 주문조회</h1>
+    <?php } else { ?>
     <h1><?php echo $g5['title'] ?></h1>
+    <?php } ?>
 
     <form name="flogin" action="<?php echo $login_action_url ?>" onsubmit="return flogin_submit(this);" method="post" id="flogin">
     <input type="hidden" name="url" value="<?php echo $login_url ?>">
@@ -78,8 +82,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	</section>
 
 	<?php } else if (preg_match("/orderinquiry.php$/", $url)) { ?>
+    <style>
+        form[name="flogin"] {display:none;}
+        #mb_login_od_wr {margin-top:0 !important; background:#fff;}
+    </style>
+
 	<div id="mb_login_od_wr">
-		<h2>비회원 주문조회 </h2>
+		<h2>비회원 주문조회</h2>
 		
 	    <fieldset id="mb_login_od">
 	        <legend>비회원 주문조회</legend>

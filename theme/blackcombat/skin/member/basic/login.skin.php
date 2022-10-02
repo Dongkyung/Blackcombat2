@@ -78,6 +78,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     </section>
 
     <?php } else if (preg_match("/orderinquiry.php$/", $url)) { ?>
+    <style>
+        .mbskin_box {display:none;}
+        #mb_login_od_wr {margin-top:0 !important; background:#fff;}
+    </style>
+
     <div id="mb_login_od_wr">
         <h2>비회원 주문조회 </h2>
 

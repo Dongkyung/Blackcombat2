@@ -727,6 +727,12 @@ if($is_kakaopay_use) {
             echo '</div>';
         }
 
+        echo '<div id="settle_card" style="display:none">';
+        echo '<div style="clear:both; padding:10px 10px; font-size:16px; line-height:140%; border:1px solid #e3e5e8; border-top:0 none; background:#fff;">';
+        echo '<p style="word-break:keep-all;">결제불가 카드사&nbsp;:&nbsp;<br /><span style="color:#ff006c;">신한카드, BC카드, KB국민카드, 하나카드, 하나카드(외환)</span></p>';
+        echo '</div>';
+        echo '</div>';
+
         if ($default['de_bank_use'] || $default['de_vbank_use'] || $default['de_iche_use'] || $default['de_card_use'] || $default['de_hp_use'] || $default['de_easy_pay_use'] || is_inicis_simple_pay() ) {
             echo '</div>';
         }
@@ -1035,6 +1041,8 @@ $(function() {
     });
 
     $("#od_settle_bank").on("click", function() {
+        $("#settle_card").hide();
+
         $("[name=od_deposit_name]").val( $("[name=od_name]").val() );
         $("#settle_bank").show();
         $("#show_req_btn").css("display", "none");
@@ -1045,6 +1053,10 @@ $(function() {
         $("#settle_bank").hide();
         $("#show_req_btn").css("display", "inline");
         $("#show_pay_btn").css("display", "none");
+    });
+
+    $("#od_settle_card").on("click", function() {
+        $("#settle_card").show();
     });
 
     // 배송지선택

@@ -13,6 +13,9 @@ $th_st = 'padding:5px;border-top:1px solid #e9e9e9;border-bottom:1px solid #e9e9
 $td_st = 'padding:5px;border-top:1px solid #e9e9e9;border-bottom:1px solid #e9e9e9';
 $empty_st = 'padding:30px;border-top:1px solid #e9e9e9;border-bottom:1px solid #e9e9e9;text-align:center';
 $ft_a_st = 'display:block;padding:30px 0;background:#484848;color:#fff;text-align:center;text-decoration:none';
+
+$order_sql = "SELECT * FROM {$g5['g5_shop_order_table']} WHERE od_id = {$od_id}";
+$order_row = sql_fetch($order_sql);
 ?>
 
 <body>
@@ -47,6 +50,14 @@ $ft_a_st = 'display:block;padding:30px 0;background:#484848;color:#fff;text-alig
         <tr>
             <th scope="row" style="<?php echo $th_st; ?>">선택옵션 </th>
             <td style="<?php echo $td_st; ?>"><?php echo $list[$i]['it_opt']; ?></td>
+        </tr>
+        <tr>
+            <th scope="row" style="<?php echo $th_st; ?>">좌석번호 </th>
+            <td style="<?php echo $td_st; ?>">
+                <ul style="margin:0;padding:0">
+                    <li style="padding:5px 0;list-style:none"><?php echo $order_row['od_seat_row_type'] . ' 열 ' . $order_row['od_seat_number']; ?></li>
+                </ul>
+            </td>
         </tr>
         <tr>
             <th scope="row" style="<?php echo $th_st; ?>">소계</th>

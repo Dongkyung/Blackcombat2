@@ -62,6 +62,26 @@ include_once(G5_THEME_PATH.'/head.php');
                         <tbody>
                             <tr>
                                 <td>1</td>
+                                <td><span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_cubemma.png" /></span><span class="cl_team_name">펭카 큐브 MMA</span></td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>-</td>
+                                <td>2</td>
+                                <td>-</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_calson.png" /></span><span class="cl_team_name">지브라 칼슨 해적단</span></td>
+                                <td>5</td>
+                                <td>2</td>
+                                <td>-</td>
+                                <td>3</td>
+                                <td>-</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
                                 <td><span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_ssabi.png" /></span><span class="cl_team_name">알코트 싸비 MMA</span></td>
                                 <td>-</td>
                                 <td>-</td>
@@ -71,17 +91,7 @@ include_once(G5_THEME_PATH.'/head.php');
                                 <td>-</td>
                             </tr>
                             <tr>
-                                <td>2</td>
-                                <td><span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_calson.png" /></span><span class="cl_team_name">지브라 칼슨 해적단</span></td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
+                                <td>4</td>
                                 <td><span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_mmastory.png" /></span><span class="cl_team_name">애쉬크로프트 MMA 스토리</span></td>
                                 <td>-</td>
                                 <td>-</td>
@@ -91,18 +101,8 @@ include_once(G5_THEME_PATH.'/head.php');
                                 <td>-</td>
                             </tr>
                             <tr>
-                                <td>4</td>
-                                <td><span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_excombat.png" /></span><span class="cl_team_name">익스트림 익스트림컴뱃</span></td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
                                 <td>5</td>
-                                <td><span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_cubemma.png" /></span><span class="cl_team_name">펭카 큐브 MMA</span></td>
+                                <td><span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_excombat.png" /></span><span class="cl_team_name">익스트림 익스트림컴뱃</span></td>
                                 <td>-</td>
                                 <td>-</td>
                                 <td>-</td>

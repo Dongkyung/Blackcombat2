@@ -55,7 +55,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
     $sum = sql_fetch($sql);
 
     // 옵션정보
-    $sql2 = " select ct_option, ct_qty, io_price
+    $sql2 = " select ct_option, ct_qty, io_price, ct_seat_row_type, ct_seat_number
                 from {$g5['g5_shop_cart_table']}
                 where it_id = '{$row['it_id']}' and od_id = '$od_id' and ct_select = '1'
                 order by io_type asc, ct_id asc ";
@@ -71,6 +71,10 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
         if($row2['io_price'] >= 0)
             $price_plus = '+';
         $options .= '<li'.$options_li.'>'.$row2['ct_option'].' ('.$price_plus.display_price($row2['io_price']).') '.$row2['ct_qty'].'개</li>'.PHP_EOL;
+
+        if ($row2['ct_seat_row_type'] && $row2['ct_seat_number']) {
+            $options .= '<li'.$options_li.'>좌석번호 : ' . $row2['ct_seat_row_type'] . ' 열 ' . $row2['ct_seat_number'] . '</li>'.PHP_EOL;
+        }
     }
 
     if($k > 0)

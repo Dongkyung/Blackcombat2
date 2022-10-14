@@ -52,6 +52,10 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
         if($row2['io_price'] >= 0)
             $price_plus = '+';
         $options .= '<li'.$options_li.'>'.$row2['ct_option'].' ('.$price_plus.display_price($row2['io_price']).') '.$row2['ct_qty'].'개</li>'.PHP_EOL;
+
+        if ($row2['ct_seat_row_type'] && $row2['ct_seat_number']) {
+            $options .= '<li'.$options_li.'>좌석번호 : ' . $row2['ct_seat_row_type'] . ' 열 ' . $row2['ct_seat_number'] . '</li>'.PHP_EOL;
+        }
     }
 
     if($k > 0)

@@ -724,12 +724,13 @@ if($is_kakaopay_use) {
             echo $bank_account;
             echo '<br><label for="od_deposit_name">입금자명</label> ';
             echo '<input type="text" name="od_deposit_name" id="od_deposit_name" size="10" maxlength="20">';
+            echo '<br /><p style="margin-top:10px;word-break:keep-all;font-weight:700;color:#ff006c;line-height:120%;">주의&nbsp;:&nbsp;주문 후 24시간 이내 입금확인이 안될 경우 자동으로 주문취소가 됩니다.</p>';
             echo '</div>';
         }
 
         echo '<div id="settle_card" style="display:none">';
         echo '<div style="clear:both; padding:10px 10px; font-size:16px; line-height:140%; border:1px solid #e3e5e8; border-top:0 none; background:#fff;">';
-        echo '<p style="word-break:keep-all;">결제불가 카드사&nbsp;:&nbsp;<br /><span style="color:#ff006c;">신한카드, BC카드, KB국민카드, 하나카드, 하나카드(외환)</span></p>';
+        echo '<p style="word-break:keep-all;">결제불가 카드사&nbsp;:&nbsp;<br /><span style="color:#ff006c;">하나카드, 하나카드(외환)</span></p>';
         echo '</div>';
         echo '</div>';
 

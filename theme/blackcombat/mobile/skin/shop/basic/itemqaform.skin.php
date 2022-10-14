@@ -19,7 +19,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_MSHOP_SKIN_URL.'/style.css">',
         <ul>
             <li>
                 <span class="sound_only">옵션</span>
-                <input type="checkbox" name="iq_secret" id="iq_secret" value="1" <?php echo $chk_secret; ?>>
+                <input type="checkbox" name="iq_secret" id="iq_secret" value="1" <?php echo $chk_secret; ?> style="-webkit-appearance:auto;" />
                 <label for="iq_secret">비밀글</label>
             </li>
             <li>

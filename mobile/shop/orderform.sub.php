@@ -47,7 +47,8 @@ ob_start();
                         b.ca_id,
                         b.ca_id2,
                         b.ca_id3,
-                        b.it_notax
+                        b.it_notax,
+                        b.it_seat
                    from {$g5['g5_shop_cart_table']} a left join {$g5['g5_shop_item_table']} b on ( a.it_id = b.it_id )
                   where a.od_id = '$s_cart_id'
                     and a.ct_select = '1' ";
@@ -191,9 +192,11 @@ ob_start();
                 <div class="sod_opt">
                     <?php echo $it_options; ?>
 
+                    <?php if ($row['it_seat'] === 'Y') { ?>
                     <ul>
                         <li>좌석 : <?php echo $row['ct_seat_row_type']; ?> 열 <?php echo $row['ct_seat_number']; ?> (+0원)</li>
                     </ul>
+                    <?php } ?>
                 </div>
                 <div class="li_mod" ><?php echo $cp_button; ?></div>
             </div>

@@ -14,6 +14,16 @@ include_once(G5_LIB_PATH.'/poll.lib.php');
 include_once(G5_LIB_PATH.'/visit.lib.php');
 include_once(G5_LIB_PATH.'/connect.lib.php');
 include_once(G5_LIB_PATH.'/popular.lib.php');
+
+$ticket_link = '';
+
+$ticket_sql = "SELECT it_id FROM g5_shop_item WHERE it_online = 'Y' LIMIT 1";
+$ticket_result = sql_query($ticket_sql);
+$ticket_row = sql_fetch_array($ticket_result);
+
+if ($ticket_row) {
+    $ticket_link = G5_URL . '/shop/' . $ticket_row['it_id'];
+}
 ?>
 
 <style>
@@ -50,13 +60,17 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
                         <a href="<?php echo G5_URL ?>/sponsors.php">SPONSORS</a>
                     </li>
                     <li>
-                        <a href="<?php echo G5_URL ?>/shop/1664545281">TICKET</a>
+                        <?php if($ticket_link) { ?>
+                        <a href="<?php echo $ticket_link; ?>">TICKET</a>
+                        <?php } else { ?>
+                        <a href="#" onclick="alert('상품을 준비중입니다.');return false;">TICKET</a>
+                        <?php } ?>
                     </li>
                     <li>
                         <a href="http://www.hegemonyblack.com/main/index.php" target="_blank">STORE</a>
                     </li>
                     <li>
-                        <a href="<?php echo G5_URL ?>/event.php?page=1">EVENT</a>
+                        <a href="<?php echo G5_URL ?>/event.php?page=3">EVENT</a>
                     </li>
                     <li>
                         <a href="<?php echo G5_URL ?>/video">VIDEO</a>
@@ -74,7 +88,7 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
                         <a href="<?php echo G5_URL ?>/gym.php">GYM</a>
                     </li>
                     <li>
-                        <a href="<?php echo G5_URL ?>/rules.php">RULES</a>
+                        <a href="<?php echo G5_URL ?>/rules.php" onclick="alert('업데이트 준비 중 입니다.');return false;">RULES</a>
                     </li>
                 </ul>
             </div>

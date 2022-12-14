@@ -14,7 +14,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	<input type="hidden" name="it_id[]" value="<?php echo $it_id; ?>">
 	<input type="hidden" name="sw_direct">
 	<input type="hidden" name="url">
-	
+	<input type="hidden" name="it_seat" value="<?php echo $it['it_seat']; ?>">
+
 	<div id="sit_ov_wrap">
 	    <!-- 상품이미지 미리보기 시작 { -->
 	    <div id="sit_pvi">
@@ -288,6 +289,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	                    </div>
 	                </li>
 
+                    <?php if ($it['it_seat'] === 'Y') { ?>
                     <li class="sit_opt_list">
                         <div class="opt_name">
                             <span class="sit_opt_subj">선택 좌석</span>
@@ -296,6 +298,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
                             <span style="font-size:1.5em;"><span class="seat_choise_result"></span></span>
                         </div>
                     </li>
+                    <?php } ?>
 	            </ul>
 	            <script>
 	            $(function() {
@@ -316,9 +319,11 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	
 	        <div id="sit_ov_btn">
 	            <?php if ($is_orderable) { ?>
+                    <?php if ($it['it_seat'] === 'Y') { ?>
                 <input type="hidden" name="seat_row_type" value="" />
                 <input type="hidden" name="seat_number" value="" />
-                <button type="button" class="open_seat_choice_btn" style="width:100%;">좌석 선택하기</button>
+                <button type="button" class="open_seat_choice_btn" style="width:100%;">좌석 선택하기 <?php echo $it['it_seat']; ?></button>
+                    <?php } ?>
 
 	            <button type="submit" onclick="document.pressed=this.value;" value="장바구니" class="sit_btn_cart">장바구니</button>
 	            <button type="submit" onclick="document.pressed=this.value;" value="바로구매" class="sit_btn_buy">바로구매</button>
@@ -473,12 +478,14 @@ function fsubmit_check(f)
 // 바로구매, 장바구니 폼 전송
 function fitem_submit(f)
 {
+    <?php if ($it['it_seat'] === 'Y') { ?>
     var seatRowType = $('input[name="seat_row_type"]');
     var seatNumber = $('input[name="seat_number"]');
     if (!seatRowType.val() || !seatNumber.val()) {
         alert('좌석을 선택해주세요.');
         return false;
     }
+    <?php } ?>
 
     f.action = "<?php echo $action_url; ?>";
     f.target = "";

@@ -66,7 +66,8 @@ if($is_kakaopay_use) {
                         b.ca_id,
                         b.ca_id2,
                         b.ca_id3,
-                        b.it_notax
+                        b.it_notax,
+                        b.it_seat
                    from {$g5['g5_shop_cart_table']} a left join {$g5['g5_shop_item_table']} b on ( a.it_id = b.it_id )
                   where a.od_id = '$s_cart_id'
                     and a.ct_select = '1' ";
@@ -121,13 +122,16 @@ if($is_kakaopay_use) {
 
             $it_name = '<b>' . stripslashes($row['it_name']) . '</b>';
             $it_options = print_item_options($row['it_id'], $s_cart_id);
-            if($it_options) {
-                $it_name .= '<div class="sod_opt">';
-                $it_name .= $it_options;
-                $it_name .= '<ul style="display:block;">';
-                $it_name .= '<li class="seat_option" style="font-size:14px;">좌석정보 : ' . $row['ct_seat_row_type'] . ' 열 ' . $row['ct_seat_number'] . '</li>';
-               $it_name .= '</ul>';
-                $it_name .= '</div>';
+
+            if ($row['it_seat'] === 'Y') {
+                if($it_options) {
+                    $it_name .= '<div class="sod_opt">';
+                    $it_name .= $it_options;
+                    $it_name .= '<ul style="display:block;">';
+                    $it_name .= '<li class="seat_option" style="font-size:14px;">좌석정보 : ' . $row['ct_seat_row_type'] . ' 열 ' . $row['ct_seat_number'] . '</li>';
+                    $it_name .= '</ul>';
+                    $it_name .= '</div>';
+                }
             }
 
             // 복합과세금액

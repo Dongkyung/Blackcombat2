@@ -37,6 +37,8 @@ if ($post_act_button == "선택수정") {
         $p_it_mobile_skin = (isset($_POST['it_mobile_skin']) && is_array($_POST['it_mobile_skin'])) ? strip_tags($_POST['it_mobile_skin'][$k]) : '';
         $p_it_use       = isset($_POST['it_use'][$k])       ? clean_xss_tags($_POST['it_use'][$k], 1, 1)        : 0;
         $p_it_soldout   = isset($_POST['it_soldout'][$k])   ? clean_xss_tags($_POST['it_soldout'][$k], 1, 1)    : 0;
+        $p_it_seat   = isset($_POST['it_seat'][$k])   ? clean_xss_tags($_POST['it_seat'][$k], 1, 1) : 'N';
+        $p_it_online   = isset($_POST['it_online'][$k])   ? clean_xss_tags($_POST['it_online'][$k], 1, 1) : 'N';
         $p_it_order = (isset($_POST['it_order']) && is_array($_POST['it_order'])) ? strip_tags($_POST['it_order'][$k]) : '';
         $p_it_id = isset($_POST['it_id'][$k]) ? preg_replace('/[^a-z0-9_\-]/i', '', $_POST['it_id'][$k]) : '';
 
@@ -47,6 +49,11 @@ if ($post_act_button == "선택수정") {
             if( ! $checks['ca_mb_id'] || $checks['ca_mb_id'] !== $member['mb_id'] ){
                 continue;
             }
+        }
+
+        if ($p_it_online === 'Y') {
+            $sql2 = "UPDATE {$g5['g5_shop_item_table']} SET it_online = 'N' WHERE it_id != '{$p_it_id}'";
+            sql_query($sql2);
         }
 
         $sql = "update {$g5['g5_shop_item_table']}
@@ -61,6 +68,8 @@ if ($post_act_button == "선택수정") {
                        it_mobile_skin = '".sql_real_escape_string($p_it_mobile_skin)."',
                        it_use         = '".sql_real_escape_string($p_it_use)."',
                        it_soldout     = '".sql_real_escape_string($p_it_soldout)."',
+                       it_seat     = '".sql_real_escape_string($p_it_seat)."',
+                       it_online     = '".sql_real_escape_string($p_it_online)."',
                        it_order       = '".sql_real_escape_string($p_it_order)."',
                        it_update_time = '".G5_TIME_YMDHIS."'
                  where it_id   = '".$p_it_id."' ";

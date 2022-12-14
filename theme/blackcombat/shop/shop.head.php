@@ -16,6 +16,16 @@ include_once(G5_LIB_PATH.'/connect.lib.php');
 include_once(G5_LIB_PATH.'/popular.lib.php');
 include_once(G5_LIB_PATH.'/latest.lib.php');
 
+$ticket_link = '';
+
+$ticket_sql = "SELECT it_id FROM g5_shop_item WHERE it_online = 'Y' LIMIT 1";
+$ticket_result = sql_query($ticket_sql);
+$ticket_row = sql_fetch_array($ticket_result);
+
+if ($ticket_row) {
+    $ticket_link = G5_URL . '/shop/' . $ticket_row['it_id'];
+}
+
 add_javascript('<script src="'.G5_JS_URL.'/owlcarousel/owl.carousel.min.js"></script>', 10);
 add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carousel.css">', 0);
 ?>
@@ -58,7 +68,13 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carou
             <div class="menu_items">
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/company.php" class="menu_item_anchor">COMPANY</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/sponsors.php" class="menu_item_anchor">SPONSORS</a></div>
-                <div class="menu_item"><a href="<?php echo G5_URL ?>/shop/1664545281" class="menu_item_anchor">TICKET</a></div>
+                <div class="menu_item">
+                    <?php if($ticket_link) { ?>
+                        <a href="<?php echo $ticket_link; ?>" class="menu_item_anchor ticket_link">TICKET</a>
+                    <?php } else { ?>
+                        <a href="#" class="menu_item_anchor" onclick="alert('상품을 준비중입니다.');return false;">TICKET</a>
+                    <?php } ?>
+                </div>
                 <div class="menu_item"><a href="http://www.hegemonyblack.com/main/index.php" class="menu_item_anchor" target="_blank">STORE</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/event.php?page=1" class="menu_item_anchor">EVENT</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/video" class="menu_item_anchor">VIDEO</a></div>

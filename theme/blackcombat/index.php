@@ -35,6 +35,8 @@ include_once(G5_THEME_PATH.'/head.php');
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_3.jpg?v=20220918" /></div>
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_4.jpg?v=20220918" /></div>
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_5.jpg?v=20220918" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_6.jpg?v=20220918" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_7.jpg?v=20220918" /></div>
         </div>
 
         <div class="swiper-button-next"></div>

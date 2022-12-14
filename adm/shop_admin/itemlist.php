@@ -138,6 +138,8 @@ $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목�
         <th scope="col" rowspan="3"><?php echo subject_sort_link('it_order', 'sca='.$sca); ?>순서</a></th>
         <th scope="col" rowspan="3"><?php echo subject_sort_link('it_use', 'sca='.$sca, 1); ?>판매</a></th>
         <th scope="col" rowspan="3"><?php echo subject_sort_link('it_soldout', 'sca='.$sca, 1); ?>품절</a></th>
+        <th scope="col" rowspan="3">좌석선택</th>
+        <th scope="col" rowspan="3">메뉴연동</th>
         <th scope="col" rowspan="3"><?php echo subject_sort_link('it_hit', 'sca='.$sca, 1); ?>조회</a></th>
         <th scope="col" rowspan="3">관리</th>
     </tr>
@@ -199,6 +201,14 @@ $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목�
         <td rowspan="3">
             <label for="soldout_<?php echo $i; ?>" class="sound_only">품절</label>
             <input type="checkbox" name="it_soldout[<?php echo $i; ?>]" <?php echo ($row['it_soldout'] ? 'checked' : ''); ?> value="1" id="soldout_<?php echo $i; ?>">
+        </td>
+        <td rowspan="3">
+            <label for="it_seat_<?php echo $i; ?>" class="sound_only">좌석선택</label>
+            <input type="checkbox" name="it_seat[<?php echo $i; ?>]" <?php echo ($row['it_seat'] == 'Y' ? 'checked' : ''); ?> value="Y" id="seat_<?php echo $i; ?>">
+        </td>
+        <td rowspan="3">
+            <label for="it_online_<?php echo $i; ?>" class="sound_only">메뉴링크</label>
+            <input type="checkbox" name="it_online[<?php echo $i; ?>]" <?php echo ($row['it_online'] == 'Y' ? 'checked' : ''); ?> value="Y" id="online_<?php echo $i; ?>">
         </td>
         <td rowspan="3" class="td_num"><?php echo $row['it_hit']; ?></td>
         <td rowspan="3" class="td_mng td_mng_s">

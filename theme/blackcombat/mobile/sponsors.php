@@ -32,13 +32,13 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_spons
                     </div>
                     <div class="sponsors_list_item">
                         <div class="sponsors_list_logo">
-                            <a href="https://www.ashcroft.co.kr/" target="_blank">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsors_ashcroft.png" />
+                            <a href="https://www.aryehblack.com" target="_blank">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsors_areyblack.png" />
                             </a>
                         </div>
                         <div class="sponsors_list_caption">
                             <div class="sponsors_list_info">
-                                고전적인 것들의 가치에<br />현대의 매력을 부여한 아이웨어 브랜드
+                                ‘건강한 삶’에 대한 기준을 제시하고<br />‘고귀한 생명’을 고찰하는 브랜드, 아리에블랙
                             </div>
                         </div>
                     </div>

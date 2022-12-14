@@ -113,6 +113,7 @@ if(!defined('G5_IS_ADMIN'))
 <meta property="og:url" content="https://www.blackcombat-official.com/" />
 <link rel="canonical" href="https://www.blackcombat-official.com/">
 <meta name="robots" content="index,follow" />
+<link rel="shortcut icon" href="/img/blackcombat_favicon.png?v=20221017" />
 </head>
 <body<?php echo isset($g5['body_script']) ? $g5['body_script'] : ''; ?>>
 <?php

@@ -174,19 +174,43 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="V" style="top:0; left:80px;">
                     <div class="seat_row_items" style="flex-direction:column-reverse;">
                         <?php for($i=1; $i<=16; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="V열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 4 || $i == 5 || $i == 6 || $i == 13 || $i == 14) {
+                                $choosable_V = 'N';
+                            } else {
+                                $choosable_V = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_V; ?>" data-seat-number="<?php echo $i; ?>" title="V열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=17; $i<=34; $i++) { // 18 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="V열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 17 || $i == 18 || $i == 19 || $i == 20 || $i == 21 || $i == 22 || $i == 23 || $i == 24 || $i == 25 || $i == 29 || $i == 33) {
+                                $choosable_V = 'N';
+                            } else {
+                                $choosable_V = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_V; ?>" data-seat-number="<?php echo $i; ?>" title="V열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=35; $i<=40; $i++) { // 6 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="V열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 37 || $i == 38 || $i == 39 || $i == 40) {
+                                $choosable_V = 'N';
+                            } else {
+                                $choosable_V = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_V; ?>" data-seat-number="<?php echo $i; ?>" title="V열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <?php for($i=41; $i<=50; $i++) { // 10 ?>
@@ -198,19 +222,35 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="U" style="top:0; left:100px;">
                     <div class="seat_row_items" style="flex-direction:column-reverse;">
                         <?php for($i=1; $i<=16; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="U열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 1 || $i == 2 || $i == 7 || $i == 12 || $i == 15) {
+                                $choosable_U = 'N';
+                            } else {
+                                $choosable_U = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_U; ?>" data-seat-number="<?php echo $i; ?>" title="U열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=17; $i<=34; $i++) { // 18 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="U열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 19 || $i == 20 || $i == 23 || $i == 30 || $i == 31 || $i == 34) {
+                                $choosable_U = 'N';
+                            } else {
+                                $choosable_U = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_U; ?>" data-seat-number="<?php echo $i; ?>" title="U열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=35; $i<=40; $i++) { // 6 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="U열 <?php echo $i;?>"><span></span></div>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="U열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <?php for($i=41; $i<=50; $i++) { // 10 ?>
@@ -222,19 +262,43 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="T" style="top:0; left:120px;">
                     <div class="seat_row_items" style="flex-direction:column-reverse;">
                         <?php for($i=1; $i<=16; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="T열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 3 || $i == 4 || $i == 5 || $i == 6 || $i == 7 || $i == 16) {
+                                $choosable_T = 'N';
+                            } else {
+                                $choosable_T = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_T; ?>" data-seat-number="<?php echo $i; ?>" title="T열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=17; $i<=34; $i++) { // 18 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="T열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 17 || $i == 18 || $i == 22 || $i == 28 || $i == 29) {
+                                $choosable_T = 'N';
+                            } else {
+                                $choosable_T = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_T; ?>" data-seat-number="<?php echo $i; ?>" title="T열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=35; $i<=50; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="T열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 36 || $i == 37 || $i == 38 || $i == 39 || $i == 40 || $i == 45 || $i == 49 || $i == 50) {
+                                $choosable_T = 'N';
+                            } else {
+                                $choosable_T = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_T; ?>" data-seat-number="<?php echo $i; ?>" title="T열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
@@ -243,19 +307,43 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="S" style="top:0; left:140px;">
                     <div class="seat_row_items" style="flex-direction:column-reverse;">
                         <?php for($i=1; $i<=16; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="S열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 1 || $i == 2 || $i == 3 || $i == 4 || $i == 5 || $i == 6 || $i == 7 || $i == 8 || $i == 12 || $i == 13) {
+                                $choosable_S = 'N';
+                            } else {
+                                $choosable_S = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_S; ?>" data-seat-number="<?php echo $i; ?>" title="S열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=17; $i<=34; $i++) { // 18 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="S열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 17 || $i == 18 || $i == 21 || $i == 22 || $i == 29 || $i == 30 || $i == 31 || $i == 32) {
+                                $choosable_S = 'N';
+                            } else {
+                                $choosable_S = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_S; ?>" data-seat-number="<?php echo $i; ?>" title="S열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=35; $i<=50; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="S열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 35 || $i == 36 || $i == 37 || $i == 38 || $i == 39 || $i == 40 || $i == 41 || $i == 42 || $i == 43 || $i == 44 || $i == 45 || $i == 46) {
+                                $choosable_S = 'N';
+                            } else {
+                                $choosable_S = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_S; ?>" data-seat-number="<?php echo $i; ?>" title="S열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
@@ -264,19 +352,43 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="R" style="top:0; left:160px;">
                     <div class="seat_row_items" style="flex-direction:column-reverse;">
                         <?php for($i=1; $i<=16; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="R열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 1 || $i == 5 || $i == 9 || $i == 10 || $i == 11 || $i == 14) {
+                                $choosable_R = 'N';
+                            } else {
+                                $choosable_R = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_R; ?>" data-seat-number="<?php echo $i; ?>" title="R열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=17; $i<=34; $i++) { // 18 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="R열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 21 || $i == 24 || $i == 25 || $i == 26 || $i == 27 || $i == 28 || $i == 32) {
+                                $choosable_R = 'N';
+                            } else {
+                                $choosable_R = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_R; ?>" data-seat-number="<?php echo $i; ?>" title="R열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=35; $i<=50; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="R열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 37 || $i == 38 || $i == 39 || $i == 42 || $i == 45 || $i == 48 || $i == 49 || $i == 50) {
+                                $choosable_R = 'N';
+                            } else {
+                                $choosable_R = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_R; ?>" data-seat-number="<?php echo $i; ?>" title="R열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
@@ -285,19 +397,41 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="Q" style="top:0; left:180px;">
                     <div class="seat_row_items" style="flex-direction:column-reverse;">
                         <?php for($i=1; $i<=16; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="Q열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 1 || $i == 2 || $i == 3 || $i == 4 || $i == 5 || $i == 6 || $i == 7 || $i == 8 || $i == 9 || $i == 10 || $i == 11 || $i == 12) {
+                                $choosable_Q = 'N';
+                            } else {
+                                $choosable_Q = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_Q; ?>" data-seat-number="<?php echo $i; ?>" title="Q열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=17; $i<=34; $i++) { // 18 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="Q열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 25 || $i == 26 || $i == 29 || $i == 30 || $i == 31 || $i == 32 || $i == 33 || $i == 34) {
+                                $choosable_Q = 'N';
+                            } else {
+                                $choosable_Q = 'N';
+                            }
+                            ?>
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_Q; ?>" data-seat-number="<?php echo $i; ?>" title="Q열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=35; $i<=50; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="Q열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 35 || $i == 36 || $i == 41 || $i == 44 || $i == 47 || $i == 48) {
+                                $choosable_Q = 'N';
+                            } else {
+                                $choosable_Q = 'N';
+                            }
+                            ?>
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_Q; ?>" data-seat-number="<?php echo $i; ?>" title="Q열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
@@ -306,19 +440,41 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="P" style="top:0; left:200px;">
                     <div class="seat_row_items" style="flex-direction:column-reverse;">
                         <?php for($i=1; $i<=16; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="P열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 5 || $i == 6 || $i == 7 || $i == 8 || $i == 9 || $i == 12 || $i == 13 || $i == 14 || $i == 15 || $i == 16) {
+                                $choosable_P = 'N';
+                            } else {
+                                $choosable_P = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_P; ?>" data-seat-number="<?php echo $i; ?>" title="P열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=17; $i<=34; $i++) { // 18 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="P열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 17 || $i == 18 || $i == 23 || $i == 24 || $i == 33) {
+                                $choosable_P = 'N';
+                            } else {
+                                $choosable_P = 'Y';
+                            }
+                            ?>
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_P; ?>" data-seat-number="<?php echo $i; ?>" title="P열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=35; $i<=50; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="P열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 37 || $i == 38 || $i == 39 || $i == 40 || $i == 44 || $i == 45 || $i == 46) {
+                                $choosable_P = 'N';
+                            } else {
+                                $choosable_P = 'Y';
+                            }
+                            ?>
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_P; ?>" data-seat-number="<?php echo $i; ?>" title="P열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
@@ -326,20 +482,60 @@ if ($config['cf_analytics']) {
 
                 <div class="seat_rows" data-row-type="O" style="top:0; left:220px;">
                     <div class="seat_row_items" style="flex-direction:column-reverse;">
-                        <?php for($i=1; $i<=16; $i++) { // 16 ?>
+                        <?php for($i=1; $i<=2; $i++) { // 2 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="O열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=3; $i<=6; $i++) { // 4 ?>
+                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="O열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=7; $i<=10; $i++) { // 4 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="O열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=11; $i<=16; $i++) { // 6 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="O열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=17; $i<=34; $i++) { // 18 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="O열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 20 || $i == 21 || $i == 22 || $i == 23 || $i == 24) {
+                                $choosable_O = 'N';
+                            } else {
+                                $choosable_O = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_O; ?>" data-seat-number="<?php echo $i; ?>" title="O열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
-                        <?php for($i=35; $i<=50; $i++) { // 16 ?>
+                        <?php for($i=35; $i<=37; $i++) { // 3 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="O열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=38; $i<=39; $i++) { // 2 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="O열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=40; $i<=40; $i++) { // 1 ?>
+                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="O열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=41; $i<=42; $i++) { // 2 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="O열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=43; $i<=46; $i++) { // 4 ?>
+                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="O열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=47; $i<=50; $i++) { // 4 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="O열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
@@ -347,7 +543,23 @@ if ($config['cf_analytics']) {
 
                 <div class="seat_rows" data-row-type="N" style="top:0; left:240px;">
                     <div class="seat_row_items" style="flex-direction:column-reverse;">
-                        <?php for($i=1; $i<=16; $i++) { // 16 ?>
+                        <?php for($i=1; $i<=2; $i++) { // 2 ?>
+                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="N열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=3; $i<=5; $i++) { // 3 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="N열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=6; $i<=7; $i++) { // 2 ?>
+                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="N열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=8; $i<=8; $i++) { // 1 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="N열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=9; $i<=16; $i++) { // 10 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="N열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
@@ -359,8 +571,12 @@ if ($config['cf_analytics']) {
 
                         <div class="seat_row_item bland"></div>
 
-                        <?php for($i=35; $i<=50; $i++) { // 16 ?>
+                        <?php for($i=35; $i<=49; $i++) { // 15 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="N열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=50; $i<=50; $i++) { // 1 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="N열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
@@ -381,7 +597,15 @@ if ($config['cf_analytics']) {
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=84; $i<=94; $i++) { // 11 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="E열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 86 || $i == 87 || $i == 88 || $i == 89) {
+                                $choosable_E = 'N';
+                            } else {
+                                $choosable_E = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_E; ?>" data-seat-number="<?php echo $i; ?>" title="E열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
@@ -480,16 +704,32 @@ if ($config['cf_analytics']) {
                     </div>
                 </div>
 
-                <div class="seat_rows" data-row-type="VIP3" style="top:198px; left:380px;">
+                <div class="seat_rows" data-row-type="VIP3" style="top:198px; left:400px;">
                     <div class="seat_row_items" style="flex-direction:column-reverse;">
                         <?php for($i=93; $i<=97; $i++) { // 5 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 95) {
+                                $choosable_VIP3 = 'N';
+                            } else {
+                                $choosable_VIP3 = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_VIP3; ?>" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=98; $i<=115; $i++) { // 18 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 100 || $i == 101 || $i == 107 || $i == 108 || $i == 109 || $i == 110 || $i == 111) {
+                                $choosable_VIP3 = 'N';
+                            } else {
+                                $choosable_VIP3 = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_VIP3; ?>" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
@@ -501,28 +741,44 @@ if ($config['cf_analytics']) {
                     </div>
                 </div>
 
-                <div class="seat_rows" data-row-type="VIP2" style="top:216px; left:400px;">
+                <div class="seat_rows" data-row-type="VIP2" style="top:216px; left:420px;">
                     <div class="seat_row_items" style="flex-direction:column-reverse;">
                         <?php for($i=81; $i<=84; $i++) { // 4 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=85; $i<=102; $i++) { // 18 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 98 || $i == 99 || $i == 100 || $i == 101 || $i == 102) {
+                                $choosable_VIP2 = 'N';
+                            } else {
+                                $choosable_VIP2 = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_VIP2; ?>" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=103; $i<=106; $i++) { // 4 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 105) {
+                                $choosable_VIP2 = 'N';
+                            } else {
+                                $choosable_VIP2 = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_VIP2; ?>" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
                 </div>
 
-                <div class="seat_rows" data-row-type="VIP1" style="top:234px; left:430px;">
+                <div class="seat_rows" data-row-type="VIP1" style="top:234px; left:440px;">
                     <div class="seat_row_items" style="flex-direction:column-reverse;">
                         <?php for($i=75; $i<=77; $i++) { // 3 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP1열 <?php echo $i;?>"><span></span></div>
@@ -530,7 +786,15 @@ if ($config['cf_analytics']) {
 
                         <div class="seat_row_item bland"></div>
 
-                        <?php for($i=78; $i<=91; $i++) { // 14 ?>
+                        <?php for($i=78; $i<=81; $i++) { // 4 ?>
+                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP1열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=82; $i<=83; $i++) { // 2 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="VIP1열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=84; $i<=91; $i++) { // 8 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP1열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
@@ -550,7 +814,7 @@ if ($config['cf_analytics']) {
                     </div>
                 </div>
 
-                <div class="seat_rows" data-row-type="VVIP" style="top:306px; left:450px;">
+                <div class="seat_rows" data-row-type="VVIP" style="top:306px; left:460px;">
                     <div class="seat_row_items" style="flex-direction:column-reverse;">
                         <?php for($i=51; $i<=68; $i++) { // 18 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VVIP열 <?php echo $i;?>"><span></span></div>
@@ -559,7 +823,7 @@ if ($config['cf_analytics']) {
                 </div>
 
                 <!-- 1 -->
-                <div class="seat_rows_groups vertical" style="top:10px; left:350px; transform:rotateZ(-45deg);">
+                <div class="seat_rows_groups vertical" style="top:10px; left:360px; transform:rotateZ(-45deg);">
                     <div class="seat_rows_group">
                         <div class="seat_rows" data-row-type="F">
                             <div class="seat_row_items horizon">
@@ -572,7 +836,15 @@ if ($config['cf_analytics']) {
                         <div class="seat_rows" data-row-type="E">
                             <div class="seat_row_items horizon">
                                 <?php for($i=95; $i<=100; $i++) { // 6 ?>
-                                    <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="E열 <?php echo $i;?>"><span></span></div>
+                                    <?php
+                                    if ($i == 99 || $i == 100) {
+                                        $choosable_E = 'N';
+                                    } else {
+                                        $choosable_E = 'Y';
+                                    }
+                                    ?>
+
+                                    <div class="seat_row_item" data-choosable="<?php echo $choosable_E; ?>" data-seat-number="<?php echo $i; ?>" title="E열 <?php echo $i;?>"><span></span></div>
                                 <?php } // for End ?>
                             </div>
                         </div>
@@ -609,7 +881,7 @@ if ($config['cf_analytics']) {
                             </div>
                         </div>
 
-                        <div class="seat_rows" data-row-type="VIP3">
+                        <div class="seat_rows" data-row-type="VIP3" style="margin-top:20px;">
                             <div class="seat_row_items horizon">
                                 <?php for($i=121; $i<=124; $i++) { // 4 ?>
                                     <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
@@ -638,7 +910,7 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="D" style="top:0; left:420px;">
                     <div class="seat_row_items horizon">
                         <?php for($i=1; $i<=9; $i++) { // 9 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="D열 <?php echo $i;?>"><span></span></div>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="D열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
@@ -715,16 +987,32 @@ if ($config['cf_analytics']) {
                     </div>
                 </div>
 
-                <div class="seat_rows" data-row-type="VIP3" style="top:80px; left:492px;">
+                <div class="seat_rows" data-row-type="VIP3" style="top:100px; left:492px;">
                     <div class="seat_row_items horizon">
                         <?php for($i=1; $i<=5; $i++) { // 5 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 3 || $i == 4) {
+                                $choosable_VIP3 = 'N';
+                            } else {
+                                $choosable_VIP3 = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_VIP3; ?>" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=6; $i<=23; $i++) { // 18 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 15 || $i == 16 || $i == 17 || $i == 18 || $i == 19 || $i == 20) {
+                                $choosable_VIP3 = 'N';
+                            } else {
+                                $choosable_VIP3 = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_VIP3; ?>" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
@@ -735,7 +1023,7 @@ if ($config['cf_analytics']) {
                     </div>
                 </div>
 
-                <div class="seat_rows" data-row-type="VIP2" style="top:100px; left:510px;">
+                <div class="seat_rows" data-row-type="VIP2" style="top:120px; left:510px;">
                     <div class="seat_row_items horizon">
                         <?php for($i=1; $i<=4; $i++) { // 4 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
@@ -744,7 +1032,15 @@ if ($config['cf_analytics']) {
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=5; $i<=22; $i++) { // 18 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 8 || $i == 9 || $i == 10 || $i == 11 || $i == 16 || $i == 17 || $i == 18 || $i == 22) {
+                                $choosable_VIP2 = 'N';
+                            } else {
+                                $choosable_VIP2 = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_VIP2; ?>" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
@@ -773,8 +1069,12 @@ if ($config['cf_analytics']) {
 
                         <div class="seat_row_item bland"></div>
 
-                        <?php for($i=22; $i<=24; $i++) { // 3 ?>
+                        <?php for($i=22; $i<=23; $i++) { // 2 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP1열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=24; $i<=24; $i++) { // 1 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="VIP1열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
                     </div>
                 </div>
@@ -788,7 +1088,7 @@ if ($config['cf_analytics']) {
                 </div>
 
                 <!-- 4 -->
-                <div class="seat_rows_groups vertical" style="top:740px; left:350px; transform:rotateZ(-135deg);">
+                <div class="seat_rows_groups vertical" style="top:720px; left:360px; transform:rotateZ(-135deg);">
                     <div class="seat_rows_group">
                         <div class="seat_rows" data-row-type="F">
                             <div class="seat_row_items horizon">
@@ -838,7 +1138,7 @@ if ($config['cf_analytics']) {
                             </div>
                         </div>
 
-                        <div class="seat_rows" data-row-type="VIP3">
+                        <div class="seat_rows" data-row-type="VIP3" style="margin-top:20px;">
                             <div class="seat_row_items horizon">
                                 <?php for($i=89; $i<=92; $i++) { // 4 ?>
                                     <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
@@ -867,7 +1167,15 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="E" style="top:90px; right:200px;">
                     <div class="seat_row_items">
                         <?php for($i=7; $i<=17; $i++) { // 11 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="E열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 12 || $i == 13 || $i == 14 || $i == 15 || $i == 16) {
+                                $choosable_E = 'N';
+                            } else {
+                                $choosable_E = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_E; ?>" data-seat-number="<?php echo $i; ?>" title="E열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
@@ -1009,7 +1317,7 @@ if ($config['cf_analytics']) {
                     </div>
                 </div>
 
-                <div class="seat_rows" data-row-type="VIP3" style="top:198px; right:300px;">
+                <div class="seat_rows" data-row-type="VIP3" style="top:198px; right:320px;">
                     <div class="seat_row_items">
                         <?php for($i=33; $i<=37; $i++) { // 5 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
@@ -1017,7 +1325,11 @@ if ($config['cf_analytics']) {
 
                         <div class="seat_row_item bland"></div>
 
-                        <?php for($i=38; $i<=44; $i++) { // 7 ?>
+                        <?php for($i=38; $i<=43; $i++) { // 6 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=44; $i<=44; $i++) { // 1 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
@@ -1026,7 +1338,15 @@ if ($config['cf_analytics']) {
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=45; $i<=51; $i++) { // 7 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 46) {
+                                $choosable_VIP3 = 'N';
+                            } else {
+                                $choosable_VIP3 = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_VIP3; ?>" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
@@ -1038,7 +1358,7 @@ if ($config['cf_analytics']) {
                     </div>
                 </div>
 
-                <div class="seat_rows" data-row-type="VIP2" style="top:216px; right:320px;">
+                <div class="seat_rows" data-row-type="VIP2" style="top:216px; right:340px;">
                     <div class="seat_row_items">
                         <?php for($i=29; $i<=32; $i++) { // 4 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
@@ -1046,7 +1366,15 @@ if ($config['cf_analytics']) {
 
                         <div class="seat_row_item bland"></div>
 
-                        <?php for($i=33; $i<=39; $i++) { // 7 ?>
+                        <?php for($i=33; $i<=34; $i++) { // 2 ?>
+                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=35; $i<=38; $i++) { // 4 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=39; $i<=39; $i++) { // 1 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
@@ -1054,20 +1382,24 @@ if ($config['cf_analytics']) {
                         <div class="seat_row_item bland"></div>
                         <div class="seat_row_item bland"></div>
 
-                        <?php for($i=40; $i<=46; $i++) { // 7 ?>
+                        <?php for($i=40; $i<=40; $i++) { // 1 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=41; $i<=46; $i++) { // 6 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=47; $i<=50; $i++) { // 4 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
                 </div>
 
-                <div class="seat_rows" data-row-type="VIP1" style="top:234px; right:350px;">
+                <div class="seat_rows" data-row-type="VIP1" style="top:234px; right:360px;">
                     <div class="seat_row_items">
                         <?php for($i=27; $i<=29; $i++) { // 3 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP1열 <?php echo $i;?>"><span></span></div>
@@ -1076,7 +1408,15 @@ if ($config['cf_analytics']) {
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=30; $i<=36; $i++) { // 7 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP1열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 30 || $i == 31 || $i == 32) {
+                                $choosable_VIP1 = 'N';
+                            } else {
+                                $choosable_VIP1 = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_VIP1; ?>" data-seat-number="<?php echo $i; ?>" title="VIP1열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
@@ -1096,7 +1436,7 @@ if ($config['cf_analytics']) {
                     </div>
                 </div>
 
-                <div class="seat_rows" data-row-type="VVIP" style="top:306px; right:370px;">
+                <div class="seat_rows" data-row-type="VVIP" style="top:306px; right:380px;">
                     <div class="seat_row_items">
                         <?php for($i=19; $i<=25; $i++) { // 7 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VVIP열 <?php echo $i;?>"><span></span></div>
@@ -1115,7 +1455,15 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="M" style="top:0; right:40px;">
                     <div class="seat_row_items">
                         <?php for($i=1; $i<=16; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="M열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 1 || $i == 2 || $i == 3 || $i == 4 || $i == 5 || $i == 6 || $i == 7 || $i == 8 || $i == 9) {
+                                $choosable_M = 'N';
+                            } else {
+                                $choosable_M = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_M; ?>" data-seat-number="<?php echo $i; ?>" title="M열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
@@ -1128,14 +1476,18 @@ if ($config['cf_analytics']) {
                         <div class="seat_row_item bland"></div>
                         <div class="seat_row_item bland"></div>
 
-                        <?php for($i=24; $i<=30; $i++) { // 7 ?>
+                        <?php for($i=24; $i<=26; $i++) { // 3 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="M열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=27; $i<=30; $i++) { // 4 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="M열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=31; $i<=43; $i++) { // 13 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="M열 <?php echo $i;?>"><span></span></div>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="M열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
@@ -1144,27 +1496,55 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="L" style="top:0; right:60px;">
                     <div class="seat_row_items">
                         <?php for($i=1; $i<=16; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="L열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 1 || $i == 2 || $i == 3 || $i == 4 || $i == 6 || $i == 7 || $i == 8 || $i == 9 || $i == 12 || $i == 13) {
+                                $choosable_L = 'N';
+                            } else {
+                                $choosable_L = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_L; ?>" data-seat-number="<?php echo $i; ?>" title="L열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=17; $i<=23; $i++) { // 7 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="L열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 21 || $i == 22) {
+                                $choosable_L = 'N';
+                            } else {
+                                $choosable_L = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_L; ?>" data-seat-number="<?php echo $i; ?>" title="L열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
                         <div class="seat_row_item bland"></div>
                         <div class="seat_row_item bland"></div>
 
-                        <?php for($i=24; $i<=30; $i++) { // 7 ?>
+                        <?php for($i=24; $i<=25; $i++) { // 2 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="L열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=26; $i<=30; $i++) { // 5 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="L열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=31; $i<=43; $i++) { // 13 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="L열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 33 || $i == 34 || $i == 35 || $i == 36 || $i == 37 || $i == 38 || $i == 39) {
+                                $choosable_L = 'N';
+                            } else {
+                                $choosable_L = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_L; ?>" data-seat-number="<?php echo $i; ?>" title="L열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
@@ -1173,7 +1553,15 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="K" style="top:0; right:80px;">
                     <div class="seat_row_items">
                         <?php for($i=1; $i<=16; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="K열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 9 || $i == 10) {
+                                $choosable_K = 'N';
+                            } else {
+                                $choosable_K = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_K; ?>" data-seat-number="<?php echo $i; ?>" title="K열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
@@ -1193,7 +1581,15 @@ if ($config['cf_analytics']) {
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=31; $i<=43; $i++) { // 13 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="K열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 38 || $i == 39 || $i == 40) {
+                                $choosable_K = 'N';
+                            } else {
+                                $choosable_K = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_K; ?>" data-seat-number="<?php echo $i; ?>" title="K열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
@@ -1202,7 +1598,15 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="J" style="top:0; right:100px;">
                     <div class="seat_row_items">
                         <?php for($i=1; $i<=16; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="J열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 5 || $i == 6 || $i == 7 || $i == 8 || $i == 9 || $i == 10 || $i == 11 || $i == 12 || $i == 13 || $i == 14) {
+                                $choosable_J = 'N';
+                            } else {
+                                $choosable_J = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_J; ?>" data-seat-number="<?php echo $i; ?>" title="J열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
@@ -1222,7 +1626,15 @@ if ($config['cf_analytics']) {
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=31; $i<=43; $i++) { // 13 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="J열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 31 || $i == 32 || $i == 33 || $i == 34 || $i == 35 || $i == 36 || $i == 37) {
+                                $choosable_J = 'N';
+                            } else {
+                                $choosable_J = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_J; ?>" data-seat-number="<?php echo $i; ?>" title="J열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
@@ -1231,7 +1643,15 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="I" style="top:0; right:120px;">
                     <div class="seat_row_items">
                         <?php for($i=1; $i<=16; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="I열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 1 || $i == 2 || $i == 4 || $i == 5 || $i == 6 || $i == 7 || $i == 8 || $i == 12 || $i == 13) {
+                                $choosable_I = 'N';
+                            } else {
+                                $choosable_I = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_I; ?>" data-seat-number="<?php echo $i; ?>" title="I열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
@@ -1251,7 +1671,15 @@ if ($config['cf_analytics']) {
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=31; $i<=43; $i++) { // 13 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="I열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 36 || $i == 37 || $i == 38) {
+                                $choosable_I = 'N';
+                            } else {
+                                $choosable_I = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_I; ?>" data-seat-number="<?php echo $i; ?>" title="I열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
@@ -1260,7 +1688,15 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="H" style="top:0; right:140px;">
                     <div class="seat_row_items">
                         <?php for($i=1; $i<=16; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="H열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 1 || $i == 2 || $i == 3 || $i == 4 || $i == 5 || $i == 6 || $i == 7 || $i == 8 || $i == 9 || $i == 10 || $i == 11 || $i == 12 || $i == 13 || $i == 14) {
+                                $choosable_H = 'N';
+                            } else {
+                                $choosable_H = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_H; ?>" data-seat-number="<?php echo $i; ?>" title="H열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
@@ -1280,7 +1716,15 @@ if ($config['cf_analytics']) {
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=31; $i<=43; $i++) { // 13 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="H열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 38 || $i == 39 || $i == 40 || $i == 41 || $i == 42 || $i == 43) {
+                                $choosable_H = 'N';
+                            } else {
+                                $choosable_H = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_H; ?>" data-seat-number="<?php echo $i; ?>" title="H열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
@@ -1289,7 +1733,15 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="G" style="top:0; right:160px;">
                     <div class="seat_row_items">
                         <?php for($i=1; $i<=16; $i++) { // 16 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="G열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 1 || $i == 2 || $i == 3 || $i == 4 || $i == 5 || $i == 6 || $i == 7 || $i == 8 || $i == 9 || $i == 10 || $i == 11 || $i == 12 || $i == 13) {
+                                $choosable_G = 'N';
+                            } else {
+                                $choosable_G = 'N';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_G; ?>" data-seat-number="<?php echo $i; ?>" title="G열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
@@ -1309,14 +1761,22 @@ if ($config['cf_analytics']) {
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=31; $i<=43; $i++) { // 13 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="G열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 35 || $i == 36 || $i == 37 || $i == 38 || $i == 39 || $i == 40 || $i == 41 || $i == 42 || $i == 43) {
+                                $choosable_G = 'N';
+                            } else {
+                                $choosable_G = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_G; ?>" data-seat-number="<?php echo $i; ?>" title="G열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                     </div>
                 </div>
 
                 <!-- 3 -->
-                <div class="seat_rows_groups vertical" style="top:10px; right:270px; transform:rotateZ(45deg);">
+                <div class="seat_rows_groups vertical" style="top:0; right:270px; transform:rotateZ(45deg);">
                     <div class="seat_rows_group">
                         <div class="seat_rows" data-row-type="F">
                             <div class="seat_row_items horizon">
@@ -1329,7 +1789,7 @@ if ($config['cf_analytics']) {
                         <div class="seat_rows" data-row-type="E">
                             <div class="seat_row_items horizon">
                                 <?php for($i=1; $i<=6; $i++) { // 6 ?>
-                                    <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="E열 <?php echo $i;?>"><span></span></div>
+                                    <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="E열 <?php echo $i;?>"><span></span></div>
                                 <?php } // for End ?>
                             </div>
                         </div>
@@ -1366,7 +1826,7 @@ if ($config['cf_analytics']) {
                             </div>
                         </div>
 
-                        <div class="seat_rows" data-row-type="VIP3">
+                        <div class="seat_rows" data-row-type="VIP3" style="margin-top:20px;">
                             <div class="seat_row_items horizon">
                                 <?php for($i=29; $i<=32; $i++) { // 4 ?>
                                     <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
@@ -1395,7 +1855,11 @@ if ($config['cf_analytics']) {
 
                 <div class="seat_rows" data-row-type="VVIP" style="bottom:160px; left:600px;">
                     <div class="seat_row_items horizon" style="flex-direction:row-reverse;">
-                        <?php for($i=33; $i<=40; $i++) { // 8 ?>
+                        <?php for($i=33; $i<=34; $i++) { // 2 ?>
+                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VVIP열 <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+
+                        <?php for($i=35; $i<=40; $i++) { // 6 ?>
                             <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="VVIP열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
@@ -1429,7 +1893,7 @@ if ($config['cf_analytics']) {
                     </div>
                 </div>
 
-                <div class="seat_rows" data-row-type="VIP2" style="bottom:100px; left:510px;">
+                <div class="seat_rows" data-row-type="VIP2" style="bottom:120px; left:510px;">
                     <div class="seat_row_items horizon" style="flex-direction:row-reverse;">
                         <?php for($i=53; $i<=56; $i++) { // 4 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
@@ -1438,7 +1902,15 @@ if ($config['cf_analytics']) {
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=57; $i<=74; $i++) { // 18 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 64 || $i == 65) {
+                                $choosable_VIP2 = 'N';
+                            } else {
+                                $choosable_VIP2 = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_VIP2; ?>" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
@@ -1449,22 +1921,30 @@ if ($config['cf_analytics']) {
                     </div>
                 </div>
 
-                <div class="seat_rows" data-row-type="VIP3" style="bottom:80px; left:492px;">
+                <div class="seat_rows" data-row-type="VIP3" style="bottom:100px; left:492px;">
                     <div class="seat_row_items horizon" style="flex-direction:row-reverse;">
                         <?php for($i=61; $i<=65; $i++) { // 5 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=66; $i<=83; $i++) { // 18 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
+                            <?php
+                            if ($i == 75 || $i == 76 || $i == 77 || $i == 78 || $i == 79 || $i == 80 || $i == 81) {
+                                $choosable_VIP3 = 'N';
+                            } else {
+                                $choosable_VIP3 = 'Y';
+                            }
+                            ?>
+
+                            <div class="seat_row_item" data-choosable="<?php echo $choosable_VIP3; ?>" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=84; $i<=88; $i++) { // 5 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
                     </div>
                 </div>
@@ -1532,7 +2012,7 @@ if ($config['cf_analytics']) {
                 <div class="seat_rows" data-row-type="D" style="bottom:0; left:420px;">
                     <div class="seat_row_items horizon" style="flex-direction:row-reverse;">
                         <?php for($i=81; $i<=89; $i++) { // 9 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="D열 <?php echo $i;?>"><span></span></div>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="D열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
 
                         <div class="seat_row_item bland"></div>
@@ -1544,18 +2024,18 @@ if ($config['cf_analytics']) {
                         <div class="seat_row_item bland"></div>
 
                         <?php for($i=108; $i<=116; $i++) { // 9 ?>
-                            <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="D열 <?php echo $i;?>"><span></span></div>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="D열 <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
                     </div>
                 </div>
 
                 <!-- 4 -->
-                <div class="seat_rows_groups vertical" style="top:740px; right:270px; transform:rotateZ(135deg);">
+                <div class="seat_rows_groups vertical" style="top:720px; right:270px; transform:rotateZ(135deg);">
                     <div class="seat_rows_group">
                         <div class="seat_rows" data-row-type="F">
                             <div class="seat_row_items horizon">
                                 <?php for($i=7; $i<=12; $i++) { // 6 ?>
-                                    <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="F열 <?php echo $i;?>"><span></span></div>
+                                    <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="F열 <?php echo $i;?>"><span></span></div>
                                 <?php } // for End ?>
                             </div>
                         </div>
@@ -1563,7 +2043,7 @@ if ($config['cf_analytics']) {
                         <div class="seat_rows" data-row-type="E">
                             <div class="seat_row_items horizon">
                                 <?php for($i=43; $i<=48; $i++) { // 6 ?>
-                                    <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="E열 <?php echo $i;?>"><span></span></div>
+                                    <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="E열 <?php echo $i;?>"><span></span></div>
                                 <?php } // for End ?>
                             </div>
                         </div>
@@ -1600,7 +2080,7 @@ if ($config['cf_analytics']) {
                             </div>
                         </div>
 
-                        <div class="seat_rows" data-row-type="VIP3">
+                        <div class="seat_rows" data-row-type="VIP3" style="margin-top:30px;">
                             <div class="seat_row_items horizon">
                                 <?php for($i=57; $i<=60; $i++) { // 4 ?>
                                     <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP3열 <?php echo $i;?>"><span></span></div>
@@ -1611,7 +2091,7 @@ if ($config['cf_analytics']) {
                         <div class="seat_rows" data-row-type="VIP2">
                             <div class="seat_row_items horizon">
                                 <?php for($i=51; $i<=52; $i++) { // 2 ?>
-                                    <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
+                                    <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="VIP2열 <?php echo $i;?>"><span></span></div>
                                 <?php } // for End ?>
                             </div>
                         </div>
@@ -1918,6 +2398,7 @@ if ($config['cf_analytics']) {
             }
         });
 
+        <?php if ($it['it_seat'] === 'Y') { ?>
         $.ajax({
             url: ajax_url + "/ajax.action.php",
             type: "POST",
@@ -1951,6 +2432,7 @@ if ($config['cf_analytics']) {
                 alert("false ajax :"+request.responseText);
             }
         });
+        <?php } ?>
     })(jQuery);
 </script>
 <?php } ?>

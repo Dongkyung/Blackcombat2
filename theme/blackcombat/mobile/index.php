@@ -26,6 +26,8 @@ include_once(G5_THEME_MOBILE_PATH.'/head.php');
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/main/key_visual_3_m.jpg?v=20220918" /></div>
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/main/key_visual_4_m.jpg?v=20220918" /></div>
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/main/key_visual_5_m.jpg?v=20220918" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/main/key_visual_6_m.jpg?v=20220918" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/main/key_visual_7_m.jpg?v=20220918" /></div>
         </div>
 
         <div class="swiper-button-next"></div>

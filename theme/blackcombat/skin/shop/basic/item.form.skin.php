@@ -83,7 +83,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            <span class="sound_only">별<?php echo $star_score?>개</span> 
 	            <?php } ?>
 	            
-	            <span class="">사용후기 <?php echo $it['it_use_cnt']; ?> 개</span>
+	            <span class="">후기(REVIEW) <?php echo $it['it_use_cnt']; ?> 개</span>
 	            
 	            <div id="sit_btn_opt">
 	            	<span id="btn_wish"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="sound_only">위시리스트</span><span class="btn_wish_num"><?php echo get_wishlist_count_by_item($it['it_id']); ?></span></span>
@@ -115,24 +115,24 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            
 	            <?php if (!$it['it_use']) { // 판매가능이 아닐 경우 ?>
 	            <tr>
-	                <th scope="row">판매가격</th>
+	                <th scope="row">판매가격(PRICE)</th>
 	                <td>판매중지</td>
 	            </tr>
 	            <?php } else if ($it['it_tel_inq']) { // 전화문의일 경우 ?>
 	            <tr>
-	                <th scope="row">판매가격</th>
+	                <th scope="row">판매가격(PRICE)</th>
 	                <td>전화문의</td>
 	            </tr>
 	            <?php } else { // 전화문의가 아닐 경우?>
 	            <?php if ($it['it_cust_price']) { ?>
 	            <tr>
-	                <th scope="row">시중가격</th>
+	                <th scope="row">시중가격(PRICE)</th>
 	                <td><?php echo display_price($it['it_cust_price']); ?></td>
 	            </tr>
 	            <?php } // 시중가격 끝 ?>
 	
 	            <tr class="tr_price">
-	                <th scope="row">판매가격</th>
+	                <th scope="row">판매가격(PRICE)</th>
 	                <td>
 	                    <strong><?php echo display_price(get_price($it)); ?></strong>
 	                    <input type="hidden" id="it_price" value="<?php echo get_price($it); ?>">
@@ -193,7 +193,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            </tr>
 	            <?php } ?>
 	            <?php
-	            $ct_send_cost_label = '배송비결제';
+	            $ct_send_cost_label = '배송비(DELIVERY CHARGE)';
 	
 	            if($it['it_sc_type'] == 1)
 	                $sc_method = '무료배송';
@@ -217,13 +217,13 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            </tr>
 	            <?php if($it['it_buy_min_qty']) { ?>
 	            <tr>
-	                <th>최소구매수량</th>
+	                <th>최소구매수량(MINIMUM)</th>
 	                <td><?php echo number_format($it['it_buy_min_qty']); ?> 개</td>
 	            </tr>
 	            <?php } ?>
 	            <?php if($it['it_buy_max_qty']) { ?>
 	            <tr>
-	                <th>최대구매수량</th>
+	                <th>최대구매수량(MAXIMUM)</th>
 	                <td><?php echo number_format($it['it_buy_max_qty']); ?> 개</td>
 	            </tr>
 	            <?php } ?>
@@ -235,7 +235,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	        ?>
 	        <!-- 선택옵션 시작 { -->
 	        <section class="sit_option">
-	            <h3>선택옵션</h3>
+	            <h3>선택옵션(OPTION)</h3>
 	 
 	            <?php // 선택옵션
 	            echo $option_item;
@@ -325,8 +325,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
                 <button type="button" class="open_seat_choice_btn" style="width:100%;">좌석 선택하기 <?php echo $it['it_seat']; ?></button>
                     <?php } ?>
 
-	            <button type="submit" onclick="document.pressed=this.value;" value="장바구니" class="sit_btn_cart">장바구니</button>
-	            <button type="submit" onclick="document.pressed=this.value;" value="바로구매" class="sit_btn_buy">바로구매</button>
+	            <button type="submit" onclick="document.pressed=this.value;" value="장바구니" class="sit_btn_cart">장바구니(CART)</button>
+	            <button type="submit" onclick="document.pressed=this.value;" value="바로구매" class="sit_btn_buy">바로구매(BUY)</button>
 	            <?php } ?>
 	            <a href="javascript:item_wish(document.fitem, '<?php echo $it['it_id']; ?>');" class="sit_btn_wish"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="sound_only">위시리스트</span></a>
 	            	

@@ -28,10 +28,10 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 <section id="sit_info">
 	<div id="sit_tab">
 	    <ul class="tab_tit">
-	        <li><button type="button" id="btn_sit_inf" rel="#sit_inf" class="selected">상품정보</button></li>
-	        <li><button type="button" id="btn_sit_use" rel="#sit_use">사용후기 <span class="item_use_count"><?php echo $item_use_count; ?></span></button></li>
-	        <li><button type="button" id="btn_sit_qa" rel="#sit_qa">상품문의  <span class="item_qa_count"><?php echo $item_qa_count; ?></span></button></li>
-	        <li><button type="button" id="btn_sit_dvex" rel="#sit_dex">배송/교환</button></li>
+	        <li><button type="button" id="btn_sit_inf" rel="#sit_inf" class="selected">상품정보(DETAIL)</button></li>
+	        <li><button type="button" id="btn_sit_use" rel="#sit_use">사용후기(REVIEW) <span class="item_use_count"><?php echo $item_use_count; ?></span></button></li>
+	        <li><button type="button" id="btn_sit_qa" rel="#sit_qa">상품문의(Q&A)  <span class="item_qa_count"><?php echo $item_qa_count; ?></span></button></li>
+	        <li><button type="button" id="btn_sit_dvex" rel="#sit_dex">배송/교환(SHIPPING)</button></li>
 	    </ul>
 	    <ul class="tab_con">
 	

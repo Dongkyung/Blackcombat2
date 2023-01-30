@@ -21,8 +21,8 @@
 .ranking_list_photo { float: left; width: 67px; }
 .ranking_list_photo img { height: 40px; }
 .ranking_list_name { float: left; width: calc(100% - 140px);  }
-.ranking_list_name span.ring_name { font-size: 11px; margin-left: 5px; color:#999999; letter-spacing: -1.5px; }
-.ranking_list_change { float: left; width: 40px; font-size: 12px; text-align: right }
+.ranking_list_name span.ring_name { font-size: 10px; margin-left: 5px; color:#999999; letter-spacing: -1.5px; }
+.ranking_list_change { float: left; width: 40px; font-size: 10px; color: #999999; text-align: right }
 .ranking_list_change span { font-size: 10px; color: #999999; }
 .ranking_team_list {}
 .ranking_team_part:after { display: block; content: ''; clear: both; }

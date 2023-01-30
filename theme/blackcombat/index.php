@@ -128,9 +128,9 @@ include_once(G5_THEME_PATH.'/head.php');
 
     <div class="sponsor_items">
         <div class="sponsor_item"><a href="https://exxxtreme.co.kr/index.html" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_img_1.png" /></a></div>
-        <div class="sponsor_item"><a href="https://www.ashcroft.co.kr/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_img_2.png" /></a></div>
+        <div class="sponsor_item"><a href="https://www.aryehblack.com/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_img_2.png" /></a></div>
         <div class="sponsor_item"><a href="https://zebramats.kr/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_img_3.png" /></a></div>
-        <div class="sponsor_item"><a href="https://www.alcort.kr/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_img_4.png" /></a></div>
+        <div class="sponsor_item"><a href="https://auction.collexx.io/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_img_4.png" /></a></div>
     </div>
 
     <div class="sponsor_bottom"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_bottom_img.png" /></div>

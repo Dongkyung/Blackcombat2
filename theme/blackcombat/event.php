@@ -2,19 +2,9 @@
 if (!defined('_INDEX_')) define('_INDEX_', true);
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
-if (G5_IS_MOBILE) {
-    include_once(G5_THEME_MOBILE_PATH.'/index.php');
-    return;
-}
+include_once(G5_MOBILE_PATH.'/head.php');
 
-if(G5_COMMUNITY_USE === false) {
-    include_once(G5_THEME_SHOP_PATH.'/index.php');
-    return;
-}
-
-include_once(G5_THEME_PATH.'/head.php');
-
-add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/event.css?v=20220918">', 0);
+add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_event.css?v=20220918">', 0);
 
 $page = !empty($_GET['page']) ? $_GET['page'] : 1;
 ?>
@@ -30,7 +20,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
         <div class="sub_container">
             <div class="event_page">
                 <div class="event_category">
-                    <div class="event_category_title_image"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_title.png" /></div>
+                    <div class="event_category_title_image"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/event/event_title.png" /></div>
                     <ul>
                         <li>
                             <a href="<?php echo G5_URL ?>/event.php?page=1" class="<?php echo $page == '1' ? 'active' : ''; ?>">1:&nbsp;WHO IS TH KING?</a>
@@ -40,6 +30,9 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                         </li>
                         <li>
                             <a href="<?php echo G5_URL ?>/event.php?page=3" class="<?php echo $page == '3' ? 'active' : ''; ?>">3:&nbsp;LET THE LION ROAR</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo G5_URL ?>/event.php?page=4" class="<?php echo $page == '4' ? 'active' : ''; ?>">4:&nbsp;THE ERA OF NEW KINGS</a>
                         </li>
                     </ul>
                 </div>
@@ -54,22 +47,21 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                     <div class="event_list_items">
                         <div class="event_list_item">
                             <div class="event_list_item_player">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_1_1.jpg?v=20220918" />
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/event/event_1_1.jpg" />
                             </div>
                         </div>
                         <div class="event_list_item">
                             <div class="event_list_item_player">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_1_2.jpg?v=20220918" />
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/event/event_1_2.jpg?v=20220918" />
                             </div>
                         </div>
                         <div class="event_list_item">
                             <div class="event_list_item_player">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_1_3.jpg?v=20220918" />
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/event/event_1_3.jpg?v=20220918" />
                             </div>
                         </div>
                     </div>
                 </div>
-
 
                 <?php } else if ($page == '2') { ?>
 
@@ -81,7 +73,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                     <div class="event_list_items">
                         <div class="event_list_item">
                             <div class="event_list_item_player">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_2_1.jpg?v=20220918" />
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/event/event_2_1.jpg?v=20220918" />
                             </div>
                             <div class="event_list_item_info">
                                 <p>
@@ -93,7 +85,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                         </div>
                         <div class="event_list_item">
                             <div class="event_list_item_player">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_2_2.jpg?v=20220918" />
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/event/event_2_2.jpg?v=20220918" />
                             </div>
                             <div class="event_list_item_info">
                                 <p>
@@ -103,7 +95,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                         </div>
                         <div class="event_list_item">
                             <div class="event_list_item_player">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_2_3.jpg?v=20220918" />
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/event/event_2_3.jpg?v=20220918" />
                             </div>
                             <div class="event_list_item_info">
                                 <p>
@@ -115,7 +107,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                         </div>
                         <div class="event_list_item">
                             <div class="event_list_item_player">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_2_4.jpg?v=20220918" />
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/event/event_2_4.jpg?v=20220918" />
                             </div>
                             <div class="event_list_item_info">
                                 <p>
@@ -126,7 +118,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                         </div>
                         <div class="event_list_item">
                             <div class="event_list_item_player">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_2_5.jpg?v=20220918" />
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/event/event_2_5.jpg?v=20220918" />
                             </div>
                             <div class="event_list_item_info">
                                 <p>
@@ -138,7 +130,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                         </div>
                         <div class="event_list_item">
                             <div class="event_list_item_player">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_2_6.jpg?v=20220918" />
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/event/event_2_6.jpg?v=20220918" />
                             </div>
                             <div class="event_list_item_info">
                                 <p>
@@ -150,7 +142,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                         </div>
                         <div class="event_list_item">
                             <div class="event_list_item_player">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_2_7.jpg?v=20220918" />
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/event/event_2_7.jpg?v=20220918" />
                             </div>
                             <div class="event_list_item_info">
                                 <p>
@@ -174,25 +166,39 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                 <div class="event_list">
                     <div class="event_list_items">
                         <div class="event_list_item">
-                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_3_1.jpg?v=20221017" /></div>
+                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_3_1.jpg?v=20221017_2" /></div>
                         </div>
                         <div class="event_list_item">
-                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_3_2.jpg?v=20221017" /></div>
+                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_3_2.jpg?v=20221017_2" /></div>
                         </div>
                         <div class="event_list_item">
-                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_3_3.jpg?v=20221017" /></div>
+                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_3_3.jpg?v=20221017_2" /></div>
                         </div>
                         <div class="event_list_item">
-                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_3_4.jpg?v=20221017" /></div>
+                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_3_4.jpg?v=20221017_2" /></div>
                         </div>
                         <div class="event_list_item">
-                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_3_5.jpg?v=20221017" /></div>
+                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_3_5.jpg?v=20221017_2" /></div>
                         </div>
                         <div class="event_list_item">
-                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_3_6.jpg?v=20221017" /></div>
+                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_3_6.jpg?v=20221017_2" /></div>
                         </div>
                         <div class="event_list_item">
-                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_3_7.jpg?v=20221017" /></div>
+                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_3_7.jpg?v=20221017_2" /></div>
+                        </div>
+                    </div>
+                </div>
+
+                <?php } else if ($page == '4') { ?>
+
+                <div class="event_keyvisual">
+                    <img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_4_keyvisual.jpg" />
+                </div>
+
+                <div class="event_list">
+                    <div class="event_list_items">
+                        <div class="event_list_item">
+                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_4_1.jpg?v=20221017" /></div>
                         </div>
                     </div>
                 </div>

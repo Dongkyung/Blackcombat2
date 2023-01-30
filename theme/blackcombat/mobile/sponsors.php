@@ -56,13 +56,13 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_spons
                     </div>
                     <div class="sponsors_list_item">
                         <div class="sponsors_list_logo">
-                            <a href="https://www.alcort.kr/" target="_blank">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsors_alcor.png" />
+                            <a href="https://auction.collexx.io/" target="_blank">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsors_collexx.png" />
                             </a>
                         </div>
                         <div class="sponsors_list_caption">
                             <div class="sponsors_list_info">
-                                일상에서 치유하다<br  />리커버리 슬리퍼 브랜드, ALCORT
+                                COLLEXX
                             </div>
                         </div>
                     </div>

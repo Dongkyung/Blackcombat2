@@ -53,12 +53,12 @@ include_once(G5_MOBILE_PATH.'/head.php');
                             <tr>
                                 <td>1</td>
                                 <td><span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_excombat.png" /></span><span class="cl_team_name">익스트림 익스트림컴뱃</span></td>
-                                <td>11</td>
+                                <td>16</td>
                                 <td>8</td>
-                                <td>1</td>
-                                <td>2</td>
+                                <td>3</td>
+                                <td>5</td>
                                 <td>-</td>
-                                <td>15</td>
+                                <td>14</td>
                             </tr>
                             <tr>
                                 <td>2</td>
@@ -93,12 +93,12 @@ include_once(G5_MOBILE_PATH.'/head.php');
                             <tr>
                                 <td>5</td>
                                 <td><span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_calson.png" /></span><span class="cl_team_name">지브라 칼슨 해적단</span></td>
-                                <td>11</td>
-                                <td>3</td>
-                                <td>0</td>
-                                <td>8</td>
+                                <td>16</td>
+                                <td>5</td>
+                                <td>1</td>
+                                <td>10</td>
                                 <td>-</td>
-                                <td>-2</td>
+                                <td>1</td>
                             </tr>
                             <tr>
                                 <td>5</td>
@@ -112,7 +112,7 @@ include_once(G5_MOBILE_PATH.'/head.php');
                             </tr>
                         </tbody>
                     </table>
-                    <div class="cl_update_date">update. 2023.01.24</div>
+                    <div class="cl_update_date">update. 2023.02.19</div>
                 </div>
             </div>
         </div>

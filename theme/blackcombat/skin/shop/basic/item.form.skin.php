@@ -322,13 +322,17 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
                     <?php if ($it['it_seat'] === 'Y') { ?>
                 <input type="hidden" name="seat_row_type" value="" />
                 <input type="hidden" name="seat_number" value="" />
-                <button type="button" class="open_seat_choice_btn" style="width:100%;">좌석 선택하기 <?php echo $it['it_seat']; ?></button>
+                <button type="button" class="open_seat_choice_btn" style="width:100%;">좌석 선택하기</button>
                     <?php } ?>
 
 	            <button type="submit" onclick="document.pressed=this.value;" value="장바구니" class="sit_btn_cart">장바구니(CART)</button>
 	            <button type="submit" onclick="document.pressed=this.value;" value="바로구매" class="sit_btn_buy">바로구매(BUY)</button>
+
 	            <?php } ?>
+
+                <!--
 	            <a href="javascript:item_wish(document.fitem, '<?php echo $it['it_id']; ?>');" class="sit_btn_wish"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="sound_only">위시리스트</span></a>
+	            -->
 	            	
 	            <?php if(!$is_orderable && $it['it_soldout'] && $it['it_stock_sms']) { ?>
 	            <a href="javascript:popup_stocksms('<?php echo $it['it_id']; ?>');" id="sit_btn_alm">재입고알림</a>

@@ -7,6 +7,7 @@
 .ranking_category li a.active { color:#000000; border-bottom: 1px solid #000; }
 .ranking_list:after { display: block; content: ''; clear: both; }
 .ranking_list_part { background-color: rgba( 255, 255, 255, 0.3); float: left; width: 31.3333%; margin: 1%; }
+.ranking_list_part:nth-child(7) { clear:both; }
 .ranking_list_part_champ { padding: 10px; padding-bottom: 0px; cursor:pointer; }
 .ranking_list_part_champ h3 { font-size: 20px; margin-bottom: 10px; }
 .ranking_list_part_champ h3 span.weight { display: inline-block; font-size: 11px; padding: 5px 10px; background-color: #ffba3c; }

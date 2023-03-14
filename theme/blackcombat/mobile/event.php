@@ -23,7 +23,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                     <div class="event_category_title_image"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/event/event_title.png" /></div>
                     <ul>
                         <li>
-                            <a href="<?php echo G5_URL ?>/event.php?page=1" class="<?php echo $page == '1' ? 'active' : ''; ?>">1:&nbsp;WHO IS TH KING?</a>
+                            <a href="<?php echo G5_URL ?>/event.php?page=1" class="<?php echo $page == '1' ? 'active' : ''; ?>">1:&nbsp;WHO IS THE KING?</a>
                         </li>
                         <li>
                             <a href="<?php echo G5_URL ?>/event.php?page=2" class="<?php echo $page == '2' ? 'active' : ''; ?>">2:&nbsp;THE DARK KNIGHT BEGINS</a>
@@ -33,6 +33,9 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                         </li>
                         <li>
                             <a href="<?php echo G5_URL ?>/event.php?page=4" class="<?php echo $page == '4' ? 'active' : ''; ?>">4:&nbsp;THE ERA OF NEW KINGS</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo G5_URL ?>/event.php?page=5" class="<?php echo $page == '5' ? 'active' : ''; ?>">5:&nbsp;칼의노래</a>
                         </li>
                     </ul>
                 </div>
@@ -199,6 +202,29 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                     <div class="event_list_items">
                         <div class="event_list_item">
                             <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_4_1.jpg?v=20221017" /></div>
+                        </div>
+                    </div>
+                </div>
+
+                <?php } else if ($page == '5') { ?>
+
+                <div class="event_keyvisual">
+                    <img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_5_keyvisual.png" />
+                </div>
+
+                <div class="event_list">
+                    <div class="event_list_items">
+                        <div class="event_list_item">
+                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_5_1.jpg?v=20230303" /></div>
+                        </div>
+                        <div class="event_list_item">
+                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_5_2.jpg?v=20230303" /></div>
+                        </div>
+                        <div class="event_list_item">
+                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_5_3.jpg?v=20230303" /></div>
+                        </div>
+                        <div class="event_list_item">
+                            <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_5_4.jpg?v=20230303" /></div>
                         </div>
                     </div>
                 </div>

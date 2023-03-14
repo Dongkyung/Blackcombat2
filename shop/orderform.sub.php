@@ -89,6 +89,13 @@ if($is_kakaopay_use) {
 
         for ($i=0; $row=sql_fetch_array($result); $i++)
         {
+            $orderSql = "SELECT COUNT(*) AS cnt FROM {$g5['g5_shop_order_table']} WHERE `it_id` = 0 AND `od_status` in ('주문', '입금', '완료') AND `od_seat_row_type` = '{$row['ct_seat_row_type']}' AND `od_seat_number` = '{$row['ct_seat_number']}'";
+            $orderRow = sql_fetch($orderSql);
+
+            if ($orderRow['cnt'] > 0) {
+                alert('이미 결제된 좌석입니다.', G5_SHOP_URL . '/' . $row['it_id']);
+            }
+
             // 합계금액 계산
             $sql = " select SUM(IF(io_type = 1, (io_price * ct_qty), ((ct_price + io_price) * ct_qty))) as price,
                             SUM(ct_point * ct_qty) as point,

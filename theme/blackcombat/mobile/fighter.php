@@ -1874,62 +1874,6 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png?v=2" />
                         </div>
                     </div>
-                <?php } else if ($page == 'bantamweight_7') { ?>
-
-                    <div class="fighter_info">
-                        <div class="fighter_data">
-                            <div class="data_tags">
-                                <span>밴텀급</span>
-                            </div>
-                            <div class="data_name">
-                                박형근
-                                <span class="data_ringname">"근자감"</span>
-                                <span class="data_age">AGE 37</span>
-                            </div>
-                            <div class="sns_link">
-                                <a href="https://www.instagram.com/park_hyungkeun/" target="_blank">@park_hyungkeun</a>
-                            </div>
-                            <div class="data_team">
-                                팀명 : 알타핏 싸비 MMA
-                            </div>
-                            <div class="data_bio">
-                                <div class="data_bio_height">
-                                    <div class="mini">HEIGHT</div>
-                                    177cm
-                                </div>
-                                <div class="data_bio_weight">
-                                    <div class="mini">WEIGHT</div>
-                                    -
-                                </div>
-                            </div>
-                            <div class="data_record">
-                                <div class="data_record_win">
-                                    5 <div class="mini">Win</div>
-                                </div>
-                                <div class="data_record_draw">
-                                    4 <div class="mini">Lose</div>
-                                </div>
-                                <div class="data_record_lose">
-                                    2 <div class="mini">Draw</div>
-                                </div>
-                            </div>
-                            <div class="fighter_match">
-                                <div class="match_title">
-                                    LASTEST MATCH
-                                </div>
-                                <div class="match_list">
-                                    <ul>
-                                        <li>
-                                            No Data
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png?v=2" />
-                        </div>
-                    </div>
                 <?php } else if ($page == 'bantamweight_8') { ?>
 
                     <div class="fighter_info">
@@ -4024,7 +3968,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     0 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    4 <div class="mini">Lose</div>
+                                    5 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
                                     1 <div class="mini">Draw</div>
@@ -4547,7 +4491,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     1 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    2 <div class="mini">Lose</div>
+                                    3 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
                                     0 <div class="mini">Draw</div>
@@ -4779,10 +4723,10 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     3 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    2 <div class="mini">Lose</div>
+                                    1 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
-                                    1 <div class="mini">Draw</div>
+                                    2 <div class="mini">Draw</div>
                                 </div>
                             </div>
                             <div class="fighter_match">
@@ -7389,10 +7333,10 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     - <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    1 <div class="mini">Lose</div>
+                                    - <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
-                                    1 <div class="mini">Draw</div>
+                                    - <div class="mini">Draw</div>
                                 </div>
                             </div>
                             <div class="fighter_match">
@@ -7402,7 +7346,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            No Data
+                                            아마추어 4승 0패
                                         </li>
                                     </ul>
                                 </div>
@@ -7445,13 +7389,13 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                             <div class="data_record">
                                 <div class="data_record_win">
-                                    - <div class="mini">Win</div>
+                                    0 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    - <div class="mini">Lose</div>
+                                    1 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
-                                    - <div class="mini">Draw</div>
+                                    1 <div class="mini">Draw</div>
                                 </div>
                             </div>
                             <div class="fighter_match">
@@ -7461,7 +7405,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            아마추어 4승 0패
+                                            No Data
                                         </li>
                                     </ul>
                                 </div>

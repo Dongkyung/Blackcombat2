@@ -305,16 +305,8 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_name">이창호<span class="ring_name">개미지옥 / Extreme 익스트림 컴뱃</span></div>
                             <div class="ranking_list_change">-</div>
                         </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_7';">
-                            <div class="ranking_list_num">7</div>
-                            <div class="ranking_list_photo">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
-                            </div>
-                            <div class="ranking_list_name">박형근<span class="ring_name">근자감 / 알타핏 싸비 MMA</span></div>
-                            <div class="ranking_list_change">-</div>
-                        </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_8';">
-                            <div class="ranking_list_num">8</div>
+                            <div class="ranking_list_num">7</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -322,7 +314,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_14';">
-                            <div class="ranking_list_num">9</div>
+                            <div class="ranking_list_num">8</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -330,7 +322,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▲ 5</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_9';">
-                            <div class="ranking_list_num">10</div>
+                            <div class="ranking_list_num">9</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -338,7 +330,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_10';">
-                            <div class="ranking_list_num">11</div>
+                            <div class="ranking_list_num">10</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_pirateking.png">
                             </div>
@@ -346,7 +338,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_11';">
-                            <div class="ranking_list_num">12</div>
+                            <div class="ranking_list_num">11</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -354,7 +346,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_12';">
-                            <div class="ranking_list_num">13</div>
+                            <div class="ranking_list_num">12</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -362,7 +354,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_13';">
-                            <div class="ranking_list_num">14</div>
+                            <div class="ranking_list_num">13</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -370,7 +362,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_15';">
-                            <div class="ranking_list_num">15</div>
+                            <div class="ranking_list_num">14</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -378,7 +370,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_16';">
-                            <div class="ranking_list_num">16</div>
+                            <div class="ranking_list_num">15</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_madcow.png">
                             </div>
@@ -386,7 +378,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_17';">
-                            <div class="ranking_list_num">17</div>
+                            <div class="ranking_list_num">16</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -394,7 +386,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_18';">
-                            <div class="ranking_list_num">18</div>
+                            <div class="ranking_list_num">17</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -402,7 +394,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_19';">
-                            <div class="ranking_list_num">19</div>
+                            <div class="ranking_list_num">18</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -410,7 +402,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_20';">
-                            <div class="ranking_list_num">20</div>
+                            <div class="ranking_list_num">19</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -418,7 +410,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_24';">
-                            <div class="ranking_list_num">21</div>
+                            <div class="ranking_list_num">20</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -426,7 +418,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">NEW</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_21';">
-                            <div class="ranking_list_num">22</div>
+                            <div class="ranking_list_num">21</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -434,7 +426,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_22';">
-                            <div class="ranking_list_num">23</div>
+                            <div class="ranking_list_num">22</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -442,7 +434,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_23';">
-                            <div class="ranking_list_num">24</div>
+                            <div class="ranking_list_num">23</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -1102,7 +1094,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_name">김남희<span class="ring_name">광녀 / 쎈짐</span></div>
                             <div class="ranking_list_change">-</div>
                         </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=heavyweight_4';">
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=women_4';">
                             <div class="ranking_list_num">4</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">

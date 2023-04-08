@@ -70,7 +70,7 @@ ob_start();
 
         for ($i=0; $row=sql_fetch_array($result); $i++)
         {
-            $orderSql = "SELECT COUNT(*) AS cnt FROM {$g5['g5_shop_order_table']} WHERE `it_id` = 0 AND `od_status` in ('주문', '입금', '완료') AND `od_seat_row_type` = '{$row['ct_seat_row_type']}' AND `od_seat_number` = '{$row['ct_seat_number']}'";
+            $orderSql = "SELECT COUNT(*) AS cnt FROM {$g5['g5_shop_order_table']} WHERE `it_id` = '1664545281' AND `od_status` in ('주문', '입금', '완료') AND `od_seat_row_type` = '{$row['ct_seat_row_type']}' AND `od_seat_number` = '{$row['ct_seat_number']}'";
             $orderRow = sql_fetch($orderSql);
 
             if ($orderRow['cnt'] > 0) {

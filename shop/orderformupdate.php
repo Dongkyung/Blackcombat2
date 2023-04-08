@@ -554,6 +554,7 @@ $od_seat_number = isset($_POST['od_seat_number']) && $_POST['od_seat_number'] !=
 // 주문서에 입력
 $sql = " insert {$g5['g5_shop_order_table']}
             set od_id             = '$od_id',
+                it_id             = '$it_id',
                 mb_id             = '{$member['mb_id']}',
                 od_pwd            = '$od_pwd',
                 od_name           = '$od_name',

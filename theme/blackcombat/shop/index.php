@@ -2,7 +2,7 @@
 include_once('./_common.php');
 
 if (!$it_id) {
-    header("location: " . G5_URL . '/shop/1664545281');
+    header("location: " . G5_URL . '/shop/1680840411');
 }
 
 if (G5_IS_MOBILE) {

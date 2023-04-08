@@ -111,6 +111,9 @@ if ($config['cf_analytics']) {
     .seat_rows_group .seat_rows {position:relative;}
 
     .seat_choice_popup_bg {position:absolute; top:0; left:0; width:100%; height:100%; margin:0; padding:0; background:rgba(0,0,0,0.5); box-sizing:border-box; z-index:98;}
+
+    .seat_row_items[data-row-type="VIP(1)"] .seat_row_item, .seat_row_items[data-row-type="VIP(2)"] .seat_row_item {border-color: #ff7f00;}
+    .seat_row_items[data-row-type="VVIP"] .seat_row_item {border-color: #8b00ff;}
 </style>
 
 <div class="seat_choice_popup" style="display:none;">
@@ -125,7 +128,17 @@ if ($config['cf_analytics']) {
 
                 <img class="cage_img_2" src="<?php echo G5_THEME_IMG_URL; ?>/product/cage_img_2.png" />
                 -->
-
+                <div style="font-size: 16px; line-height: 16px; position: absolute; top: 211px; left: 478px; z-index:4; min-width: 100px;">
+                    <div style="display: flex; margin-bottom: 8px;">
+                        <div style="border: 1px solid #8a8a8a; border-radius: 2px; width: 16px; height: 16px; margin-right: 8px;"></div>: 일반
+                    </div>
+                    <div style="display: flex; margin-bottom: 8px;">
+                        <div style="border: 1px solid #ff7f00; border-radius: 2px; width: 16px; height: 16px; margin-right: 8px;"></div>: VIP
+                    </div>
+                    <div style="display: flex;">
+                        <div style="border: 1px solid #8b00ff; border-radius: 2px; width: 16px; height: 16px; margin-right: 8px;"></div>: VVIP
+                    </div>
+                </div>
                 <img class="cage_img_3" src="<?php echo G5_THEME_IMG_URL; ?>/product/cage_img_3.png" />
                 <div style="display: flex; align-items: center; background-color:#639B94; font-size: 35px; text-align: center; word-break: keep-all; position: absolute; top:0px; bottom: 100px; left:0px; width: 200px; z-index:1;">
                     스탠딩석 (현장판매)
@@ -736,19 +749,15 @@ if ($config['cf_analytics']) {
                 var objValue = obj.val();
 
                 if (objValue) {
-                    if (objValue.indexOf('일반,70000') !== -1)
+                    if (objValue.indexOf('일반,0') !== -1)
                     {
                         obj.attr('data-seat', 'NORMAL');
                     }
-                    else if (objValue.indexOf('일반(통로),90000') !== -1)
-                    {
-                        obj.attr('data-seat', 'NORMAL_AISLE');
-                    }
-                    else if (objValue.indexOf('VIP,150000') !== -1)
+                    else if (objValue.indexOf('VIP,30000') !== -1)
                     {
                         obj.attr('data-seat', 'VIP');
                     }
-                    else if (objValue.indexOf('VVIP,500000') !== -1)
+                    else if (objValue.indexOf('VVIP,230000') !== -1)
                     {
                         obj.attr('data-seat', 'VVIP');
                     }
@@ -848,11 +857,11 @@ if ($config['cf_analytics']) {
                             var optionSelectObj = $('#it_option_1');
                             var selectedOptionObj = '';
 
-                            if (rowType === 'VVIP1' || rowType === 'VVIP2')
+                            if (rowType === 'VVIP')
                             {
                                 selectedOptionObj = optionSelectObj.find('option[data-seat="VVIP"]').prop('selected', true);
                             }
-                            else if (rowType === 'VIP1' || rowType === 'VIP2' || rowType === 'VIP3' || rowType === 'VIP4')
+                            else if (rowType === 'VIP(1)' || rowType === 'VIP(2)')
                             {
                                 selectedOptionObj = optionSelectObj.find('option[data-seat="VIP"]').prop('selected', true);
                             }
@@ -877,13 +886,13 @@ if ($config['cf_analytics']) {
                                 '   <li class="sit_opt_list">'+
                                 '       <input type="hidden" name="io_type[' + it_id + '][]" value="0">'+
                                 '       <input type="hidden" name="io_id[' + it_id + '][]" value="' + optionValue_split[0] + '">'+
-                                '       <input type="hidden" name="io_value[' + it_id + '][]" value="좌석:' + optionValue_split[0] + '">'+
+                                '       <input type="hidden" name="io_value[' + it_id + '][]" value="좌석: ' + optionValue_split[0] + '">'+
                                 '       <input type="hidden" class="io_price" value="' + optionValue_split[1] + '">'+
                                 '       <input type="hidden" class="io_stock" value="' + optionValue_split[2] + '">'+
                                 '       <div class="opt_name"><span class="sit_opt_subj">좌석:' + optionValue_split[0] + ' (' + rowType + ' 열 ' + setNumber + ')</span></div>'+
                                 '       <div class="opt_count">'+
                                 '           <input type="hidden" name="ct_qty[' + it_id + '][]" value="1" class="num_input" size="5">'+
-                                '           <span class="sit_opt_prc">+' + number_format(optionValue_split[1]) + '원</span>'+
+                                '           <span class="sit_opt_prc">+ ' + number_format(optionValue_split[1]) + '원</span>'+
                                 '           <button type="button" class="sit_opt_del"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">삭제</span></button>'+
                                 '       </div>'+
                                 '   </li>'+
@@ -892,27 +901,8 @@ if ($config['cf_analytics']) {
 
                             optionResultObj.html(optionResultHtml);
 
-                            $('#sit_tot_price').text(number_format(optionValue_split[1]));
+                            $('#sit_tot_price').text(`총 ${number_format(70000+Number(optionValue_split[1]))}원`);
 
-                            /*
-                            <ul id="sit_opt_added">
-                                <li class="sit_opt_list">
-                                    <input type="hidden" name="io_type[1664545281][]" value="0">
-                                    <input type="hidden" name="io_id[1664545281][]" value="VIP">
-                                    <input type="hidden" name="io_value[1664545281][]" value="좌석:VIP">
-                                    <input type="hidden" class="io_price" value="200000">
-                                    <input type="hidden" class="io_stock" value="9999">
-                                    <div class="opt_name"><span class="sit_opt_subj">좌석:VIP</span></div>
-                                    <div class="opt_count">
-                                        <button type="button" class="sit_qty_minus"><i class="fa fa-minus" aria-hidden="true"></i><span class="sound_only">감소</span></button>
-                                        <input type="text" name="ct_qty[1664545281][]" value="1" class="num_input" size="5">
-                                        <button type="button" class="sit_qty_plus"><i class="fa fa-plus" aria-hidden="true"></i><span class="sound_only">증가</span></button>
-                                        <span class="sit_opt_prc">+200,000원</span>
-                                        <button type="button" class="sit_opt_del"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">삭제</span></button>
-                                    </div>
-                                </li>
-                            </ul>
-                            */
 
                             alert('좌석이 선택되었습니다.');
 

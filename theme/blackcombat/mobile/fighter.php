@@ -3107,10 +3107,10 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                             <div class="data_record">
                                 <div class="data_record_win">
-                                    10 <div class="mini">Win</div>
+                                    11 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    2 <div class="mini">Lose</div>
+                                    4 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
                                     0 <div class="mini">Draw</div>

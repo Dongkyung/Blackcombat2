@@ -316,7 +316,10 @@ if ($config['cf_analytics']) {
                         <?php } // for End ?>
                     </div>
                     <div class="seat_row_items" data-row-type="VIP(2)" style="flex-direction:row;">
-                        <?php for($i=1; $i<=18; $i++) { // 6 ?>
+                        <?php for($i=1; $i<=10; $i++) { // 6 ?>
+                            <div class="seat_row_item" data-choosable="N" data-seat-number="<?php echo $i; ?>" title="VIP(2) <?php echo $i;?>"><span></span></div>
+                        <?php } // for End ?>
+                        <?php for($i=11; $i<=18; $i++) { // 6 ?>
                             <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="VIP(2) <?php echo $i;?>"><span></span></div>
                         <?php } // for End ?>
                     </div>

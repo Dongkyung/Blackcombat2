@@ -43,7 +43,7 @@ if ($it_seat === 'Y') {
 // 레벨(권한)이 상품구입 권한보다 작다면 상품을 구입할 수 없음.
 if ($member['mb_level'] < $default['de_level_sell'])
 {
-    alert('상품을 구입할 수 있는 권한이 없습니다.');
+    alert('로그인 후 좌석구매가 가능합니다.');
 }
 
 if($act == "buy")

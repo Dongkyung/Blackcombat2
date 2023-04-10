@@ -595,17 +595,17 @@ if ($config['cf_analytics']) {
                         <div class="seat_rows" style="top:0px; left:0px; align-items:center; row-gap:4px;">
                             <div class="seat_row_items" data-row-type="I" style="flex-direction:row;">
                                 <?php for($i=25; $i<=50; $i++) { // 6 ?>
-                                    <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="F열 <?php echo $i;?>"><span></span></div>
+                                    <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="I열 <?php echo $i;?>"><span></span></div>
                                 <?php } // for End ?>
                             </div>
                             <div class="seat_row_items" data-row-type="H" style="flex-direction:row;">
                                 <?php for($i=25; $i<=50; $i++) { // 6 ?>
-                                    <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="F열 <?php echo $i;?>"><span></span></div>
+                                    <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="H열 <?php echo $i;?>"><span></span></div>
                                 <?php } // for End ?>
                             </div>
                             <div class="seat_row_items" data-row-type="G" style="flex-direction:row;">
                                 <?php for($i=25; $i<=50; $i++) { // 6 ?>
-                                    <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="F열 <?php echo $i;?>"><span></span></div>
+                                    <div class="seat_row_item" data-choosable="Y" data-seat-number="<?php echo $i; ?>" title="G열 <?php echo $i;?>"><span></span></div>
                                 <?php } // for End ?>
                             </div>
                             <div class="seat_row_items" data-row-type="F" style="flex-direction:row;">

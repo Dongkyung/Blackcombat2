@@ -70,12 +70,16 @@ ob_start();
 
         for ($i=0; $row=sql_fetch_array($result); $i++)
         {
-            $orderSql = "SELECT COUNT(*) AS cnt FROM {$g5['g5_shop_order_table']} WHERE `it_id` = '1680840411' AND `od_status` in ('주문', '입금', '완료') AND `od_seat_row_type` = '{$row['ct_seat_row_type']}' AND `od_seat_number` = '{$row['ct_seat_number']}'";
-            $orderRow = sql_fetch($orderSql);
+            // 이미 결제된 좌석 중복체크 추가
+            if ($row['it_seat'] == 'Y') {
+                $orderSql = "SELECT COUNT(*) AS cnt FROM {$g5['g5_shop_order_table']} WHERE `it_id` = '{$row['it_id']}' AND `od_status` in ('주문', '입금', '완료') AND `od_seat_row_type` = '{$row['ct_seat_row_type']}' AND `od_seat_number` = '{$row['ct_seat_number']}'";
+                $orderRow = sql_fetch($orderSql);
 
-            if ($orderRow['cnt'] > 0) {
-                alert('이미 결제된 좌석입니다.', G5_SHOP_URL . '/' . $row['it_id']);
+                if ($orderRow['cnt'] > 0) {
+                    alert('이미 결제된 좌석입니다.', G5_SHOP_URL . '/' . $row['it_id']);
+                }
             }
+            // //이미 결제된 좌석 중복체크 추가
 
             // 합계금액 계산
             $sql = " select SUM(IF(io_type = 1, (io_price * ct_qty), ((ct_price + io_price) * ct_qty))) as price,

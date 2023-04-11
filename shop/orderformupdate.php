@@ -4,6 +4,23 @@ include_once(G5_LIB_PATH.'/mailer.lib.php');
 
 // print_r2($_POST); exit;
 
+// 이미 결제된 좌석 중복체크 추가
+$it_ids = isset($_POST['it_id']) ? safe_replace_regex($_POST['it_id'], 'it_id') : '';
+$od_seat_row_type = isset($_POST['od_seat_row_type']) && $_POST['od_seat_row_type'] !== '' ? clean_xss_tags($_POST['od_seat_row_type']) : '';
+$od_seat_number = isset($_POST['od_seat_number']) && $_POST['od_seat_number'] !== '' ? clean_xss_tags($_POST['od_seat_number']) : '';
+
+if (count($it_ids) && $od_seat_row_type && $od_seat_number) {
+    foreach($it_ids as $it_id) {
+        $orderSql = "SELECT COUNT(*) AS cnt FROM {$g5['g5_shop_order_table']} WHERE `it_id` = '{$it_id}' AND `od_status` in ('주문', '입금', '완료') AND `od_seat_row_type` = '{$od_seat_row_type}' AND `od_seat_number` = '{$od_seat_number}'";
+        $orderRow = sql_fetch($orderSql);
+
+        if ($orderRow['cnt'] > 0) {
+            alert('이미 결제된 좌석입니다.', G5_SHOP_URL . '/' . $it_id);
+        }
+    } // foreach End
+}
+// //이미 결제된 좌석 중복체크 추가
+
 //이니시스 lpay 요청으로 왔다면 $default['de_pg_service'] 값을 이니시스로 변경합니다.
 if( in_array($od_settle_case, array('lpay', 'inicis_kakaopay')) ){
     $default['de_pg_service'] = 'inicis';
@@ -526,6 +543,9 @@ if($default['de_tax_flag_use']) {
     $od_free_mny = isset($_POST['comm_free_mny']) ? (int) $_POST['comm_free_mny'] : 0;
 }
 
+$od_seat_row_type = isset($_POST['od_seat_row_type']) && $_POST['od_seat_row_type'] !== '' ? clean_xss_tags($_POST['od_seat_row_type']) : '';
+$od_seat_number = isset($_POST['od_seat_number']) && $_POST['od_seat_number'] !== '' ? clean_xss_tags($_POST['od_seat_number']) : '';
+
 $od_email         = get_email_address($od_email);
 $od_name          = clean_xss_tags($od_name);
 $od_tel           = clean_xss_tags($od_tel);
@@ -547,9 +567,6 @@ $od_b_addr_jibeon = preg_match("/^(N|R)$/", $od_b_addr_jibeon) ? $od_b_addr_jibe
 $od_memo          = clean_xss_tags($od_memo, 1, 1, 0, 0);
 $od_deposit_name  = clean_xss_tags($od_deposit_name);
 $od_tax_flag      = $default['de_tax_flag_use'];
-
-$od_seat_row_type = isset($_POST['od_seat_row_type']) && $_POST['od_seat_row_type'] !== '' ? clean_xss_tags($_POST['od_seat_row_type']) : '';
-$od_seat_number = isset($_POST['od_seat_number']) && $_POST['od_seat_number'] !== '' ? clean_xss_tags($_POST['od_seat_number']) : '';
 
 // 주문서에 입력
 $sql = " insert {$g5['g5_shop_order_table']}

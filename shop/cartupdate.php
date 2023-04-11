@@ -63,6 +63,17 @@ if($act == "buy")
             
             if( !$it_id ) continue;
 
+            // 이미 결제된 좌석 중복체크 추가
+            if ($post_seat_row_type && $post_seat_number) {
+                $orderSql = "SELECT COUNT(*) AS cnt FROM {$g5['g5_shop_order_table']} WHERE `it_id` = '{$it_id}' AND `od_status` in ('주문', '입금', '완료') AND `od_seat_row_type` = '{$post_seat_row_type}' AND `od_seat_number` = '{$post_seat_number}'";
+                $orderRow = sql_fetch($orderSql);
+
+                if ($orderRow['cnt'] > 0) {
+                    alert('이미 결제된 좌석입니다.', G5_SHOP_URL . '/' . $it_id);
+                }
+            }
+            // //이미 결제된 좌석 중복체크 추가
+
             // 본인인증, 성인인증체크
             if(!$is_admin) {
                 $msg = shop_member_cert_check($it_id, 'item');

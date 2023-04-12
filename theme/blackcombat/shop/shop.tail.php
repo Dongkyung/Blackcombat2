@@ -143,6 +143,9 @@ if ($config['cf_analytics']) {
                 <div style="display: flex; align-items: center; background-color:#639B94; font-size: 35px; text-align: center; word-break: keep-all; position: absolute; top:0px; bottom: 100px; left:0px; width: 200px; z-index:1;">
                     스탠딩석 (현장판매)
                 </div>
+                <div style="display: flex;align-items: center;justify-content: center;color: #393939;background-color: #ffb4b4;font-size: 35px;text-align: center;word-break: keep-all;position: absolute;top: 376px;/* bottom: 100px; */left: 898px;width: 338px;height: 46px;z-index:1;">
+                    선수 입장로
+                </div>
                  <!-- up-left -->
                  <div class="seat_rows_groups vertical" style="top:50px; left:325px; transform:rotateZ(-45deg); z-index:3;">
                     <div class="seat_rows_group">

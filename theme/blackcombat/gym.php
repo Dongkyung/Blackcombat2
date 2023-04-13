@@ -57,13 +57,10 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                             <div>COACH</div>
                             <div class="script">Black Combat</div>
                         </div>
-                        <div class="gym_coach_item">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/gym_info_1.png" />
-                        </div>
-                        <div class="gym_coach_item">
+                        <div class="gym_coach_item" style="width: 48%">
                             <img src="<?php echo G5_THEME_IMG_URL; ?>/gym_info_2.png" />
                         </div>
-                        <div class="gym_coach_item">
+                        <div class="gym_coach_item" style="width: 48%">
                             <img src="<?php echo G5_THEME_IMG_URL; ?>/gym_info_3.png" />
                         </div>
                     </div>

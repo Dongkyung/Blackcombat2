@@ -1763,6 +1763,63 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                         </div>
                     </div>
 
+                <?php } else if ($page == 'bantamweight_4') { ?>
+
+                    <div class="fighter_info">
+                        <div class="fighter_data">
+                            <div class="data_tags">
+                                <span>밴텀급</span>
+                            </div>
+                            <div class="data_name">
+                                김동규
+                                <span class="data_ringname">"빅마우스"</span>
+                                <span class="data_age">AGE 32</span>
+                            </div>
+                            <div class="sns_link">
+                                <a href="https://www.instagram.com/bigmouth_kim/" target="_blank">@bigmouth_kim</a>
+                            </div>
+                            <div class="data_team">
+                                팀명 : 익스트림 익스트림 컴뱃
+                            </div>
+                            <div class="data_bio">
+                                <div class="data_bio_height">
+                                    <div class="mini">HEIGHT</div>
+                                    171cm
+                                </div>
+                                <div class="data_bio_weight">
+                                    <div class="mini">WEIGHT</div>
+                                    -
+                                </div>
+                            </div>
+                            <div class="data_record">
+                                <div class="data_record_win">
+                                    8 <div class="mini">Win</div>
+                                </div>
+                                <div class="data_record_draw">
+                                    5 <div class="mini">Lose</div>
+                                </div>
+                                <div class="data_record_lose">
+                                    0 <div class="mini">Draw</div>
+                                </div>
+                            </div>
+                            <div class="fighter_match">
+                                <div class="match_title">
+                                    LASTEST MATCH
+                                </div>
+                                <div class="match_list">
+                                    <ul>
+                                        <li>
+                                            김동규 vs <span class="match_result win">Win</span> 김성재
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fighter_img">
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_bigmouse.png?v=2" />
+                        </div>
+                    </div>
+
                 <?php } else if ($page == 'bantamweight_5') { ?>
 
                    <div class="fighter_info">

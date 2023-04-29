@@ -300,7 +300,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_0';">
                             <div class="ranking_list_num">6</div>
                             <div class="ranking_list_photo">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_yellowmonkey.png">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">김성빈<span class="ring_name">파이톤 / 알타핏 싸비 MMA</span></div>
                             <div class="ranking_list_change">-</div>

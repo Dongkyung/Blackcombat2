@@ -15,8 +15,8 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_rules
         </div>
     </div>
 
+<?php ?>
 
-    <?php ?>
     <div class="sub_content">
         <div class="sub_container">
             <div class="rules_page">
@@ -24,7 +24,7 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_rules
 
 본 대회사의 명칭은 Black Combat : Who is the King 으로 한다.
 
-
+<br /><br />
 <h3>제 2 조 체급</h3>
 
 <남성부><br />
@@ -43,18 +43,23 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_rules
 
 해당 대회의 선수가 부상으로 인해 계약된 경기를 진행하지 못할 시 대회사가 정해주는 병원에서 진료 및 진단서를 받아 대회사에 제출한 뒤, 추후 협의 후 대회사의 결정에 따른다.<br /><br />
 
+- 본 대회사가 공식적으로 지정한 체급 이외의 경기는 대회사가 지정해주는 체중을 한계체중으로 진행한다.<br />
+- 1차 계체량 시작 시간은 본 대회사가 지정하며 지정된 계체량 시작시간 기준으로 30분 이상 지각하는 선수는 대회사와 심판위원회가 주는 패널티를 받아야 한다.<br />
+- 1차 계체량은 대회사가 지정한 시각에 진행되며 해당 선수가 1차 계측에 실패할 시, 심판위원회가 정해주는 시간 안에 2차 계측을 하여 통과해야 한다. 1차계 실패시간 기준 30분 후 2차 계체가 진행된다.<br />
+(1) 공식 계체량 때는 해당 경기에 참가하는 모든 선수들과 세컨진, 대회사측 인원, 주심 최소 1명 이상이 모두 참여해야한다.<br /><br />
+
 - 본 대회사가 진행하는 대회의 경기에 참가하는 모든 선수들은 정해진 룰에 따라 계측 및 통과해야한다.<br />
 - 계측을 통과하지 못한 선수들은 다음과 같은 패널티를 받게 된다.<br />
 (1) 해당 선수가 1차 계측을 실패할 시 심판이 정한 시간 내에 2차 계체가 이뤄진다.<br />
 (2) 해당 선수가 2차 계측 또한 실패할 시 초과 체중 기준에 따른 페널티가 적용 된다.<br />
--  500g 미만으로 초과할 경우 : 1R -1점 감점 <br />
+-  500g 미만으로 초과할 경우 : 전체 R별 -1점 감점 <br />
 -  500g이상 ~ 1kg 미만으로 초과할 경우 : 파이트머니의 30% 상대에게 지급, 전체 R별 -1<br />
 -  1kg 이상 ~2kg 미만으로 초과할 경우 : 파이트머니의 50% 상대에게 지급, 전체R별 -1 <br />
 -  2kg 초과시 : <br />
-   ① 상대 선수가 경기를 희망할 때 : 상대 선수에게 파이트머니 몰수, 전체R별 -1 <br />
+   ① 상대 선수가 경기를 희망할 때 : 상대 선수에게 파이트머니 몰수, 전체 R별 -1 <br />
    ② 상대 선수가 경기를 희망하지 않을 때 : 실격 패 <br />
 
-
+<br />
 <h3>제 3 조 대회 종류</h3>
 
 1. 블랙컴뱃 챔피언스리그<br />
@@ -197,12 +202,13 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_rules
 
 *대회에 참가하는 모든 선수들 및 세컨진은 룰에 의거하여 대회사와 심판진의 지시 및 전달사항을 따라줘야 한다. <br />
 *블랙컴뱃 룰은 대회사와 심판위원회에 의해 언제든 개정될 수 있다.
+               
             </div>
         </div>
     </div>
-    <?php  ?>
+<?php ?>
 
-    <script>
+<script>
         (function ($) {
             $(window).on('load', function() {
                 var winHeight = parseInt(window.innerHeight, 10);
@@ -218,6 +224,6 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_rules
             });
         })(jQuery);
     </script>
-
+    
 <?php
 include_once(G5_THEME_PATH.'/tail.php');

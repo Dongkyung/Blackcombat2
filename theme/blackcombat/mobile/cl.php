@@ -50,7 +50,7 @@ include_once(G5_MOBILE_PATH.'/head.php');
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                        <tr>
                                 <td>1</td>
                                 <td>
                                     <span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_excombat.png" /></span>
@@ -67,6 +67,20 @@ include_once(G5_MOBILE_PATH.'/head.php');
                                 <td>2</td>
                                 <td>
                                     <span class="cl_team_logo">
+                                    <img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_ssabi.png" /></span>
+                                    <span class="cl_team_name">알타핏 싸비 MMA</span>
+                                </td>
+                                <td>21</td>
+                                <td>9</td>
+                                <td>4</td>
+                                <td>8</td>
+                                <td>-</td>
+                                <td>14</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>
+                                    <span class="cl_team_logo">
                                         <img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_mmastory.png" />
                                     </span>
                                     <span class="cl_team_name">아리에 블랙 MMA 스토리</span>
@@ -79,21 +93,7 @@ include_once(G5_MOBILE_PATH.'/head.php');
                                 <td>10</td>
                             </tr>
                             <tr>
-                                <td>3</td>
-                                <td>
-                                    <span class="cl_team_logo">
-                                    <img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_ssabi.png" /></span>
-                                    <span class="cl_team_name">알타핏 싸비 MMA</span>
-                                </td>
-                                <td>16</td>
-                                <td>6</td>
-                                <td>3</td>
-                                <td>7</td>
-                                <td>-</td>
-                                <td>8</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
+                                <td>4</td>
                                 <td>
                                     <span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_calson.png" /></span>
                                     <span class="cl_team_name">지브라 칼슨 해적단</span>
@@ -108,19 +108,6 @@ include_once(G5_MOBILE_PATH.'/head.php');
                             <tr>
                                 <td>5</td>
                                 <td>
-                                    <span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_cubemma.png" /></span>
-                                    <span class="cl_team_name">펭카 큐브 MMA</span>
-                                </td>
-                                <td>16</td>
-                                <td>4</td>
-                                <td>2</td>
-                                <td>10</td>
-                                <td>-</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>
                                     <span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_solid.png" /></span>
                                     <span class="cl_team_name">BF 팀 솔리드</span>
                                 </td>
@@ -130,6 +117,19 @@ include_once(G5_MOBILE_PATH.'/head.php');
                                 <td>13</td>
                                 <td>-</td>
                                 <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>
+                                    <span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_cubemma.png" /></span>
+                                    <span class="cl_team_name">펭카 큐브 MMA</span>
+                                </td>
+                                <td>21</td>
+                                <td>5</td>
+                                <td>2</td>
+                                <td>14</td>
+                                <td>-</td>
+                                <td>-2</td>
                             </tr>
                         </tbody>
                     </table>

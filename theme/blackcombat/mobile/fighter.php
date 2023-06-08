@@ -581,7 +581,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     3 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    2 <div class="mini">Lose</div>
+                                    3 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
                                     0 <div class="mini">Draw</div>
@@ -594,7 +594,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            <span class="match_result win">Win</span> 이준영 vs 김성웅
+                                            <span class="match_result win">Win</span> 이강남 vs 김성웅
                                         </li>
                                     </ul>
                                 </div>
@@ -1705,6 +1705,64 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                         </div>
                     </div>
 
+                <?php } else if ($page == 'flyweight_short_hair_lee') { ?>
+
+                    <div class="fighter_info">
+                        <div class="fighter_data">
+                            <div class="data_tags">
+                                <span>플라이급</span>
+                            </div>
+                            <div class="data_name">
+                                이강남
+                                <span class="data_ringname">"해적왕"</span>
+                                <span class="data_age">AGE 36</span>
+                            </div>
+                            <div class="sns_link">
+                                <a href="https://www.instagram.com/short_hair_lee/" target="_blank">@short_hair_lee</a>
+                            </div>
+                            <div class="data_team">
+                                팀명 : 지브라 칼슨 해적단
+                            </div>
+                            <div class="data_bio">
+                                <div class="data_bio_height">
+                                    <div class="mini">HEIGHT</div>
+                                    173cm
+                                </div>
+                                <div class="data_bio_weight">
+                                    <div class="mini">WEIGHT</div>
+                                    -
+                                </div>
+                            </div>
+                            <div class="data_record">
+                                <div class="data_record_win">
+                                    2 <div class="mini">Win</div>
+                                </div>
+                                <div class="data_record_draw">
+                                    1 <div class="mini">Lose</div>
+                                </div>
+                                <div class="data_record_lose">
+                                    0 <div class="mini">Draw</div>
+                                </div>
+                            </div>
+                            <div class="fighter_match">
+                                <div class="match_title">
+                                    LASTEST MATCH
+                                </div>
+                                <div class="match_list">
+                                    <ul>
+                                        <li>
+                                            <span class="match_result win">Win</span> 이강남 vs 김성웅
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fighter_img">
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png?v=2" />
+                        </div>
+                    </div>
+
+
 
                 <?php } else if ($page == 'bantamweight_0') { ?>
 
@@ -2477,10 +2535,10 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     4 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    3 <div class="mini">Lose</div>
+                                    2 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
-                                    2 <div class="mini">Draw</div>
+                                    1 <div class="mini">Draw</div>
                                 </div>
                             </div>
                             <div class="fighter_match">
@@ -2650,7 +2708,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     3 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    1 <div class="mini">Lose</div>
+                                    2 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
                                     0 <div class="mini">Draw</div>
@@ -2663,7 +2721,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            선석호 vs  <span class="match_result win">Win</span> 윤성욱
+                                            <span class="match_result win">Win</span> 박상현 vs 선석호
                                         </li>
                                     </ul>
                                 </div>
@@ -3353,6 +3411,63 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     <ul>
                                         <li>
                                             <span class="match_result win">Win</span> 황성주 vs 박재석
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fighter_img">
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png?v=2" />
+                        </div>
+                    </div>
+
+                <?php } else if ($page == 'bantamweight_parksanghyun_mma') { ?>
+
+                    <div class="fighter_info">
+                        <div class="fighter_data">
+                            <div class="data_tags">
+                                <span>밴텀급</span>
+                            </div>
+                            <div class="data_name">
+                                박상현
+                                <span class="data_ringname">"빡상"</span>
+                                <span class="data_age">AGE 28</span>
+                            </div>
+                            <div class="sns_link">
+                                <a href="https://www.instagram.com/parksanghyun_mma/" target="_blank">@parksanghyun_mma</a>
+                            </div>
+                            <div class="data_team">
+                                팀명 : 아리에 블랙 MMA 스토리
+                            </div>
+                            <div class="data_bio">
+                                <div class="data_bio_height">
+                                    <div class="mini">HEIGHT</div>
+                                    177cm
+                                </div>
+                                <div class="data_bio_weight">
+                                    <div class="mini">WEIGHT</div>
+                                    -
+                                </div>
+                            </div>
+                            <div class="data_record">
+                                <div class="data_record_win">
+                                    6 <div class="mini">Win</div>
+                                </div>
+                                <div class="data_record_draw">
+                                    5 <div class="mini">Lose</div>
+                                </div>
+                                <div class="data_record_lose">
+                                    1 <div class="mini">Draw</div>
+                                </div>
+                            </div>
+                            <div class="fighter_match">
+                                <div class="match_title">
+                                    LASTEST MATCH
+                                </div>
+                                <div class="match_list">
+                                    <ul>
+                                        <li>
+                                            <span class="match_result win">Win</span> 박상현 vs 선석호
                                         </li>
                                     </ul>
                                 </div>
@@ -6389,7 +6504,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                             <div class="data_record">
                                 <div class="data_record_win">
-                                    3 <div class="mini">Win</div>
+                                    4 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
                                     1 <div class="mini">Lose</div>
@@ -6405,7 +6520,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            <span class="match_result win">Win</span> 정영제 vs 황도윤
+                                            <span class="match_result win">Win</span> 정영제 vs 이준환
                                         </li>
                                     </ul>
                                 </div>
@@ -6634,6 +6749,63 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     <ul>
                                         <li>
                                             <span class="match_result win">Win</span> 장근영 vs 이성종
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fighter_img">
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png?v=2" />
+                        </div>
+                    </div>
+
+                <?php } else if ($page == 'lightweight_zuu_nan') { ?>
+
+                    <div class="fighter_info">
+                        <div class="fighter_data">
+                            <div class="data_tags">
+                                <span>라이트급</span>
+                            </div>
+                            <div class="data_name">
+                                이준환
+                                <span class="data_ringname">"장산"</span>
+                                <span class="data_age">AGE 25</span>
+                            </div>
+                            <div class="sns_link">
+                                <a href="https://www.instagram.com/zuu_nan/" target="_blank">@zuu_nan</a>
+                            </div>
+                            <div class="data_team">
+                                팀명 : 지브라 칼슨 해적단
+                            </div>
+                            <div class="data_bio">
+                                <div class="data_bio_height">
+                                    <div class="mini">HEIGHT</div>
+                                    178cm
+                                </div>
+                                <div class="data_bio_weight">
+                                    <div class="mini">WEIGHT</div>
+                                    -
+                                </div>
+                            </div>
+                            <div class="data_record">
+                                <div class="data_record_win">
+                                    1 <div class="mini">Win</div>
+                                </div>
+                                <div class="data_record_draw">
+                                    1 <div class="mini">Lose</div>
+                                </div>
+                                <div class="data_record_lose">
+                                    0 <div class="mini">Draw</div>
+                                </div>
+                            </div>
+                            <div class="fighter_match">
+                                <div class="match_title">
+                                    LASTEST MATCH
+                                </div>
+                                <div class="match_list">
+                                    <ul>
+                                        <li>
+                                            <span class="match_result win">Win</span> 정영제 vs 이준환
                                         </li>
                                     </ul>
                                 </div>

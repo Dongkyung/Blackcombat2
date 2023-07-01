@@ -136,6 +136,8 @@ box-shadow:0 0 5px rgba(55,55,5,0.4);
 .sponsors {display:block; width:100%; height:auto; margin:0; padding:25px 0 35px 0; background:#171310;}
 .sponsor_title {display:block; width:100%; height:auto; margin:0; padding:0; text-align:center;}
 .sponsor_title img {width:100%; max-width:200px; height:auto;}
+.sponsor_first {display:block; width:100%; height:auto; margin:0; padding:0; text-align:center;}
+.sponsor_title .sponsor_first img {width:250px; max-width:250px; height:auto;}
 .sponsor_items {display:flex; flex-direction:row; flex-wrap:wrap; align-items:center; justify-content:center; gap:15px; width:auto; height:auto; margin:0; padding:25px 0 25px 0;}
 .sponsor_item {flex:0 0 calc(); display:flex; flex-direction:column; align-items:center; justify-content:center; width:auto; height:auto; margin:0; padding:0;}
 .sponsor_item_anchor {flex:0 0 auto; display:block; width:auto; height:auto; margin:0; padding:0;background-color: #FFF;}

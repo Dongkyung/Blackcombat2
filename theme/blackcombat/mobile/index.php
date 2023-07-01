@@ -115,7 +115,10 @@ include_once(G5_THEME_MOBILE_PATH.'/head.php');
 </div>
 
 <div class="sponsors">
-    <div class="sponsor_title"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/main/sponsor_title.png" /></div>
+<div class="sponsor_title">
+        <img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_title.png" />
+        <div class="sponsor_first"><a href="https://www.pragmaticplay.com/ko/" class="" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/main/sponsor_img_5.png" /></a></div>
+    </div>
 
     <div class="sponsor_items">
         <div class="sponsor_item"><a href="https://exxxtreme.co.kr/index.html" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/main/sponsor_img_1.png" /></a></div>

@@ -19,6 +19,18 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_spons
             <div class="sponsors_page">
                 <div class="sponsors_list">
                     <div class="sponsors_list_item">
+                    <div class="sponsors_list_logo">
+                            <a href="javascript:void(0);">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_pragmatic.png" />
+                            </a>
+                        </div>
+                        <div class="sponsors_list_caption">
+                            <div class="sponsors_list_info">
+                                PRAGMATIC PLAY
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sponsors_list_item">
                         <div class="sponsors_list_logo">
                             <a href="https://exxxtreme.co.kr/index.html" target="_blank">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsors_extreme.png" />
@@ -51,18 +63,6 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_spons
                         <div class="sponsors_list_caption">
                             <div class="sponsors_list_info">
                                 WORLD’S NO.1 스포츠매트 시장을 선도하는 기업<br />지브라 코리아
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sponsors_list_item">
-                        <div class="sponsors_list_logo">
-                            <a href="https://auction.collexx.io/" target="_blank">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsors_collexx.png" />
-                            </a>
-                        </div>
-                        <div class="sponsors_list_caption">
-                            <div class="sponsors_list_info">
-                                COLLEXX
                             </div>
                         </div>
                     </div>

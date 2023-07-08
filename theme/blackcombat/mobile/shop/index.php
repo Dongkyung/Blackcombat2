@@ -4,7 +4,7 @@ include_once('./_common.php');
 define("_INDEX_", TRUE);
 
 if (!$it_id) {
-    header( 'Location: ' . G5_URL . '/shop/1663911932' );
+    header( 'Location: ' . G5_URL . '/shop/1680840411' );
 }
 
 include_once(G5_THEME_MSHOP_PATH.'/shop.head.php');

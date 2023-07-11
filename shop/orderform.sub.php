@@ -808,6 +808,7 @@ if(function_exists('is_use_easypay') && is_use_easypay('global_nhnkcp')){  // �
     require_once(G5_SHOP_PATH.'/kcp/global_nhn_kcp_order.script.php');
 }
 ?>
+<script defer type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/kas/static/kp.js"></script>
 <script>
 var zipcode = "";
 var form_action_url = "<?php echo $order_action_url; ?>";
@@ -1345,6 +1346,8 @@ function forderform_check(f)
         alert("결제방식을 선택하십시오.");
         return false;
     }
+    
+    kakaoPixel('8339806502848870616').purchase();
 
     var od_price = parseInt(f.od_price.value);
     var send_cost = parseInt(f.od_send_cost.value);

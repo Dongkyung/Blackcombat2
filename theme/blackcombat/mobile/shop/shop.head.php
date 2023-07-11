@@ -24,6 +24,10 @@ if ($ticket_row) {
 <style>
 #ol_after_private {display:none;}
 </style>
+<script defer type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/kas/static/kp.js"></script>
+<script defer type="text/javascript">
+      kakaoPixel('8339806502848870616').pageView();
+</script>
 
 <header id="hd">
     <?php if ((!$bo_table || $w == 's' ) && defined('_INDEX_')) { ?><h1><?php echo $config['cf_title'] ?></h1><?php } ?>

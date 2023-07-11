@@ -525,7 +525,7 @@ if ($config['cf_analytics']) {
         if ($('.open_seat_choice_btn').length) {
             $('.open_seat_choice_btn').on('click', function(e) {
                 e.preventDefault();
-
+                kakaoPixel('8339806502848870616').viewCart();
                 $('.seat_choice_popup').fadeIn(300);
             });
         }

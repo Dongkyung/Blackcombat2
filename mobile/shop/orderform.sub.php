@@ -808,6 +808,7 @@ if(function_exists('is_use_easypay') && is_use_easypay('global_nhnkcp')){  // �
     require_once(G5_MSHOP_PATH.'/kcp/m_order.script.php');
 }
 ?>
+<script defer type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/kas/static/kp.js"></script>
 <script>
 var zipcode = "";
 
@@ -1294,6 +1295,8 @@ function pay_approval()
     if(!payment_check(pf))
         return false;
 
+    kakaoPixel('8339806502848870616').purchase();
+
     // pg 결제 금액에서 포인트 금액 차감
     if(settle_method != "무통장") {
         var od_price = parseInt(pf.od_price.value);
@@ -1492,6 +1495,8 @@ function forderform_check()
         alert("결제등록요청 후 주문해 주십시오.");
         return false;
     }
+
+    kakaoPixel('8339806502848870616').purchase();
 
     document.getElementById("display_pay_button").style.display = "none";
     document.getElementById("show_progress").style.display = "block";

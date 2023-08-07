@@ -140,6 +140,10 @@ if ($config['cf_analytics']) {
                     </div>
                 </div> -->
                 <img class="cage_img_3" src="<?php echo G5_THEME_IMG_URL; ?>/product/cage_img_3.png" />
+                <div style="display: flex;align-items: center;justify-content: center;background-color:#fff;border: 5px solid #000;font-size: 25px;text-align: center;word-break: keep-all;position: absolute;top: 250px;left: 870px;width: 55px;height: 140px;text-orientation: upright;writing-mode: vertical-rl;z-index: 0;">스크린</div>
+                <div style="display: flex;align-items: center;justify-content: center;background-color:#fff;border: 5px solid #000;font-size: 25px;text-align: center;word-break: keep-all;position: absolute;top: 642px;left: 870px;width: 55px;height: 140px;text-orientation: upright;writing-mode: vertical-rl;z-index: 0;">스크린</div>
+                <div style="display: flex;align-items: center;justify-content: center;background-color:#fff;border: 5px solid #000;font-size: 25px;text-align: center;word-break: keep-all;position: absolute;top: 450px;left: 970px;width: 55px;height: 140px;text-orientation: upright;writing-mode: vertical-rl;z-index: 0;">스크린</div>
+                <div style="display: flex;align-items: center;justify-content: center;background-color: #000;border: 5px solid #000;font-size: 25px;text-align: center;word-break: keep-all;position: absolute;top: 415px;left: 870px;width: 85px;height: 200px;text-orientation: upright;writing-mode: vertical-rl;color: #eee;z-index: 3;">STAGE</div>
                 <div style="display: flex; align-items: center; justify-content: center; background-color:#fff; border: 5px solid #000; font-size: 35px; text-align: center; word-break: keep-all; position: absolute; top:96px; left:100px; width: 760px; height: 120px; z-index:1;">
                     스탠딩석
                 </div>
@@ -153,7 +157,7 @@ if ($config['cf_analytics']) {
                 <div style="display: flex; align-items: center; justify-content: center; background-color:#fff; border: 5px solid #000; font-size: 35px; text-align: center; word-break: keep-all; position: absolute; top:810px; left:100px; width: 760px; height: 120px; z-index:1;">
                     스탠딩석
                 </div>
-                <div style="display: flex;align-items: center;justify-content: center;color: #393939;background-color: #ffb4b4;font-size: 35px;text-align: center;word-break: keep-all;position: absolute;top: 480px; left: 669px; width: 192px; height: 69px; z-index:1;">
+                <div style="display: flex;align-items: center;justify-content: center;color: #393939;background-color: #ffb4b4;font-size: 35px;text-align: center;word-break: keep-all;position: absolute;top: 480px; left: 669px; width: 203px; height: 69px; z-index:1;">
                     선수 입장로
                 </div>
                 <!-- VVIP-L -->
@@ -251,9 +255,9 @@ if ($config['cf_analytics']) {
                 </div>
                 
                 <!-- right1 -->
-                <div style="display: flex; gap:10px; flex-direction: row; align-items: center; position: absolute; top:379px; left:734px;">
-                    <div style="width: 132px; height: 84px; border: 2px solid #ff7f00;"></div>
+                <div style="display: flex; gap:10px; flex-direction: row; align-items: center; position: absolute; top:379px; left:674px;">
                     <span style="color: #ff7f00; font-size: 20px;">VIP-L</span>
+                    <div style="width: 134px; height: 84px; border: 2px solid #ff7f00;"></div>
                 </div>
                 <div class="seat_rows_groups vertical" style="top:384px; left:736px; z-index:2;">
                     <div class="seat_rows_group">
@@ -284,9 +288,9 @@ if ($config['cf_analytics']) {
                 </div>
 
                 <!-- right2 -->
-                <div style="display: flex; gap:10px; flex-direction: row; align-items: center; position: absolute; top:565px; left:732px;">
-                    <div style="width: 132px; height: 84px; border: 2px solid #ff7f00;"></div>
+                <div style="display: flex; gap:10px; flex-direction: row; align-items: center; position: absolute; top:565px; left:670px;">
                     <span style="color: #ff7f00; font-size: 20px;">VIP-R</span>
+                    <div style="width: 134px; height: 84px; border: 2px solid #ff7f00;"></div>
                 </div>
                 <div class="seat_rows_groups vertical" style="top:569px; left:734px; z-index:2;">
                     <div class="seat_rows_group">
@@ -557,7 +561,7 @@ if ($config['cf_analytics']) {
                     {
                         obj.attr('data-seat', 'VIP');
                     }
-                    else if (objValue.indexOf('VVIP,161000') !== -1)
+                    else if (objValue.indexOf('VVIP,201000') !== -1)
                     {
                         obj.attr('data-seat', 'VVIP');
                     }
@@ -713,7 +717,7 @@ if ($config['cf_analytics']) {
 
                             optionResultObj.html(optionResultHtml);
 
-                            $('#sit_tot_price').text(`총 ${number_format(89000+Number(optionValue_split[1]))}원`);
+                            $('#sit_tot_price').text(`총 ${number_format(99000+Number(optionValue_split[1]))}원`);
 
 
                             alert('좌석이 선택되었습니다.');

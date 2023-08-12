@@ -2096,7 +2096,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            <span class="match_result win">Win</span> 유수영 vs 김동규
+                                            유수영 vs 김동규
                                         </li>
                                     </ul>
                                 </div>
@@ -2253,7 +2253,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     8 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    6 <div class="mini">Lose</div>
+                                    5 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
                                     0 <div class="mini">Draw</div>
@@ -2266,7 +2266,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            김동규 vs <span class="match_result win">Win</span> 유수영
+                                            김동규 vs 유수영
                                         </li>
                                     </ul>
                                 </div>
@@ -2726,7 +2726,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png?v=2" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_8ouruniverse8.png?v=2" />
                         </div>
                     </div>
 
@@ -7844,7 +7844,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_j_mma.png?v=2" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_j_mma.png" />
                         </div>
                     </div>
 

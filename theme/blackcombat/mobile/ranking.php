@@ -1424,28 +1424,11 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                     <div class="ranking_team_list">
                         <div class="ranking_team_part">
                             <div class="ranking_team_logo">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/team_mmastory.png" />
-                            </div>
-                            <div class="ranking_team_info">
-                                <div class="ranking_team_num">
-                                    <span>Rank</span> 1
-                                </div>
-                                <div class="ranking_team_name">
-                                    아리에 블랙 MMA 스토리
-                                </div>
-                                <div class="ranking_team_address">
-                                    서울특별시 도봉구 노해로63가길 42 B1
-                                    <div class="tel">0507-1345-9663</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ranking_team_part">
-                            <div class="ranking_team_logo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/team_excombat.png" />
                             </div>
                             <div class="ranking_team_info">
                                 <div class="ranking_team_num">
-                                    <span>Rank</span> 2
+                                    <span>Rank</span> 1
                                 </div>
                                 <div class="ranking_team_name">
                                     Extreme 익스트림 컴뱃
@@ -1453,6 +1436,23 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <div class="ranking_team_address">
                                     경기도 고양시 덕양구 화신로260번길 58, B01호
                                     <div class="tel">031-965-2347</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ranking_team_part">
+                            <div class="ranking_team_logo">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/team_mmastory.png" />
+                            </div>
+                            <div class="ranking_team_info">
+                                <div class="ranking_team_num">
+                                    <span>Rank</span> 2
+                                </div>
+                                <div class="ranking_team_name">
+                                    아리에 블랙 MMA 스토리
+                                </div>
+                                <div class="ranking_team_address">
+                                    서울특별시 도봉구 노해로63가길 42 B1
+                                    <div class="tel">0507-1345-9663</div>
                                 </div>
                             </div>
                         </div>
@@ -1475,28 +1475,11 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                         </div>
                         <div class="ranking_team_part">
                             <div class="ranking_team_logo">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/team_calson.png" />
-                            </div>
-                            <div class="ranking_team_info">
-                                <div class="ranking_team_num">
-                                    <span>Rank</span> 4
-                                </div>
-                                <div class="ranking_team_name">
-                                    지브라 칼슨 해적단
-                                </div>
-                                <div class="ranking_team_address">
-                                    서울 마포구 양화로 85
-                                    <div class="tel">02-6218-1800</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ranking_team_part">
-                            <div class="ranking_team_logo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/team_solid.png" />
                             </div>
                             <div class="ranking_team_info">
                                 <div class="ranking_team_num">
-                                    <span>Rank</span> 5
+                                    <span>Rank</span> 4
                                 </div>
                                 <div class="ranking_team_name">
                                     BF 팀 솔리드
@@ -1504,6 +1487,23 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <div class="ranking_team_address">
                                     경기도 김포시 김포한강1로97번길 10-12, 101호 솔리드짐
                                     <div class="tel">0507-1312-1794</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ranking_team_part">
+                            <div class="ranking_team_logo">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/team_calson.png" />
+                            </div>
+                            <div class="ranking_team_info">
+                                <div class="ranking_team_num">
+                                    <span>Rank</span> 5
+                                </div>
+                                <div class="ranking_team_name">
+                                    지브라 칼슨 해적단
+                                </div>
+                                <div class="ranking_team_address">
+                                    서울 마포구 양화로 85
+                                    <div class="tel">02-6218-1800</div>
                                 </div>
                             </div>
                         </div>

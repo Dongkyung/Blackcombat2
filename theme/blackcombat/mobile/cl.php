@@ -53,6 +53,19 @@ include_once(G5_MOBILE_PATH.'/head.php');
                             <tr>
                                 <td>1</td>
                                 <td>
+                                    <span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_excombat.png" /></span>
+                                    <span class="cl_team_name">익스트림 익스트림컴뱃</span>
+                                </td>
+                                <td>26</td>
+                                <td>12</td>
+                                <td>6</td>
+                                <td>8</td>
+                                <td>-</td>
+                                <td>22</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>
                                     <span class="cl_team_logo">
                                         <img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_mmastory.png" />
                                     </span>
@@ -66,31 +79,18 @@ include_once(G5_MOBILE_PATH.'/head.php');
                                 <td>18</td>
                             </tr>
                             <tr>
-                                <td>2</td>
-                                <td>
-                                    <span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_excombat.png" /></span>
-                                    <span class="cl_team_name">익스트림 익스트림컴뱃</span>
-                                </td>
-                                <td>21</td>
-                                <td>9</td>
-                                <td>5</td>
-                                <td>7</td>
-                                <td>-</td>
-                                <td>16</td>
-                            </tr>
-                            <tr>
                                 <td>3</td>
                                 <td>
                                     <span class="cl_team_logo">
                                     <img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_ssabi.png" /></span>
                                     <span class="cl_team_name">알타핏 싸비 MMA</span>
                                 </td>
-                                <td>21</td>
+                                <td>26</td>
                                 <td>9</td>
-                                <td>4</td>
-                                <td>8</td>
+                                <td>6</td>
+                                <td>11</td>
                                 <td>-</td>
-                                <td>14</td>
+                                <td>13</td>
                             </tr>
                             <tr>
                                 <td>4</td>
@@ -133,7 +133,7 @@ include_once(G5_MOBILE_PATH.'/head.php');
                             </tr>
                         </tbody>
                     </table>
-                    <div class="cl_update_date">update. 2023.05.27</div>
+                    <div class="cl_update_date">update. 2023.06.24</div>
                 </div>
             </div>
         </div>

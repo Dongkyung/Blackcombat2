@@ -14,7 +14,7 @@
 .ranking_champ_name { font-size: 24px; font-weight: bold; padding-left: 10px; height: 60px; }
 .ranking_ring_name { font-size: 13px; color:#999999; font-weight: normal; }
 .ranking_champ_photo { text-align: right; margin-top: -80px; height: 150px;}
-.ranking_champ_photo img { width: 200px; }
+.ranking_champ_photo img { width: 200px; height: 150px; }
 .ranking_list_part_item { background-color: #FFF; padding: 0px 10px; line-height: 40px; margin-bottom: 1px; }
 .ranking_list_part_item:after { display: block; content: ''; clear: both; }
 .ranking_list_num { float: left; width: 20px; text-align: center; }
@@ -27,7 +27,7 @@
 .ranking_team_list {}
 .ranking_team_part:after { display: block; content: ''; clear: both; }
 .ranking_team_part { background-color: rgba(255,255,255,0.3); padding: 10px; margin: 0px auto; margin-bottom: 30px; }
-.ranking_team_part:last-child; { margin-bottom: 0px; }
+.ranking_team_part:last-child { margin-bottom: 0px; }
 .ranking_team_logo { float: left; width: 50%; }
 .ranking_team_logo img { width: 100%; }
 .ranking_team_info { float: left; width: 40%; margin-left: 20px; }

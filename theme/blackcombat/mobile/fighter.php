@@ -16,7 +16,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
             </div>
         </div>
     </div>    
-<div class="sub_content fighter" style="background-color: #000; padding-bottom: 0px;">
+    <div class="sub_content fighter" style="background-color: #000; padding-bottom: 0px;">
         <div class="sub_container">
             <div class="fighter_page">
 
@@ -601,7 +601,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_viper.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_viper_full.png" />
                         </div>
                     </div>
 
@@ -658,7 +658,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_badguy_mma.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_badguy_mma_full.png" />
                         </div>
                     </div>
 
@@ -831,7 +831,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_lillio_full.png" />
                         </div>
                     </div>
 
@@ -1415,7 +1415,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_ssmg_full.png" />
                         </div>
                     </div>
 
@@ -1644,7 +1644,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_theanomalousmma_full.png" />
                         </div>
                     </div>
 
@@ -1701,7 +1701,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_hana_full.png" />
                         </div>
                     </div>
 
@@ -1929,7 +1929,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_garrincha_full.png" />
                         </div>
                     </div>
 
@@ -2556,7 +2556,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_pirateking_1.png" />
+                        <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_pirateking_1.png" />
                         </div>
                     </div>
                 <?php } else if ($page == 'bantamweight_11') { ?>
@@ -2783,7 +2783,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_parkseongjun_full.png" />
                         </div>
                     </div>
 
@@ -3702,7 +3702,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_parksanghyun_full.png" />
                         </div>
                     </div>
 
@@ -4329,7 +4329,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_wrestler_cho_full.png" />
                         </div>
                     </div>
 
@@ -5139,7 +5139,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_oduseog_full.png" />
                         </div>
                     </div>
 
@@ -5310,7 +5310,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_minhyeok_full.png" />
                         </div>
                     </div>
 
@@ -5424,7 +5424,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_chan_full.png" />
                         </div>
                     </div>
 
@@ -5997,7 +5997,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_youngtiger_1.png" />
+                        <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_youngtiger_1.png" />
                         </div>
                     </div>
 
@@ -6289,7 +6289,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_satan_full.png" />
                         </div>
                     </div>
 
@@ -7728,7 +7728,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_yang_hae_jun.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_yang_hae_jun_full.png" />
                         </div>
                     </div>
 
@@ -8306,7 +8306,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_limjnwook_full.png" />
                         </div>
                     </div>
 
@@ -8540,7 +8540,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_hyeonminkim_full.png" />
                         </div>
                     </div>
 

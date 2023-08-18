@@ -208,7 +208,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_10';">
                             <div class="ranking_list_num">14</div>
                             <div class="ranking_list_photo">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_hyojejo.png">
                             </div>
                             <div class="ranking_list_name">조효제<span class="ring_name">버서커 / Extreme 익스트림 컴뱃</span></div>
                             <div class="ranking_list_change">▼ 2</div>
@@ -1381,11 +1381,15 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                         </div>
                     </div>
                     <div class="ranking_list_part">
-                        <div class="ranking_list_part_champ">
+                        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=women_siyoon';">
                             <h3><span class="weight">여성부</span> <span class="champ">CHAMPION</span></h3>
                             <div class="ranking_champ_name">
+                                박시윤
+                                <div class="ranking_ring_name">쌍칼</div>
+                                <div class="ranking_ring_name">더짐랩</div>
                             </div>
                             <div class="ranking_champ_photo">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_siyoon.png">
                             </div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=women_1';">

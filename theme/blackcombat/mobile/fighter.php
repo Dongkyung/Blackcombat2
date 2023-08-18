@@ -1003,7 +1003,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_hyojejo_full.png" />
                         </div>
                     </div>
 
@@ -9291,6 +9291,63 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                         </div>
                     </div>
 
+                <?php } else if ($page == 'women_siyoon') { ?>
+
+                    <div class="fighter_info">
+                        <div class="fighter_data">
+                            <div class="data_tags">
+                                <span>여성부</span>
+                            </div>
+                            <div class="data_name">
+                                박시윤
+                                <span class="data_ringname">"쌍칼"</span>
+                                <span class="data_age">AGE 25</span>
+                            </div>
+                            <div class="sns_link">
+                                <a href="https://www.instagram.com/si_yoon_park/" target="_blank">@si_yoon_park</a>
+                            </div>
+                            <div class="data_team">
+                                팀명 : 더짐랩
+                            </div>
+                            <div class="data_bio">
+                                <div class="data_bio_height">
+                                    <div class="mini">HEIGHT</div>
+                                    155cm
+                                </div>
+                                <div class="data_bio_weight">
+                                    <div class="mini">WEIGHT</div>
+                                    -
+                                </div>
+                            </div>
+                            <div class="data_record">
+                                <div class="data_record_win">
+                                    4 <div class="mini">Win</div>
+                                </div>
+                                <div class="data_record_draw">
+                                    3 <div class="mini">Lose</div>
+                                </div>
+                                <div class="data_record_lose">
+                                    0 <div class="mini">Draw</div>
+                                </div>
+                            </div>
+                            <div class="fighter_match">
+                                <div class="match_title">
+                                    LASTEST MATCH
+                                </div>
+                                <div class="match_list">
+                                    <ul>
+                                        <li>
+                                            <span class="match_result win">Win</span> 박시윤 vs 김남희
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fighter_img">
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_siyoon_full.png" />
+                        </div>
+                    </div>
+
                 <?php } else if ($page == 'women_1') { ?>
 
                     <div class="fighter_info">
@@ -9422,7 +9479,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <span class="data_age">AGE 24</span>
                             </div>
                             <div class="sns_link">
-                                <a href="https://www.instagram.com/namheekim_mma/" target="_blank">@namheekim_mma</a>
+                                <a href="https://www.instagram.com/gwangnyeo_fighter/" target="_blank">@gwangnyeo_fighter</a>
                             </div>
                             <div class="data_team">
                                 팀명 : 쎈짐
@@ -9442,7 +9499,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     0 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    1 <div class="mini">Lose</div>
+                                    2 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
                                     1 <div class="mini">Draw</div>
@@ -9455,7 +9512,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            No Data
+                                            <span class="match_result win">Win</span> 박시윤 vs 김남희
                                         </li>
                                     </ul>
                                 </div>

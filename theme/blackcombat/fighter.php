@@ -1395,7 +1395,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                             <div class="data_record">
                                 <div class="data_record_win">
-                                    1 <div class="mini">Win</div>
+                                    2 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
                                     0 <div class="mini">Lose</div>
@@ -1411,7 +1411,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            <span class="match_result win">Win</span> 박석광 vs 이서준
+                                            <span class="match_result win">Win</span> 박석광 vs 전우주
                                         </li>
                                     </ul>
                                 </div>
@@ -1983,6 +1983,120 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     <ul>
                                         <li>
                                             <!-- <span class="match_result win">Win</span> 박정빈 vs 박성관 -->
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fighter_img">
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_koreanlazyboi.png" />
+                        </div>
+                    </div>
+
+                <?php } else if ($page == 'flyweight_alsdnx') { ?>
+
+                    <div class="fighter_info">
+                        <div class="fighter_data">
+                            <div class="data_tags">
+                                <span>플라이급</span>
+                            </div>
+                            <div class="data_name">
+                                김민우
+                                <span class="data_ringname">"매드독"</span>
+                                <span class="data_age">AGE 24</span>
+                            </div>
+                            <div class="sns_link">
+                                <a href="https://www.instagram.com/alsdnx_x/" target="_blank">@alsdnx_x</a>
+                            </div>
+                            <div class="data_team">
+                                팀명 : 마이티짐
+                            </div>
+                            <div class="data_bio">
+                                <div class="data_bio_height">
+                                    <div class="mini">HEIGHT</div>
+                                    170cm
+                                </div>
+                                <div class="data_bio_weight">
+                                    <div class="mini">WEIGHT</div>
+                                    -
+                                </div>
+                            </div>
+                            <div class="data_record">
+                                <div class="data_record_win">
+                                    0 <div class="mini">Win</div>
+                                </div>
+                                <div class="data_record_draw">
+                                    0 <div class="mini">Lose</div>
+                                </div>
+                                <div class="data_record_lose">
+                                    0 <div class="mini">Draw</div>
+                                </div>
+                            </div>
+                            <div class="fighter_match">
+                                <div class="match_title">
+                                    LASTEST MATCH
+                                </div>
+                                <div class="match_list">
+                                    <ul>
+                                        <li>
+                                            <!-- <span class="match_result win">Win</span> 박정빈 vs 박성관 -->
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fighter_img">
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                        </div>
+                    </div>
+
+                <?php } else if ($page == 'flyweight_wooju') { ?>
+
+                    <div class="fighter_info">
+                        <div class="fighter_data">
+                            <div class="data_tags">
+                                <span>플라이급</span>
+                            </div>
+                            <div class="data_name">
+                                전우주
+                                <span class="data_ringname">"더 스페이스"</span>
+                                <span class="data_age">AGE 16</span>
+                            </div>
+                            <div class="sns_link">
+                                <a href="https://www.instagram.com/wooju_0101/" target="_blank">@wooju_0101</a>
+                            </div>
+                            <div class="data_team">
+                                팀명 : 팀 피니쉬
+                            </div>
+                            <div class="data_bio">
+                                <div class="data_bio_height">
+                                    <div class="mini">HEIGHT</div>
+                                    168cm
+                                </div>
+                                <div class="data_bio_weight">
+                                    <div class="mini">WEIGHT</div>
+                                    -
+                                </div>
+                            </div>
+                            <div class="data_record">
+                                <div class="data_record_win">
+                                    0 <div class="mini">Win</div>
+                                </div>
+                                <div class="data_record_draw">
+                                    1 <div class="mini">Lose</div>
+                                </div>
+                                <div class="data_record_lose">
+                                    0 <div class="mini">Draw</div>
+                                </div>
+                            </div>
+                            <div class="fighter_match">
+                                <div class="match_title">
+                                    LASTEST MATCH
+                                </div>
+                                <div class="match_list">
+                                    <ul>
+                                        <li>
+                                            <span class="match_result win">Win</span> 박석광 vs 전우주
                                         </li>
                                     </ul>
                                 </div>
@@ -2652,7 +2766,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     1 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    0 <div class="mini">Lose</div>
+                                    1 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
                                     0 <div class="mini">Draw</div>
@@ -2665,7 +2779,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            <span class="match_result win">Win</span> 하준혁 vs 박태호
+                                            <span class="match_result win">Win</span> 김주환 vs 하준혁
                                         </li>
                                     </ul>
                                 </div>
@@ -3823,6 +3937,120 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                         </div>
                     </div>
 
+                <?php } else if ($page == 'bantamweight_sung_j') { ?>
+
+                    <div class="fighter_info">
+                        <div class="fighter_data">
+                            <div class="data_tags">
+                                <span>밴텀급</span>
+                            </div>
+                            <div class="data_name">
+                                이성재
+                                <span class="data_ringname">"포세이돈"</span>
+                                <span class="data_age">AGE 31</span>
+                            </div>
+                            <div class="sns_link">
+                                <a href="https://www.instagram.com/sung_j_0207/" target="_blank">@sung_j_0207</a>
+                            </div>
+                            <div class="data_team">
+                                팀명 : 아리에 블랙 MMA 스토리
+                            </div>
+                            <div class="data_bio">
+                                <div class="data_bio_height">
+                                    <div class="mini">HEIGHT</div>
+                                    175cm
+                                </div>
+                                <div class="data_bio_weight">
+                                    <div class="mini">WEIGHT</div>
+                                    -
+                                </div>
+                            </div>
+                            <div class="data_record">
+                                <div class="data_record_win">
+                                    3 <div class="mini">Win</div>
+                                </div>
+                                <div class="data_record_draw">
+                                    2 <div class="mini">Lose</div>
+                                </div>
+                                <div class="data_record_lose">
+                                    - <div class="mini">Draw</div>
+                                </div>
+                            </div>
+                            <div class="fighter_match">
+                                <div class="match_title">
+                                    LASTEST MATCH
+                                </div>
+                                <div class="match_list">
+                                    <ul>
+                                        <li>
+                                            <span class="match_result win">Win</span> 이성재 vs 김시산
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fighter_img">
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                        </div>
+                    </div>
+
+                <?php } else if ($page == 'bantamweight_joohwan') { ?>
+
+                    <div class="fighter_info">
+                        <div class="fighter_data">
+                            <div class="data_tags">
+                                <span>밴텀급</span>
+                            </div>
+                            <div class="data_name">
+                                김주환
+                                <span class="data_ringname">"땅꾼"</span>
+                                <span class="data_age">AGE 30</span>
+                            </div>
+                            <div class="sns_link">
+                                <a href="https://www.instagram.com/joohwan__kim/" target="_blank">@joohwan__kim</a>
+                            </div>
+                            <div class="data_team">
+                                팀명 : 더짐랩
+                            </div>
+                            <div class="data_bio">
+                                <div class="data_bio_height">
+                                    <div class="mini">HEIGHT</div>
+                                    164cm
+                                </div>
+                                <div class="data_bio_weight">
+                                    <div class="mini">WEIGHT</div>
+                                    -
+                                </div>
+                            </div>
+                            <div class="data_record">
+                                <div class="data_record_win">
+                                    7 <div class="mini">Win</div>
+                                </div>
+                                <div class="data_record_draw">
+                                    4 <div class="mini">Lose</div>
+                                </div>
+                                <div class="data_record_lose">
+                                    - <div class="mini">Draw</div>
+                                </div>
+                            </div>
+                            <div class="fighter_match">
+                                <div class="match_title">
+                                    LASTEST MATCH
+                                </div>
+                                <div class="match_list">
+                                    <ul>
+                                        <li>
+                                            <span class="match_result win">Win</span> 김주환 vs 하준혁
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fighter_img">
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                        </div>
+                    </div>
+
 
                 <?php } else if ($page == 'featherweight_2') { ?>
 
@@ -4508,64 +4736,6 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
                         </div>
                     </div>
-
-                    <?php } else if ($page == 'featherweight_14') { ?>
-
-                    <div class="fighter_info">
-                        <div class="fighter_data">
-                            <div class="data_tags">
-                                <span>밴텀급/페더급</span>
-                            </div>
-                            <div class="data_name">
-                                이성재
-                                <span class="data_ringname">"포세이돈"</span>
-                                <span class="data_age">AGE 31</span>
-                            </div>
-                            <div class="sns_link">
-                                <a href="https://www.instagram.com/sung_j_0207/" target="_blank">@sung_j_0207</a>
-                            </div>
-                            <div class="data_team">
-                                팀명 : 아리에 블랙 MMA 스토리
-                            </div>
-                            <div class="data_bio">
-                                <div class="data_bio_height">
-                                    <div class="mini">HEIGHT</div>
-                                    175cm
-                                </div>
-                                <div class="data_bio_weight">
-                                    <div class="mini">WEIGHT</div>
-                                    -
-                                </div>
-                            </div>
-                            <div class="data_record">
-                                <div class="data_record_win">
-                                    3 <div class="mini">Win</div>
-                                </div>
-                                <div class="data_record_draw">
-                                    2 <div class="mini">Lose</div>
-                                </div>
-                                <div class="data_record_lose">
-                                    - <div class="mini">Draw</div>
-                                </div>
-                            </div>
-                            <div class="fighter_match">
-                                <div class="match_title">
-                                    LASTEST MATCH
-                                </div>
-                                <div class="match_list">
-                                    <ul>
-                                        <li>
-                                            <span class="match_result win">Win</span> 이성재 vs 김시산
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
-                        </div>
-                    </div>
-
 
                 <?php } else if ($page == 'featherweight_15') { ?>
 
@@ -5716,6 +5886,120 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                         </div>
                     </div>
 
+                <?php } else if ($page == 'featherweight_finisher') { ?>
+
+                    <div class="fighter_info">
+                        <div class="fighter_data">
+                            <div class="data_tags">
+                                <span>페더급</span>
+                            </div>
+                            <div class="data_name">
+                                황준호
+                                <span class="data_ringname">"피니셔"</span>
+                                <span class="data_age">AGE 22</span>
+                            </div>
+                            <div class="sns_link">
+                                <a href="https://www.instagram.com/finisher_hwang/" target="_blank">@finisher_hwang</a>
+                            </div>
+                            <div class="data_team">
+                                팀명 : 블랙리스트MMA
+                            </div>
+                            <div class="data_bio">
+                                <div class="data_bio_height">
+                                    <div class="mini">HEIGHT</div>
+                                    183cm
+                                </div>
+                                <div class="data_bio_weight">
+                                    <div class="mini">WEIGHT</div>
+                                    -
+                                </div>
+                            </div>
+                            <div class="data_record">
+                                <div class="data_record_win">
+                                    1 <div class="mini">Win</div>
+                                </div>
+                                <div class="data_record_draw">
+                                    1 <div class="mini">Lose</div>
+                                </div>
+                                <div class="data_record_lose">
+                                    0 <div class="mini">Draw</div>
+                                </div>
+                            </div>
+                            <div class="fighter_match">
+                                <div class="match_title">
+                                    LASTEST MATCH
+                                </div>
+                                <div class="match_list">
+                                    <ul>
+                                        <li>
+                                            <span class="match_result win">Win</span> 황준호 vs 문병일
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fighter_img">
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                        </div>
+                    </div>
+
+                <?php } else if ($page == 'featherweight_byeong') { ?>
+
+                    <div class="fighter_info">
+                        <div class="fighter_data">
+                            <div class="data_tags">
+                                <span>페더급/라이트급</span>
+                            </div>
+                            <div class="data_name">
+                                문병일
+                                <span class="data_ringname">"VIOLENT"</span>
+                                <span class="data_age">AGE 28</span>
+                            </div>
+                            <div class="sns_link">
+                                <a href="https://www.instagram.com/_byeong.1_moon/" target="_blank">@_byeong.1_moon</a>
+                            </div>
+                            <div class="data_team">
+                                팀명 : 1TIER GYM
+                            </div>
+                            <div class="data_bio">
+                                <div class="data_bio_height">
+                                    <div class="mini">HEIGHT</div>
+                                    181cm
+                                </div>
+                                <div class="data_bio_weight">
+                                    <div class="mini">WEIGHT</div>
+                                    -
+                                </div>
+                            </div>
+                            <div class="data_record">
+                                <div class="data_record_win">
+                                    0 <div class="mini">Win</div>
+                                </div>
+                                <div class="data_record_draw">
+                                    2 <div class="mini">Lose</div>
+                                </div>
+                                <div class="data_record_lose">
+                                    0 <div class="mini">Draw</div>
+                                </div>
+                            </div>
+                            <div class="fighter_match">
+                                <div class="match_title">
+                                    LASTEST MATCH
+                                </div>
+                                <div class="match_list">
+                                    <ul>
+                                        <li>
+                                            <span class="match_result win">Win</span> 황준호 vs 문병일
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fighter_img">
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                        </div>
+                    </div>
+
 
                 <?php } else if ($page == 'lightweight_0') { ?>
 
@@ -6642,66 +6926,6 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
                         </div>
                     </div>
-
-
-                <?php } else if ($page == 'lightweight_19') { ?>
-
-                    <div class="fighter_info">
-                        <div class="fighter_data">
-                            <div class="data_tags">
-                                <span>라이트급</span>
-                            </div>
-                            <div class="data_name">
-                                문병일
-                                <span class="data_ringname">"SCP-096"</span>
-                                <span class="data_age">AGE 31</span>
-                            </div>
-                            <div class="sns_link">
-                                <a href="https://www.instagram.com/scp096_b.1/" target="_blank">@scp096_b.1</a>
-                            </div>
-                            <div class="data_team">
-                                팀명 : 청주 팀매드
-                            </div>
-                            <div class="data_bio">
-                                <div class="data_bio_height">
-                                    <div class="mini">HEIGHT</div>
-                                    181cm
-                                </div>
-                                <div class="data_bio_weight">
-                                    <div class="mini">WEIGHT</div>
-                                    -
-                                </div>
-                            </div>
-                            <div class="data_record">
-                                <div class="data_record_win">
-                                    - <div class="mini">Win</div>
-                                </div>
-                                <div class="data_record_draw">
-                                    - <div class="mini">Lose</div>
-                                </div>
-                                <div class="data_record_lose">
-                                    - <div class="mini">Draw</div>
-                                </div>
-                            </div>
-                            <div class="fighter_match">
-                                <div class="match_title">
-                                    LASTEST MATCH
-                                </div>
-                                <div class="match_list">
-                                    <ul>
-                                        <li>
-                                            No Data
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
-                        </div>
-                    </div>
-
-                
 
                 <?php } else if ($page == 'lightweight_20') { ?>
 
@@ -7677,6 +7901,120 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                         </div>
                     </div>
 
+                <?php } else if ($page == 'lightweight_superchoi') { ?>
+
+                    <div class="fighter_info">
+                        <div class="fighter_data">
+                            <div class="data_tags">
+                                <span>라이트급</span>
+                            </div>
+                            <div class="data_name">
+                                최성욱
+                                <span class="data_ringname">"아기고릴라"</span>
+                                <span class="data_age">AGE 36</span>
+                            </div>
+                            <div class="sns_link">
+                                <a href="https://www.instagram.com/superchoi87/" target="_blank">@superchoi87</a>
+                            </div>
+                            <div class="data_team">
+                                팀명 : 케이레슬링
+                            </div>
+                            <div class="data_bio">
+                                <div class="data_bio_height">
+                                    <div class="mini">HEIGHT</div>
+                                    176cm
+                                </div>
+                                <div class="data_bio_weight">
+                                    <div class="mini">WEIGHT</div>
+                                    -
+                                </div>
+                            </div>
+                            <div class="data_record">
+                                <div class="data_record_win">
+                                    1 <div class="mini">Win</div>
+                                </div>
+                                <div class="data_record_draw">
+                                    4 <div class="mini">Lose</div>
+                                </div>
+                                <div class="data_record_lose">
+                                    0 <div class="mini">Draw</div>
+                                </div>
+                            </div>
+                            <div class="fighter_match">
+                                <div class="match_title">
+                                    LASTEST MATCH
+                                </div>
+                                <div class="match_list">
+                                    <ul>
+                                        <li>
+                                            <span class="match_result win">Win</span> 최성욱 vs 김석민
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fighter_img">
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                        </div>
+                    </div>
+
+                <?php } else if ($page == 'lightweight_kim_mma') { ?>
+
+                    <div class="fighter_info">
+                        <div class="fighter_data">
+                            <div class="data_tags">
+                                <span>라이트급</span>
+                            </div>
+                            <div class="data_name">
+                                김석민
+                                <span class="data_ringname">"마우이"</span>
+                                <span class="data_age">AGE 28</span>
+                            </div>
+                            <div class="sns_link">
+                                <a href="https://www.instagram.com/_kim_mma/" target="_blank">@_kim_mma</a>
+                            </div>
+                            <div class="data_team">
+                                팀명 : 김석민 TEAM MMA짐
+                            </div>
+                            <div class="data_bio">
+                                <div class="data_bio_height">
+                                    <div class="mini">HEIGHT</div>
+                                    170cm
+                                </div>
+                                <div class="data_bio_weight">
+                                    <div class="mini">WEIGHT</div>
+                                    -
+                                </div>
+                            </div>
+                            <div class="data_record">
+                                <div class="data_record_win">
+                                    0 <div class="mini">Win</div>
+                                </div>
+                                <div class="data_record_draw">
+                                    2 <div class="mini">Lose</div>
+                                </div>
+                                <div class="data_record_lose">
+                                    0 <div class="mini">Draw</div>
+                                </div>
+                            </div>
+                            <div class="fighter_match">
+                                <div class="match_title">
+                                    LASTEST MATCH
+                                </div>
+                                <div class="match_list">
+                                    <ul>
+                                        <li>
+                                            <span class="match_result win">Win</span> 최성욱 vs 김석민
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fighter_img">
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                        </div>
+                    </div>
+
 
                 <?php } else if ($page == 'heavyweight_0') { ?>
 
@@ -8187,7 +8525,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            <span class="match_result win">Win</span> 최재현 vs 이현성
+                                            <span class="match_result win">Win</span> 최재현 vs 박찬솔
                                         </li>
                                     </ul>
                                 </div>
@@ -8906,13 +9244,13 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             <div class="data_name">
                                 박찬솔
                                 <span class="data_ringname">"블랙리스트"</span>
-                                <span class="data_age">AGE 33</span>
+                                <span class="data_age">AGE 34</span>
                             </div>
                             <div class="sns_link">
-                                <a href="https://www.instagram.com/pppcs7/" target="_blank">@pppcs7</a>
+                                <a href="https://www.instagram.com/blacklist__7 /" target="_blank">@blacklist__7 </a>
                             </div>
                             <div class="data_team">
-                                팀명 : BF 팀 솔리드
+                                팀명 : 펭카 큐브 MMA
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -8929,7 +9267,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     4 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    0 <div class="mini">Lose</div>
+                                    1 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
                                     0 <div class="mini">Draw</div>
@@ -8942,7 +9280,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            <span class="match_result win">Win</span>  박찬솔 vs 남지훈
+                                            <span class="match_result win">Win</span> 최재현 vs 박찬솔
                                         </li>
                                     </ul>
                                 </div>

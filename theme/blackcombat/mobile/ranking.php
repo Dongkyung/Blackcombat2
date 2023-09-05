@@ -1083,7 +1083,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_kim_mma';">
                             <div class="ranking_list_num">25</div>
                             <div class="ranking_list_photo">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_maui.png">
                             </div>
                             <div class="ranking_list_name">김석민<span class="ring_name">마우이 / 김석민 TEAM MMA짐</span></div>
                             <div class="ranking_list_change">-</div>

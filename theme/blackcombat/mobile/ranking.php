@@ -109,160 +109,168 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_name">이준영<span class="ring_name">배드가이 / 알타핏 싸비 MMA</span></div>
                             <div class="ranking_list_change">-</div>
                         </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_short_hair_lee';">
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_komakine';">
                             <div class="ranking_list_num">2</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
+                            <div class="ranking_list_name">코마키네 타카히로<span class="ring_name">탱크 / CRAZY ARMAMENT</span></div>
+                            <div class="ranking_list_change">NEW</div>
+                        </div>
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_short_hair_lee';">
+                            <div class="ranking_list_num">3</div>
+                            <div class="ranking_list_photo">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
+                            </div>
                             <div class="ranking_list_name">이강남<span class="ring_name">해적왕 / 지브라 칼슨 해적단</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_3';">
-                            <div class="ranking_list_num">3</div>
+                            <div class="ranking_list_num">4</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_viper.png">
                             </div>
                             <div class="ranking_list_name">김성웅<span class="ring_name">바이퍼 / 군포 본 주짓수</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_5';">
-                            <div class="ranking_list_num">4</div>
+                            <div class="ranking_list_num">5</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_fighter_w.png">
                             </div>
                             <div class="ranking_list_name">정원희<span class="ring_name">투견 / 지브라 칼슨 해적단</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_1';">
-                            <div class="ranking_list_num">5</div>
+                            <div class="ranking_list_num">6</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">이승철<span class="ring_name">플래시 / Extreme 익스트림 컴뱃</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_hoyoung';">
-                            <div class="ranking_list_num">6</div>
+                            <div class="ranking_list_num">7</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_hoyung.png">
                             </div>
                             <div class="ranking_list_name">윤호영<span class="ring_name">윤방관 / 대구 쎈짐</span></div>
-                            <div class="ranking_list_change">NEW</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_garrincha';">
-                            <div class="ranking_list_num">7</div>
+                            <div class="ranking_list_num">8</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_garrincha.png">
                             </div>
                             <div class="ranking_list_name">성낙중<span class="ring_name">가린샤</span></div>
-                            <div class="ranking_list_change">▲ 12</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_6';">
-                            <div class="ranking_list_num">8</div>
+                            <div class="ranking_list_num">9</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_joker.png">
                             </div>
                             <div class="ranking_list_name">정도한<span class="ring_name">Joker / Extreme 익스트림 컴뱃</span></div>
-                            <div class="ranking_list_change">▼ 2</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_7';">
-                            <div class="ranking_list_num">9</div>
+                            <div class="ranking_list_num">10</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_lillio.png">
                             </div>
                             <div class="ranking_list_name">이현수<span class="ring_name">쉐도우 / 알타핏 싸비 MMA</span></div>
-                            <div class="ranking_list_change">▼ 2</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_17';">
-                            <div class="ranking_list_num">10</div>
+                            <div class="ranking_list_num">11</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_ssmg.png">
                             </div>
                             <div class="ranking_list_name">박석광<span class="ring_name">그리드 / BF 팀 솔리드</span></div>
-                            <div class="ranking_list_change">▲ 2</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_2';">
-                            <div class="ranking_list_num">11</div>
+                            <div class="ranking_list_num">12</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_no7.png">
                             </div>
                             <div class="ranking_list_name">손지훈<span class="ring_name">No.7 / 팀매드 율하</span></div>
-                            <div class="ranking_list_change">▼ 3</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_8';">
-                            <div class="ranking_list_num">12</div>
+                            <div class="ranking_list_num">13</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_latel.png">
                             </div>
                             <div class="ranking_list_name">옥은찬<span class="ring_name">라텔 / 지브라 칼슨 해적단</span></div>
-                            <div class="ranking_list_change">▼ 3</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_9';">
-                            <div class="ranking_list_num">13</div>
-                            <div class="ranking_list_photo">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
-                            </div>
-                            <div class="ranking_list_name">신창현<span class="ring_name">티그로 / BF 팀 솔리드</span></div>
-                            <div class="ranking_list_change">▼ 3</div>
-                        </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_twins';">
                             <div class="ranking_list_num">14</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
+                            <div class="ranking_list_name">신창현<span class="ring_name">티그로 / BF 팀 솔리드</span></div>
+                            <div class="ranking_list_change">▼ 1</div>
+                        </div>
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_twins';">
+                            <div class="ranking_list_num">15</div>
+                            <div class="ranking_list_photo">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
+                            </div>
                             <div class="ranking_list_name">권민수<span class="ring_name">트윈스 / Extreme 익스트림 컴뱃</span></div>
-                            <div class="ranking_list_change">▼ 3</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_hana';">
-                            <div class="ranking_list_num">15</div>
+                            <div class="ranking_list_num">16</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_hana.png">
                             </div>
                             <div class="ranking_list_name">김태헌<span class="ring_name">하나 / 알타핏 싸비 MMA</span></div>
-                            <div class="ranking_list_change">▼ 2</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_fresherman';">
-                            <div class="ranking_list_num">16</div>
+                            <div class="ranking_list_num">17</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">박정빈<span class="ring_name">프레셔맨 / 알타핏 싸비 MMA</span></div>
-                            <div class="ranking_list_change">▼ 2</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_10';">
-                            <div class="ranking_list_num">17</div>
+                            <div class="ranking_list_num">18</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_hyojejo.png">
                             </div>
                             <div class="ranking_list_name">조효제<span class="ring_name">버서커 / Extreme 익스트림 컴뱃</span></div>
-                            <div class="ranking_list_change">▼ 2</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_parkpro';">
-                            <div class="ranking_list_num">18</div>
+                            <div class="ranking_list_num">19</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_theanomalousmma.png">
                             </div>
                             <div class="ranking_list_name">박성현<span class="ring_name">박프로 / 아리에 블랙 MMA 스토리</span></div>
-                            <div class="ranking_list_change">▼ 2</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_19';">
-                            <div class="ranking_list_num">19</div>
+                            <div class="ranking_list_num">20</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">신재혁<span class="ring_name">흑자 / 아리에 블랙 MMA 스토리</span></div>
-                            <div class="ranking_list_change">▼ 2</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_alsdnx';">
-                            <div class="ranking_list_num">20</div>
+                            <div class="ranking_list_num">21</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_alsdnx.png">
                             </div>
                             <div class="ranking_list_name">김민우<span class="ring_name">매드독 / 마이티짐</span></div>
-                            <div class="ranking_list_change">▼ 2</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_cgpark';">
-                            <div class="ranking_list_num">21</div>
+                            <div class="ranking_list_num">22</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -270,7 +278,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_11';">
-                            <div class="ranking_list_num">22</div>
+                            <div class="ranking_list_num">23</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -278,7 +286,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_12';">
-                            <div class="ranking_list_num">23</div>
+                            <div class="ranking_list_num">24</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -286,7 +294,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_koreanlazyboi';">
-                            <div class="ranking_list_num">24</div>
+                            <div class="ranking_list_num">25</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_koreanlazyboi.png">
                             </div>
@@ -294,7 +302,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_wooju';">
-                            <div class="ranking_list_num">25</div>
+                            <div class="ranking_list_num">26</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -302,7 +310,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_13';">
-                            <div class="ranking_list_num">26</div>
+                            <div class="ranking_list_num">27</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -310,7 +318,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_18';">
-                            <div class="ranking_list_num">27</div>
+                            <div class="ranking_list_num">28</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -318,7 +326,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_14';">
-                            <div class="ranking_list_num">28</div>
+                            <div class="ranking_list_num">29</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -326,7 +334,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_15';">
-                            <div class="ranking_list_num">29</div>
+                            <div class="ranking_list_num">30</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -334,7 +342,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=flyweight_16';">
-                            <div class="ranking_list_num">30</div>
+                            <div class="ranking_list_num">31</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -343,52 +351,56 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                         </div>
                     </div>
                     <div class="ranking_list_part">
-                        <div class="ranking_list_part_champ" >
+                        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_1';">
                             <h3><span class="weight">밴텀급</span> <span class="champ"></span></h3>
                             <div class="ranking_champ_name">
+                                유수영
+                                <div class="ranking_ring_name">유짓수</div>
+                                <div class="ranking_ring_name">군포 본 주짓수</div>
                             </div>
                             <div class="ranking_champ_photo">
-                            </div>
-                        </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_1';">
-                            <div class="ranking_list_num">1</div>
-                            <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_jujitsu.png">
                             </div>
-                            <div class="ranking_list_name">유수영<span class="ring_name">유짓수 / 군포 본 주짓수</span></div>
-                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_2';">
-                            <div class="ranking_list_num">2</div>
+                            <div class="ranking_list_num">1</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_kimgwanjang.png">
                             </div>
                             <div class="ranking_list_name">김성재<span class="ring_name">김관장 / 대구 모스짐</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▲ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_3';">
-                            <div class="ranking_list_num">3</div>
+                            <div class="ranking_list_num">2</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_bigmoai.png">
                             </div>
                             <div class="ranking_list_name">김종훈<span class="ring_name">빅모아이 / 노원 모아이짐</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▲ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_4';">
-                            <div class="ranking_list_num">4</div>
+                            <div class="ranking_list_num">3</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_bigmouth_kim.png">
                             </div>
                             <div class="ranking_list_name">김동규<span class="ring_name">빅마우스 / Extreme 익스트림 컴뱃</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▲ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_14';">
-                            <div class="ranking_list_num">5</div>
+                            <div class="ranking_list_num">4</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_parkseongjun.png">
                             </div>
                             <div class="ranking_list_name">박성준<span class="ring_name">언더독 / 알타핏 싸비 MMA</span></div>
-                            <div class="ranking_list_change">▲ 3</div>
+                            <div class="ranking_list_change">▲ 1</div>
+                        </div>
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_domestic';">
+                            <div class="ranking_list_num">5</div>
+                            <div class="ranking_list_photo">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
+                            </div>
+                            <div class="ranking_list_name">이시즈카 코이치<span class="ring_name">도메스틱 프린스 / Brightness Monma Dojo</span></div>
+                            <div class="ranking_list_change">NEW</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_5';">
                             <div class="ranking_list_num">6</div>
@@ -396,7 +408,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_yellowmonkey.png">
                             </div>
                             <div class="ranking_list_name">임정민<span class="ring_name">옐로우몽키 / 아리에블랙 MMA 스토리</span></div>
-                            <div class="ranking_list_change">▼ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_0';">
                             <div class="ranking_list_num">7</div>
@@ -404,7 +416,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_python__mma.png">
                             </div>
                             <div class="ranking_list_name">김성빈<span class="ring_name">파이톤 / 알타핏 싸비 MMA</span></div>
-                            <div class="ranking_list_change">▼ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_8';">
                             <div class="ranking_list_num">8</div>
@@ -412,7 +424,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_bbadda.png">
                             </div>
                             <div class="ranking_list_name">황성주<span class="ring_name">황빠따 / 아리에블랙 MMA 스토리</span></div>
-                            <div class="ranking_list_change">▼ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_6';">
                             <div class="ranking_list_num">9</div>
@@ -428,7 +440,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_parksanghyun.png">
                             </div>
                             <div class="ranking_list_name">박상현<span class="ring_name">빡상 / 아리에 블랙 MMA 스토리</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_jjin_honge ';">
                             <div class="ranking_list_num">11</div>
@@ -436,7 +448,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_jjinhonge.png">
                             </div>
                             <div class="ranking_list_name">홍종태<span class="ring_name">찐홍이 / 아리에 블랙 MMA 스토리</span></div>
-                            <div class="ranking_list_change">NEW</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_joohwan';">
                             <div class="ranking_list_num">12</div>
@@ -444,7 +456,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">김주환<span class="ring_name">땅꾼 / 더짐랩</span></div>
-                            <div class="ranking_list_change">▲ 2</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_11';">
                             <div class="ranking_list_num">13</div>
@@ -452,7 +464,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">이명주<span class="ring_name">컴뱃산타 / Extreme 익스트림 컴뱃</span></div>
-                            <div class="ranking_list_change">▼ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_sung_j';">
                             <div class="ranking_list_num">14</div>
@@ -460,7 +472,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">이성재<span class="ring_name">포세이돈 / 아리에 블랙 MMA 스토리</span></div>
-                            <div class="ranking_list_change">▼ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_12';">
                             <div class="ranking_list_num">15</div>
@@ -596,7 +608,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">이예준<span class="ring_name">몬스터 블랙 / BF 팀 솔리드</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=bantamweight_23';">
                             <div class="ranking_list_num">32</div>
@@ -604,7 +616,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">류창현<span class="ring_name">머신건 / 펭카 큐브 MMA</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                     </div>
                     <div class="ranking_list_part">
@@ -619,117 +631,117 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_gwangnam.png">
                             </div>
                         </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_1';">
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_aoi_jin';">
                             <div class="ranking_list_num">1</div>
+                            <div class="ranking_list_photo">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
+                            </div>
+                            <div class="ranking_list_name">아오이 진<span class="ring_name">블루데빌 / Shooto Gym Blows</span></div>
+                            <div class="ranking_list_change">NEW</div>
+                        </div>
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_1';">
+                            <div class="ranking_list_num">2</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_koreamoai.png">
                             </div>
                             <div class="ranking_list_name">김민우<span class="ring_name">코리안 모아이 / 모아이짐 상계점</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_4';">
-                            <div class="ranking_list_num">2</div>
+                            <div class="ranking_list_num">3</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_chance.png">
                             </div>
                             <div class="ranking_list_name">박찬수<span class="ring_name">찬스 / 다이아 MMA</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_2';">
-                            <div class="ranking_list_num">3</div>
+                            <div class="ranking_list_num">4</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_bbaksse.png">
                             </div>
                             <div class="ranking_list_name">이진세<span class="ring_name">빡세 / 스웰즈코리아</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_7';">
-                            <div class="ranking_list_num">4</div>
+                            <div class="ranking_list_num">5</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">임관우<span class="ring_name">진격의거인 / Extreme 익스트림 컴뱃</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_10';">
-                            <div class="ranking_list_num">5</div>
+                            <div class="ranking_list_num">6</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_wrestler_cho.png">
                             </div>
                             <div class="ranking_list_name">조규준<span class="ring_name">한마 바키 / 지브라 칼슨 해적단</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_chan_mma';">
-                            <div class="ranking_list_num">6</div>
+                            <div class="ranking_list_num">7</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_chan.png">
                             </div>
                             <div class="ranking_list_name">손유찬<span class="ring_name">천안짱 / 천안 크레이지광짐</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_jeju_psychopitbulls';">
-                            <div class="ranking_list_num">7</div>
+                            <div class="ranking_list_num">8</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">이성철<span class="ring_name">겜블러 / 제주 싸이코핏불스</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_seonghyeok_0227';">
-                            <div class="ranking_list_num">8</div>
+                            <div class="ranking_list_num">9</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_kira.png">
                             </div>
                             <div class="ranking_list_name">최성혁<span class="ring_name">키라 / 팀한 클럽</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_8';">
-                            <div class="ranking_list_num">9</div>
-                            <div class="ranking_list_photo">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
-                            </div>
-                            <div class="ranking_list_name">정용수<span class="ring_name">히트맨 / 펭카 큐브 MMA</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
-                        </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_9';">
                             <div class="ranking_list_num">10</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
-                            <div class="ranking_list_name">김의종<span class="ring_name">유도가 / 알타핏 싸비 MMA</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_name">정용수<span class="ring_name">히트맨 / 펭카 큐브 MMA</span></div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_shyeok_01';">
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_9';">
                             <div class="ranking_list_num">11</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
+                            <div class="ranking_list_name">김의종<span class="ring_name">유도가 / 알타핏 싸비 MMA</span></div>
+                            <div class="ranking_list_change">▼ 1</div>
+                        </div>
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_shyeok_01';">
+                            <div class="ranking_list_num">12</div>
+                            <div class="ranking_list_photo">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
+                            </div>
                             <div class="ranking_list_name">방성혁<span class="ring_name">시라소니 / Extreme 익스트림 컴뱃</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_24';">
-                            <div class="ranking_list_num">12</div>
+                            <div class="ranking_list_num">13</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_oduseog.png">
                             </div>
                             <div class="ranking_list_name">오두석<span class="ring_name">조선알도 / 알타핏 싸비 MMA</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_revenant';">
-                            <div class="ranking_list_num">13</div>
+                            <div class="ranking_list_num">14</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_minhyeok.png">
                             </div>
                             <div class="ranking_list_name">이민혁<span class="ring_name">레버넌트 / Extreme 익스트림 컴뱃</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
-                        </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_12';">
-                            <div class="ranking_list_num">14</div>
-                            <div class="ranking_list_photo">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
-                            </div>
-                            <div class="ranking_list_name">최재원<span class="ring_name">동키콩 / Extreme 익스트림 컴뱃</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_13';">
                             <div class="ranking_list_num">15</div>
@@ -737,7 +749,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">허선행<span class="ring_name">사이보그 / 지브라 칼슨 해적단</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_finisher';">
                             <div class="ranking_list_num">16</div>
@@ -745,7 +757,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">황준호<span class="ring_name">피니셔 / 블랙리스트MMA</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_17';">
                             <div class="ranking_list_num">17</div>
@@ -753,7 +765,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">최인범<span class="ring_name">최암바 / 아리에 블랙 MMA 스토리</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_keukki';">
                             <div class="ranking_list_num">18</div>
@@ -761,7 +773,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">문진혁<span class="ring_name">극기 / 알타핏 싸비 MMA</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_15';">
                             <div class="ranking_list_num">19</div>
@@ -769,7 +781,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">이준용<span class="ring_name">리신 / 스웰즈코리아</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_11';">
                             <div class="ranking_list_num">20</div>
@@ -777,7 +789,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">최찬형<span class="ring_name">쇼타임 / Extreme 익스트림 컴뱃</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_16';">
                             <div class="ranking_list_num">21</div>
@@ -785,7 +797,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">천성호<span class="ring_name">독주먹 / 알타핏 싸비 MMA</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_22';">
                             <div class="ranking_list_num">22</div>
@@ -793,7 +805,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">한상운<span class="ring_name">울프 / 펭카 큐브 MMA</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_min__zzin';">
                             <div class="ranking_list_num">23</div>
@@ -801,7 +813,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">이민재<span class="ring_name">이글아이 / 트라이스톤</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_byeong';">
                             <div class="ranking_list_num">24</div>
@@ -809,7 +821,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">문병일<span class="ring_name">VIOLENT / 1TIER GYM</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_hareem97';">
                             <div class="ranking_list_num">25</div>
@@ -817,7 +829,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">김하림<span class="ring_name">헬보이 / 군포 본주짓수</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_18';">
                             <div class="ranking_list_num">26</div>
@@ -825,7 +837,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">최은호<span class="ring_name">라온 / BF 팀 솔리드</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_25';">
                             <div class="ranking_list_num">27</div>
@@ -833,7 +845,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">김명현<span class="ring_name">라이트닝 / BF 팀 솔리드</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_19';">
                             <div class="ranking_list_num">28</div>
@@ -841,7 +853,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">차범준<span class="ring_name">빌런차 / 지브라 칼슨해적단</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_20';">
                             <div class="ranking_list_num">29</div>
@@ -849,7 +861,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">김준현<span class="ring_name">OLK / 알타핏 싸비 MMA</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_21';">
                             <div class="ranking_list_num">30</div>
@@ -857,7 +869,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">박재성<span class="ring_name">포텐 / 지브라 칼슨 해적단</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_26';">
                             <div class="ranking_list_num">31</div>
@@ -865,7 +877,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">박상권<span class="ring_name">류크 / 아리에 블랙 MMA 스토리</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_23';">
                             <div class="ranking_list_num">32</div>
@@ -873,7 +885,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">최서준<span class="ring_name">무사시 / BF 팀 솔리드</span></div>
-                            <div class="ranking_list_change">▲ 1</div>
+                            <div class="ranking_list_change">-</div>
                         </div>
                     </div>
                     <div class="ranking_list_part">
@@ -888,80 +900,88 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_piero.png">
                             </div>
                         </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_1';">
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_juriohara';">
                             <div class="ranking_list_num">1</div>
+                            <div class="ranking_list_photo">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_juriohara.png">
+                            </div>
+                            <div class="ranking_list_name">오하라 주리<span class="ring_name">아이언 스파이더 / KIBA Martial Arts Club</span></div>
+                            <div class="ranking_list_change">NEW</div>
+                        </div>
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_1';">
+                            <div class="ranking_list_num">2</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_hunter.png">
                             </div>
                             <div class="ranking_list_name">박종헌<span class="ring_name">헌터 / 스웰즈코리아</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_2';">
-                            <div class="ranking_list_num">2</div>
+                            <div class="ranking_list_num">3</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_gomjumuck.png">
                             </div>
                             <div class="ranking_list_name">김정균<span class="ring_name">곰주먹 / 청주 팀매드</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_3';">
-                            <div class="ranking_list_num">3</div>
+                            <div class="ranking_list_num">4</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_mentis.png">
                             </div>
                             <div class="ranking_list_name">윤다원<span class="ring_name">맨티스 / 아리에블랙 MMA 스토리</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_16';">
-                            <div class="ranking_list_num">4</div>
+                            <div class="ranking_list_num">5</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_gn_young.png">
                             </div>
                             <div class="ranking_list_name">장근영<span class="ring_name">슬로스 / 아리에블랙 MMA 스토리</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_11';">
-                            <div class="ranking_list_num">5</div>
+                            <div class="ranking_list_num">6</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_satan.png">
                             </div>
                             <div class="ranking_list_name">조준용<span class="ring_name">미스터사탄 / 지브라 칼슨 해적단</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_4';">
-                            <div class="ranking_list_num">6</div>
+                            <div class="ranking_list_num">7</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_youngtiger.png">
                             </div>
                             <div class="ranking_list_name">이영훈<span class="ring_name">영타이거 / 팀파시MMA</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_6';">
-                            <div class="ranking_list_num">7</div>
+                            <div class="ranking_list_num">8</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_talbuk.png">
                             </div>
                             <div class="ranking_list_name">장정혁<span class="ring_name">탈북파이터 / 구미 팀헌터</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_28';">
-                            <div class="ranking_list_num">8</div>
+                            <div class="ranking_list_num">9</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_youngje.png">
                             </div>
                             <div class="ranking_list_name">정영제<span class="ring_name">워리어 / 아리에 블랙 MMA 스토리</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_jaeffury';">
-                            <div class="ranking_list_num">9</div>
+                            <div class="ranking_list_num">10</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_jaeffury.png">
                             </div>
                             <div class="ranking_list_name">임재윤<span class="ring_name">릴슈타 / 서면 팀매드</span></div>
-                            <div class="ranking_list_change">▲ 7</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_5';">
-                            <div class="ranking_list_num">10</div>
+                            <div class="ranking_list_num">11</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_secretbh.png?v=20221017">
                             </div>
@@ -969,7 +989,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_8';">
-                            <div class="ranking_list_num">11</div>
+                            <div class="ranking_list_num">12</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -977,7 +997,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_10';">
-                            <div class="ranking_list_num">12</div>
+                            <div class="ranking_list_num">13</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_nojam.png">
                             </div>
@@ -985,7 +1005,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_29';">
-                            <div class="ranking_list_num">13</div>
+                            <div class="ranking_list_num">14</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -993,7 +1013,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_jeong_jeil';">
-                            <div class="ranking_list_num">14</div>
+                            <div class="ranking_list_num">15</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -1001,7 +1021,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_12';">
-                            <div class="ranking_list_num">15</div>
+                            <div class="ranking_list_num">16</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -1009,7 +1029,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_26';">
-                            <div class="ranking_list_num">16</div>
+                            <div class="ranking_list_num">17</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
@@ -1017,100 +1037,92 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_zuu_nan';">
-                            <div class="ranking_list_num">17</div>
+                            <div class="ranking_list_num">18</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
                             <div class="ranking_list_name">이준환<span class="ring_name">장산 / 지브라 칼슨 해적단</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_14';">
-                            <div class="ranking_list_num">18</div>
+                            <div class="ranking_list_num">19</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_keunhee.png">
                             </div>
                             <div class="ranking_list_name">김근희<span class="ring_name">흑사자 / 팀 루키</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_hyunjong_55';">
-                            <div class="ranking_list_num">19</div>
-                            <div class="ranking_list_photo">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
-                            </div>
-                            <div class="ranking_list_name">성현종<span class="ring_name">심슨 / Extreme 익스트림 컴뱃</span></div>
-                            <div class="ranking_list_change">-</div>
-                        </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_15';">
                             <div class="ranking_list_num">20</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
-                            <div class="ranking_list_name">유다솔<span class="ring_name">중학생 / 아리에블랙 MMA 스토리</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_name">성현종<span class="ring_name">심슨 / Extreme 익스트림 컴뱃</span></div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_30';">
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_15';">
                             <div class="ranking_list_num">21</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
-                            <div class="ranking_list_name">김성윤<span class="ring_name">킹스터 / 지브라 칼슨 해적단</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_name">유다솔<span class="ring_name">중학생 / 아리에블랙 MMA 스토리</span></div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_superchoi';">
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_30';">
                             <div class="ranking_list_num">22</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
-                            <div class="ranking_list_name">최성욱<span class="ring_name">아기고릴라 / 케이레슬링</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_name">김성윤<span class="ring_name">킹스터 / 지브라 칼슨 해적단</span></div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_anklebreaker';">
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_superchoi';">
                             <div class="ranking_list_num">23</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
-                            <div class="ranking_list_name">이성종<span class="ring_name">앵클브레이커 / 아리에 블랙 MMA 스토리</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_name">최성욱<span class="ring_name">아기고릴라 / 케이레슬링</span></div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_17';">
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_anklebreaker';">
                             <div class="ranking_list_num">24</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
+                            <div class="ranking_list_name">이성종<span class="ring_name">앵클브레이커 / 아리에 블랙 MMA 스토리</span></div>
+                            <div class="ranking_list_change">▼ 1</div>
+                        </div>
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_17';">
+                            <div class="ranking_list_num">25</div>
+                            <div class="ranking_list_photo">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
+                            </div>
                             <div class="ranking_list_name">신준호<span class="ring_name">웨어울프 / Extreme 익스트림 컴뱃</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_kim_mma';">
-                            <div class="ranking_list_num">25</div>
+                            <div class="ranking_list_num">26</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_maui.png">
                             </div>
                             <div class="ranking_list_name">김석민<span class="ring_name">마우이 / 김석민 TEAM MMA짐</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_27';">
-                            <div class="ranking_list_num">26</div>
-                            <div class="ranking_list_photo">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
-                            </div>
-                            <div class="ranking_list_name">이근영<span class="ring_name">타노스 / 알타핏 싸비 MMA</span></div>
-                            <div class="ranking_list_change">-</div>
-                        </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_13';">
                             <div class="ranking_list_num">27</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
-                            <div class="ranking_list_name">박한빈<span class="ring_name">스몰고릴라 / 아토무브짐</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_name">이근영<span class="ring_name">타노스 / 알타핏 싸비 MMA</span></div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_31';">
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=lightweight_13';">
                             <div class="ranking_list_num">28</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
-                            <div class="ranking_list_name">황준호<span class="ring_name">피니셔 / BF 팀 솔리드</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_name">박한빈<span class="ring_name">스몰고릴라 / 아토무브짐</span></div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=featherweight_byeong';">
                             <div class="ranking_list_num">29</div>
@@ -1197,6 +1209,14 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_name">김연균<span class="ring_name">갓균 / 펭카 큐브 MMA</span></div>
                             <div class="ranking_list_change">-</div>
                         </div>
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=middle_shingo_suzuki';">
+                            <div class="ranking_list_num">3</div>
+                            <div class="ranking_list_photo">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
+                            </div>
+                            <div class="ranking_list_name">스즈키 신고<span class="ring_name">선더버드 / ALLIANCE</span></div>
+                            <div class="ranking_list_change">NEW</div>
+                        </div>
                     </div>
                 </div>
                     <div class="ranking_list_part">
@@ -1235,13 +1255,13 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                             <div class="ranking_list_name">아즈자르갈<span class="ring_name">AZZA / Extreme 익스트림 컴뱃</span></div>
                             <div class="ranking_list_change">-</div>
                         </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=heavyweight_3';">
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=heavyweight_sikai_ryo';">
                             <div class="ranking_list_num">4</div>
                             <div class="ranking_list_photo">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_godgyun.png">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
-                            <div class="ranking_list_name">김연균<span class="ring_name">갓균 / 펭카 큐브 MMA</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_name">사카이 료<span class="ring_name">레이징불 / Paraestra Matsudo</span></div>
+                            <div class="ranking_list_change">NEW</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=heavyweight_2';">
                             <div class="ranking_list_num">5</div>
@@ -1440,37 +1460,45 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_siyoon.png">
                             </div>
                         </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=women_1';">
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=women_1114saori';">
                             <div class="ranking_list_num">1</div>
+                            <div class="ranking_list_photo">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_1114saori.png">
+                            </div>
+                            <div class="ranking_list_name">오시마 사오리<span class="ring_name">리틀 자이언트 / AACC</span></div>
+                            <div class="ranking_list_change">NEW</div>
+                        </div>
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=women_1';">
+                            <div class="ranking_list_num">2</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_ghost.png">
                             </div>
                             <div class="ranking_list_name">홍예린<span class="ring_name">고스트 / 의정부 DK 짐</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                         <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=women_2';">
-                            <div class="ranking_list_num">2</div>
-                            <div class="ranking_list_photo">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
-                            </div>
-                            <div class="ranking_list_name">전수민<span class="ring_name">짱구 / 스트롱 울프</span></div>
-                            <div class="ranking_list_change">-</div>
-                        </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=women_3';">
                             <div class="ranking_list_num">3</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
-                            <div class="ranking_list_name">김남희<span class="ring_name">광녀 / 쎈짐</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_name">전수민<span class="ring_name">짱구 / 스트롱 울프</span></div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
-                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=women_4';">
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=women_3';">
                             <div class="ranking_list_num">4</div>
                             <div class="ranking_list_photo">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
                             </div>
+                            <div class="ranking_list_name">김남희<span class="ring_name">광녀 / 쎈짐</span></div>
+                            <div class="ranking_list_change">▼ 1</div>
+                        </div>
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=women_4';">
+                            <div class="ranking_list_num">5</div>
+                            <div class="ranking_list_photo">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter_blank.png">
+                            </div>
                             <div class="ranking_list_name">황다비<span class="ring_name">팬텀 / 의정부 DK 짐</span></div>
-                            <div class="ranking_list_change">-</div>
+                            <div class="ranking_list_change">▼ 1</div>
                         </div>
                     </div>
                 </div>

@@ -78,7 +78,7 @@ if ($ticket_row) {
                     <?php } ?>
                 </div>
                 <div class="menu_item"><a href="http://www.hegemonyblack.com/main/index.php" class="menu_item_anchor" target="_blank">STORE</a></div>
-                <div class="menu_item"><a href="<?php echo G5_URL ?>/event.php?page=4" class="menu_item_anchor">EVENT</a></div>
+                <div class="menu_item"><a href="<?php echo G5_URL ?>/event.php?page=8" class="menu_item_anchor">EVENT</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/video" class="menu_item_anchor">VIDEO</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/ranking.php?type=fighter" class="menu_item_anchor">RANKING</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/cl.php" class="menu_item_anchor">C.L</a></div>

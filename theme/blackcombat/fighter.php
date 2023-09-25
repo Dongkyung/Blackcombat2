@@ -2334,7 +2334,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_jujitsu.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_jujitsu_full.png" />
                         </div>
                     </div>
                 <?php } else if ($page == 'bantamweight_2') { ?>

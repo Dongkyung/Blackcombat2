@@ -94,8 +94,13 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            	</div>
 	        	</div>
 	        </div>
+					<script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/kas/static/kp.js"></script>
+					<script type="text/javascript">
+					      kakaoPixel('832743271529202884').pageView('좌석선택');
+					</script>
 	        <script>
 	        $(".btn_sns_share").click(function(){
+							console.log('sns');
 	            $(".sns_area").show();
 	        });
 	        $(document).mouseup(function (e){

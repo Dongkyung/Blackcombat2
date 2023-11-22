@@ -561,13 +561,13 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             <div class="data_name">
                                 김성웅
                                 <span class="data_ringname">"바이퍼"</span>
-                                <span class="data_age">AGE 27</span>
+                                <span class="data_age">AGE 28</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/viper_ung/" target="_blank">@viper_ung</a>
                             </div>
                             <div class="data_team">
-                                팀명 : Extreme 익스트림 컴뱃
+                                팀명 : 군포 본주짓수
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -581,7 +581,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                             <div class="data_record">
                                 <div class="data_record_win">
-                                    4 <div class="mini">Win</div>
+                                    5 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
                                     4 <div class="mini">Lose</div>
@@ -597,14 +597,14 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            <span class="match_result win">Win</span> 코마키네 타카히로 vs 김성웅
+                                            <span class="match_result win">Win</span> 김성웅 vs 이강남
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_viper_full.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_viper_chap_full.png" />
                         </div>
                     </div>
 
@@ -618,7 +618,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             <div class="data_name">
                                 이준영
                                 <span class="data_ringname">"배드가이"</span>
-                                <span class="data_age">AGE 28</span>
+                                <span class="data_age">AGE 29</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/badguy_mma/" target="_blank">@badguy_mma</a>
@@ -1718,7 +1718,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             <div class="data_name">
                                 이강남
                                 <span class="data_ringname">"해적왕"</span>
-                                <span class="data_age">AGE 35</span>
+                                <span class="data_age">AGE 36</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/short_hair_lee/" target="_blank">@short_hair_lee</a>
@@ -1741,7 +1741,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     2 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    1 <div class="mini">Lose</div>
+                                    2 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
                                     0 <div class="mini">Draw</div>
@@ -1754,14 +1754,14 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            <span class="match_result win">Win</span> 이강남 vs 김성웅
+                                            <span class="match_result win">Win</span> 김성웅 vs 이강남
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_pirateking.png" />
                         </div>
                     </div>
 
@@ -2736,7 +2736,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
 
                 <?php } else if ($page == 'bantamweight_10') { ?>
 
-                    <div class="fighter_info">
+                    <!-- <div class="fighter_info">
                         <div class="fighter_data">
                             <div class="data_tags">
                                 <span>밴텀금</span>
@@ -2789,7 +2789,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                         <div class="fighter_img">
                         <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_pirateking_1.png" />
                         </div>
-                    </div>
+                    </div> -->
                 <?php } else if ($page == 'bantamweight_11') { ?>
 
                     <div class="fighter_info">
@@ -4573,7 +4573,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             <div class="data_name">
                                 조규준
                                 <span class="data_ringname">"한마 바키"</span>
-                                <span class="data_age">AGE 17</span>
+                                <span class="data_age">AGE 18</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/wrestler_cho/" target="_blank">@wrestler_cho</a>
@@ -4593,7 +4593,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                             <div class="data_record">
                                 <div class="data_record_win">
-                                    2 <div class="mini">Win</div>
+                                    3 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
                                     0 <div class="mini">Lose</div>
@@ -4609,14 +4609,70 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            <span class="match_result win">Win</span> 조규준 vs 최은호
+                                            <span class="match_result win">Win</span> 조규준 vs 지혁민
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_wrestler_cho_full.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_baki_full.png" />
+                        </div>
+                    </div>
+                <?php } else if ($page == 'chuncheon_king') { ?>
+
+                    <div class="fighter_info">
+                        <div class="fighter_data">
+                            <div class="data_tags">
+                                <span>페더급</span>
+                            </div>
+                            <div class="data_name">
+                                지혁민
+                                <span class="data_ringname">"춘천대장"</span>
+                                <span class="data_age">AGE 18</span>
+                            </div>
+                            <div class="sns_link">
+                                <a href="https://www.instagram.com/jhm.721/" target="_blank">@jhm.721</a>
+                            </div>
+                            <div class="data_team">
+                                팀명 : 춘천 팀매드
+                            </div>
+                            <div class="data_bio">
+                                <div class="data_bio_height">
+                                    <div class="mini">HEIGHT</div>
+                                    176cm
+                                </div>
+                                <div class="data_bio_weight">
+                                    <div class="mini">WEIGHT</div>
+                                    -
+                                </div>
+                            </div>
+                            <div class="data_record">
+                                <div class="data_record_win">
+                                    2 <div class="mini">Win</div>
+                                </div>
+                                <div class="data_record_draw">
+                                    1 <div class="mini">Lose</div>
+                                </div>
+                                <div class="data_record_lose">
+                                    - <div class="mini">Draw</div>
+                                </div>
+                            </div>
+                            <div class="fighter_match">
+                                <div class="match_title">
+                                    LASTEST MATCH
+                                </div>
+                                <div class="match_list">
+                                    <ul>
+                                        <li>
+                                            <span class="match_result win">Win</span> 조규준 vs 지혁민
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fighter_img">
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_chuncun_full.png" />
                         </div>
                     </div>
 
@@ -6125,7 +6181,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             <div class="data_name">
                                 박종헌
                                 <span class="data_ringname">"헌터"</span>
-                                <span class="data_age">AGE 31</span>
+                                <span class="data_age">AGE 32</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/jonghunter_park/" target="_blank">@jonghunter_park</a>
@@ -6145,7 +6201,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                             <div class="data_record">
                                 <div class="data_record_win">
-                                    6 <div class="mini">Win</div>
+                                    7 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
                                     3 <div class="mini">Lose</div>
@@ -6161,7 +6217,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            <span class="match_result win">Win</span> 이송하 vs 박종헌
+                                            <span class="match_result win">Win</span> 박종헌 vs 조준용
                                         </li>
                                     </ul>
                                 </div>
@@ -6595,7 +6651,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <a href="https://www.instagram.com/fighter_mr.satan/" target="_blank">@fighter_mr.satan</a>
                             </div>
                             <div class="data_team">
-                                팀명 : 지브라 칼슨 해적단
+                                팀명 : 대구 쎈짐
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -6612,7 +6668,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     6 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    9 <div class="mini">Lose</div>
+                                    10 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
                                     0 <div class="mini">Draw</div>
@@ -6625,7 +6681,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            <span class="match_result win">Win</span> 조준용 vs 장정혁
+                                            <span class="match_result win">Win</span> 박종헌 vs 조준용
                                         </li>
                                     </ul>
                                 </div>
@@ -7338,13 +7394,13 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             <div class="data_name">
                                 이환성
                                 <span class="data_ringname">"위버맨쉬"</span>
-                                <span class="data_age">AGE 30</span>
+                                <span class="data_age">AGE 31</span>
                             </div>
                             <div class="sns_link">
                                 <a href="https://www.instagram.com/hs._.0224/" target="_blank">@hs._.0224</a>
                             </div>
                             <div class="data_team">
-                                팀명 : BF 팀 솔리드
+                                팀명 : 서산 주짓수아카데미
                             </div>
                             <div class="data_bio">
                                 <div class="data_bio_height">
@@ -7361,7 +7417,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     2 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    1 <div class="mini">Lose</div>
+                                    2 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
                                     0 <div class="mini">Draw</div>
@@ -7374,14 +7430,14 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            <span class="match_result win">Win</span> 이환성 vs 이근영
+                                            <span class="match_result win">Win</span> 오하라 주리 vs 이환성
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_ubermensch_full.png" />
                         </div>
                     </div>
 
@@ -8044,7 +8100,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             </div>
                             <div class="data_record">
                                 <div class="data_record_win">
-                                    33 <div class="mini">Win</div>
+                                    34 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
                                     19 <div class="mini">Lose</div>
@@ -8060,14 +8116,14 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            <span class="match_result win">Win</span> 이송하 vs 오하라 주리
+                                            <span class="match_result win">Win</span> 오하라 주리 vs 이환성
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_juriohara_full.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_juri_full.png" />
                         </div>
                     </div>
 
@@ -8303,7 +8359,61 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                             <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_j_mma_middle.png" />
                         </div>
                     </div>
-
+                <?php } else if ($page == 'rocky') { ?>
+                    <div class="fighter_info">
+                        <div class="fighter_data">
+                            <div class="data_tags">
+                                <span>중량급</span>
+                            </div>
+                            <div class="data_name">
+                                록키 마르티네즈
+                                <span class="data_ringname">"CHAMP"</span>
+                                <span class="data_age">AGE 37</span>
+                            </div>
+                            <div class="sns_link">
+                                <a href="https://www.instagram.com/roque_martinez86/" target="_blank">@roque_martinez86</a>
+                            </div>
+                            <div class="data_team">
+                                팀명 : RM SPORTS
+                            </div>
+                            <div class="data_bio">
+                                <div class="data_bio_height">
+                                    <div class="mini">HEIGHT</div>
+                                    178cm
+                                </div>
+                                <div class="data_bio_weight">
+                                    <div class="mini">WEIGHT</div>
+                                    -
+                                </div>
+                            </div>
+                            <div class="data_record">
+                                <div class="data_record_win">
+                                    17 <div class="mini">Win</div>
+                                </div>
+                                <div class="data_record_draw">
+                                    9 <div class="mini">Lose</div>
+                                </div>
+                                <div class="data_record_lose">
+                                    2 <div class="mini">Draw</div>
+                                </div>
+                            </div>
+                            <div class="fighter_match">
+                                <div class="match_title">
+                                    LASTEST MATCH
+                                </div>
+                                <div class="match_list">
+                                    <ul>
+                                        <li>
+                                        <span class="match_result win">Win</span> 록키 마르티네즈 vs 아즈자르갈
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fighter_img">
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/figher_rocky_full.png" />
+                        </div>
+                    </div>
                 <?php } else if ($page == 'heavyweight_3') { ?>
 
                     <div class="fighter_info">
@@ -8453,7 +8563,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                     6 <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    3 <div class="mini">Lose</div>
+                                    4 <div class="mini">Lose</div>
                                 </div>
                                 <div class="data_record_lose">
                                     0 <div class="mini">Draw</div>
@@ -8466,14 +8576,14 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
                                 <div class="match_list">
                                     <ul>
                                         <li>
-                                            <span class="match_result win">Win</span> 아즈자르갈 vs 이동현
+                                            <span class="match_result win">Win</span> 록키 마르티네즈 vs 아즈자르갈
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/fighter_full_blank.png" />
+                            <img src="<?php echo G5_THEME_IMG_URL; ?>/fighter/figher_aza_full.png" />
                         </div>
                     </div>
 

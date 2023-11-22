@@ -955,6 +955,12 @@ function session_check()
 function get_item_options($it_id, $subject, $is_div='', $is_first_option_title='')
 {
     global $g5;
+    
+    //it_id : 1680840411
+    //subject : 좌석
+    //is_div :  div
+    //is_first_option_title :  1
+
 
     if(!$it_id || !$subject)
         return '';
@@ -969,61 +975,62 @@ function get_item_options($it_id, $subject, $is_div='', $is_first_option_title='
     $subj_count = count($subj);
 
     if($subj_count > 1) {
-        $options = array();
+        // 현재 코드에서 subject가 복수개로 들어오는 케이스는 없음
+        // $options = array();
 
-        // 옵션항목 배열에 저장
-        for($i=0; $row=sql_fetch_array($result); $i++) {
-            $opt_id = explode(chr(30), $row['io_id']);
+        // // 옵션항목 배열에 저장
+        // for($i=0; $row=sql_fetch_array($result); $i++) {
+        //     $opt_id = explode(chr(30), $row['io_id']);
 
-            for($k=0; $k<$subj_count; $k++) {
-                if(! (isset($options[$k]) && is_array($options[$k])))
-                    $options[$k] = array();
+        //     for($k=0; $k<$subj_count; $k++) {
+        //         if(! (isset($options[$k]) && is_array($options[$k])))
+        //             $options[$k] = array();
 
-                if(isset($opt_id[$k]) && $opt_id[$k] && !in_array($opt_id[$k], $options[$k]))
-                    $options[$k][] = $opt_id[$k];
-            }
-        }
+        //         if(isset($opt_id[$k]) && $opt_id[$k] && !in_array($opt_id[$k], $options[$k]))
+        //             $options[$k][] = $opt_id[$k];
+        //     }
+        // }
 
-        // 옵션선택목록 만들기
-        for($i=0; $i<$subj_count; $i++) {
-            $opt = $options[$i];
-            $opt_count = count($opt);
-            $disabled = '';
-            if($opt_count) {
-                $seq = $i + 1;
-                if($i > 0)
-                    $disabled = ' disabled="disabled"';
+        // // 옵션선택목록 만들기
+        // for($i=0; $i<$subj_count; $i++) {
+        //     $opt = $options[$i];
+        //     $opt_count = count($opt);
+        //     $disabled = '';
+        //     if($opt_count) {
+        //         $seq = $i + 1;
+        //         if($i > 0)
+        //             $disabled = ' disabled="disabled"';
 
-                if($is_div === 'div') {
-                    $str .= '<div class="get_item_options">'.PHP_EOL;
-                    $str .= '<label for="it_option_'.$seq.'" class="label-title">'.$subj[$i].'</label>'.PHP_EOL;
-                } else {
-                    $str .= '<tr>'.PHP_EOL;
-                    $str .= '<th><label for="it_option_'.$seq.'" class="label-title">'.$subj[$i].'</label></th>'.PHP_EOL;
-                }
+        //         if($is_div === 'div') {
+        //             $str .= '<div class="get_item_options">'.PHP_EOL;
+        //             $str .= '<label for="it_option_'.$seq.'" class="label-title">'.$subj[$i].'</label>'.PHP_EOL;
+        //         } else {
+        //             $str .= '<tr>'.PHP_EOL;
+        //             $str .= '<th><label for="it_option_'.$seq.'" class="label-title">'.$subj[$i].'</label></th>'.PHP_EOL;
+        //         }
 
-                $select = '<select id="it_option_'.$seq.'" class="it_option"'.$disabled.'>'.PHP_EOL;
+        //         $select = '<select id="it_option_'.$seq.'" class="it_option"'.$disabled.'>'.PHP_EOL;
 
-                $first_option_title = $is_first_option_title ? $subj[$i] : '선택';
+        //         $first_option_title = $is_first_option_title ? $subj[$i] : '선택';
 
-                $select .= '<option value="">'.$first_option_title.'</option>'.PHP_EOL;
-                for($k=0; $k<$opt_count; $k++) {
-                    $opt_val = $opt[$k];
-                    if(strlen($opt_val)) {
-                        $select .= '<option value="'.$opt_val.'">'.$opt_val.'</option>'.PHP_EOL;
-                    }
-                }
-                $select .= '</select>'.PHP_EOL;
+        //         $select .= '<option value="">'.$first_option_title.'</option>'.PHP_EOL;
+        //         for($k=0; $k<$opt_count; $k++) {
+        //             $opt_val = $opt[$k];
+        //             if(strlen($opt_val)) {
+        //                 $select .= '<option value="'.$opt_val.'">'.$opt_val.'</option>'.PHP_EOL;
+        //             }
+        //         }
+        //         $select .= '</select>'.PHP_EOL;
 
-                if($is_div === 'div') {
-                    $str .= '<span>'.$select.'</span>'.PHP_EOL;
-                    $str .= '</div>'.PHP_EOL;
-                } else {
-                    $str .= '<td>'.$select.'</td>'.PHP_EOL;
-                    $str .= '</tr>'.PHP_EOL;
-                }
-            }
-        }
+        //         if($is_div === 'div') {
+        //             $str .= '<span>'.$select.'</span>'.PHP_EOL;
+        //             $str .= '</div>'.PHP_EOL;
+        //         } else {
+        //             $str .= '<td>'.$select.'</td>'.PHP_EOL;
+        //             $str .= '</tr>'.PHP_EOL;
+        //         }
+        //     }
+        // }
     } else {
         if($is_div === 'div') {
             $str .= '<div class="get_item_options">'.PHP_EOL;

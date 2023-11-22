@@ -46,6 +46,9 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                         <li>
                             <a href="<?php echo G5_URL ?>/event.php?page=8" class="<?php echo $page == '8' ? 'active' : ''; ?>">8:&nbsp;THE LAST SAMURAI</a>
                         </li>
+                        <li>
+                            <a href="<?php echo G5_URL ?>/event.php?page=9" class="<?php echo $page == '9' ? 'active' : ''; ?>">8:&nbsp;OLD BOYS</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -330,6 +333,31 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
                         </div>
                     </div>
                 </div>
+
+                <?php } else if ($page == '9') { ?>
+                    <div class="event_keyvisual">
+                        <img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_9_0.jpg" />
+                    </div>
+
+                    <div class="event_list">
+                        <div class="event_list_items">
+                            <div class="event_list_item">
+                                <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_9_1.jpg" /></div>
+                            </div>
+                            <div class="event_list_item">
+                                <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_9_2.jpg" /></div>
+                            </div>
+                            <div class="event_list_item">
+                                <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_9_3.jpg" /></div>
+                            </div>
+                            <div class="event_list_item">
+                                <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_9_4.jpg" /></div>
+                            </div>
+                            <div class="event_list_item">
+                                <div class="event_list_item_player"><img src="<?php echo G5_THEME_IMG_URL; ?>/event/event_9_5.jpg" /></div>
+                            </div>
+                        </div>
+                    </div>
 
                 <?php } ?>
                 

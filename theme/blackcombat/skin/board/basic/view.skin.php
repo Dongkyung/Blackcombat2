@@ -177,7 +177,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css?v=202
                             <strong><?php echo $view['file'][$i]['source'] ?></strong> <?php echo $view['file'][$i]['content'] ?> (<?php echo $view['file'][$i]['size'] ?>)
                         </a>
                         <br>
-                        <span class="bo_v_file_cnt"><?php echo $view['file'][$i]['download'] ?>회 다운로드 | DATE : <?php echo $view['file'][$i]['datetime'] ?></span>
                     </li>
                 <?php
                     }

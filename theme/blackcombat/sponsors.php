@@ -76,7 +76,56 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/sponsors.css
                             </div>
                         </div>
                     </div>
+                    <div class="sponsors_list_item">
+                        <div class="sponsors_list_logo">
+                            <a href="https://youtube.com/@By-DrKevin?si=z9XmQl9VzF6-BHLA" target="_blank">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_doctorzon.png" />
+                            </a>
+                        </div>
+                        <div class="sponsors_list_caption">
+                            <div class="sponsors_list_info">
+                                환자 중심의 1:1 맞춤 진료를 원칙으로 하는<br />프리미엄 병원, 닥터존 정형외과
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sponsors_list_item">
+                        <div class="sponsors_list_logo">
+                            <a href="https://www.instagram.com/downtontheblack/" target="_blank">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_downton.png" />
+                            </a>
+                        </div>
+                        <div class="sponsors_list_caption">
+                            <div class="sponsors_list_info">
+                                몸이 더 좋아 보이는 맞춤 정장 & 운동인을 위한 온라인 몰,<br>다운튼더블랙
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sponsors_list_item">
+                        <div class="sponsors_list_logo">
+                            <a href="https://www.cgv.co.kr/" target="_blank">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_cgv.png" />
+                            </a>
+                        </div>
+                        <div class="sponsors_list_caption">
+                            <div class="sponsors_list_info">
+                            '영화 그 이상의 감동’ , CGV 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sponsors_list_item">
+                        <div class="sponsors_list_logo">
+                            <a href="http://bfautomobility.kr/" target="_blank">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_bf.png" style="width:35%"/>
+                            </a>
+                        </div>
+                        <div class="sponsors_list_caption">
+                            <div class="sponsors_list_info">
+                                국내 유일 슈퍼카, 고급 외제차 렌탈 및 방송 및<br>촬영 전문 렌트카, BF오토모빌리티
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="sponsors_cooperater">
                     <div class="guide">COOPERATE WITH MONSTERZYM</div>
                     <div class="cooperater_logo">

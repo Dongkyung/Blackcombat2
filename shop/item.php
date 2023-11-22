@@ -1,4 +1,5 @@
 <?php
+//CHECKED : 실제 상품 아이템 판매 컴포넌트
 include_once('./_common.php');
 
 if (G5_IS_MOBILE) {

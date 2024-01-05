@@ -19,14 +19,14 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_spons
             <div class="sponsors_page">
                 <div class="sponsors_list">
                     <div class="sponsors_list_item">
-                    <div class="sponsors_list_logo">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_pragmatic.png" />
+                        <div class="sponsors_list_logo">
+                            <a href="https://www.pgsoft.com/ko/games/all/" target="_blank">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_pg.png"/>
                             </a>
                         </div>
                         <div class="sponsors_list_caption">
                             <div class="sponsors_list_info">
-                                PRAGMATIC PLAY
+                            PG Games 차이를 만드는 차이
                             </div>
                         </div>
                     </div>
@@ -114,6 +114,7 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_spons
                             </div>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="sponsors_cooperater">
                     <div class="guide">COOPERATE WITH MONSTERZYM</div>

@@ -29,9 +29,6 @@ include_once(G5_THEME_PATH.'/head.php');
 <div class="key_visual">
     <div class="swiper key_visual_wrap">
         <div class="swiper-wrapper key_visual_items">
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/main_numbering9_post_1.jpg?v=20220918" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/main_numbering9_post_2.jpg?v=20220918" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/main_numbering9_post_3.jpg?v=20220918" /></div>
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_0.jpg?v=20220918" /></div>
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_1.jpg?v=20220918" /></div>
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_2.jpg?v=20220918" /></div>
@@ -129,7 +126,7 @@ include_once(G5_THEME_PATH.'/head.php');
 <div class="sponsors">
     <div class="sponsor_title">
         <img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_title.png" />
-        <div class="sponsor_first"><a href="https://www.pragmaticplay.com/ko/" class="" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_img_5.png" /></a></div>
+        <div class="sponsor_first"><a href="https://www.pgsoft.com/ko/games/all/" class="" target="_blank"><img  style="background-color:white; margin-top:30px; padding:20px" src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_pg.png" /></a></div>
     </div>
 
     <div class="sponsor_items">

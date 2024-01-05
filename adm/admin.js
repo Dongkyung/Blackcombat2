@@ -115,7 +115,7 @@ $(function() {
         var token = get_ajax_token();
 
         if(!token) {
-            alert("토큰 정보가 올바르지 않습니다.");
+            alert("토큰 정보가 올바르지 않습니다.1");
             return false;
         }
 

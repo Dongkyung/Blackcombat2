@@ -1,4 +1,5 @@
 <?php
+// USED!
 include_once('./_common.php');
 
 $action = isset($_REQUEST['action']) ? preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['action']) : '';
@@ -352,9 +353,9 @@ switch ($action) {
     case 'get_purchase_seat_info' :
         $disabled_seat = array();
 
-        sql_query("update {$g5['g5_shop_order_table']} set od_status = '취소' where `od_status` = '주문' and `it_id` = '1699127663' and `od_time` <= date_add(now(), INTERVAL -24 HOUR)");
+        sql_query("update {$g5['g5_shop_order_table']} set od_status = '취소' where `od_status` = '주문' and `it_id` = '1704478746' and `od_time` <= date_add(now(), INTERVAL -24 HOUR)");
 
-        $sql = "select `od_seat_row_type`, `od_seat_number` from {$g5['g5_shop_order_table']} where `od_status` != '취소' and `it_id` = '1699127663'";
+        $sql = "select `od_seat_row_type`, `od_seat_number` from {$g5['g5_shop_order_table']} where `od_status` != '취소' and `it_id` = '1704478746'";
         $result = sql_query($sql);
 
         for($k=0; $row=sql_fetch_array($result); $k++) {
@@ -379,7 +380,7 @@ switch ($action) {
         $post_od_seat_row_type = isset($_POST['od_seat_row_type']) && $_POST['od_seat_row_type'] !== '' ? $_POST['od_seat_row_type'] : '';
         $post_od_seat_number = isset($_POST['od_seat_number']) && $_POST['od_seat_number'] !== '' ? $_POST['od_seat_number'] : '';
 
-        $order_row = sql_fetch("select count(`od_id`) as cnt from {$g5['g5_shop_order_table']} where `od_seat_row_type` = '{$post_od_seat_row_type}' and `od_seat_number` = '{$post_od_seat_number}' and `od_status` != '취소' and `it_id` = '1699127663'");
+        $order_row = sql_fetch("select count(`od_id`) as cnt from {$g5['g5_shop_order_table']} where `od_seat_row_type` = '{$post_od_seat_row_type}' and `od_seat_number` = '{$post_od_seat_number}' and `od_status` != '취소' and `it_id` = '1704478746'");
 
         if ($order_row['cnt']) {
             $result = 'Y';
@@ -387,6 +388,27 @@ switch ($action) {
 
         die($result);
 
+        break;
+    case 'get_blocked_seat' : 
+        $disabled_seat = array();
+
+        $sql = "select ct_seat_row_type, ct_seat_number from tb_seat_control where it_id = '1704478746'";
+        $result = sql_query($sql);
+
+        for($k=0; $row=sql_fetch_array($result); $k++) {
+            $tmpArray = array(
+                'ct_seat_row_type' => $row['ct_seat_row_type'],
+                'ct_seat_number' => $row['ct_seat_number']
+            );
+            $disabled_seat[] = $tmpArray;
+        } // for End
+
+        $result = array(
+            'error'  => '',
+            'disabled_seat' => $disabled_seat
+        );
+
+        die(json_encode($result));
         break;
     default :
 }

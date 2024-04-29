@@ -7,9 +7,10 @@ $teamSeq = $_POST['teamSeq'];
 $teamName = $_POST['teamName'];
 $teamAddr = $_POST['teamAddr'];
 $teamTel = $_POST['teamTel'];
+$instaId = $_POST['instaId'];
 
 // TODO: 적절한 SQL UPDATE 쿼리를 사용하여 데이터 업데이트
-$sql = "UPDATE tb_team_base SET team_name = '$teamName', addr = '$teamAddr', tel = '$teamTel', lsttm = NOW() WHERE team_seq = $teamSeq";
+$sql = "UPDATE tb_team_base SET team_name = '$teamName', addr = '$teamAddr', tel = '$teamTel', insta_id = '$instaId', lsttm = NOW() WHERE team_seq = $teamSeq";
 // 쿼리 실행
 $result = sql_query($sql);
 if ($result) {

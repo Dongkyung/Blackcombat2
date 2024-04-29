@@ -14,6 +14,7 @@ $weight = $_POST['weight'];
 $win = $_POST['win'];
 $lose = $_POST['lose'];
 $draw = $_POST['draw'];
+$tel = $_POST['tel'];
 
 
 
@@ -29,6 +30,7 @@ weight = $weight,
 win = $win,
 lose = $lose,
 draw = $draw,
+tel = '$tel',
 lsttm = NOW()
 WHERE fighter_seq = $fighterSeq";
 

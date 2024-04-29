@@ -30,12 +30,12 @@ $sql = "SELECT
             fb.win,
             fb.lose,
             fb.draw,
+            fb.tel,
             fb.lsttm,
             fb.fsttm
         FROM tb_fighter_base fb
         LEFT JOIN tb_team_base tb ON fb.team_seq = tb.team_seq 
         WHERE fb.del_yn = 0
-        AND fighter_type = 1
         AND fighter_seq = $fighter_seq
         ORDER BY fighter_seq";
 

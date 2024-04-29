@@ -6,9 +6,10 @@ include_once('../../../common.php');
 $teamName = $_POST['teamName'];
 $teamAddr = $_POST['teamAddr'];
 $teamTel = $_POST['teamTel'];
+$instaId = $_POST['instaId'];
 
 // TODO: 적절한 SQL INSERT 쿼리를 사용하여 데이터 추가
-$sql = "INSERT INTO tb_team_base (team_name, addr, tel, lsttm) VALUES ('$teamName', '$teamAddr', '$teamTel', NOW())";
+$sql = "INSERT INTO tb_team_base (team_name, addr, tel,insta_id, lsttm) VALUES ('$teamName', '$teamAddr', '$teamTel', '$instaId', NOW())";
 
 // 쿼리 실행
 $result = sql_query($sql);

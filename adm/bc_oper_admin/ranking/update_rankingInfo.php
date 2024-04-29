@@ -23,6 +23,7 @@ foreach ($rankingData as $item) {
     $ranking = $item['ranking'];
     $fighter_seq = $item['fighter_seq'];
     $ranking_updown = $item['ranking_updown'];
+    $memo_1 = $item['memo_1'];
 
     // TODO: 적절한 SQL UPDATE 쿼리를 사용하여 데이터 업데이트
     $sql = "INSERT INTO blackcombat.tb_fighter_ranking
@@ -31,6 +32,12 @@ foreach ($rankingData as $item) {
 
     // 쿼리 실행
     $result = sql_query($sql);
+
+    $memoSql = "INSERT INTO blackcombat.tb_fighter_memo (fighter_seq, memo_1)
+    VALUES ($fighter_seq, '$memo_1') ON DUPLICATE KEY
+    UPDATE memo_1 = '$memo_1'";
+    sql_query($memoSql);
+    
 }
 
 

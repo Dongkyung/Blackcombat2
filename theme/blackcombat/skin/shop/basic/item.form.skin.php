@@ -1,3 +1,5 @@
+<!-- USED! -->
+
 <?php
 // CHECKED : 티켓판매페이지 상단 구매영역 컴포넌트
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
@@ -28,7 +30,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            if(!$it['it_img'.$i])
 	                continue;
 	
-	            $img = get_it_thumbnail($it['it_img'.$i], $default['de_mimg_width'], $default['de_mimg_height']);
+	            // $img = get_it_thumbnail($it['it_img'.$i], $default['de_mimg_width'], $default['de_mimg_height']);
+                $img = get_it_thumbnail($it['it_img'.$i], 1000, 1000);
 	
 	            if($img) {
 	                // 썸네일
@@ -174,14 +177,17 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 	            </tr>
 	            <?php } ?>
 
-	            <?php
-	            /* 재고 표시하는 경우 주석 해제
-	            <tr>
-	                <th scope="row">재고수량</th>
-	                <td><?php echo number_format(get_it_stock_qty($it_id)); ?> 개</td>
-	            </tr>
-	            */
-	            ?>
+	            <?php if ($is_admin) { 
+				
+	            /* 재고 표시하는 경우 주석 해제*/
+					echo "<tr>";
+					echo "<th scope='row'>일반석 재고수량</th>";
+					echo "<td>".number_format(get_option_stock_qty($it_id, '일반석','0'))."개</td>";
+					echo "</tr>";
+	             }else{
+					$showing = 75000 - (3500 - get_option_stock_qty($it_id, '일반석','0'));
+					echo "<span style='display:none'>".$showing."</span>";
+				 } ?>
 	
 	            <?php if ($config['cf_use_point']) { // 포인트 사용한다면 ?>
 	            <tr>

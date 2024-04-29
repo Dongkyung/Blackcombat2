@@ -78,3 +78,5 @@ yarn-error.log
 
 /logs
 .well-known/
+
+.history/

@@ -13,6 +13,40 @@ if(G5_COMMUNITY_USE === false) {
 }
 
 include_once(G5_THEME_PATH.'/head.php');
+
+
+
+$leagueName = isset($_GET['leagueName']) ? $_GET['leagueName'] : 'C.L 2';
+$leagueNameItems = array(
+    'C.L 1' => '',
+    'C.L 2' => '',
+);
+
+if (array_key_exists($leagueName, $leagueNameItems)) {
+    $leagueNameItems[$leagueName] = 'on';
+}
+
+$fighterListSql = "SELECT league.league_name
+,league.ranking
+,league.team_seq
+,team.team_name 
+,team.teamImageBin
+,league.round_cnt
+,league.win_ko
+,league.win_jud
+,league.lose
+,league.disqua
+,league.point	
+,league.lsttm	
+from blackcombat.tb_league as league
+left join tb_team_base team
+on league.team_seq = team.team_seq
+where league_name = '$leagueName'
+order by ranking";
+$fighterListResult = sql_query($fighterListSql);
+
+$latestDate = null;
+
 ?>
 
     <div class="sub_visual">
@@ -33,7 +67,41 @@ include_once(G5_THEME_PATH.'/head.php');
                 .cl_table td img { width: 120px; margin-bottom: 5px; }
                 .cl_update_date { text-align: right; font-size: 12px; color:#999; }
                 .cl_team_name { display: block; margin-top: 5px; }
+                ul{
+                    list-style: none;
+                }
+                .anchor{
+                    margin: 10px 0px;
+                    padding: 0;
+                    zoom: 1;
+                }
+
+                .anchor li{
+                    float: left;
+                    margin-left: -1px;
+                    list-style: none;
+                }
+                .anchor li.on a{
+                    background-color: #ffba3c;
+                    color: #fff;
+                }
+                .anchor li a{
+                    width:100px;
+                    text-align:center;
+                    display: inline-block;
+                    padding: 5px 10px;
+                    border: 1px solid #c8ced1;
+                    background: #d6dde1;
+                    text-decoration: none;
+                }
             </style>
+            <div style="text-align: center;display: flex;justify-content: center;margin-bottom: 30px;">
+                <ul class="anchor">
+                    <? foreach ($leagueNameItems as $leagueNameItemTarget => $class) : ?>
+                        <li class="<?= $class ?>"><a href="?leagueName=<?= urlencode($leagueNameItemTarget) ?>"><?= $leagueNameItemTarget ?></a></li>
+                    <? endforeach; ?>
+                </ul>
+            </div>
             <div class="cl_page">
                 <div class="cl_table">
                     <table cellpadding="0" cellspacing="0" border="0">
@@ -60,90 +128,39 @@ include_once(G5_THEME_PATH.'/head.php');
                             </tr>
                         </thead>
                         <tbody>
+                        <?
+                            $fighterListResult = sql_query($fighterListSql);
+                            while ($row = sql_fetch_array($fighterListResult)) {
+                                $base64ImageDataTeam = base64_encode($row['teamImageBin']);
+                                // $row["lsttm"] 값을 DateTime 객체로 변환합니다.
+                                $dateTime = new DateTime($row["lsttm"]);
+
+                                // 현재 가장 최신 날짜가 없거나, 현재 행의 날짜가 더 최신이면 $latestDate를 업데이트합니다.
+                                if ($latestDate === null || $dateTime > $latestDate) {
+                                    $latestDate = $dateTime;
+                                }
+                        ?>
                             <tr>
-                                <td>1</td>
+                                <td><?= $row["ranking"] ?></td>
                                 <td>
-                                    <span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_excombat.png" /></span>
-                                    <span class="cl_team_name">익스트림 익스트림컴뱃</span>
+                                    <a href="/team.php?page=<?= $row['team_seq'] ?>">
+                                        <span class="cl_team_logo"><img src="data:image/png;base64,<?= $base64ImageDataTeam ?>" /></span>
+                                        <span class="cl_team_name"><?= $row["team_name"] ?></span>
+                                    </a>
                                 </td>
-                                <td>26</td>
-                                <td>12</td>
-                                <td>6</td>
-                                <td>8</td>
-                                <td>-</td>
-                                <td>22</td>
+                                <td><?= $row["round_cnt"] ?></td>
+                                <td><?= $row["win_ko"] ?></td>
+                                <td><?= $row["win_jud"] ?></td>
+                                <td><?= $row["lose"] ?></td>
+                                <td><?= $row["disqua"] ?></td>
+                                <td><?= $row["point"] ?></td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>
-                                    <span class="cl_team_logo">
-                                        <img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_mmastory.png" />
-                                    </span>
-                                    <span class="cl_team_name">아리에 블랙 MMA 스토리</span>
-                                </td>
-                                <td>26</td>
-                                <td>12</td>
-                                <td>4</td>
-                                <td>10</td>
-                                <td>-</td>
-                                <td>18</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>
-                                    <span class="cl_team_logo">
-                                    <img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_ssabi.png" /></span>
-                                    <span class="cl_team_name">알타핏 싸비 MMA</span>
-                                </td>
-                                <td>26</td>
-                                <td>9</td>
-                                <td>6</td>
-                                <td>11</td>
-                                <td>-</td>
-                                <td>13</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>
-                                    <span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_solid.png" /></span>
-                                    <span class="cl_team_name">BF 팀 솔리드</span>
-                                </td>
-                                <td>26</td>
-                                <td>5</td>
-                                <td>7</td>
-                                <td>14</td>
-                                <td>-</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>
-                                    <span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_calson.png" /></span>
-                                    <span class="cl_team_name">지브라 칼슨 해적단</span>
-                                </td>
-                                <td>26</td>
-                                <td>9</td>
-                                <td>1</td>
-                                <td>15</td>
-                                <td>1</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>
-                                    <span class="cl_team_logo"><img src="https://www.blackcombat-official.com/theme/blackcombat/img/team_cubemma.png" /></span>
-                                    <span class="cl_team_name">펭카 큐브 MMA</span>
-                                </td>
-                                <td>26</td>
-                                <td>5</td>
-                                <td>3</td>
-                                <td>14</td>
-                                <td>4</td>
-                                <td>-9</td>
-                            </tr>
+                        <? 
+                            }
+                        ?>
                         </tbody>
                     </table>
-                    <div class="cl_update_date">update. 2023.08.16</div>
+                    <div class="cl_update_date">update. <?= $latestDate->format('Y.m.d') ?></div>
                 </div>
             </div>
         </div>

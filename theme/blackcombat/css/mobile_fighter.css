@@ -2,6 +2,7 @@
 .fighter_page .fighter_info {  }
 .fighter_page .fighter_info:after { display: block; content: ''; clear: both; }
 .fighter_page .fighter_data { float: left; width: 50%; color:#FFFFFF; }
+.fighter_page .data_age {display:block; margin-top:10px;}
 .fighter_page .data_tags { font-size: 10px; margin-bottom: 20px;}
 .fighter_page .data_tags span { display: inline-block; padding: 2px; margin:  0px 1px; background-color: rgba(255, 255, 255, 0.4); }
 .fighter_page .data_name { font-size: 16px; font-weight: bold; }
@@ -23,7 +24,7 @@
 .fighter_page .data_record_draw { float: left; width: 33.33%;  }
 .fighter_page .fighter_img { float: left; width: 50%; }
 .fighter_page .fighter_img img { width: 100%; }
-.fighter_page .fighter_match { display: none; text-align: center; color:#FFFF; }
+.fighter_page .fighter_match { display: block; text-align: left; color:#FFFF; width: 95vw; }
 .fighter_page .fighter_match .match_title { font-family: 'Teko', sans-serif; font-size: 20px; margin-bottom: 10px; }
 .fighter_page .fighter_match .match_list { text-align: center; }
 .fighter_page .fighter_match .match_list li { font-size: 14px; margin-bottom: 5px; }

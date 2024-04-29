@@ -70,7 +70,7 @@ if ($ticket_row) {
                         <a href="http://www.hegemonyblack.com/main/index.php" target="_blank">STORE</a>
                     </li>
                     <li>
-                        <a href="<?php echo G5_URL ?>/event.php?page=8">EVENT</a>
+                        <a href="<?php echo G5_URL ?>/event.php?page=10">EVENT</a>
                     </li>
                     <li>
                         <a href="<?php echo G5_URL ?>/video">VIDEO</a>

@@ -14,12 +14,13 @@ $weight = $_POST['weight'];
 $win = $_POST['win'];
 $lose = $_POST['lose'];
 $draw = $_POST['draw'];
+$tel = $_POST['tel'];
 
 
 
 // TODO: 적절한 SQL INSERT 쿼리를 사용하여 데이터 추가
-$sql = "INSERT INTO tb_fighter_base (fighter_type, fighter_name, fighter_ringname, team_seq, birth, insta_id, height, weight, win, lose, draw, lsttm)
-VALUES ($fighter_type, '$fighter_name', '$fighter_ringname', '$team_seq', '$birth', '$insta_id', '$height', '$weight', '$win', '$lose', '$draw', NOW())";
+$sql = "INSERT INTO tb_fighter_base (fighter_type, fighter_name, fighter_ringname, team_seq, birth, insta_id, height, weight, win, lose, draw, tel, lsttm)
+VALUES ($fighter_type, '$fighter_name', '$fighter_ringname', '$team_seq', '$birth', '$insta_id', '$height', '$weight', '$win', '$lose', '$draw','$tel', NOW())";
 
 // 쿼리 실행
 $result = sql_query($sql);

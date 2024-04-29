@@ -24,19 +24,31 @@ include_once(G5_THEME_PATH.'/head.php');
 
     .swiper-button-next, .swiper-button-prev {color:#fff;}
     .swiper-pagination-bullet {background:#fff;}
+
+    .training_center_item{
+        width:872px;
+        height:443px;
+    }
+
+    .training_center_item img{
+        width:100%;
+    height:100%;
+        object-fit:contain;
+    }
 </style>
 
 <div class="key_visual">
     <div class="swiper key_visual_wrap">
         <div class="swiper-wrapper key_visual_items">
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_0.jpg?v=20220918" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_1.jpg?v=20220918" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_2.jpg?v=20220918" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_3.jpg?v=20220918" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_4.jpg?v=20220918" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_5.jpg?v=20220918" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_6.jpg?v=20220918" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_7.jpg?v=20220918" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_0.jpg" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_1.jpg" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_2.jpg" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_3.jpg" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_4.jpg" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_5.jpg" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_6.jpg" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_7.jpg" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_8.jpg" /></div>
         </div>
 
         <div class="swiper-button-next"></div>
@@ -78,46 +90,46 @@ include_once(G5_THEME_PATH.'/head.php');
     <div class="store_items">
         <div class="store_item">
             <div class="store_item_img">
-                <a href="http://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000061&mtn=13%5E%7C%5E%5B+CLASSIC+COLLECTION+%5D%5E%7C%5En" class="store_item_img_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/store_img_1.png" /></a>
+                <a href="https://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000094" class="store_item_img_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/store_img_1.jpg" /></a>
             </div>
             <div class="store_item_name">
-                <a href="http://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000061&mtn=13%5E%7C%5E%5B+CLASSIC+COLLECTION+%5D%5E%7C%5En" class="store_item_name_anchor" target="_blank">갓파더 블랙 티셔츠</a>
+                <a href="https://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000094" class="store_item_name_anchor" target="_blank">BLACK COMBAT 더킹 후디 (black)</a>
             </div>
             <div class="store_item_price">
-                <a href="http://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000061&mtn=13%5E%7C%5E%5B+CLASSIC+COLLECTION+%5D%5E%7C%5En" class="store_item_price_anchor" target="_blank">￦38,000</a>
+                <a href="https://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000094" class="store_item_price_anchor" target="_blank">￦69,000</a>
             </div>
         </div>
         <div class="store_item">
             <div class="store_item_img">
-                <a href="http://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000060&mtn=13%5E%7C%5E%5B+CLASSIC+COLLECTION+%5D%5E%7C%5En" class="store_item_img_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/store_img_2.png" /></a>
+                <a href="https://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000088" class="store_item_img_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/store_img_2.jpg" /></a>
             </div>
             <div class="store_item_name">
-                <a href="http://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000060&mtn=13%5E%7C%5E%5B+CLASSIC+COLLECTION+%5D%5E%7C%5En" class="store_item_name_anchor" target="_blank">블랙컴뱃2 공식 티셔츠</a>
+                <a href="https://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000088" class="store_item_name_anchor" target="_blank">BLACK COMBAT 후드집업 (white)</a>
             </div>
             <div class="store_item_price">
-                <a href="http://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000060&mtn=13%5E%7C%5E%5B+CLASSIC+COLLECTION+%5D%5E%7C%5En" class="store_item_price_anchor" target="_blank">￦42,000</a>
+                <a href="https://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000088" class="store_item_price_anchor" target="_blank">￦79,000</a>
             </div>
         </div>
         <div class="store_item">
             <div class="store_item_img">
-                <a href="http://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000062&mtn=13%5E%7C%5E%5B+CLASSIC+COLLECTION+%5D%5E%7C%5En" class="store_item_img_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/store_img_3.png" /></a>
+                <a href="https://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000089" class="store_item_img_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/store_img_3.jpg" /></a>
             </div>
             <div class="store_item_name">
-                <a href="http://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000062&mtn=13%5E%7C%5E%5B+CLASSIC+COLLECTION+%5D%5E%7C%5En" class="store_item_name_anchor" target="_blank">조커 정도한 티셔츠</a>
+                <a href="https://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000089" class="store_item_name_anchor" target="_blank">BLACK COMBAT 후드집업 (black)</a>
             </div>
             <div class="store_item_price">
-                <a href="http://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000062&mtn=13%5E%7C%5E%5B+CLASSIC+COLLECTION+%5D%5E%7C%5En" class="store_item_price_anchor" target="_blank">￦38,500</a>
+                <a href="https://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000089" class="store_item_price_anchor" target="_blank">￦79,000</a>
             </div>
         </div>
         <div class="store_item">
             <div class="store_item_img">
-                <a href="http://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000059&mtn=13%5E%7C%5E%5B+CLASSIC+COLLECTION+%5D%5E%7C%5En" class="store_item_img_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/store_img_4.png" /></a>
+                <a href="https://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000083" class="store_item_img_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/store_img_4.jpg" /></a>
             </div>
             <div class="store_item_name">
-                <a href="http://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000059&mtn=13%5E%7C%5E%5B+CLASSIC+COLLECTION+%5D%5E%7C%5En" class="store_item_name_anchor" target="_blank">BLACK COMBAT 파이트쇼츠</a>
+                <a href="https://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000083" class="store_item_name_anchor" target="_blank">BLACK COMBAT 트렁크 팬츠 (white)</a>
             </div>
             <div class="store_item_price">
-                <a href="http://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000059&mtn=13%5E%7C%5E%5B+CLASSIC+COLLECTION+%5D%5E%7C%5En" class="store_item_price_anchor" target="_blank">￦70,000</a>
+                <a href="https://www.hegemonyblack.com/goods/goods_view.php?goodsNo=1000000083" class="store_item_price_anchor" target="_blank">￦64,000</a>
             </div>
         </div>
     </div>
@@ -135,10 +147,10 @@ include_once(G5_THEME_PATH.'/head.php');
         <div class="sponsor_item"><a href="https://zebramats.kr/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_img_3.png" /></a></div>
     </div>
     <div class="sponsor_items">
-        <div class="sponsor_item"><a href="https://youtube.com/@By-DrKevin?si=z9XmQl9VzF6-BHLA" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_doctorzon.png" /></a></div>
+        <div class="sponsor_item"><a href="https://www.doctorzone.co.kr/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_doctorzon.png" /></a></div>
         <div class="sponsor_item"><a href="https://www.instagram.com/downtontheblack/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_downton.png" /></a></div>
         <div class="sponsor_item"><a href="https://www.cgv.co.kr/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_cgv.png" /></a></div>
-        <div class="sponsor_item"><a href="http://bfautomobility.kr/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_bf.png" style="width:60%"/></a></div>
+        <div class="sponsor_item"><a href="https://bf-am.com/home/index.php" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_bf.png" style="width:60%"/></a></div>
         
     </div>
 
@@ -173,6 +185,17 @@ include_once(G5_THEME_PATH.'/head.php');
     </div>
 
     <div class="training_center_bottom"><a href="https://www.instagram.com/blackcombat_songnae/" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/training_center_bottom_img.png?v=20220918" /></a></div>
+</div>
+<div class="training_center" style="padding-top:00px">
+    <div class="training_center_title"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/training_center_title_2.png" /></div>
+
+    <div class="swiper">
+        <div class="swiper-wrapper training_center_items" style="justify-content:center">
+            <div class="swiper-slide training_center_item" style="opacity:1"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/training_center_img2_1.jpg" /></div>
+        </div>
+    </div>
+
+    <div class="training_center_bottom"><a href="https://www.instagram.com/blackcombat_daejeon/" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/training_center_bottom_img_2.png" /></a></div>
 </div>
 
 <script>

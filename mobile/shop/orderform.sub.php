@@ -593,7 +593,7 @@ if($is_kakaopay_use) {
         // 무통장입금 사용
         if ($default['de_bank_use']) {
             $multi_settle++;
-            echo '<li><input type="radio" id="od_settle_bank" name="od_settle_case" value="무통장" '.$checked.'> <label for="od_settle_bank" class="lb_icon  bank_icon">무통장입금</label></li>'.PHP_EOL;
+            echo '<li style="display:none"><input type="radio" id="od_settle_bank" name="od_settle_case" value="무통장" '.$checked.'> <label for="od_settle_bank" class="lb_icon  bank_icon">무통장입금</label></li>'.PHP_EOL;
             $checked = '';
         }
 

@@ -14,7 +14,7 @@ include_once(G5_ADMIN_PATH.'/admin.head.php');
 $g5['title'] = "팀 정보 관리";
 
 
-$sql = "SELECT team_seq, team_name, addr, tel, lsttm FROM tb_team_base WHERE del_yn = 0";
+$sql = "SELECT team_seq, team_name, addr, tel, insta_id, teamImageBin, lsttm FROM tb_team_base WHERE del_yn = 0";
 $result = sql_query($sql);
 
 
@@ -38,6 +38,38 @@ $result = sql_query($sql);
         input[type="text"] {
             width: 100%;
         }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 50px;
+            left: auto;
+            right: auto;
+            top: auto;
+            bottom: auto;
+            height: 50%;
+            width: 50%;
+            overflow: auto;
+            background-color: black;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .close {
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
     </style>
 
 
@@ -49,7 +81,7 @@ $result = sql_query($sql);
         // teamSeq는 첫 번째 td에 있을 것으로 가정
         teamSeq = tds.eq(0).text();
 
-        for (var i = 1; i < tds.length - 3; i++) { // 수정날짜를 제외한 열에 대해서만 반복
+        for (var i = 1; i < tds.length - 4; i++) { // 수정날짜를 제외한 열에 대해서만 반복
             var oldValue = tds.eq(i).text();
 
             // 모든 경우에 수정 가능한 input으로 교체
@@ -112,7 +144,8 @@ function updateRow(tds, teamSeq) {
         teamSeq: teamSeq,
         teamName: tds.eq(1).find('input').val(),
         teamAddr: tds.eq(2).find('input').val(),
-        teamTel: tds.eq(3).find('input').val()
+        teamTel: tds.eq(3).find('input').val(),
+        instaId: tds.eq(4).find('input').val()
     };
 
     $.ajax({
@@ -136,7 +169,7 @@ function updateRow(tds, teamSeq) {
             tds.eq(tds.length - 1).html('<button onclick="deleteRow(' + teamSeq + ')">삭제</button>'); // 삭제 버튼이 들어갈 열 수정
 
             // 수정된 데이터로 행 갱신
-            for (var i = 1; i < tds.length - 3; i++) { // 수정날짜를 제외한 열에 대해서만 반복
+            for (var i = 1; i < tds.length - 4; i++) { // 수정날짜를 제외한 열에 대해서만 반복
                 var inputValue = tds.eq(i).find('input').val();
                 tds.eq(i).html(inputValue);
             }
@@ -203,6 +236,9 @@ function deleteRow(teamSeq) {
         // 전화번호 입력 폼
         newRow.append('<td><input type="text" id="teamTel"></td>');
 
+        // 인스타 입력 폼
+        newRow.append('<td><input type="text" id="instaId"></td>');
+
         // 수정날짜는 입력 시간으로 고정
         newRow.append('<td>' + getCurrentDateTime() + '</td>');
 
@@ -228,7 +264,8 @@ function deleteRow(teamSeq) {
         var newTeamData = {
             teamName: newRow.find('#teamName').val(),
             teamAddr: newRow.find('#teamAddr').val(),
-            teamTel: newRow.find('#teamTel').val()
+            teamTel: newRow.find('#teamTel').val(),
+            instaId: newRow.find('#instaId').val()
         };
 
         $.ajax({
@@ -236,30 +273,32 @@ function deleteRow(teamSeq) {
             url: './team/create_team.php', // 실제 추가를 처리하는 PHP 파일 경로
             data: newTeamData,
             success: function(response) {
+                location.reload();
                 // 서버에서 추가 성공한 경우
-                console.log(response); // 추가 성공한 경우 콘솔에 출력 (디버깅용)
-                let teamSeq = JSON.parse(response).team_seq;
+                // console.log(response); // 추가 성공한 경우 콘솔에 출력 (디버깅용)
+                // let teamSeq = JSON.parse(response).team_seq;
 
-                // 입력 완료 버튼과 취소 버튼 삭제
-                newRow.find('td:last-child').remove();
-                newRow.find('td:last-child').remove();
+                // // 입력 완료 버튼과 취소 버튼 삭제
+                // newRow.find('td:last-child').remove();
+                // newRow.find('td:last-child').remove();
 
-                // 수정 버튼 생성 및 클릭 이벤트 등록
-                var editButton = '<button onclick="editRow('+teamSeq+')">수정</button>'
-                newRow.append($('<td>').append(editButton));
+                // // 수정 버튼 생성 및 클릭 이벤트 등록
+                // var editButton = '<button onclick="editRow('+teamSeq+')">수정</button>'
+                // newRow.append($('<td>').append(editButton));
 
-                // 삭제 버튼 생성 및 클릭 이벤트 등록
-                var deleteButton = '<button onclick="deleteRow('+teamSeq+')">삭제</button>';
-                newRow.append($('<td>').append(deleteButton));
+                // // 삭제 버튼 생성 및 클릭 이벤트 등록
+                // var deleteButton = '<button onclick="deleteRow('+teamSeq+')">삭제</button>';
+                // newRow.append($('<td>').append(deleteButton));
 
-                // 새로 추가한 데이터로 행 갱신
-                newRow.find('td').eq(0).html(teamSeq); // 팀번호 업데이트
-                newRow.find('td').eq(4).html(getCurrentDateTime()); // 수정날짜 업데이트
+                // // 새로 추가한 데이터로 행 갱신
+                // newRow.find('td').eq(0).html(teamSeq); // 팀번호 업데이트
+                // newRow.find('td').eq(6).html(getCurrentDateTime()); // 수정날짜 업데이트
 
-                // 나머지 입력 폼을 입력된 값으로 업데이트
-                newRow.find('td').eq(1).html(newTeamData.teamName);
-                newRow.find('td').eq(2).html(newTeamData.teamAddr);
-                newRow.find('td').eq(3).html(newTeamData.teamTel);
+                // // 나머지 입력 폼을 입력된 값으로 업데이트
+                // newRow.find('td').eq(1).html(newTeamData.teamName);
+                // newRow.find('td').eq(2).html(newTeamData.teamAddr);
+                // newRow.find('td').eq(3).html(newTeamData.teamTel);
+                // newRow.find('td').eq(4).html(newTeamData.instaId);
             },
             error: function(error) {
                 console.error('Error adding data:', error);
@@ -286,9 +325,62 @@ function deleteRow(teamSeq) {
         return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     }
 
+
+    function editClick(el){
+        if (confirm("이미지 선택 시 이미지가 즉시 교체됩니다. 계속하시겠습니까?")) {
+            // 파일 선택 창 열기
+            console.log($(el))
+            $(el).parent().find('.fileToUpload').trigger("click");
+        }
+    }
+
+    function editProcess(el, seq){
+               
+        var file = el.files[0];
+                
+        // FormData 객체 생성
+        var formData = new FormData();
+        formData.append("fileToUpload", file);
+        formData.append("team_seq", seq);
+
+
+        // Ajax로 파일 업로드 처리
+        $.ajax({
+            url: "./team/photo_upload.php",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                location.reload();
+            },
+            error: function(error) {
+                console.error("Error uploading file:", error);
+            }
+        });
+    }
+
+    function openModal(base64ImageData) {
+        // 모달 표시
+        var modal = document.getElementById('myModal');
+        var modalImg = document.getElementById("imgModal");
+        modal.style.display = "block";
+        modalImg.src = 'data:image/png;base64,' + base64ImageData;
+
+        // 닫기 버튼 이벤트 처리
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    }
+
+
     </script>
 
-
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="imgModal">
+</div>
 
 
 <h2>팀 정보</h2>
@@ -300,6 +392,8 @@ function deleteRow(teamSeq) {
         <th style="width:300px">팀명</th>
         <th style="width:300px">주소</th>
         <th style="width:200px">연락처</th>
+        <th style="width:200px">인스타</th>
+        <th style="width:70px; text-align:center;">팀 이미지</th>
         <th style="width:200px">수정날짜</th>
         <th style="width:100px">수정</th>
         <th style="width:100px">삭제</th>
@@ -308,11 +402,33 @@ function deleteRow(teamSeq) {
     <!-- 테이블 내용 부분은 그대로 유지하며, 수정 버튼 클릭 시 editRow 함수 호출 -->
     <?php
     while ($row = sql_fetch_array($result)) {
+        // 이미지 데이터를 base64로 인코딩
+        $base64ImageDataTeam = base64_encode($row['teamImageBin']);
         echo "<tr>";
         echo "<td>" . $row["team_seq"] . "</td>";
         echo "<td>" . $row["team_name"] . "</td>";
         echo "<td>" . $row["addr"] . "</td>";
         echo "<td>" . $row["tel"] . "</td>";
+        echo "<td>" . $row["insta_id"] . "</td>";
+        // echo "<td class='img_team' style='text-align:center'>
+        //         <button onclick=editClick(this)>편집</button>
+        //         <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=editProcess(this,'".$row["team_seq"]."')>
+        //     </td>";
+        if($base64ImageDataTeam != ""){
+            echo "<td class='img_team' style='text-align:center'>
+                <img width='50px' onclick='openModal(\"$base64ImageDataTeam\")' style='cursor:pointer'
+                    src='data:image/png;base64,$base64ImageDataTeam' 
+                />
+                <button onclick=editClick(this)>편집</button>
+                <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=editProcess(this,'".$row["team_seq"]."')>
+            </td>";    
+        }else{
+            echo "<td class='img_team' style='text-align:center'>
+                    <button onclick=editClick(this)>편집</button>
+                    <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=editProcess(this,'".$row["team_seq"]."')>
+                </td>";
+        }
+              
         echo "<td>" . $row["lsttm"] . "</td>";
         echo '<td><button onclick="editRow(' . $row["team_seq"] . ')">수정</button></td>';
         echo '<td><button onclick="deleteRow(' . $row["team_seq"] . ')">삭제</button></td>';

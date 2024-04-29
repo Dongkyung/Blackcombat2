@@ -23,13 +23,30 @@ function age($birthday) {
 
 $g5['title'] = "선수정보 관리";
 
+$fighterType = isset($_GET['fighterType']) ? $_GET['fighterType'] : '프로'; // 현재 URL에서 division 값 취득
+$fighterTypeItems = array(
+    '프로' => '',
+    '세미프로' => '',
+);
+
+$fighterTypeNum;
+if($fighterType == "프로"){
+    $fighterTypeNum = 1;
+}else if($fighterType == "세미프로"){
+    $fighterTypeNum = 2;
+}
+
+// 현재 division에 해당하는 메뉴에 "on" 클래스 추가
+if (array_key_exists($fighterType, $fighterTypeItems)) {
+    $fighterTypeItems[$fighterType] = 'on';
+}
 
 $sql = "SELECT fb.*, tb.team_name 
 FROM tb_fighter_base fb
 left join tb_team_base tb
 on fb.team_seq = tb.team_seq 
 WHERE fb.del_yn = 0
-and fighter_type = 1
+and fighter_type = $fighterTypeNum
 order by fighter_seq";
 $result = sql_query($sql);
 
@@ -42,7 +59,7 @@ while ($row = sql_fetch_array($teamListresult)) {
     echo "teamList.push({teamName:'".$row["team_name"]."',teamSeq:".$row["team_seq"]."});";
 }
 echo "console.log(teamList)";
-echo "</script>"
+echo "</script>";
 
 
 ?>
@@ -116,6 +133,16 @@ echo "</script>"
         font-weight: bold;
         cursor: pointer;
     }
+
+    .anchor li.on a {
+        background-color: #3f51b5;
+        color: #fff;
+    }
+
+    .anchor li a {
+        width: 100px;
+        text-align: center;
+    }
     </style>
 
 
@@ -160,7 +187,7 @@ echo "</script>"
                             break;
                         case "fighter_name" : case "fighter_ringname" : 
                         case "birth" : case "insta_id" : case "height" : case "weight" : 
-                        case "win" : case "lose" : case "draw" : 
+                        case "win" : case "lose" : case "draw" : case "tel" : 
                             $(item).html('<input type="text" value="' + oldValueDB + '">');
                             $(item).find('input').data('originalValue', oldValue);
                             break;
@@ -199,6 +226,10 @@ echo "</script>"
             tds.eq(i).html(originalValue);
         }
 
+        //연락처행은 별개로 처리
+        var originalTelValue = tds.eq(tds.length - 4).find('input').data('originalValue');
+        tds.eq(tds.length - 4).html(originalTelValue);
+
         // 수정 버튼 다시 보이게
         var editButton = tds.eq(tds.length - 2).find('button');
         editButton.show();
@@ -231,7 +262,8 @@ echo "</script>"
             weight : targetRow.find(".weight").find('input').val(),
             win : targetRow.find(".win").find('input').val(),
             lose : targetRow.find(".lose").find('input').val(),
-            draw : targetRow.find(".draw").find('input').val()
+            draw : targetRow.find(".draw").find('input').val(),
+            tel : targetRow.find(".tel").find('input').val()
         };
 
         if(!validCheck(updatedData)){
@@ -270,7 +302,6 @@ echo "</script>"
                             }else{
                                 tds.eq(i).html(info[className]);
                             }
-                            
                         }
                         var currentDate = new Date(); // 현재 날짜 및 시간 가져오기
                         var year = currentDate.getFullYear();
@@ -279,9 +310,10 @@ echo "</script>"
                         var hours = String(currentDate.getHours()).padStart(2, '0');
                         var minutes = String(currentDate.getMinutes()).padStart(2, '0');
                         var seconds = String(currentDate.getSeconds()).padStart(2, '0');
-
                         var formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
                         tds.eq(tds.length - 3).html(formattedDate);
+
+                        tds.eq(tds.length - 4).html(info[$(tds.eq(tds.length - 4)).attr("class")]); //연락처 행
                     },
                     error: function (error) {
                         console.error('API 호출 실패:', error);
@@ -349,6 +381,7 @@ echo "</script>"
         newRow.append('<td class="draw"><input type="text"></td>'); 
         newRow.append('<td>-</td>');
         newRow.append('<td>-</td>'); 
+        newRow.append('<td class="tel"><input type="text"></td>'); 
         // 수정날짜는 입력 시간으로 고정
         newRow.append('<td>' + getCurrentDateTime() + '</td>');
 
@@ -373,7 +406,7 @@ echo "</script>"
     function addData(newRow) {
         // 새로 입력한 데이터를 가져와서 AJAX로 서버에 추가 요청
         var newTeamData = {
-            fighter_type: '1',            
+            fighter_type: '<?= $fighterTypeNum ?>',            
             fighter_name: newRow.find('.fighter_name').find('input').val(),
             fighter_ringname: newRow.find('.fighter_ringname').find('input').val(),
             team_seq: newRow.find('.team_seq').find('input').val(),
@@ -384,6 +417,7 @@ echo "</script>"
             win: newRow.find('.win').find('input').val(),
             lose: newRow.find('.lose').find('input').val(),
             draw: newRow.find('.draw').find('input').val(),
+            tel: newRow.find('.tel').find('input').val(),
         };
 
         if(!validCheck(newTeamData)){
@@ -532,6 +566,13 @@ echo "</script>"
   <img class="modal-content" id="imgModal">
 </div>
 
+<ul class="anchor">
+    <? foreach ($fighterTypeItems as $fighterTypeName => $class) : ?>
+        <li class="<?= $class ?>"><a href="?fighterType=<?= urlencode($fighterTypeName) ?>"><?= $fighterTypeName ?></a></li>
+    <? endforeach; ?>
+</ul>
+
+
 <h2>선수 정보</h2>
 
 <table style="font-size:0.8rem">
@@ -542,18 +583,19 @@ echo "</script>"
         <th style="width:100px">링네임</th>
         <th style="display:none">팀번호</th>
         <th style="width:100px">팀명</th>
-        <th style="width:150px">생년월일</th>
+        <th style="width:120px">생년월일</th>
         <th style="width:100px">인스타ID</th>
-        <th style="width:100px">키</th>
-        <th style="width:100px">몸무게</th>
-        <th style="width:30px">승</th>
-        <th style="width:30px">패</th>
-        <th style="width:30px">무</th>
-        <th style="width:100px">랭킹이미지</th>
-        <th style="width:100px">상세이미지</th>
-        <th style="width:200px">수정날짜</th>
-        <th style="width:100px">수정</th>
-        <th style="width:80px">삭제</th>
+        <th style="width:50px">키</th>
+        <th style="width:50px">체중</th>
+        <th style="width:40px">승</th>
+        <th style="width:40px">패</th>
+        <th style="width:40px">무</th>
+        <th style="width:70px; text-align:center;">랭킹<br/>이미지</th>
+        <th style="width:70px; text-align:center;">상세<br/>이미지</th>
+        <th style="width:120px">연락처</th>
+        <th style="width:150px">수정날짜</th>
+        <th style="width:50px">수정</th>
+        <th style="width:50px">삭제</th>
     </tr>
 
     <!-- 테이블 내용 부분은 그대로 유지하며, 수정 버튼 클릭 시 editRow 함수 호출 -->
@@ -604,6 +646,7 @@ echo "</script>"
                 <button onclick=editClick(this)>편집</button>
                 <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=editProcess(this,'".$row["fighter_seq"]."','detail')>
             </td>";
+        echo "<td class='tel'>" . $row["tel"] . "</td>";
         echo "<td class='lsttm'>" . $row["lsttm"] . "</td>";
         echo '<td class="btn_edit"><button onclick="editRow(' . $row["fighter_seq"] . ')">수정</button></td>';
         echo '<td class="btn_delete"><button onclick="deleteRow(' . $row["team_seq"] . ')">삭제</button></td>';

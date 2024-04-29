@@ -78,7 +78,7 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/sponsors.css
                     </div>
                     <div class="sponsors_list_item">
                         <div class="sponsors_list_logo">
-                            <a href="https://youtube.com/@By-DrKevin?si=z9XmQl9VzF6-BHLA" target="_blank">
+                            <a href="https://www.doctorzone.co.kr/" target="_blank">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_doctorzon.png" />
                             </a>
                         </div>
@@ -114,7 +114,7 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/sponsors.css
                     </div>
                     <div class="sponsors_list_item">
                         <div class="sponsors_list_logo">
-                            <a href="http://bfautomobility.kr/" target="_blank">
+                            <a href="https://bf-am.com/home/index.php" target="_blank">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_bf.png" style="width:35%"/>
                             </a>
                         </div>

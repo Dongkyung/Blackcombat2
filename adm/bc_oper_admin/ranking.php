@@ -3,15 +3,29 @@ $sub_menu = "910300";
 define('G5_IS_ADMIN', true);
 include_once ('../../common.php');
 include_once(G5_ADMIN_PATH.'/admin.lib.php');
-// auth_check_menu($auth, $sub_menu, "r");
-
-// $token = get_token();
-
-
 include_once(G5_ADMIN_PATH.'/admin.head.php');
-// $token = get_token();
 
-$division = isset($_GET['division']) ? $_GET['division'] : ''; // 현재 URL에서 division 값 취득
+
+/******************** 선수타입 정의 ***************/
+$fighterType = isset($_GET['fighterType']) ? $_GET['fighterType'] : '프로';
+$fighterTypeItems = array(
+    '프로' => '',
+    '세미프로' => '',
+);
+
+$fighterTypeNum;
+if($fighterType == "프로"){
+    $fighterTypeNum = 1;
+}else if($fighterType == "세미프로"){
+    $fighterTypeNum = 2;
+}
+
+if (array_key_exists($fighterType, $fighterTypeItems)) {
+    $fighterTypeItems[$fighterType] = 'on';
+}
+
+/******************** 체급타입 정의 ***************/
+$division = isset($_GET['division']) ? $_GET['division'] : '언더그라운드'; // 현재 URL에서 division 값 취득
 
 $menuItems = array(
     '언더그라운드' => '',
@@ -30,7 +44,7 @@ if (array_key_exists($division, $menuItems)) {
 }
 
 
-$fighterListSql = "SELECT fighter_seq, CONCAT(fighter_name,' (',fighter_ringname,')') as fighter_name from tb_fighter_base where del_yn=0 AND fighter_type=1";
+$fighterListSql = "SELECT fighter_seq, CONCAT(fighter_name,' (',fighter_ringname,')') as fighter_name from tb_fighter_base where del_yn=0 AND fighter_type=$fighterTypeNum";
 $fighterListResult = sql_query($fighterListSql);
 echo "<script type='text/javascript'>";
 echo "let fighterList = [];";
@@ -40,6 +54,10 @@ while ($row = sql_fetch_array($fighterListResult)) {
 echo "</script>"
 
 ?>
+
+<script>
+
+</script>
 <style>
         table {
             border-collapse: collapse;
@@ -123,6 +141,71 @@ echo "</script>"
         padding: .2rem .6rem;
         cursor: pointer;
       }
+
+      .btnSwitch button{
+        border: 0px;
+        height: 20px;
+        width: 20px;
+        outline: 0;
+        cursor: pointer;
+        padding: 0;
+        border-radius: 50%;
+        border: 2px solid #eee;
+        position: relative;
+        transition: all .3s;
+      }
+      
+      td.fighterName{
+        font-weight:bold;
+        transition: all .3s;
+      }
+
+        .btnSwitch button[data-color="black"] {
+            background-color: #191919;
+        }
+        .btnSwitch button[data-color="blue"] {
+            background-color: #1572E8;
+        }
+        .btnSwitch button[data-color="purple"] {
+            background-color: #6861CE;
+        }
+        .btnSwitch button[data-color="light-blue"] {
+            background-color: #48ABF7;
+        }
+        .btnSwitch button[data-color="green"] {
+            background-color: #31CE36;
+        }
+        .btnSwitch button[data-color="orange"] {
+            background-color: #FFAD46;
+        }
+        .btnSwitch button[data-color="red"] {
+            background-color: #F25961;
+        }
+        .btnSwitch button.selected {
+            border-color: #0bf;
+        }
+
+        td.fighterName[data-name-color="black"] {
+            color: #191919;
+        }
+        td.fighterName[data-name-color="blue"] {
+            color: #1572E8;
+        }
+        td.fighterName[data-name-color="purple"] {
+            color: #6861CE;
+        }
+        td.fighterName[data-name-color="light-blue"] {
+            color: #48ABF7;
+        }
+        td.fighterName[data-name-color="green"] {
+            color: #31CE36;
+        }
+        td.fighterName[data-name-color="orange"] {
+            color: #FFAD46;
+        }
+        td.fighterName[data-name-color="red"] {
+            color: #F25961;
+        }
     </style>
 
 
@@ -138,8 +221,14 @@ echo "</script>"
 </div>
 
 <ul class="anchor">
+    <? foreach ($fighterTypeItems as $fighterTypeName => $class) : ?>
+        <li class="<?= $class ?>"><a href="?fighterType=<?= urlencode($fighterTypeName) ?>"><?= $fighterTypeName ?></a></li>
+    <? endforeach; ?>
+</ul>
+
+<ul class="anchor">
     <? foreach ($menuItems as $divisionName => $class) : ?>
-        <li class="<?= $class ?>"><a href="?division=<?= urlencode($divisionName) ?>"><?= $divisionName ?></a></li>
+        <li class="<?= $class ?>"><a href="?division=<?= urlencode($divisionName) ?>&fighterType=<?= urlencode($fighterType) ?>"><?= $divisionName ?></a></li>
     <? endforeach; ?>
 </ul>
 
@@ -149,15 +238,23 @@ echo "</script>"
         <h1 style="font-size:1.5rem; padding:10px;"><?=$division?> 랭킹</h1>
         <button style="margin-left:30px; width:100px;" onclick="saveRanking();">저장</button>
     </div>
+    <div style="margin:10px 0px">
+        <label>
+            <input type="checkbox" onChange="changeDragYn(this)">
+            드래그 사용
+        </label>
+    </div>
     
     <? 
     $sql = "SELECT
         ROW_NUMBER() OVER(ORDER BY CASE WHEN ranking = 'c' THEN 0 ELSE CAST(ranking AS UNSIGNED) END, ranking) as num,
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, base.rankingImageBin, ranking.ranking_updown, ranking.lsttm
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, base.rankingImageBin, base.fighter_status, base.status_lsttm, ranking.ranking_updown, ranking.lsttm, memo.memo_1
     FROM blackcombat.tb_fighter_ranking ranking
     LEFT JOIN blackcombat.tb_fighter_base base
         ON ranking.fighter_seq = base.fighter_seq 
-    WHERE division='$division' AND ranking_type = 1
+    LEFT JOIN blackcombat.tb_fighter_memo memo
+        ON memo.fighter_seq = base.fighter_seq
+    WHERE division='$division' AND ranking_type = $fighterTypeNum
     ORDER BY 
     CASE WHEN ranking = 'c' THEN 0  
     ELSE CAST(ranking AS UNSIGNED) END, ranking;";
@@ -184,7 +281,10 @@ echo "</script>"
             <th style="width:auto">링네임</th>
             <th style="width:80px">순위변동</th>
             <th style="width:60px">이미지</th>
-            <th style="width:150px">수정날짜</th>
+            <th style="width:150px">랭킹수정날짜</th>
+            <th style="width:150px">상태변경</th>
+            <th style="width:150px">상태변경날짜</th>
+            <th style="width:150px">메모</th>
             <th>삭제</th> 
         </tr>
         </thead>
@@ -197,8 +297,8 @@ echo "</script>"
         <tr>
             <td style="display:none"><?= $row["num"] ?></td>
             <td><?= $row["ranking"] ?></td>
-            <td style="display:none"><?= $row["fighter_seq"] ?></td>
-            <td><?= $row["fighter_name"] ?></td>
+            <td class="fighterSeq" style="display:none"><?= $row["fighter_seq"] ?></td>
+            <td class="fighterName" data-name-color="<?= $row["fighter_status"] ?>"><b><?= $row["fighter_name"] ?></b></td>
             <td><?= $row["fighter_ringname"] ?></td>
             <td><input style="width:50px" value='<?= $row["ranking_updown"] ?>' /></td>
             <td style="text-align:center"><img width='40px' onclick='openModal("<?=$base64ImageDataRanking ?>")' style='cursor:pointer'
@@ -206,6 +306,17 @@ echo "</script>"
                      onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'"
                  /></td>
             <td><?= $row["lsttm"] ?></td>
+            <td>
+                <div class="btnSwitch">
+                    <button type="button" class="changeFighterStateColor <? if("black" == $row["fighter_status"] || "" == $row["fighter_status"]){ echo "selected"; } ?>" data-color="black"></button>
+                    <button type="button" class="changeFighterStateColor <? if("blue" == $row["fighter_status"]){ echo "selected"; } ?>" data-color="blue"></button>
+                    <button type="button" class="changeFighterStateColor <? if("green" == $row["fighter_status"]){ echo "selected"; } ?>" data-color="green"></button>
+                    <button type="button" class="changeFighterStateColor <? if("orange" == $row["fighter_status"]){ echo "selected"; } ?>" data-color="orange"></button>
+                    <button type="button" class="changeFighterStateColor <? if("red" == $row["fighter_status"]){ echo "selected"; } ?>" data-color="red"></button>
+                </div>
+            </td>
+            <td><?= $row["status_lsttm"] ?></td>
+            <td><input value='<?= $row["memo_1"] ?>' /></td>
             <td><button onclick='removeFighter(this)'>삭제</button></td>
         </tr>
     <? 
@@ -285,9 +396,9 @@ echo "</script>"
     });
 
     // Set draggable attribute to true for each row
-    document.querySelectorAll('.rankingTable tbody tr').forEach((row) => {
-      row.setAttribute('draggable', 'true');
-    });
+    // document.querySelectorAll('.rankingTable tbody tr').forEach((row) => {
+    //   row.setAttribute('draggable', 'true');
+    // });
   });
 
 
@@ -411,7 +522,7 @@ echo "</script>"
             return;
         }
         let formData = {
-            ranking_type : '1',
+            ranking_type : '<?=$fighterTypeNum?>',
             fighter_seq : fighter_seq,
             division : '<?= $division ?>'
         }
@@ -445,6 +556,7 @@ echo "</script>"
                     ranking : index,
                     fighter_seq : parseInt(tr.cells[2].textContent),
                     ranking_updown: tr.cells[5].querySelector('input').value,
+                    memo_1: tr.cells[10].querySelector('input').value,
                 }
             ));
             console.log(currentRanking);
@@ -456,7 +568,7 @@ echo "</script>"
                 data: {
                     "currentRanking": JSON.stringify(currentRanking),
                     "division": '<?= $division ?>',
-                    "rankingType": '1',
+                    "rankingType": '<?=$fighterTypeNum?>',
                 },
                 success: function(response) {
                     // 서버에서 추가 성공한 경우
@@ -469,6 +581,50 @@ echo "</script>"
                 }
             });
         }
+    }
+
+    $('.changeFighterStateColor').on('click', function(){
+
+        let fighterSeq = $(this).parent().parent().parent().find(".fighterSeq").text();
+        let colorName = $(this).attr('data-color');
+
+        $(this).parent().parent().parent().find(".fighterName").attr('data-name-color', colorName);
+        $(this).parent().find('.changeFighterStateColor').removeClass("selected");
+        $(this).addClass("selected");
+        
+        
+        $.ajax({
+            type: 'POST',
+            url: './fighter/update_fighter_status.php', // 실제 업데이트를 처리하는 PHP 파일 경로
+            data: {
+                fighterSeq: fighterSeq,
+                statusCode: colorName
+            },
+            success: function(response) {
+                // 서버에서 업데이트 성공한 경우
+                console.log(response); // 업데이트 성공한 경우 콘솔에 출력 (디버깅용)
+                
+
+            },
+            error: function(error) {
+                console.error('Error updating data:', error);
+                // 에러 처리 (실제 프로덕션에서는 사용자에게 알림 등을 보여주어야 함)
+            }
+        });
+        
+    });
+
+    function changeDragYn(el){
+        if($(el).prop("checked")){
+            document.querySelectorAll('.rankingTable tbody tr').forEach((row) => {
+                row.setAttribute('draggable', 'true');
+            });
+        }else{
+            document.querySelectorAll('.rankingTable tbody tr').forEach((row) => {
+                row.setAttribute('draggable', 'false');
+            });
+        }
+        fillPlayer();
     }
 </script>
 

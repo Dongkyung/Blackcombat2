@@ -406,6 +406,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 </div>
 
 <script>
+var max_qty = parseInt(<?php echo $it['it_buy_max_qty']; ?>);
+var min_qty = parseInt(<?php echo $it['it_buy_min_qty']; ?>);
 $(function(){
     // 상품이미지 첫번째 링크
     $("#sit_pvi_big a:first").addClass("visible");
@@ -444,8 +446,6 @@ function fsubmit_check(f)
 
     var val, io_type, result = true;
     var sum_qty = 0;
-    var min_qty = parseInt(<?php echo $it['it_buy_min_qty']; ?>);
-    var max_qty = parseInt(<?php echo $it['it_buy_max_qty']; ?>);
     var $el_type = $("input[name^=io_type]");
 
     $("input[name^=ct_qty]").each(function(index) {
@@ -495,12 +495,28 @@ function fsubmit_check(f)
 function fitem_submit(f)
 {
     <?php if ($it['it_seat'] === 'Y') { ?>
-    var seatRowType = $('input[name="seat_row_type"]');
-    var seatNumber = $('input[name="seat_number"]');
-    if (!seatRowType.val() || !seatNumber.val()) {
+    let seatTypeArr = [];
+        $.each($('input[name="rowType"]'),function(index,item){
+            seatTypeArr.push($(item).val());
+        });
+        let seatNumberArr = [];
+        $.each($('input[name="newSetNumber'),function(index,item){
+            seatNumberArr.push($(item).val());
+        });
+
+    var seatRowType = seatTypeArr.join("|");
+    var seatNumber = seatNumberArr.join("|");
+
+    if (seatRowType === "" || seatNumber === "") {
         alert('좌석을 선택해주세요.');
         return false;
     }
+
+    if(seatTypeArr.length >= max_qty){
+        alert("최대 구매 가능한 수량은 "+max_qty+"개 입니다.");
+        return false;
+    }
+
     <?php } ?>
 
     f.action = "<?php echo $action_url; ?>";

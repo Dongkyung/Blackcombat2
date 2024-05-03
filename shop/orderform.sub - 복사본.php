@@ -73,6 +73,7 @@ if($is_kakaopay_use) {
                     and a.ct_select = '1' ";
         $sql .= " group by a.it_id ";
         $sql .= " order by a.ct_id ";
+        echo $sql;
         $result = sql_query($sql);
 
         $good_info = '';
@@ -95,7 +96,8 @@ if($is_kakaopay_use) {
                 $orderRow = sql_fetch($orderSql);
 
                 if ($orderRow['cnt'] > 0) {
-                    alert('이미 결제된 좌석입니다.', G5_SHOP_URL . '/' . $row['it_id']);
+                    alert($orderSql);
+                    alert('이미 결제된 좌석입니다.!!', G5_SHOP_URL . '/' . $row['it_id']);
                 }
             }
             // //이미 결제된 좌석 중복체크 추가
@@ -143,11 +145,11 @@ if($is_kakaopay_use) {
 
                     // 각각의 배열을 조합하여 새로운 문자열을 생성합니다.
                     $seatStr = "";
-                    for ($seatIdx = 0; $seatIdx < count($rowTypes); $seatIdx++) {
+                    for ($i = 0; $i < count($rowTypes); $i++) {
                         // 조합된 문자열을 생성합니다.
-                        $seatStr .= $rowTypes[$seatIdx] . " " . $seatNumbers[$seatIdx];
+                        $seatStr .= $rowTypes[$i] . " " . $seatNumbers[$i];
                         // 마지막 요소가 아닐 경우에는 구분자를 추가합니다.
-                        if ($seatIdx < count($rowTypes) - 1) {
+                        if ($i < count($rowTypes) - 1) {
                             $seatStr .= " / ";
                         }
                     }

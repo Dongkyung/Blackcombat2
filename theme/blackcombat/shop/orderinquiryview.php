@@ -100,13 +100,31 @@ if($od['od_pg'] == 'lg') {
 	                    if($k == 0) {
 	            ?>
 	            <?php } ?>
+                <?
+                
+                 // '|'를 기준으로 문자열을 분할하여 배열로 만듭니다.
+                    $rowTypes = explode("|", $od['od_seat_row_type']);
+                    $seatNumbers = explode("|", $od['od_seat_number']);
+
+                    // 각각의 배열을 조합하여 새로운 문자열을 생성합니다.
+                    $seatStr = "";
+                    for ($i = 0; $i < count($rowTypes); $i++) {
+                        // 조합된 문자열을 생성합니다.
+                        $seatStr .= $rowTypes[$i] . " " . $seatNumbers[$i];
+                        // 마지막 요소가 아닐 경우에는 구분자를 추가합니다.
+                        if ($i < count($rowTypes) - 1) {
+                            $seatStr .= " / ";
+                        }
+                    }
+                
+                ?>
 	            <tr>
 	                <td headers="th_itopt" class="td_prd">
 	                	<div class="sod_img"><?php echo $image; ?></div>
 	                	<div class="sod_name">
 		                	<a href="<?php echo shop_item_url($row['it_id']); ?>"><?php echo $row['it_name']; ?></a><br>
 		                	<div class="sod_opt"><?php echo get_text($opt['ct_option']); ?></div>
-		                	<div class="sod_opt seat"><?php echo $od['od_seat_row_type']; ?>&nbsp;열&nbsp;<?php echo $od['od_seat_number']; ?></div>
+		                	<div class="sod_opt seat"><?php echo $seatStr; ?></div>
 	                	</div>
 	                </td>
 	                <td headers="th_itqty" class="td_mngsmall"><?php echo number_format($opt['ct_qty']); ?></td>

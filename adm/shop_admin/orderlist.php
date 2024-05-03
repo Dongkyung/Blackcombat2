@@ -372,8 +372,27 @@ if( function_exists('pg_setting_check') ){
             <?php echo $od_mobile; ?>
             <?php echo $od_paytype; ?>
 
+            <?
+                
+                // '|'를 기준으로 문자열을 분할하여 배열로 만듭니다.
+                $rowTypes = explode("|", $row['od_seat_row_type']);
+                $seatNumbers = explode("|", $row['od_seat_number']);
+
+                // 각각의 배열을 조합하여 새로운 문자열을 생성합니다.
+                $seatStr = "";
+                for ($i = 0; $i < count($rowTypes); $i++) {
+                    // 조합된 문자열을 생성합니다.
+                    $seatStr .= $rowTypes[$i] . " " . $seatNumbers[$i];
+                    // 마지막 요소가 아닐 경우에는 구분자를 추가합니다.
+                    if ($i < count($rowTypes) - 1) {
+                        $seatStr .= " / ";
+                    }
+                }
+            
+            ?>
+
             <?php if($row['od_seat_row_type'] && $row['od_seat_number']) { ?>
-                <span style="display:block;">좌석&nbsp;:&nbsp;<?php echo $row['od_seat_row_type']; ?>&nbsp;열&nbsp;<?php echo $row['od_seat_number']; ?></span>
+                <span style="display:block;">좌석&nbsp;:&nbsp;<?php echo $seatStr; ?></span>
             <?php } ?>
         </td>
         <td headers="th_odrer" class="td_name"><?php echo $mb_nick; ?></td>

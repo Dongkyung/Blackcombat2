@@ -111,32 +111,13 @@ echo "</script>";
 <div>
     <div style="display:flex">
         <h1 style="font-size:1.5rem; padding:10px;"><?=$division?> 랭킹</h1>
-        <button style="margin-left:30px; width:100px;" onclick="saveRanking();">저장</button>
     </div>
-    <div style="margin:10px 0px">
-        <label>
-            <input type="checkbox" onChange="changeDragYn(this)">
-            드래그 사용
-        </label>
-    </div>
-    
-    <? 
-    $numRows = mysqli_num_rows($fighterListResult);
-    ?>
-    <table style="font-size:0.8rem; position:absolute;">
-    <thead><tr><th style="width:50px">순위</th><th</tr>    
-    <tbody>
-        <? for($i=0; $i<$numRows; $i++){ ?>
-            <tr><td><?= $i+1 ?></td></tr>
-        <? } ?>
-    </tbody>
-    </table>
 
     <table style="font-size:0.8rem; margin-left: 50px;" class="rankingTable">
         <thead>
         <!-- 테이블의 헤더 부분은 그대로 유지 -->
         <tr>
-            <th style="width:80px">기존순위</th>
+            <th style="width:80px">순위</th>
             <th style="">리그명</th>
             <th style="">팀SEQ</th>
             <th style="width:auto">팀명</th>
@@ -205,7 +186,7 @@ echo "</script>";
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="pop_ranking"></td>
+                            <td class="pop_ranking"><input class="form-control" /></td>
                             <td class="pop_league_name"></td>
                             <td class="pop_team_seq"></td>
                             <td class="pop_team_name"></td>
@@ -231,89 +212,9 @@ echo "</script>";
 
 <script type="text/javascript">
 
-    let initialOrder = Array.from(document.querySelectorAll('.rankingTable tbody tr'))
-    .map((tr, index) => ({ index, rank: parseInt(tr.cells[0].textContent) }));
-
-  function updateRankingUpDown() {
-    const currentOrder = Array.from(document.querySelectorAll('.rankingTable tbody tr'))
-      .map((tr, index) => ({ index, rank: parseInt(tr.cells[0].textContent) }));
-
-    currentOrder.forEach((current, currentIndex) => {
-      const initial = initialOrder.find(item => item.rank === current.rank);
-      const difference = initial.index - currentIndex;
-
-      tr = document.querySelectorAll('.rankingTable tbody tr')[currentIndex];
-      tr.cells[5].querySelector('input').value = difference;
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    // Attach drag and drop event listeners
-    const tbody = document.querySelector('.rankingTable tbody');
-
-    tbody.addEventListener('dragstart', (event) => {
-        console.log('dragStart');
-      dragged = event.target.closest('tr');
-      event.dataTransfer.setData('text/html', dragged);
-    });
-
-    tbody.addEventListener('dragover', (event) => {
-        console.log('dragOver');
-      event.preventDefault();
-      const target = event.target.closest('tr');
-      if (target && target !== dragged) {
-        console.log(target);
-        // tbody.insertBefore(dragged, target);
-        const rect = target.getBoundingClientRect();
-        const mouseY = event.clientY;
-
-        if (mouseY < rect.top + rect.height / 2) {
-          tbody.insertBefore(dragged, target);
-        } else {
-          tbody.insertBefore(dragged, target.nextSibling);
-        }
-        updateRankingUpDown();
-      }
-    });
-
-    tbody.addEventListener('dragend', () => {
-        console.log('dragEnd');
-      dragged = null;
-    });
-  });
-
-    function saveRanking(){
-        if(confirm("저장하시겠습니까?")){
-            const currentRanking = Array.from(document.querySelectorAll('.rankingTable tbody tr')).map((tr,index)=>(
-                {
-                    ranking : index+1,
-                    team_seq : parseInt(tr.cells[2].textContent),
-                }
-            ));
-
-
-            $.ajax({
-                type: 'POST',
-                url: './ranking/update_league_ranking.php', // 실제 추가를 처리하는 PHP 파일 경로
-                data: {
-                    "currentRanking": JSON.stringify(currentRanking),
-                    "leagueName": '<?= $leagueName ?>',
-                },
-                success: function(response) {
-                    // 서버에서 추가 성공한 경우
-                    console.log(response); // 추가 성공한 경우 콘솔에 출력 (디버깅용)
-                    location.reload();
-                },
-                error: function(error) {
-                    console.error('Error adding data:', error);
-                    // 에러 처리 (실제 프로덕션에서는 사용자에게 알림 등을 보여주어야 함)
-                }
-            });
-        }
-    }
-
     function saveTeamLeagueInfo(teamSeq){
         if(confirm("저장하시겠습니까? 만약 랭킹정보를 변경했으면 변경된 랭킹부터 먼저 반영 후에 리그정보를 수정하세요.")){
+            const changed_ranking = $(".pop_ranking input").val();
             const changed_league_name = $(".pop_league_name").text();
             const changed_team_seq = $(".pop_team_seq").text();
             const changed_round_cnt = $(".pop_round_cnt input").val();
@@ -327,6 +228,7 @@ echo "</script>";
                 type: 'POST',
                 url: './team/update_team_league.php', // 실제 추가를 처리하는 PHP 파일 경로
                 data: {
+                    "ranking" : changed_ranking,
                     "league_name" : changed_league_name,
                     "team_seq" : changed_team_seq,
                     "round_cnt" : changed_round_cnt,
@@ -350,24 +252,10 @@ echo "</script>";
         }
     }
 
-    function changeDragYn(el){
-        if($(el).prop("checked")){
-            document.querySelectorAll('.rankingTable tbody tr').forEach((row) => {
-                row.setAttribute('draggable', 'true');
-            });
-        }else{
-            document.querySelectorAll('.rankingTable tbody tr').forEach((row) => {
-                row.setAttribute('draggable', 'false');
-            });
-        }
-        fillPlayer();
-    }
-
-
     function show(leagueName, fighterSeq) {
         const targetTeam = leagueList.filter(item => item.team_seq === fighterSeq)[0];
 
-        $(".pop_ranking").text(targetTeam.ranking);
+        $(".pop_ranking input").val(targetTeam.ranking);
         $(".pop_league_name").text(targetTeam.league_name);
         $(".pop_team_seq").text(targetTeam.team_seq);
         $(".pop_team_name").text(targetTeam.team_name);

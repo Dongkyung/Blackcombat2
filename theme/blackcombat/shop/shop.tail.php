@@ -23,6 +23,7 @@ $admin = get_admin("super");
     #sit_buy {display:none;}
     .sit_side_option {display:none;}
     .sit_sel_option {display:none;}
+
 </style>
 
 <!-- 하단 시작 { -->
@@ -118,7 +119,10 @@ if ($config['cf_analytics']) {
 
     .seat_row_items[data-row-type="nomal"]{width:100%}
     .seat_row_items[data-row-type="nomal"] .seat_row_item[data-choosable="N"] span {background:#8a8a8a;}
-</style>cage_img_3
+    /* .seat_row_item.temp span{
+        background:#A5E5FF;
+    } */
+</style>
 
 <div class="seat_choice_popup" style="display:none;">
 <!-- <div class="seat_choice_popup"> -->

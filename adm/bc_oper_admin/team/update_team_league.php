@@ -3,6 +3,7 @@
 include_once ('../../../common.php');
 
 // POST 데이터에서 수정에 필요한 값들을 가져옴
+$ranking = $_POST['ranking'];
 $league_name = $_POST['league_name'];
 $team_seq = $_POST['team_seq'];
 $round_cnt = $_POST['round_cnt'];
@@ -13,7 +14,8 @@ $disqua = $_POST['disqua'];
 $point = $_POST['point'];
 
 // TODO: 적절한 SQL UPDATE 쿼리를 사용하여 데이터 업데이트
-$sql = "UPDATE tb_league SET  
+$sql = "UPDATE tb_league SET
+    ranking=$ranking,
     round_cnt=$round_cnt, 
     win_ko=$win_ko, 
     win_jud=$win_jud, 

@@ -589,10 +589,10 @@
                     if (objValue.indexOf('일반석,0') !== -1){
                         obj.attr('data-seat', 'STANDARD');
                     }
-                    else if (objValue.indexOf('VIP,49000') !== -1){
+                    else if (objValue.indexOf('VIP,10') !== -1){
                         obj.attr('data-seat', 'VIP');
                     }
-                    else if (objValue.indexOf('VVIP,250000') !== -1){
+                    else if (objValue.indexOf('VVIP,20') !== -1){
                         obj.attr('data-seat', 'VVIP');
                     }
                 }
@@ -621,7 +621,6 @@
 
         $(document).on('click', '.seat_choice_btn', function(e) {
             e.preventDefault();
-
             var obj = $(this);
 
             if (obj.prop('disabled') === false) {
@@ -670,8 +669,8 @@
                     return false;
                 }
 
-                setRowTypeObj.val(rowType);
-                setNumberObj.val(setNumber);
+
+                var it_id = $('input[name="it_id[]"]').val();
 
                 // 좌석 선택 시 해당 좌석의 주문확인
                 $.ajax({
@@ -718,8 +717,33 @@
                             var optionValue_split = optionValue.split(',');
 
                             var newSetNumber = setNumber;
-                            if (rowType == 'STANDARD') {
-                                newSetNumber = ' ';
+                            // if (rowType == 'STANDARD') {
+                            //     newSetNumber = ' ';
+                            // }
+
+                            
+                            let seatTypeArr = [];
+                            $.each($('input[name="rowType"]'),function(index,item){
+                                seatTypeArr.push($(item).val());
+                            });
+                            let seatNumberArr = [];
+                            $.each($('input[name="newSetNumber'),function(index,item){
+                                seatNumberArr.push($(item).val());
+                            });
+
+
+                            for(let i=0; i<seatTypeArr.length; i++){
+                                if(rowType != 'STANDARD'){
+                                        if(seatTypeArr[i] + seatNumberArr[i] === rowType + setNumber){
+                                        alert("이미 선택된 좌석입니다.");
+                                        return false;
+                                    }
+                                }
+                            }
+
+                            if(seatTypeArr.length >= max_qty){
+                                alert("최대 구매 가능한 수량은 "+max_qty+"개 입니다.");
+                                return false;
                             }
 
                             var optionResultHtml = ''+
@@ -728,6 +752,8 @@
                                 '       <input type="hidden" name="io_type[' + it_id + '][]" value="0">'+
                                 '       <input type="hidden" name="io_id[' + it_id + '][]" value="' + optionValue_split[0] + '">'+
                                 '       <input type="hidden" name="io_value[' + it_id + '][]" value="좌석: ' + optionValue_split[0] + '">'+
+                                '       <input type="hidden" name="rowType" value="' + rowType + '">'+
+                                '       <input type="hidden" name="newSetNumber" value="' + newSetNumber + '">'+
                                 '       <input type="hidden" class="io_price" value="' + optionValue_split[1] + '">'+
                                 '       <input type="hidden" class="io_stock" value="' + optionValue_split[2] + '">'+
                                 '       <div class="opt_name"><span class="sit_opt_subj">좌석:' + optionValue_split[0] + ' (' + rowType + ' 구역 ' + newSetNumber + ')</span></div>'+
@@ -740,16 +766,40 @@
                                 '</ul>'+
                                 '';
 
-                            optionResultObj.html(optionResultHtml);
+                            optionResultObj.append(optionResultHtml);
                             //MUST CHECK 3
-                            $('#sit_tot_price').text(`총 ${number_format(50000+Number(optionValue_split[1]))}원`);
+                            let basicPrice = 100;
+                            let totalPrice = 0;
+                            $.each($(".sit_opt_list").find(".io_price"), function(index,item){
+                                totalPrice += (100+Number($(item).val()));
+                            });
 
+                            $('#sit_tot_price').text(`총 ${number_format(totalPrice)}원`);
+
+
+                            //기존 좌석/번호 배열에 방금 추가한 좌석/번호까지 포함해서 Array 취득
+                            seatTypeArr = [];
+                            $.each($('input[name="rowType"]'),function(index,item){
+                                seatTypeArr.push($(item).val());
+                            });
+                            seatNumberArr = [];
+                            $.each($('input[name="newSetNumber'),function(index,item){
+                                seatNumberArr.push($(item).val());
+                            });
+
+                            var seatRowType = seatTypeArr.join("|");
+                            var seatNumber = seatNumberArr.join("|");
+
+                            console.log(1);
+                            $('input[name="seat_row_type"]').val(seatRowType);
+                            $('input[name="seat_number"]').val(seatNumber);
 
                             alert('좌석이 선택되었습니다.');
 
                             $('.seat_choise_result').html(rowType + ' 열 ' + setNumber);
 
                             $('.seat_choice_popup').fadeOut(300);
+                            
                         }
                     },
                     error : function(request, status, error){
@@ -776,14 +826,18 @@
                     var seatObj = '';
 
                     disabledSeat.forEach(function(value, idx) {
-                        seat_row_type = value.od_seat_row_type;
-                        seat_number = value.od_seat_number;
-                        if (seat_row_type && seat_number) {
-                            seatObj = $('.seat_row_items[data-row-type="' + seat_row_type + '"]').find('.seat_row_item[data-seat-number="' + seat_number + '"]');
+                        seat_row_type_arr = value.od_seat_row_type.split("|");
+                        seat_number_arr = value.od_seat_number.split("|");
 
-                            if (seatObj.length && seat_row_type !== 'STANDARD') {
-                                seatObj.attr('data-choosable', 'N');
-                            }
+                        if (seat_row_type_arr && seat_number_arr) {
+                            seat_row_type_arr.forEach(function(seat_row_type, index){
+                                let seat_number = seat_number_arr[index]
+                                seatObj = $('.seat_row_items[data-row-type="' + seat_row_type + '"]').find('.seat_row_item[data-seat-number="' + seat_number + '"]');
+
+                                if (seatObj.length && seat_row_type !== 'STANDARD') {
+                                    seatObj.attr('data-choosable', 'N');
+                                }
+                            });
                         }
                     });
                 }
@@ -802,7 +856,6 @@
             async: true,
             cache: false,
             success: function(data, textStatus) {
-                console.log(data);
                 if (data.disabled_seat) {
                     var disabledSeat = data.disabled_seat;
 
@@ -818,6 +871,7 @@
 
                             if (seatObj.length && ct_seat_row_type !== 'STANDARD') {
                                 seatObj.attr('data-choosable', 'N');
+                                // seatObj.addClass("temp");
                             }
                         }
                     });

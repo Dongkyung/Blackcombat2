@@ -23,7 +23,8 @@ $sql = "SELECT
             ,base.win 
             ,base.lose
             ,base.draw 
-            ,base.detailImageBin 
+            ,base.detailImageBin
+            ,base.fighter_type 
         FROM 
             tb_fighter_base base
             LEFT JOIN tb_team_base team
@@ -38,14 +39,14 @@ $calculatedAge = age($row["birth"]);
 
 $base64ImageDataDetail = base64_encode($row['detailImageBin']);
 
-$divisionSql = "SELECT ranking.division, ranking.ranking 
+$divisionSql = "SELECT ranking.division, ranking.ranking, ranking.ranking_type
                 FROM tb_fighter_ranking ranking
                 where ranking.fighter_seq = $page;";
 $divisionResult = sql_query($divisionSql);
 
 
 $historySql = "SELECT
-    his.game_name
+    event.event_name_short as game_name 
     , his.player1
     , base1.fighter_name as player1_name
     , his.player2
@@ -58,6 +59,8 @@ $historySql = "SELECT
     on his.player1 = base1.fighter_seq 
     LEFT JOIN tb_fighter_base base2
     on his.player2 = base2.fighter_seq
+    left join tb_event event
+    on event.event_seq = his.event_seq
     where player1 = $page
     OR player2 = $page
     order by play_date;";
@@ -73,6 +76,9 @@ $historyResult = sql_query($historySql);
                             <div class="data_tags">
 <? while ($divisionRow = sql_fetch_array($divisionResult)) { ?>
                                 <span><?=$divisionRow['division']?> #<? if($divisionRow['ranking'] === '0') { echo "C"; } else { echo $divisionRow['ranking']; }?></span>
+                                <? if($divisionRow['ranking_type'] === '2'){ ?>
+                                    <span style="background-color: #4477ff; font-size: 0.5rem; line-height: 5px; padding: 5px; border-radius: 13px; margin-left: -11px;" >A</span>
+                                <? } ?>
 <? } ?>
                             </div>
                             <div class="data_name">
@@ -117,12 +123,14 @@ $historyResult = sql_query($historySql);
                                     <ul>
                                     <? while ($historyRow = sql_fetch_array($historyResult)) { ?>
                                         <li style="display:flex">
-                                            <div style="">
+                                            <div style="text-align:left; flex:0 0 auto;">
                                                 <b><span <? if(!(strpos($historyRow['game_name'], "블랙컴뱃") !== false)){ echo "style='color:rgba(255, 255, 255, 0.6)'"; } ?> class='game_name'><?= $historyRow['game_name'] ?> : </span></b> 
                                             </div>
-                                            <div style="">
+                                            <div style="flex:0 0 auto;">
                                             <? 
-                                                if($historyRow['winner_player'] == $page){
+                                                if($historyRow['winner_player'] === "" || $historyRow['winner_player'] === null){
+                                                    echo "";
+                                                } else if($historyRow['winner_player'] == $page){
                                                     echo "<span class='match_result win'>Win</span>";
                                                 } else if($historyRow['result'] == 'N/C'){
                                                     echo "<span class='match_result NC' style='background-color:unset'></span>";

@@ -4,7 +4,10 @@ include_once('../../../common.php');
 
 // POST 데이터에서 추가에 필요한 값들을 가져옴
 
-$game_name = $_POST['game_name'];
+$event_seq = $_POST['event_seq'];
+$fight_name = $_POST['fight_name'];
+$video_url = $_POST['video_url'];
+$order = $_POST['order'];
 $fighter_seq1 = $_POST['fighter_seq1'];
 $fighter_seq2 = $_POST['fighter_seq2'];
 $winner_seq = $_POST['winner_seq'];
@@ -13,10 +16,10 @@ $play_date = $_POST['play_date'];
 
 // TODO: 적절한 SQL INSERT 쿼리를 사용하여 데이터 추가
 $sql = "INSERT INTO blackcombat.tb_fight_history
-(game_name, player1, player2, winner_player, `result`, play_date, lsttm)
-VALUES('$game_name', '$fighter_seq1', '$fighter_seq2', '$winner_seq', '$result', '$play_date', current_timestamp());
-
+(event_seq, `order`, fight_name, player1, player2, winner_player, `result`, play_date, video_url, lsttm)
+VALUES($event_seq, $order, '$fight_name', '$fighter_seq1', '$fighter_seq2', '$winner_seq', '$result', '$play_date', '$video_url', current_timestamp());
 ";
+echo $sql;
 
 // 쿼리 실행
 $result = sql_query($sql);

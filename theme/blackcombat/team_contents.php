@@ -143,7 +143,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
 
 <?
     $fighterSearchSql = "SELECT 
-                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
             FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
             WHERE base.team_seq = $page AND ranking.division = '플라이급' ORDER BY CAST(ranking AS UNSIGNED)";
     $fighterSearchResult = sql_query($fighterSearchSql);
@@ -167,7 +167,12 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                             <li style="display:flex;">
                                                 <a href="https://www.blackcombat-official.com/fighter.php?page=<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
                                                     <div>
-                                                        <b><span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span></b>
+                                                        <b>
+                                                            <? if($fighterRow['ranking_type'] === '2'){ ?>
+                                                                <span style="background-color: #4477ff; font-size: 0.8rem; line-height: 7px; padding: 4px; border-radius: 13px; display: inline-block; height: 16px; width: 16px;" >A</span>
+                                                            <? } ?>
+                                                            <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
+                                                        </b>
                                                         <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
                                                     </div>
                                                     ─
@@ -189,7 +194,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         <ul>
 <?
     $fighterSearchSql = "SELECT 
-                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
             FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
             WHERE base.team_seq = $page AND ranking.division = '밴텀급' ORDER BY CAST(ranking AS UNSIGNED)";
     $fighterSearchResult = sql_query($fighterSearchSql);
@@ -213,7 +218,12 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                             <li style="display:flex;">
                                                 <a href="https://www.blackcombat-official.com/fighter.php?page=<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
                                                     <div>
-                                                        <b><span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span></b>
+                                                        <b>
+                                                            <? if($fighterRow['ranking_type'] === '2'){ ?>
+                                                                <span style="background-color: #4477ff; font-size: 0.8rem; line-height: 7px; padding: 4px; border-radius: 13px; display: inline-block; height: 16px; width: 16px;" >A</span>
+                                                            <? } ?>
+                                                            <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
+                                                        </b>
                                                         <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
                                                     </div>
                                                     ─
@@ -235,7 +245,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         <ul>
 <?
     $fighterSearchSql = "SELECT 
-                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
             FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
             WHERE base.team_seq = $page AND ranking.division = '페더급' ORDER BY CAST(ranking AS UNSIGNED)";
     $fighterSearchResult = sql_query($fighterSearchSql);
@@ -259,7 +269,12 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                             <li style="display:flex;">
                                                 <a href="https://www.blackcombat-official.com/fighter.php?page=<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
                                                     <div>
-                                                        <b><span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span></b>
+                                                        <b>
+                                                            <? if($fighterRow['ranking_type'] === '2'){ ?>
+                                                                <span style="background-color: #4477ff; font-size: 0.8rem; line-height: 7px; padding: 4px; border-radius: 13px; display: inline-block; height: 16px; width: 16px;" >A</span>
+                                                            <? } ?>
+                                                            <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
+                                                        </b>
                                                         <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
                                                     </div>
                                                     ─
@@ -281,7 +296,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         <ul>
 <?
     $fighterSearchSql = "SELECT 
-                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
             FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
             WHERE base.team_seq = $page AND ranking.division = '라이트급' ORDER BY CAST(ranking AS UNSIGNED)";
     $fighterSearchResult = sql_query($fighterSearchSql);
@@ -305,7 +320,12 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                             <li style="display:flex;">
                                                 <a href="https://www.blackcombat-official.com/fighter.php?page=<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
                                                     <div>
-                                                        <b><span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span></b>
+                                                        <b>
+                                                            <? if($fighterRow['ranking_type'] === '2'){ ?>
+                                                                <span style="background-color: #4477ff; font-size: 0.8rem; line-height: 7px; padding: 4px; border-radius: 13px; display: inline-block; height: 16px; width: 16px;" >A</span>
+                                                            <? } ?>
+                                                            <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
+                                                        </b>
                                                         <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
                                                     </div>
                                                     ─
@@ -327,7 +347,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         <ul>
 <?
     $fighterSearchSql = "SELECT 
-                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
             FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
             WHERE base.team_seq = $page AND ranking.division = '미들급' ORDER BY CAST(ranking AS UNSIGNED)";
     $fighterSearchResult = sql_query($fighterSearchSql);
@@ -351,7 +371,12 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                             <li style="display:flex;">
                                                 <a href="https://www.blackcombat-official.com/fighter.php?page=<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
                                                     <div>
-                                                        <b><span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span></b>
+                                                        <b>
+                                                            <? if($fighterRow['ranking_type'] === '2'){ ?>
+                                                                <span style="background-color: #4477ff; font-size: 0.8rem; line-height: 7px; padding: 4px; border-radius: 13px; display: inline-block; height: 16px; width: 16px;" >A</span>
+                                                            <? } ?>
+                                                            <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
+                                                        </b>
                                                         <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
                                                     </div>
                                                     ─
@@ -373,7 +398,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         <ul>
 <?
     $fighterSearchSql = "SELECT 
-                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
             FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
             WHERE base.team_seq = $page AND ranking.division = '중량급' ORDER BY CAST(ranking AS UNSIGNED)";
     $fighterSearchResult = sql_query($fighterSearchSql);
@@ -397,7 +422,12 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                             <li style="display:flex;">
                                                 <a href="https://www.blackcombat-official.com/fighter.php?page=<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
                                                     <div>
-                                                        <b><span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span></b>
+                                                        <b>
+                                                            <? if($fighterRow['ranking_type'] === '2'){ ?>
+                                                                <span style="background-color: #4477ff; font-size: 0.8rem; line-height: 7px; padding: 4px; border-radius: 13px; display: inline-block; height: 16px; width: 16px;" >A</span>
+                                                            <? } ?>
+                                                            <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
+                                                        </b>
                                                         <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
                                                     </div>
                                                     ─
@@ -419,7 +449,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         <ul>
 <?
     $fighterSearchSql = "SELECT 
-                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
             FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
             WHERE base.team_seq = $page AND ranking.division = '여성부' ORDER BY CAST(ranking AS UNSIGNED)";
     $fighterSearchResult = sql_query($fighterSearchSql);
@@ -443,7 +473,12 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                             <li style="display:flex;">
                                                 <a href="https://www.blackcombat-official.com/fighter.php?page=<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
                                                     <div>
-                                                        <b><span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span></b>
+                                                        <b>
+                                                            <? if($fighterRow['ranking_type'] === '2'){ ?>
+                                                                <span style="background-color: #4477ff; font-size: 0.8rem; line-height: 7px; padding: 4px; border-radius: 13px; display: inline-block; height: 16px; width: 16px;" >A</span>
+                                                            <? } ?>
+                                                            <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
+                                                        </b>
                                                         <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
                                                     </div>
                                                     ─

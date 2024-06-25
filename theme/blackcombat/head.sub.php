@@ -117,6 +117,8 @@ if(!defined('G5_IS_ADMIN'))
 <meta name="robots" content="index,follow" />
 <link rel="shortcut icon" href="/img/blackcombat_favicon.png?v=20221017" />
 </head>
+
+
 <body<?php echo isset($g5['body_script']) ? $g5['body_script'] : ''; ?>>
 <?php
 if ($is_member) { // 회원이라면 로그인 중이라는 메세지를 출력해준다.
@@ -128,3 +130,14 @@ if ($is_member) { // 회원이라면 로그인 중이라는 메세지를 출력�
     echo '<div id="hd_login_msg">'.$sr_admin_msg.get_text($member['mb_nick']).'님 로그인 중 ';
     echo '<a href="'.G5_BBS_URL.'/logout.php">로그아웃</a></div>';
 }
+?>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TNKR3YS1FL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TNKR3YS1FL');
+</script>

@@ -135,7 +135,7 @@ if (!empty($_COOKIE['g5_admin_btn_gnb'])) {
     </div>
     <nav id="gnb" class="gnb_large <?php echo $adm_menu_cookie['gnb']; ?>">
         <h2>관리자 주메뉴</h2>
-        <ul class="gnb_ul">
+        <ul class="gnb_ul" style="padding-left:unset">
             <?php
             $jj = 1;
             foreach ($amenu as $key => $value) {

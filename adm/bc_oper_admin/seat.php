@@ -17,7 +17,6 @@ $g5['title'] = "좌석 컨트롤";
 $sql = "select seq, it_id, ct_seat_row_type, ct_seat_number,fsttm from tb_seat_control order by ct_seat_row_type, CAST(ct_seat_number AS UNSIGNED)";
 $result = sql_query($sql);
 
-
 ?>
 <style>
         table {

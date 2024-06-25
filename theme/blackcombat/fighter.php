@@ -28,7 +28,7 @@ $page = $_GET['page'];
         }
         .game_name{
             display: inline-block;
-            width:80px;
+            width:90px;
         }
         .winner_name{
             color: #ffba3c;

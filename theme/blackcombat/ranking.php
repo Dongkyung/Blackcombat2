@@ -11,7 +11,6 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/ranking.css"
 
 $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
 ?>
-
     <div class="sub_visual">
         <div class="sub_visual_items">
             <div class="sub_visual_caption">

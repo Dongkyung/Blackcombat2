@@ -47,7 +47,7 @@ left join tb_team_base tb
 on fb.team_seq = tb.team_seq 
 WHERE fb.del_yn = 0
 and fighter_type = $fighterTypeNum
-order by fighter_seq";
+order by fsttm";
 $result = sql_query($sql);
 
 

@@ -14,7 +14,7 @@ include_once(G5_ADMIN_PATH.'/admin.head.php');
 $g5['title'] = "좌석 컨트롤";
 
 
-$sql = "select seq, it_id, ct_seat_row_type, ct_seat_number,fsttm from tb_seat_control order by ct_seat_row_type, CAST(ct_seat_number AS UNSIGNED)";
+$sql = "select seq, it_id, ct_seat_row_type, ct_seat_number,bigo, fsttm from tb_seat_control order by ct_seat_row_type, CAST(ct_seat_number AS UNSIGNED)";
 $result = sql_query($sql);
 
 ?>
@@ -73,7 +73,8 @@ function deleteRow(seq) {
         var newData = {
             it_id: $('.input_it_id').val().trim(),
             ct_seat_row_type: $('.input_ct_seat_row_type').val().trim(),
-            ct_seat_number: $('.input_ct_seat_number').val().trim()
+            ct_seat_number: $('.input_ct_seat_number').val().trim(),
+            bigo: $('.input_bigo').val().trim()
         };
 
         if(newData.it_id === '' || newData.ct_seat_row_type === '' || newData.ct_seat_number === ''){
@@ -126,6 +127,7 @@ function deleteRow(seq) {
         <th style="width:50px">대회번호</th>
         <th style="width:300px">좌석구역</th>
         <th style="width:300px">좌석번호</th>
+        <th style="width:300px">비고</th>
         <th style="width:300px">등록날짜</th>
         <th style="width:100px">삭제</th>
     </tr>
@@ -138,6 +140,7 @@ function deleteRow(seq) {
         echo "<td>" . $row["it_id"] . "</td>";
         echo "<td>" . $row["ct_seat_row_type"] . "</td>";
         echo "<td>" . $row["ct_seat_number"] . "</td>";
+        echo "<td>" . $row["bigo"] . "</td>";
         echo "<td>" . $row["fsttm"] . "</td>";
         echo '<td><button onclick="deleteRow(' . $row["seq"] . ')">삭제</button></td>';
         echo "</tr>";
@@ -153,6 +156,9 @@ function deleteRow(seq) {
         </td>
         <td>
             <input class="input_ct_seat_number" />
+        </td>
+        <td>
+            <input class="input_bigo" />
         </td>
         <td></td>
         <td><button onclick="addData()"> 등록</button></td>

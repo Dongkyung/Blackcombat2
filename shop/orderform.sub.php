@@ -91,12 +91,36 @@ if($is_kakaopay_use) {
         {
             // 이미 결제된 좌석 중복체크 추가
             if ($row['it_seat'] == 'Y') {
-                $orderSql = "SELECT COUNT(*) AS cnt FROM {$g5['g5_shop_order_table']} WHERE `it_id` = '{$row['it_id']}' AND `od_status` in ('주문', '입금', '완료') AND `od_seat_row_type` = '{$row['ct_seat_row_type']}' AND `od_seat_number` = '{$row['ct_seat_number']}'";
-                $orderRow = sql_fetch($orderSql);
 
-                if ($orderRow['cnt'] > 0) {
-                    alert('이미 결제된 좌석입니다.', G5_SHOP_URL . '/' . $row['it_id']);
+                $rowTypes = explode("|", $row['ct_seat_row_type']); // VVIP-D|VVIP-D|STANDARD-D 라는 문자열이 저장
+                $seatNumbers = explode("|", $row['ct_seat_number']); // 7|12|96 라는 문자열이 저장
+
+                // 한 쌍으로 좌석 정보를 구성
+                $requestedSeats = [];
+                for ($ti = 0; $ti < count($rowTypes); $ti++) {
+                    $requestedSeats[] = $rowTypes[$ti] . $seatNumbers[$ti];
                 }
+
+                $orderSql = "SELECT `od_seat_row_type`, `od_seat_number` FROM {$g5['g5_shop_order_table']} where `od_status` in ('주문', '입금', '완료')  AND `it_id` = '{$row['it_id']}'";
+                $orderRow = sql_query($orderSql);
+                // echo $orderSql;
+                $existingSeats = [];
+
+                while ($checkRow = sql_fetch_array($orderRow)) {
+                    $rowTypesDB = explode("|", $checkRow['od_seat_row_type']);
+                    $seatNumbersDB = explode("|", $checkRow['od_seat_number']);
+                    
+                    for ($ri = 0; $ri < count($rowTypesDB); $ri++) {
+                        $existingSeats[] = $rowTypesDB[$ri] . $seatNumbersDB[$ri];
+                    }
+                }
+
+                $duplicates = array_intersect($requestedSeats, $existingSeats);
+                // echo $duplicates;
+                if (!empty($duplicates)) {
+                    alert('이미 결제된 좌석이 있습니다.', G5_SHOP_URL . '/' . $row['it_id']);
+                }
+
             }
             // //이미 결제된 좌석 중복체크 추가
 

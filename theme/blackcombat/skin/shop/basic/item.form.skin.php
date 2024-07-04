@@ -512,7 +512,8 @@ function fitem_submit(f)
         return false;
     }
 
-    if(seatTypeArr.length >= max_qty){
+
+    if(seatTypeArr.length > max_qty){
         alert("최대 구매 가능한 수량은 "+max_qty+"개 입니다.");
         return false;
     }
@@ -541,8 +542,6 @@ function fitem_submit(f)
 
     var val, io_type, result = true;
     var sum_qty = 0;
-    var min_qty = parseInt(<?php echo $it['it_buy_min_qty']; ?>);
-    var max_qty = parseInt(<?php echo $it['it_buy_max_qty']; ?>);
     var $el_type = $("input[name^=io_type]");
 
     $("input[name^=ct_qty]").each(function(index) {

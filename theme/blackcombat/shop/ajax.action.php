@@ -353,9 +353,9 @@ switch ($action) {
     case 'get_purchase_seat_info' :
         $disabled_seat = array();
 
-        sql_query("update {$g5['g5_shop_order_table']} set od_status = '취소' where `od_status` = '주문' and `it_id` = '1714397635' and `od_time` <= date_add(now(), INTERVAL -24 HOUR)");
+        sql_query("update {$g5['g5_shop_order_table']} set od_status = '취소' where `od_status` = '주문' and `it_id` = '1719322450' and `od_time` <= date_add(now(), INTERVAL -24 HOUR)");
 
-        $sql = "select `od_seat_row_type`, `od_seat_number` from {$g5['g5_shop_order_table']} where `od_status` != '취소' and `it_id` = '1714397635'";
+        $sql = "select `od_seat_row_type`, `od_seat_number` from {$g5['g5_shop_order_table']} where `od_status` != '취소' and `it_id` = '1719322450'";
         $result = sql_query($sql);
 
         for($k=0; $row=sql_fetch_array($result); $k++) {
@@ -374,13 +374,38 @@ switch ($action) {
         die(json_encode($result));
 
         break;
+    case 'get_purchase_seat_info_admin' :
+            $disabled_seat = array();
+    
+            sql_query("update {$g5['g5_shop_order_table']} set od_status = '취소' where `od_status` = '주문' and `it_id` = '1719322450' and `od_time` <= date_add(now(), INTERVAL -24 HOUR)");
+    
+            $sql = "select `od_seat_row_type`, `od_seat_number`, `od_time` from {$g5['g5_shop_order_table']} where `od_status` != '취소' and `it_id` = '1719322450'";
+            $result = sql_query($sql);
+    
+            for($k=0; $row=sql_fetch_array($result); $k++) {
+                $tmpArray = array(
+                    'od_seat_row_type' => $row['od_seat_row_type'],
+                    'od_seat_number' => $row['od_seat_number'],
+                    'od_time' => $row['od_time'],
+                );
+                $disabled_seat[] = $tmpArray;
+            } // for End
+    
+            $result = array(
+                'error'  => '',
+                'disabled_seat' => $disabled_seat
+            );
+    
+            die(json_encode($result));
+    
+            break;
     case 'get_purchase_seat_order_search' :
         $result = 'N';
 
         $post_od_seat_row_type = isset($_POST['od_seat_row_type']) && $_POST['od_seat_row_type'] !== '' ? $_POST['od_seat_row_type'] : '';
         $post_od_seat_number = isset($_POST['od_seat_number']) && $_POST['od_seat_number'] !== '' ? $_POST['od_seat_number'] : '';
 
-        $order_row = sql_fetch("select count(`od_id`) as cnt from {$g5['g5_shop_order_table']} where `od_seat_row_type` = '{$post_od_seat_row_type}' and `od_seat_number` = '{$post_od_seat_number}' and `od_status` != '취소' and `it_id` = '1714397635'");
+        $order_row = sql_fetch("select count(`od_id`) as cnt from {$g5['g5_shop_order_table']} where `od_seat_row_type` = '{$post_od_seat_row_type}' and `od_seat_number` = '{$post_od_seat_number}' and `od_status` != '취소' and `it_id` = '1719322450'");
 
         if ($order_row['cnt']) {
             $result = 'Y';
@@ -392,7 +417,7 @@ switch ($action) {
     case 'get_blocked_seat' : 
         $disabled_seat = array();
 
-        $sql = "select ct_seat_row_type, ct_seat_number from tb_seat_control where it_id = '1714397635'";
+        $sql = "select ct_seat_row_type, ct_seat_number from tb_seat_control where it_id = '1719322450'";
         $result = sql_query($sql);
 
         for($k=0; $row=sql_fetch_array($result); $k++) {

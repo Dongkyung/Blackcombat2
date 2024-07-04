@@ -214,6 +214,7 @@ $(function() {
                 if(confirm("선택하신 옵션항목을 삭제하시겠습니까?")) {
                     var $el = $(this).closest("li");
                     var del_exec = true;
+                    
 
                     if($("#sit_sel_option .sit_spl_list").length > 0) {
                         // 선택옵션이 하나이상인지
@@ -232,6 +233,23 @@ $(function() {
                         alert("선택옵션은 하나이상이어야 합니다.");
                         return false;
                     }
+
+                    // seat_row_type, seat_number 제거된 시트 제외하고 새로쓰기
+                    let seatTypeArr = [];
+                    $.each($('input[name="rowType"]'),function(index,item){
+                        seatTypeArr.push($(item).val());
+                    });
+                    let seatNumberArr = [];
+                    $.each($('input[name="newSetNumber'),function(index,item){
+                        seatNumberArr.push($(item).val());
+                    });
+
+                    var seatRowType = seatTypeArr.join("|");
+                    var seatNumber = seatNumberArr.join("|");
+
+                    $('input[name="seat_row_type"]').val(seatRowType);
+                    $('input[name="seat_number"]').val(seatNumber);
+
                 }
                 break;
 

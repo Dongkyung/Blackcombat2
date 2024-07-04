@@ -217,7 +217,7 @@ $row = mysqli_fetch_assoc($eventResult)
                                                     <? if($hisRow["player1"] === $hisRow["winner_player"]) { ?> <div style="position:absolute; bottom: 100%; left: calc(100% - 53px); width:45px; bottom: 70px; background-color: #ffba3c; font-size:0.8rem; padding:2px 10px; font-weight:bold;">Win</div> <? } ?>
                                                 </a>
                                             </div>
-                                            <div style="text-align:center;"><?= $hisRow['name1'] ?></div>
+                                            <div style="text-align:center; margin-top:10px; font-size:1.2rem;"><?= $hisRow['name1'] ?></div>
                                         </div>
                                         <div style="flex:1 0 0; display:flex; justify-content: center; align-items: center;">VS</div>
                                         <div style="flex:1 0 0; display:flex; flex-direction:column;">
@@ -228,7 +228,7 @@ $row = mysqli_fetch_assoc($eventResult)
                                                     <? if($hisRow["player2"] === $hisRow["winner_player"]) { ?> <div style="position:absolute; bottom: 100%; left: calc(100% - 50px); width:45px; bottom: 70px; background-color: #ffba3c; font-size:0.8rem; padding:2px 10px; font-weight:bold;">Win</div> <? } ?>
                                                 </a>
                                             </div>
-                                            <div style="text-align:center;"><?= $hisRow['name2'] ?></div>
+                                            <div style="text-align:center; margin-top:10px; font-size:1.2rem;"><?= $hisRow['name2'] ?></div>
                                         </div>
                                     </div>
                                     <div style="flex:1 0 0; display:flex; justify-content:space-between; font-size:0.8rem;">

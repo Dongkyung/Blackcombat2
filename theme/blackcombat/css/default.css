@@ -227,7 +227,9 @@ a.gnb_2da:hover {color:#3a8afd;background:#f7f7f8;
 .sponsors {display:block; width:100%; height:auto; margin:0; padding:70px 0 55px 0; background:#15120f;}
 .sponsor_title {display:block; width:100%; height:auto; margin:0; padding:0; text-align:center;}
 .sponsor_title img {width:257px; max-width:257px; height:auto;}
-.sponsor_first {display:block; width:100%; height:auto; margin:0; padding:0; text-align:center;}
+.sponsor_first {flex:0 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; width:229px; height:229px; margin:0; padding:0;}
+.sponsor_first a{flex:0 0 auto; margin:0; padding:0; background:#feffff; width:100%; height:100%;  display: flex; justify-content: center; align-items: center;}
+.sponsor_first img{width:100%; max-width:229px; height:auto;}
 .sponsor_title .sponsor_first img {width:229px; max-width:229px; height:auto;}
 .sponsor_items {display:flex; flex-direction:row; flex-wrap:nowrap; align-items:center; justify-content:center; gap:15px; width:auto; height:auto; margin:0; padding:40px 0 45px 0;}
 .sponsor_item {flex:0 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; width:auto; height:auto; margin:0; padding:0;}

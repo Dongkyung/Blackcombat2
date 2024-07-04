@@ -40,6 +40,8 @@ include_once(G5_THEME_PATH.'/head.php');
 <div class="key_visual">
     <div class="swiper key_visual_wrap">
         <div class="swiper-wrapper key_visual_items">
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n11_1.jpg" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n11_2.jpg" /></div>
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_0.jpg" /></div>
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_1.jpg" /></div>
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_2.jpg" /></div>
@@ -138,17 +140,19 @@ include_once(G5_THEME_PATH.'/head.php');
 <div class="sponsors">
     <div class="sponsor_title">
         <img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_title.png" />
-        <div class="sponsor_first"><a href="https://www.pgsoft.com/ko/games/all/" class="" target="_blank"><img  style="background-color:white; margin-top:30px; padding:20px" src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_pg.png" /></a></div>
+        <div style="display:flex; flex-direction:row; justify-content:center; gap:15px; margin-top:30px;">
+            <div class="sponsor_first"><a href="https://www.pgsoft.com/ko/games/all/" class="" target="_blank"><img  style="background-color:white; padding:20px" src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_pg.png" /></a></div>
+            <div class="sponsor_first"><a href="https://www.deepcoin.com/" class="" target="_blank"><img  style="background-color:white; padding:20px" src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_deepcoin.png" /></a></div>
+        </div>
     </div>
 
     <div class="sponsor_items">
-        <div class="sponsor_item"><a href="https://exxxtreme.co.kr/index.html" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_img_1.png" /></a></div>
-        <div class="sponsor_item"><a href="https://www.aryehblack.com/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_img_2.png" /></a></div>
+        <div class="sponsor_item"><a href="https://www.doctorzone.co.kr/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_doctorzon.png" /></a></div>
+        <div class="sponsor_item"><a href="https://www.instagram.com/downtontheblack/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_downton.png" /></a></div>
         <div class="sponsor_item"><a href="https://zebramats.kr/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_img_3.png" /></a></div>
     </div>
     <div class="sponsor_items">
-        <div class="sponsor_item"><a href="https://www.doctorzone.co.kr/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_doctorzon.png" /></a></div>
-        <div class="sponsor_item"><a href="https://www.instagram.com/downtontheblack/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_downton.png" /></a></div>
+        <div class="sponsor_item"><a href="https://exxxtreme.co.kr/index.html" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_img_1.png" /></a></div>
         <div class="sponsor_item"><a href="https://www.cgv.co.kr/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_cgv.png" /></a></div>
         <div class="sponsor_item"><a href="https://bf-am.com/home/index.php" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_bf.png" style="width:60%"/></a></div>
         

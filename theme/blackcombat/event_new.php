@@ -95,7 +95,7 @@ $eventListResult = sql_query($eventListSql);
                         ?>
                             <li style="width:100%; border-top: 1px solid #bbbbbb; padding:10px">
                                 <div style="display:flex;">
-                                    <div style="flex:1 1 80px;"><img style="width:100%;" src="<?php echo G5_THEME_IMG_URL; ?>/event/<?= $row["event_seq"] ?>/thumb.jpg" /></div>
+                                    <div style="flex:1 1 80px;"><img style="width:100%; height:160px; object-fit: contain; " src="<?php echo G5_THEME_IMG_URL; ?>/event/<?= $row["event_seq"] ?>/thumb.jpg" /></div>
                                     <div style="flex:3 1 100px; display:flex; flex-direction:column; justify-content:center; padding:0px 70px; font-size:1.0rem;">
                                         <div style="font-size:1.1rem;"><b><?= $row["event_name"] ?></b></div>
                                         <div style="margin-bottom:10px"><?= $formattedDate ?></div>

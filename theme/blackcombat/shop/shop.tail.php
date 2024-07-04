@@ -89,7 +89,7 @@ if ($config['cf_analytics']) {
     .seat_choice_btn {flex:0 0 auto; display:block; width:186px; height:50px; margin:0; padding:15px 20px; font-size:1.25em; font-weight:bold; color:#fff; text-align:center; border:1px solid #1c70e9; border-radius:3px; background:#3a8afd; box-sizing:border-box; box-shadow:unset;}
     .seat_choice_btn[disabled] {color:rgba(16,16,16,0.3); border:1px solid #98a3b3; background:rgba(239,239,239,1); cursor:default;}
 
-    .movieLayoutContainer {position:relative; display:block; min-width:1400px; min-height:750px; margin:0; padding:0;}
+    .movieLayoutContainer {position:relative; display:block; min-width:2000px; min-height:750px; margin:0; padding:0;}
     .cage_img_1 {position:absolute; top:255px; left:550px; display:block; width:auto; max-width:430px; height:auto; margin:0; padding:0; z-index:11;}
     .cage_img_2 {position:absolute; top:441px; right:1px; display:block; width:auto; max-width:460px; height:auto; margin:0; padding:0; z-index:11;}
     .cage_img_3 {position:absolute; top:280px; left:500px; display:block; width:350px; height:auto; margin:0; padding:0; z-index:-1;}
@@ -102,6 +102,7 @@ if ($config['cf_analytics']) {
     .seat_row_item[data-choosable="N"] {border-color:#8a8a8a; background-color:#fafafa; cursor:default;}
     .seat_row_item[data-choosable="Y"] span {background:#fff;}
     .seat_row_item[data-choosable="N"] span {background:#8a8a8a;}
+    .seat_row_item[data-choosable="D"] span {background:red;}
     /* .seat_row_item[data-choosable="N"] span {background:#F9CA34;} */
     .seat_row_item[data-choosable="Y"]:hover span {background:#FAFC57;}
     .seat_row_item[data-selected="Y"] span {background:#41db41 !important;}
@@ -124,11 +125,24 @@ if ($config['cf_analytics']) {
     } */
 </style>
 
-<div class="seat_choice_popup" style="display:none;">
-<!-- <div class="seat_choice_popup"> -->
-    <? include_once(G5_THEME_PATH.'/shop/seatChoice.php'); ?>
-    <div class="seat_choice_popup_bg"></div>
-</div>
+
+<?php if(!$is_soldout) { ?>    
+    <div class="seat_choice_popup" style="display:none;">
+
+
+    <? if ($is_admin) { ?>
+        <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/seatChoice_n11_fix.php'); ?>
+    <? }else{ ?>
+        <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/seatChoice_n11.php'); ?>
+    <? } ?>
+
+
+
+
+        <div class="seat_choice_popup_bg"></div>
+    </div>
+<? }?>
+
 <?php } ?>
 
 <?php

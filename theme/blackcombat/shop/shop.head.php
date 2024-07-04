@@ -31,7 +31,7 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carou
 ?>
 <script defer type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/kas/static/kp.js"></script>
 <script defer type="text/javascript">
-      kakaoPixel('8339806502848870616').pageView();
+    //   kakaoPixel('8339806502848870616').pageView();
 </script>
 
 <!-- 상단 시작 { -->

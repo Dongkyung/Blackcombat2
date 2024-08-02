@@ -119,6 +119,17 @@ $row = mysqli_fetch_assoc($eventResult)
         background-color:#aaaaaa;
     }
 
+    span.division-info{
+        display: inline-block;
+        padding: 3px 5px;
+        margin: 0px 2px;
+        background-color: #999999;
+        color:white;
+        font-weight:normal;
+        font-size: 9px;
+        vertical-align: top;
+        margin-top: 10px;
+    }
     
     
     
@@ -169,10 +180,16 @@ $row = mysqli_fetch_assoc($eventResult)
   , his.`order`
   , his.player1
   , base1.fighter_name as name1
+  , base1.win as win1
+  , base1.lose as lose1
+  , base1.draw as draw1
   , base1.fighter_ringname as ringname1
   , base1.rankingImageBin as img1
   , his.player2
   , base2.fighter_name as name2
+  , base2.win as win2
+  , base2.lose as lose2
+  , base2.draw as draw2
   , base2.fighter_ringname as ringname2
   , base2.rankingImageBin as img2
   , his.winner_player
@@ -217,7 +234,20 @@ $row = mysqli_fetch_assoc($eventResult)
                                                     <? if($hisRow["player1"] === $hisRow["winner_player"]) { ?> <div style="position:absolute; bottom: 100%; left: calc(100% - 53px); width:45px; bottom: 70px; background-color: #ffba3c; font-size:0.8rem; padding:2px 10px; font-weight:bold;">Win</div> <? } ?>
                                                 </a>
                                             </div>
-                                            <div style="text-align:center; margin-top:10px; font-size:1.2rem;"><?= $hisRow['name1'] ?></div>
+                                            <div style="height:18px; text-align:center;">
+                                            <?
+                                                $divisionSql = "SELECT ranking.division, ranking.ranking, ranking.ranking_type
+                                                FROM tb_fighter_ranking ranking
+                                                where ranking.fighter_seq = ".$hisRow['player1'];
+                                                $divisionResult = sql_query($divisionSql);
+                                                while ($divisionRow = sql_fetch_array($divisionResult)) { ?>
+                                                    <span class="division-info"><?=$divisionRow['division']?> #<? if($divisionRow['ranking'] === '0') { echo "C"; } else { echo $divisionRow['ranking']; }?></span>
+                                                    <? if($divisionRow['ranking_type'] === '2'){ ?>
+                                                        <span style="background-color: #4477ff; font-size: 0.5rem; line-height: 5px; padding: 5px; border-radius: 13px; margin-left: -11px;" >A</span>
+                                                    <? } ?>
+                                            <? } ?>
+                                            </div> 
+                                            <div style="text-align:center; margin-top:10px; font-size:1rem;"><?= $hisRow['name1'] ?></div>
                                         </div>
                                         <div style="flex:1 0 0; display:flex; justify-content: center; align-items: center;">VS</div>
                                         <div style="flex:1 0 0; display:flex; flex-direction:column;">
@@ -228,13 +258,28 @@ $row = mysqli_fetch_assoc($eventResult)
                                                     <? if($hisRow["player2"] === $hisRow["winner_player"]) { ?> <div style="position:absolute; bottom: 100%; left: calc(100% - 50px); width:45px; bottom: 70px; background-color: #ffba3c; font-size:0.8rem; padding:2px 10px; font-weight:bold;">Win</div> <? } ?>
                                                 </a>
                                             </div>
-                                            <div style="text-align:center; margin-top:10px; font-size:1.2rem;"><?= $hisRow['name2'] ?></div>
+                                            <div style="height:18px; text-align:center;">
+                                            <?
+                                                $divisionSql = "SELECT ranking.division, ranking.ranking, ranking.ranking_type
+                                                FROM tb_fighter_ranking ranking
+                                                where ranking.fighter_seq = ".$hisRow['player2'];
+                                                $divisionResult = sql_query($divisionSql);
+                                                while ($divisionRow = sql_fetch_array($divisionResult)) { ?>
+                                                    <span class="division-info"><?=$divisionRow['division']?> #<? if($divisionRow['ranking'] === '0') { echo "C"; } else { echo $divisionRow['ranking']; }?></span>
+                                                    <? if($divisionRow['ranking_type'] === '2'){ ?>
+                                                        <span style="background-color: #4477ff; font-size: 0.5rem; line-height: 5px; padding: 5px; border-radius: 13px; margin-left: -11px;" >A</span>
+                                                    <? } ?>
+                                            <? } ?>
+                                            </div> 
+                                            <div style="text-align:center; margin-top:10px; font-size:1rem;"><?= $hisRow['name2'] ?></div>
                                         </div>
                                     </div>
                                     <div style="flex:1 0 0; display:flex; justify-content:space-between; font-size:0.8rem;">
-                                        <div style="flex:1 0 0;  text-align:center;"><?= $hisRow['ringname1'] ?>&nbsp; <!-- <span style="color:#bbbbbb; font-size:0.7rem">YOO JITSU</span>--></div>
+                                        <div style="flex:1 0 0;  text-align:center;"><?= $hisRow['ringname1'] ?><br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem"><? echo $hisRow['win1']."W ".$hisRow['lose1']."L "; if($hisRow['draw1'] !== '0') { echo $hisRow['draw1']."D";} ?></span></div>
                                         <div style="flex:1 0 0;"></div>
-                                        <div style="flex:1 0 0;  text-align:center;"><?= $hisRow['ringname2'] ?>&nbsp; <!-- <span style="color:#bbbbbb; font-size:0.7rem">YOO JITSU</span>--></div>
+                                        <div style="flex:1 0 0;  text-align:center;"><?= $hisRow['ringname2'] ?><br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem"><? echo $hisRow['win2']."W ".$hisRow['lose2']."L "; if($hisRow['draw2'] !== '0') { echo $hisRow['draw2']."D";} ?></span></div>
                                     </div>
                                     <div style="flex:1 0 0; text-align:center">
                                         <div style="display : inline-block; margin-right:5px;">
@@ -250,7 +295,7 @@ $row = mysqli_fetch_assoc($eventResult)
                                         |
                                         <div style="display : inline-block; margin-left:5px; cursor: pointer;">
                                             SCORE CARD
-                                            <a id="openModal" href="javascript:openScoreCard(<?= $hisRow['score_seq']  ?>)">
+                                            <a id="openModal" href="javascript:openScoreCard(<? if($hisRow['score_seq']){ echo $hisRow['score_seq'];  }else{ echo "null"; } ?>, '<?= $hisRow['name1'] ?>', '<?= $hisRow['name2'] ?>')">
                                                 <img style="width:25px; margin-bottom: 4px;" src="<?php echo G5_THEME_IMG_URL; ?>/doc_icon.png" />
                                             </a>
                                         </div>
@@ -299,11 +344,11 @@ $row = mysqli_fetch_assoc($eventResult)
                             <td style="background-color:#333; color:#dfdfdf; font-weight:bold;"colspan="2" class="score_fighter_name2">모아이</td>
                         </tr>
                         <tr>
-                            <td class="large-txt">점수</td>
-                            <td class="large-txt">감점</td>
-                            <td class="large-txt">라운드</td>
-                            <td class="large-txt">점수</td>
-                            <td class="large-txt">감점</td>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
+                            <td class="large-txt" style="width:19%">라운드</td>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
                         </tr>
                         <tr class="scoreDetail">
                             <td id='score111'></td>
@@ -335,9 +380,8 @@ $row = mysqli_fetch_assoc($eventResult)
                         <tr>
                             <td colspan="5">
                                 <div style="display:flex;">
-                                    <div style="flex:1 0 0;"></div>
-                                    <div style="flex:2 0 0;" class="large-txt">연장 라운드</div>
-                                    <div style="flex:1 0 0;"></div>
+                                    <div style="flex:2 0 0;" class="large-txt">연장회의 여부</div>
+                                    <div style="flex:1 0 0;" id='overtimeYn11'></div>
                                 </div>
                             </td>
                         </tr>
@@ -371,11 +415,11 @@ $row = mysqli_fetch_assoc($eventResult)
                             <td style="background-color:#333; color:#dfdfdf; font-weight:bold;"colspan="2" class="score_fighter_name2">모아이</td>
                         </tr>
                         <tr>
-                            <td class="large-txt">점수</td>
-                            <td class="large-txt">감점</td>
-                            <td class="large-txt">라운드</td>
-                            <td class="large-txt">점수</td>
-                            <td class="large-txt">감점</td>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
+                            <td class="large-txt" style="width:19%">라운드</td>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
                         </tr>
                         <tr class="scoreDetail">
                             <td id='score211'></td>
@@ -407,9 +451,8 @@ $row = mysqli_fetch_assoc($eventResult)
                         <tr>
                             <td colspan="5">
                                 <div style="display:flex;">
-                                    <div style="flex:1 0 0;"></div>
-                                    <div style="flex:2 0 0;" class="large-txt">연장 라운드</div>
-                                    <div style="flex:1 0 0;"></div>
+                                    <div style="flex:2 0 0;" class="large-txt">연장회의 여부</div>
+                                    <div style="flex:1 0 0;" id='overtimeYn21'></div>
                                 </div>
                             </td>
                         </tr>
@@ -443,11 +486,11 @@ $row = mysqli_fetch_assoc($eventResult)
                             <td style="background-color:#333; color:#dfdfdf; font-weight:bold;"colspan="2" class="score_fighter_name2">모아이</td>
                         </tr>
                         <tr>
-                            <td class="large-txt">점수</td>
-                            <td class="large-txt">감점</td>
-                            <td class="large-txt">라운드</td>
-                            <td class="large-txt">점수</td>
-                            <td class="large-txt">감점</td>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
+                            <td class="large-txt" style="width:19%">라운드</td>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
                         </tr>
                         <tr class="scoreDetail">
                             <td id='score311'></td>
@@ -479,9 +522,8 @@ $row = mysqli_fetch_assoc($eventResult)
                         <tr>
                             <td colspan="5">
                                 <div style="display:flex;">
-                                    <div style="flex:1 0 0;"></div>
-                                    <div style="flex:2 0 0;" class="large-txt">연장 라운드</div>
-                                    <div style="flex:1 0 0;"></div>
+                                    <div style="flex:2 0 0;" class="large-txt">연장회의 여부</div>
+                                    <div style="flex:1 0 0;" id='overtimeYn31'></div>
                                 </div>
                             </td>
                         </tr>
@@ -569,7 +611,7 @@ $row = mysqli_fetch_assoc($eventResult)
         });
 
 
-        let openScoreCard = (scoreSeq) => {
+        let openScoreCard = (scoreSeq, name1, name2) => {
             if(!scoreSeq){
                 alert("등록된 채점표가 없습니다.");
                 return;
@@ -581,8 +623,18 @@ $row = mysqli_fetch_assoc($eventResult)
                     success: function (info) {
                         console.log(info);
                         Object.keys(info).forEach(key => {
-                            $(`#${key}`).text(info[key] === '0'? '' : info[key]);
+                            if(key.includes("overtimeYn")){
+                                if(info[key] === '1'){
+                                    $(`#${key}`).text("O");
+                                }else{
+                                    $(`#${key}`).text("X");
+                                }
+                            }else{
+                                $(`#${key}`).text(info[key] === '0'? '' : info[key]);
+                            }
                         });
+                        $(".score_fighter_name1").text(name2);
+                        $(".score_fighter_name2").text(name1);
                     },
                     error: function (error) {
                         console.error('API 호출 실패:', error);

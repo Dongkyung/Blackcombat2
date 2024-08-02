@@ -2102,13 +2102,13 @@
                 var objValue = obj.val();
 
                 if (objValue) {
-                    if (objValue.indexOf('일반석,44000') !== -1){
+                    if (objValue.indexOf('일반석,49000') !== -1){
                         obj.attr('data-seat', 'STANDARD');
                     }
-                    else if (objValue.indexOf('VIP,144000') !== -1){
+                    else if (objValue.indexOf('VIP,149000') !== -1){
                         obj.attr('data-seat', 'VIP');
                     }
-                    else if (objValue.indexOf('VVIP,265000') !== -1){
+                    else if (objValue.indexOf('VVIP,300000') !== -1){
                         obj.attr('data-seat', 'VVIP');
                     }
                 }
@@ -2283,7 +2283,7 @@
 
                             optionResultObj.append(optionResultHtml);
                             //MUST CHECK 3
-                            let basicPrice = 35000;
+                            let basicPrice = 50000;
                             let totalPrice = 0;
                             $.each($(".sit_opt_list").find(".io_price"), function(index,item){
                                 totalPrice += (basicPrice+Number($(item).val()));

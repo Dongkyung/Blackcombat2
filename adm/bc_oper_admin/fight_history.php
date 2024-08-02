@@ -163,6 +163,17 @@ echo "</script>"
         text-align:center;
     }
 
+    .overtime_td .btn-group{
+        height:30px
+    }
+    .overtime_td .btn{
+        height: 30px;
+        line-height: unset;
+        font-size: 10px;
+        padding: 0px 10px;
+    }
+
+
     </style>
 
 
@@ -230,14 +241,14 @@ echo "</script>"
             echo "<td>" . $row["video_url"] . "</td>";
             if($row["score_seq"] === null) {
                 echo "<td style='font-size:1.2rem; color:green; text-align:center;'>";
-                echo "<a href='javascript:openScoreCard(\"new\", " . $row['seq'] . ",null)'>";
+                echo "<a href='javascript:openScoreCard(\"new\", " . $row['seq'] . ",null,\"" . $row["name1"] . "\",\"" . $row["name2"] . "\")'>";
                 echo "  <i class='bi bi-plus-square-fill'></i>";
                 echo "</a>";
                 echo "</td>";
                 
             }else{
                 echo "<td style='font-size:1.2rem; color:blue; text-align:center;'>";
-                echo "<a href='javascript:openScoreCard(\"update\", ".$row['seq'].",".$row['score_seq'].")'>";
+                echo "<a href='javascript:openScoreCard(\"update\", ".$row['seq'].",".$row['score_seq'].",\"" . $row["name1"] . "\",\"" . $row["name2"] . "\")'>";
                 echo "  <i class='bi bi-file-earmark-spreadsheet'></i>";
                 echo "</a>";
                 echo "</td>";
@@ -386,11 +397,18 @@ echo "</script>"
                             </tr>
                             
                             <tr>
-                                <td colspan="5">
+                                <td colspan="5" class="overtime_td">
                                     <div style="display:flex;">
-                                        <div style="flex:1 0 0;"></div>
-                                        <div style="flex:2 0 0;" class="large-txt">연장 라운드</div>
-                                        <div style="flex:1 0 0;"></div>
+                                        <div style="flex:2 0 0;" class="large-txt">연장회의 여부</div>
+                                        <div style="flex:1 0 0;">
+                                            <div class="btn-group" role="group" id="overtimeYn11" aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check " name="btnradio11" id="btnradio111" date="0" autocomplete="off" checked>
+                                                <label class="btn btn-outline-danger sm" for="btnradio111">X</label>
+
+                                                <input type="radio" class="btn-check " name="btnradio11" id="btnradio112" date="1" autocomplete="off">
+                                                <label class="btn btn-outline-success sm" for="btnradio112">O</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
@@ -458,11 +476,18 @@ echo "</script>"
                             </tr>
                             
                             <tr>
-                                <td colspan="5">
+                                <td colspan="5" class="overtime_td">
                                     <div style="display:flex;">
-                                        <div style="flex:1 0 0;"></div>
-                                        <div style="flex:2 0 0;" class="large-txt">연장 라운드</div>
-                                        <div style="flex:1 0 0;"></div>
+                                        <div style="flex:2 0 0;" class="large-txt">연장회의 여부</div>
+                                        <div style="flex:1 0 0;">
+                                            <div class="btn-group" role="group" id="overtimeYn21" aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check " name="btnradio21" id="btnradio211" date="0" autocomplete="off" checked>
+                                                <label class="btn btn-outline-danger sm" for="btnradio211">X</label>
+
+                                                <input type="radio" class="btn-check " name="btnradio21" id="btnradio212" date="1" autocomplete="off">
+                                                <label class="btn btn-outline-success sm" for="btnradio212">O</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
@@ -530,11 +555,18 @@ echo "</script>"
                             </tr>
                             
                             <tr>
-                                <td colspan="5">
+                                <td colspan="5" class="overtime_td">
                                     <div style="display:flex;">
-                                        <div style="flex:1 0 0;"></div>
-                                        <div style="flex:2 0 0;" class="large-txt">연장 라운드</div>
-                                        <div style="flex:1 0 0;"></div>
+                                        <div style="flex:2 0 0;" class="large-txt">연장회의 여부</div>
+                                        <div style="flex:1 0 0;">
+                                            <div class="btn-group" role="group" id="overtimeYn31" aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check " name="btnradio31" id="btnradio311" date="0" autocomplete="off" checked>
+                                                <label class="btn btn-outline-danger sm" for="btnradio311">X</label>
+
+                                                <input type="radio" class="btn-check " name="btnradio31" id="btnradio312" date="1" autocomplete="off">
+                                                <label class="btn btn-outline-success sm" for="btnradio312">O</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
@@ -573,7 +605,7 @@ echo "</script>"
         applyAutoComplete("search_player2");
     });
 
-    const scoreDataKeys = ["referee_name1","score111","minus_score111","score112","minus_score112","score113","minus_score113","total_score11","score114","minus_score114","score121","minus_score121","score122","minus_score122","score123","minus_score123","total_score12","score124","minus_score124","referee_name2","score211","minus_score211","score212","minus_score212","score213","minus_score213","total_score21","score214","minus_score214","score221","minus_score221","score222","minus_score222","score223","minus_score223","total_score22","score224","minus_score224","referee_name3","score311","minus_score311","score312","minus_score312","score313","minus_score313","total_score31","score314","minus_score314","score321","minus_score321","score322","minus_score322","score323","minus_score323","total_score32","score324","minus_score324"];
+    const scoreDataKeys = ["referee_name1","score111","minus_score111","score112","minus_score112","score113","minus_score113","total_score11","score114","minus_score114","score121","minus_score121","score122","minus_score122","score123","minus_score123","total_score12","score124","minus_score124","referee_name2","score211","minus_score211","score212","minus_score212","score213","minus_score213","total_score21","score214","minus_score214","score221","minus_score221","score222","minus_score222","score223","minus_score223","total_score22","score224","minus_score224","referee_name3","score311","minus_score311","score312","minus_score312","score313","minus_score313","total_score31","score314","minus_score314","score321","minus_score321","score322","minus_score322","score323","minus_score323","total_score32","score324","minus_score324","overtimeYn11","overtimeYn21","overtimeYn31"];
 
     $(function() {	
 		$('#datepicker').datepicker({
@@ -931,17 +963,23 @@ function findEventnameByEventSeq(eventSeq){
     }
 
 
-    let openScoreCard = (action, historySeq, scoreSeq) => {
+    let openScoreCard = (action, historySeq, scoreSeq,name1, name2) => {
             $("#modal-submit-scorecard").off("click");
             if(action === 'new'){
                 scoreDataKeys.forEach(key => {
-                    $(`#${key}`).val('');
+                    if(key.includes("overtimeYn")){
+                        $(`#${key} .btn-check[date=0]`).prop("checked", true)   
+                    }else{
+                        $(`#${key}`).val('');
+                    }
                 });
 
                 $("#modal-submit-scorecard").text("등록");
                 $("#modal-submit-scorecard").on("click", () => {
                     createScore(historySeq);
                 })
+                $(".score_fighter_name1").text(name2);
+                $(".score_fighter_name2").text(name1);
                 $("#modalBackground_score").modal('show'); 
             }else if(action === 'update'){
 
@@ -953,8 +991,17 @@ function findEventnameByEventSeq(eventSeq){
                     success: function (info) {
                         console.log(info);
                         Object.keys(info).forEach(key => {
-                            $(`#${key}`).val(info[key]);
+                            if(key.includes("overtimeYn")){
+                                $(`#${key} .btn-check[date=${info[key]}]`).prop("checked", true)
+                                
+                            }else{
+                                $(`#${key}`).val(info[key]);
+                            }
                         });
+                        $(".score_fighter_name1").text(name2);
+                        $(".score_fighter_name2").text(name1);
+
+                        
                     },
                     error: function (error) {
                         console.error('API 호출 실패:', error);
@@ -973,7 +1020,12 @@ function findEventnameByEventSeq(eventSeq){
         let createScore = (historySeq) => {
             var scoreCardDate = {historySeq : historySeq };
             scoreDataKeys.forEach(key => {
-                scoreCardDate[key] = $(`#${key}`).val();
+                if(key.includes("overtimeYn")){
+                    scoreCardDate[key] = $(`#${key} .btn-check:checked`).attr("date");
+                }else{
+                    scoreCardDate[key] = $(`#${key}`).val();
+                }
+                
             });
             if(confirm("등록 하시겠습니까?")){
                 $.ajax({
@@ -995,9 +1047,14 @@ function findEventnameByEventSeq(eventSeq){
         let updateScore = (scoreSeq) => {
             var scoreCardDate = {scoreSeq : scoreSeq };
             scoreDataKeys.forEach(key => {
-                scoreCardDate[key] = $(`#${key}`).val();
+                if(key.includes("overtimeYn")){
+                    scoreCardDate[key] = $(`#${key} .btn-check:checked`).attr("date");
+                }else{
+                    scoreCardDate[key] = $(`#${key}`).val();
+                }
             });
-            if(confirm("수정 하시겠습니까?")){
+            if(confirm("수정 하시겠습니까??")){
+                console.log(scoreCardDate);
                 $.ajax({
                     type: 'POST',
                     url: './score-card/update_score_card.php', // 실제 추가를 처리하는 PHP 파일 경로

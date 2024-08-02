@@ -63,9 +63,25 @@ $historySql = "SELECT
     on event.event_seq = his.event_seq
     where player1 = $page
     OR player2 = $page
-    order by play_date;";
+    order by play_date desc;";
 $historyResult = sql_query($historySql);
 ?>
+<style>
+    .match_list li{
+        display:flex;
+    }
+
+    .match_list li.hidden{
+        display:none;    
+    }
+
+    .match_list li#toggleButton{
+        justify-content: center;
+        cursor:pointer;
+    }
+
+    
+</style>
 
 <div class="sub_content fighter" style="background-color: #000; padding-bottom: 30px;">
         <div class="sub_container">
@@ -121,8 +137,10 @@ $historyResult = sql_query($historySql);
                                 </div>
                                 <div class="match_list">
                                     <ul>
-                                    <? while ($historyRow = sql_fetch_array($historyResult)) { ?>
-                                        <li style="display:flex">
+                                    <?  $historyIndex = 0;
+                                    while ($historyRow = sql_fetch_array($historyResult)) {
+                                        $historyIndex++; ?>
+                                        <li class="<? if($historyIndex > 4){ echo 'hidden'; } ?>">
                                             <div style="text-align:left; flex:0 0 auto;">
                                                 <b><span <? if(!(strpos($historyRow['game_name'], "블랙컴뱃") !== false)){ echo "style='color:rgba(255, 255, 255, 0.6)'"; } ?> class='game_name'><?= $historyRow['game_name'] ?> : </span></b> 
                                             </div>
@@ -145,6 +163,7 @@ $historyResult = sql_query($historySql);
                                             </div>
                                         </li>
                                     <? } ?>
+                                    <? if($historyIndex > 4){ echo '<li id="toggleButton" style="text-align:center" onclick="foldToggle()">▼ 더보기</li>';} ?>
                                     </ul>
                                 </div>
                             </div>
@@ -187,3 +206,29 @@ $historyResult = sql_query($historySql);
             </div>
         </div>
     </div>
+
+
+<script type="text/javascript">
+    let foldFlag = false;
+    let foldToggle = () => {
+        const toggleButton = document.querySelector(`.match_list li#toggleButton`);
+        const listContainer = document.querySelector(`.match_list`);
+        const hiddenItems = document.querySelectorAll(`.match_list li.hidden`);
+
+        if (foldFlag) {
+            listContainer.style.maxHeight = '125px';
+            hiddenItems.forEach(item => {
+                item.style.display = 'none';
+            });
+            toggleButton.textContent = '▼ 더보기';
+        } else {
+                let maxheight = (170 + 20*hiddenItems.length);
+            listContainer.style.maxHeight = `${maxheight}px`;
+            hiddenItems.forEach(item => {
+                item.style.display = 'flex';
+            });
+            toggleButton.textContent = '▲ 접기';
+        }
+        foldFlag = !foldFlag;
+    }
+</script>

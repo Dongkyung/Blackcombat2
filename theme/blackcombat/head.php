@@ -85,6 +85,7 @@ if ($ticket_row) {
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/community" class="menu_item_anchor">COMMUNITY</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/gym.php" class="menu_item_anchor">GYM</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/rules.php" class="menu_item_anchor">RULES</a></div>
+                <div class="menu_item"><a href="<?php echo G5_URL ?>/doping.php" class="menu_item_anchor">DOPING</a></div>
             </div>
         </div>
     </div>

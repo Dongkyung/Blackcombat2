@@ -2,10 +2,6 @@
 if (!defined('_INDEX_')) define('_INDEX_', true);
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
-if (G5_IS_MOBILE) {
-    include_once(G5_THEME_MOBILE_PATH.'/index.php');
-    return;
-}
 
 if(G5_COMMUNITY_USE === false) {
     include_once(G5_THEME_SHOP_PATH.'/index.php');
@@ -46,7 +42,7 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/rules.css">'
 (5) 70.4kg 이상 ~ 77.1kg 이하 : 웰터급 (Welterweight Division)<br />
 (6) 77.1kg 이상 ~ 84kg 이하 : 미들급 (Middleweight Division)<br />
 (7) 84kg 이상 ~ 100kg 이하 : 중량급 (Heavyweight Division)<br />
-(8) 100kg 이상 : 무제한급 (Openweight Division)<br />
+(8) 120kg 이하 : 헤비급 (Heavyweight Division)<br />
 *허용 오차 +/- 500g 까지 (계약 체중 매치 및 타이틀전은 허용 오차 범위를 허용하지 않는다.)<br /><br />
 
 <여성부> <br />

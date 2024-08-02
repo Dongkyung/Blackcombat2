@@ -723,9 +723,7 @@
     }
 
     $(document).ready(() => {
-        const toggleButton = document.getElementById('toggleButton');
-        const listContainer = document.querySelector('.fly');
-        const hiddenItems = document.querySelectorAll('.fly .ranking_list_part_item.hidden');
+        
     });
     
     let foldToggle = (division) => {

@@ -116,6 +116,16 @@ $row = mysqli_fetch_assoc($eventResult);
         font-size:0.9rem;
         font-weight:bold;
     }
+
+    span.division-info{
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 0px 2px;
+        background-color: #999999;
+        color:white;
+        font-weight:normal;
+        font-size: 11px;
+    }
     
     
     
@@ -169,10 +179,16 @@ $row = mysqli_fetch_assoc($eventResult);
   , his.`order`
   , his.player1
   , base1.fighter_name as name1
+  , base1.win as win1
+  , base1.lose as lose1
+  , base1.draw as draw1
   , base1.fighter_ringname as ringname1
   , base1.rankingImageBin as img1
   , his.player2
   , base2.fighter_name as name2
+  , base2.win as win2
+  , base2.lose as lose2
+  , base2.draw as draw2
   , base2.fighter_ringname as ringname2
   , base2.rankingImageBin as img2
   , his.winner_player
@@ -217,6 +233,36 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                                     </a>
                                 </div>
                                 <div style="flex:2 0 0; display:flex; flex-direction:column; font-weight:bold;">
+
+                                    <div style="height:26px; display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 50px; ">
+                                        <div style="flex:1 0 0; text-align:left;">
+                                        <?
+                                            $divisionSql = "SELECT ranking.division, ranking.ranking, ranking.ranking_type
+                                            FROM tb_fighter_ranking ranking
+                                            where ranking.fighter_seq = ".$hisRow['player1'];
+                                            $divisionResult = sql_query($divisionSql);
+                                            while ($divisionRow = sql_fetch_array($divisionResult)) { ?>
+                                                <span class="division-info"><?=$divisionRow['division']?> #<? if($divisionRow['ranking'] === '0') { echo "C"; } else { echo $divisionRow['ranking']; }?></span>
+                                                <? if($divisionRow['ranking_type'] === '2'){ ?>
+                                                    <span style="background-color: #4477ff; font-size: 0.5rem; line-height: 5px; padding: 5px; border-radius: 13px; margin-left: -11px;" >A</span>
+                                                <? } ?>
+                                        <? } ?>
+                                        </div>  
+                                        <div style="flex:1 0 0; text-align:center;"></div>
+                                        <div style="flex:1 0 0; text-align:right;">
+                                        <?
+                                            $divisionSql = "SELECT ranking.division, ranking.ranking, ranking.ranking_type
+                                            FROM tb_fighter_ranking ranking
+                                            where ranking.fighter_seq = ".$hisRow['player2'];
+                                            $divisionResult = sql_query($divisionSql);
+                                            while ($divisionRow = sql_fetch_array($divisionResult)) { ?>
+                                                <span class="division-info"><?=$divisionRow['division']?> #<? if($divisionRow['ranking'] === '0') { echo "C"; } else { echo $divisionRow['ranking']; }?></span>
+                                                <? if($divisionRow['ranking_type'] === '2'){ ?>
+                                                    <span style="background-color: #4477ff; font-size: 0.5rem; line-height: 5px; padding: 5px; border-radius: 13px; margin-left: -11px;" >A</span>
+                                                <? } ?>
+                                        <? } ?>
+                                        </div>  
+                                    </div>
                                     <div style="flex:1 0 0; display:flex; font-size:1.5rem; padding:0px 50px">
                                         <div style="flex:1 0 0; text-align:left;">
                                             <span style="white-space: word-break: auto-phrase;"><?= $hisRow['name1'] ?></span>
@@ -227,9 +273,11 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                                         </div>
                                     </div>
                                     <div style="flex:1 0 0; display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 50px; ">
-                                        <div style="flex:1 0 0; text-align:left;"><?= $hisRow['ringname1'] ?>&nbsp; <!-- <span style="color:#bbbbbb; font-size:0.7rem">YOO JITSU</span>--></div> 
+                                        <div style="flex:1 0 0; text-align:left;"><?= $hisRow['ringname1'] ?><br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem"><? echo $hisRow['win1']."W ".$hisRow['lose1']."L "; if($hisRow['draw1'] !== '0') { echo $hisRow['draw1']."D";} ?></span></div>  
                                         <div style="flex:1 0 0; text-align:center;">RING NAME</div>
-                                        <div style="flex:1 0 0; text-align:right;"><?= $hisRow['ringname2'] ?>&nbsp; <!--<span style="color:#bbbbbb; font-size:0.7rem">MOAI</span>--></div> 
+                                        <div style="flex:1 0 0; text-align:right;"><?= $hisRow['ringname2'] ?><br>
+                                            <span style="color:#bbbbbb; font-size:0.7rem"><? echo $hisRow['win2']."W ".$hisRow['lose2']."L "; if($hisRow['draw2'] !== '0') { echo $hisRow['draw2']."D";} ?></span></div>  
                                     </div>
                                     <div style="flex:1 0 0; text-align:center">
                                         <div style="display : inline-block; margin-right:5px;">
@@ -246,7 +294,7 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                                         <div style="display : inline-block; margin-left:5px;" >
                                         <!-- <div style="display : inline-block; margin-left:5px;"> -->
                                             SCORE CARD
-                                            <a id="openModal" href="javascript:openScoreCard(<?= $hisRow['score_seq']  ?>)">
+                                            <a id="openModal" href="javascript:openScoreCard(<? if($hisRow['score_seq']){ echo $hisRow['score_seq'];  }else{ echo "null"; } ?>, '<?= $hisRow['name1'] ?>', '<?= $hisRow['name2'] ?>')">
                                                 <img style="width:25px; margin-bottom: 4px;" src="<?php echo G5_THEME_IMG_URL; ?>/doc_icon.png" />
                                             </a>
                                         </div>
@@ -297,16 +345,16 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                             <td colspan="2" style="background-color:#333; color:#dfdfdf; font-weight:bold;" class="large-txt">블랙</td>
                         </tr>
                         <tr>
-                            <td style="background-color:white; font-weight:bold;" colspan="2" class="score_fighter_name1">유수영</td>
+                            <td style="background-color:white; font-weight:bold;" colspan="2" class="score_fighter_name1"></td>
                             <td></td>
-                            <td style="background-color:#333; color:#dfdfdf; font-weight:bold;"colspan="2" class="score_fighter_name2">모아이</td>
+                            <td style="background-color:#333; color:#dfdfdf; font-weight:bold;"colspan="2" class="score_fighter_name2"></td>
                         </tr>
                         <tr>
-                            <td class="large-txt">점수</td>
-                            <td class="large-txt">감점</td>
-                            <td class="large-txt">라운드</td>
-                            <td class="large-txt">점수</td>
-                            <td class="large-txt">감점</td>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
+                            <td class="large-txt" style="width:19%">라운드</td>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
                         </tr>
                         <tr class="scoreDetail">
                             <td id='score111'></td>
@@ -338,9 +386,8 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                         <tr>
                             <td colspan="5">
                                 <div style="display:flex;">
-                                    <div style="flex:1 0 0;"></div>
-                                    <div style="flex:2 0 0;" class="large-txt">연장 라운드</div>
-                                    <div style="flex:1 0 0;"></div>
+                                    <div style="flex:2 0 0;" class="large-txt">연장회의 여부</div>
+                                    <div style="flex:1 0 0;" id='overtimeYn11'></div>
                                 </div>
                             </td>
                         </tr>
@@ -369,16 +416,16 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                             <td colspan="2" style="background-color:#333; color:#dfdfdf; font-weight:bold;" class="large-txt">블랙</td>
                         </tr>
                         <tr>
-                            <td style="background-color:white; font-weight:bold;" colspan="2" class="score_fighter_name1">유수영</td>
+                            <td style="background-color:white; font-weight:bold;" colspan="2" class="score_fighter_name1"></td>
                             <td></td>
-                            <td style="background-color:#333; color:#dfdfdf; font-weight:bold;"colspan="2" class="score_fighter_name2">모아이</td>
+                            <td style="background-color:#333; color:#dfdfdf; font-weight:bold;"colspan="2" class="score_fighter_name2"></td>
                         </tr>
                         <tr>
-                            <td class="large-txt">점수</td>
-                            <td class="large-txt">감점</td>
-                            <td class="large-txt">라운드</td>
-                            <td class="large-txt">점수</td>
-                            <td class="large-txt">감점</td>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
+                            <td class="large-txt" style="width:19%">라운드</td>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
                         </tr>
                         <tr class="scoreDetail">
                             <td id='score211'></td>
@@ -410,9 +457,8 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                         <tr>
                             <td colspan="5">
                                 <div style="display:flex;">
-                                    <div style="flex:1 0 0;"></div>
-                                    <div style="flex:2 0 0;" class="large-txt">연장 라운드</div>
-                                    <div style="flex:1 0 0;"></div>
+                                    <div style="flex:2 0 0;" class="large-txt">연장회의 여부</div>
+                                    <div style="flex:1 0 0;" id='overtimeYn21'></div>
                                 </div>
                             </td>
                         </tr>
@@ -441,16 +487,16 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                             <td colspan="2" style="background-color:#333; color:#dfdfdf; font-weight:bold;" class="large-txt">블랙</td>
                         </tr>
                         <tr>
-                            <td style="background-color:white; font-weight:bold;" colspan="2" class="score_fighter_name1">유수영</td>
+                            <td style="background-color:white; font-weight:bold;" colspan="2" class="score_fighter_name1"></td>
                             <td></td>
-                            <td style="background-color:#333; color:#dfdfdf; font-weight:bold;"colspan="2" class="score_fighter_name2">모아이</td>
+                            <td style="background-color:#333; color:#dfdfdf; font-weight:bold;"colspan="2" class="score_fighter_name2"></td>
                         </tr>
                         <tr>
-                            <td class="large-txt">점수</td>
-                            <td class="large-txt">감점</td>
-                            <td class="large-txt">라운드</td>
-                            <td class="large-txt">점수</td>
-                            <td class="large-txt">감점</td>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
+                            <td class="large-txt" style="width:19%">라운드</td>
+                            <td class="large-txt" style="width:19%">점수</td>
+                            <td class="large-txt" style="width:19%">감점</td>
                         </tr>
                         <tr class="scoreDetail">
                             <td id='score311'></td>
@@ -482,9 +528,8 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                         <tr>
                             <td colspan="5">
                                 <div style="display:flex;">
-                                    <div style="flex:1 0 0;"></div>
-                                    <div style="flex:2 0 0;" class="large-txt">연장 라운드</div>
-                                    <div style="flex:1 0 0;"></div>
+                                    <div style="flex:2 0 0;" class="large-txt">연장회의 여부</div>
+                                    <div style="flex:1 0 0;" id='overtimeYn31'></div>
                                 </div>
                             </td>
                         </tr>
@@ -578,7 +623,7 @@ while ($hisRow = sql_fetch_array($historyResult)) {
 
         });
 
-        let openScoreCard = (scoreSeq) => {
+        let openScoreCard = (scoreSeq, name1, name2) => {
             if(!scoreSeq){
                 alert("등록된 채점표가 없습니다.");
                 return;
@@ -591,8 +636,19 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                     success: function (info) {
                         console.log(info);
                         Object.keys(info).forEach(key => {
-                            $(`#${key}`).text(info[key] === '0'? '' : info[key]);
+                            if(key.includes("overtimeYn")){
+                                if(info[key] === '1'){
+                                    $(`#${key}`).text("O");
+                                }else{
+                                    $(`#${key}`).text("X");
+                                }
+                            }else{
+                                $(`#${key}`).text(info[key] === '0'? '' : info[key]);
+                            }
+                            
                         });
+                        $(".score_fighter_name1").text(name2);
+                        $(".score_fighter_name2").text(name1);
                     },
                     error: function (error) {
                         console.error('API 호출 실패:', error);

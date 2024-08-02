@@ -90,6 +90,9 @@ if ($ticket_row) {
                     <li>
                         <a href="<?php echo G5_URL ?>/rules.php">RULES</a>
                     </li>
+                    <li>
+                        <a href="<?php echo G5_URL ?>/doping.php">DOPING</a>
+                    </li>
                 </ul>
             </div>
         </div>

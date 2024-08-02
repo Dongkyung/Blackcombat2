@@ -14,7 +14,7 @@ $fields = [
     "total_score22","score224","minus_score224","referee_name3","score311","minus_score311","score312",
     "minus_score312","score313","minus_score313","total_score31","score314","minus_score314","score321",
     "minus_score321","score322","minus_score322","score323","minus_score323","total_score32","score324",
-    "minus_score324"
+    "minus_score324","overtimeYn11","overtimeYn21","overtimeYn31"
 ];
 
 // POST 데이터에서 필드에 해당하는 값들을 추출

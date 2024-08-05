@@ -122,7 +122,7 @@ if ($config['cf_analytics']) {
 
         
             <div class="seat_choice_popup" style="display:none; touch-action: pinch-zoom;">
-                <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/seatChoice_n11.php'); ?>
+                <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/seatChoice_n11_TEST2.php'); ?>
                 <div class="seat_choice_popup_bg"></div>
             </div>
     <?php } ?>

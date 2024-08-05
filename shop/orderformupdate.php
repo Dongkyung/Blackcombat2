@@ -40,6 +40,21 @@ if (count($it_ids) && $od_seat_row_type && $od_seat_number) {
         if (!empty($duplicates)) {
             alert('이미 결제된 좌석이 있습니다.', G5_SHOP_URL . '/' . $it_id);
         }
+
+        //관리자가 막아둔 좌석을 구매하려는지 체크
+        $blockSql = "SELECT `ct_seat_row_type`, `ct_seat_number` FROM `tb_seat_control` where `it_id` = '{$it_id}'";
+        $blockRow = sql_query($blockSql);
+        $blockedSeats = [];
+
+        while ($checkRow = sql_fetch_array($blockRow)) {
+            $blockedSeats[] = $checkRow['ct_seat_row_type'] . $checkRow['ct_seat_number'];
+        }
+        
+        $duplicates = array_intersect($requestedSeats, $blockedSeats);
+        if (!empty($duplicates)) {
+            alert('구매할 수 없는 좌석입니다. 관리자에게 문의하세요.', G5_SHOP_URL . '/' . $it_id);
+        }
+
     } // foreach End
 }
 // //이미 결제된 좌석 중복체크 추가

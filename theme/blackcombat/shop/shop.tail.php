@@ -130,11 +130,12 @@ if ($config['cf_analytics']) {
     <div class="seat_choice_popup" style="display:none;">
 
 
-    <? if ($is_admin) { ?>
-        <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/seatChoice_n11_fix.php'); ?>
-    <? }else{ ?>
-        <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/seatChoice_n11.php'); ?>
-    <? } ?>
+    <!-- <? if ($is_admin) { ?> -->
+        <!-- <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/seatChoice_n11_test.php'); ?> -->
+    <!-- <? }else{ ?> -->
+    <!-- <? } ?> -->
+
+    <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/seatChoice_n11_TEST2.php'); ?>
 
 
 

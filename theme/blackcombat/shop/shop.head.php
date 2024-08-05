@@ -29,10 +29,6 @@ if ($ticket_row) {
 add_javascript('<script src="'.G5_JS_URL.'/owlcarousel/owl.carousel.min.js"></script>', 10);
 add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carousel.css">', 0);
 ?>
-<script defer type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/kas/static/kp.js"></script>
-<script defer type="text/javascript">
-    //   kakaoPixel('8339806502848870616').pageView();
-</script>
 
 <!-- 상단 시작 { -->
 <div id="tnb" style="background:#212020;">

@@ -103,12 +103,11 @@ if($is_kakaopay_use) {
 
                 $orderSql = "SELECT `od_seat_row_type`, `od_seat_number` FROM {$g5['g5_shop_order_table']} where `od_status` in ('주문', '입금', '완료')  AND `it_id` = '{$row['it_id']}'";
                 $orderRow = sql_query($orderSql);
-                // echo $orderSql;
                 $existingSeats = [];
 
                 while ($checkRow = sql_fetch_array($orderRow)) {
-                    $rowTypesDB = explode("|", $checkRow['od_seat_row_type']);
-                    $seatNumbersDB = explode("|", $checkRow['od_seat_number']);
+                    $rowTypesDB = explode("|", $checkRow['od_seat_row_type']); // $checkRow['od_seat_row_type'] :  "VVIP-D|VVIP-D|STANDARD-D" 문자열
+                    $seatNumbersDB = explode("|", $checkRow['od_seat_number']); // $checkRow['od_seat_number'] :  "7|12|96" 문자열
                     
                     for ($ri = 0; $ri < count($rowTypesDB); $ri++) {
                         $existingSeats[] = $rowTypesDB[$ri] . $seatNumbersDB[$ri];
@@ -116,14 +115,28 @@ if($is_kakaopay_use) {
                 }
 
                 $duplicates = array_intersect($requestedSeats, $existingSeats);
-                // echo $duplicates;
                 if (!empty($duplicates)) {
                     alert('이미 결제된 좌석이 있습니다.', G5_SHOP_URL . '/' . $row['it_id']);
                 }
 
+                //관리자가 막아둔 좌석을 구매하려는지 체크
+                $blockSql = "SELECT `ct_seat_row_type`, `ct_seat_number` FROM `tb_seat_control` where `it_id` = '{$row['it_id']}'";
+                $blockRow = sql_query($blockSql);
+                $blockedSeats = [];
+
+                while ($checkRow = sql_fetch_array($blockRow)) {
+                    $blockedSeats[] = $checkRow['ct_seat_row_type'] . $checkRow['ct_seat_number'];
+                }
+                
+                $duplicates = array_intersect($requestedSeats, $blockedSeats);
+                if (!empty($duplicates)) {
+                    alert('구매할 수 없는 좌석입니다. 관리자에게 문의하세요.', G5_SHOP_URL . '/' . $row['it_id']);
+                }
+
+
             }
             // //이미 결제된 좌석 중복체크 추가
-
+            
             // 합계금액 계산
             $sql = " select SUM(IF(io_type = 1, (io_price * ct_qty), ((ct_price + io_price) * ct_qty))) as price,
                             SUM(ct_point * ct_qty) as point,
@@ -132,7 +145,6 @@ if($is_kakaopay_use) {
                         where it_id = '{$row['it_id']}'
                           and od_id = '$s_cart_id' ";
             $sum = sql_fetch($sql);
-
             if (!$goods)
             {
                 //$goods = addslashes($row[it_name]);
@@ -1387,7 +1399,6 @@ function forderform_check(f)
         return false;
     }
     
-    kakaoPixel('8339806502848870616').purchase();
 
     var od_price = parseInt(f.od_price.value);
     var send_cost = parseInt(f.od_send_cost.value);

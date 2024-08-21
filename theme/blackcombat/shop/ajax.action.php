@@ -3,6 +3,7 @@
 include_once('./_common.php');
 
 $action = isset($_REQUEST['action']) ? preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['action']) : '';
+$it_id_for_seat = isset($_REQUEST['it_id']) ? preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['it_id']) : '1722696532';
 
 switch ($action) {
     case 'refresh_cart' :
@@ -353,9 +354,9 @@ switch ($action) {
     case 'get_purchase_seat_info' : //구매된 좌석 조회
         $disabled_seat = array();
 
-        sql_query("update {$g5['g5_shop_order_table']} set od_status = '취소' where `od_status` = '주문' and `it_id` = '1722696532' and `od_time` <= date_add(now(), INTERVAL -24 HOUR)");
+        sql_query("update {$g5['g5_shop_order_table']} set od_status = '취소' where `od_status` = '주문' and `it_id` = $it_id_for_seat and `od_time` <= date_add(now(), INTERVAL -24 HOUR)");
 
-        $sql = "select `od_seat_row_type`, `od_seat_number` from {$g5['g5_shop_order_table']} where `od_status` != '취소' and `it_id` = '1722696532'";
+        $sql = "select `od_seat_row_type`, `od_seat_number` from {$g5['g5_shop_order_table']} where `od_status` != '취소' and `it_id` = $it_id_for_seat";
         $result = sql_query($sql);
 
         for($k=0; $row=sql_fetch_array($result); $k++) {
@@ -374,18 +375,22 @@ switch ($action) {
         die(json_encode($result));
 
         break;
-    case 'get_purchase_seat_info_admin' : //구매된 좌석 조회+시간(admin 용)
+    case 'get_purchase_seat_info_admin' : //구매된 좌석 조회 + 구매정보(admin 용)
             $disabled_seat = array();
     
-            sql_query("update {$g5['g5_shop_order_table']} set od_status = '취소' where `od_status` = '주문' and `it_id` = '1722696532' and `od_time` <= date_add(now(), INTERVAL -24 HOUR)");
+            sql_query("update {$g5['g5_shop_order_table']} set od_status = '취소' where `od_status` = '주문' and `it_id` = $it_id_for_seat and `od_time` <= date_add(now(), INTERVAL -24 HOUR)");
     
-            $sql = "select `od_seat_row_type`, `od_seat_number`, `od_time` from {$g5['g5_shop_order_table']} where `od_status` != '취소' and `it_id` = '1722696532'";
+            $sql = "select `od_id`, `od_seat_row_type`, `od_seat_number`, `od_name`, `od_tel`, `od_hp`, `od_time` from {$g5['g5_shop_order_table']} where `od_status` != '취소' and `it_id` = $it_id_for_seat order by od_time desc";
             $result = sql_query($sql);
     
             for($k=0; $row=sql_fetch_array($result); $k++) {
                 $tmpArray = array(
+                    'od_id' => $row['od_id'],
                     'od_seat_row_type' => $row['od_seat_row_type'],
                     'od_seat_number' => $row['od_seat_number'],
+                    'od_name' => $row['od_name'],
+                    'od_tel' => $row['od_tel'],
+                    'od_hp' => $row['od_hp'],
                     'od_time' => $row['od_time'],
                 );
                 $disabled_seat[] = $tmpArray;
@@ -405,7 +410,7 @@ switch ($action) {
         $post_od_seat_row_type = isset($_POST['od_seat_row_type']) && $_POST['od_seat_row_type'] !== '' ? $_POST['od_seat_row_type'] : '';
         $post_od_seat_number = isset($_POST['od_seat_number']) && $_POST['od_seat_number'] !== '' ? $_POST['od_seat_number'] : '';
 
-        $order_row = sql_fetch("select count(`od_id`) as cnt from {$g5['g5_shop_order_table']} where `od_seat_row_type` = '{$post_od_seat_row_type}' and `od_seat_number` = '{$post_od_seat_number}' and `od_status` != '취소' and `it_id` = '1722696532'");
+        $order_row = sql_fetch("select count(`od_id`) as cnt from {$g5['g5_shop_order_table']} where `od_seat_row_type` = '{$post_od_seat_row_type}' and `od_seat_number` = '{$post_od_seat_number}' and `od_status` != '취소' and `it_id` = $it_id_for_seat");
 
         if ($order_row['cnt']) {
             $result = 'Y';
@@ -417,7 +422,7 @@ switch ($action) {
     case 'get_blocked_seat' : //관리자가 막은 좌석리스트 조회
         $disabled_seat = array();
 
-        $sql = "select ct_seat_row_type, ct_seat_number from tb_seat_control where it_id = '1722696532'";
+        $sql = "select ct_seat_row_type, ct_seat_number from tb_seat_control where it_id = $it_id_for_seat";
         $result = sql_query($sql);
 
         for($k=0; $row=sql_fetch_array($result); $k++) {
@@ -441,13 +446,50 @@ switch ($action) {
         $post_od_seat_row_type = isset($_POST['od_seat_row_type']) && $_POST['od_seat_row_type'] !== '' ? $_POST['od_seat_row_type'] : '';
         $post_od_seat_number = isset($_POST['od_seat_number']) && $_POST['od_seat_number'] !== '' ? $_POST['od_seat_number'] : '';
 
-        $block_row = sql_fetch("select count(`seq`) as cnt from tb_seat_control where `ct_seat_row_type` = '{$post_od_seat_row_type}' and `ct_seat_number` = '{$post_od_seat_number}' and `it_id` = '1722696532'");
+        $block_row = sql_fetch("select count(`seq`) as cnt from tb_seat_control where `ct_seat_row_type` = '{$post_od_seat_row_type}' and `ct_seat_number` = '{$post_od_seat_number}' and `it_id` = $it_id_for_seat");
 
         if ($block_row['cnt']) {
             $result = 'Y';
         }
 
         die($result);
+
+        break;
+    case 'get_purchase_seat_order_search_admin' : //좌석관리 페이지 구매상세정보 조회용 API
+        
+        $od_id = $_POST['od_id'];
+        $sql = "
+            select 
+                od_id,
+                od_name,
+                od_tel,
+                od_hp,
+                od_time,
+                od_settle_case,
+                od_bank_account,
+                od_seat_row_type,
+                od_seat_number,
+                od_receipt_price,
+                od_ip
+            from g5_shop_order
+            where `od_id` = '$od_id'
+        ";
+        $result = sql_fetch($sql);
+
+        // for($k=0; $row=sql_fetch_array($result); $k++) {
+        //     $tmpArray = array(
+        //         'ct_seat_row_type' => $row['ct_seat_row_type'],
+        //         'ct_seat_number' => $row['ct_seat_number']
+        //     );
+        //     $disabled_seat[] = $tmpArray;
+        // } // for End
+
+        // $result = array(
+        //     'error'  => '',
+        //     'disabled_seat' => $disabled_seat
+        // );
+
+        die(json_encode($result));
 
         break;
     default :

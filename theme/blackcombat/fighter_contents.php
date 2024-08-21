@@ -133,7 +133,7 @@ $historyResult = sql_query($historySql);
                             </div>
                             <div class="fighter_match">
                                 <div class="match_title">
-                                    LASTEST MATCH
+                                    LATEST MATCHES
                                 </div>
                                 <div class="match_list">
                                     <ul>

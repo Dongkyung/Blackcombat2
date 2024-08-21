@@ -710,7 +710,6 @@
 </div>
 
 <script type="text/javascript">
-
     let expandedMap = {
         "fly":false,
         "bantam":false,
@@ -741,7 +740,7 @@
                 let maxheight = (660 + 43*hiddenItems.length);
             listContainer.style.maxHeight = `${maxheight}px`;
             hiddenItems.forEach(item => {
-                item.style.display = 'block';
+                item.style.display = '<? if(G5_IS_MOBILE) { echo 'flex'; }else{ echo 'block';  }?>';
             });
             toggleButton.textContent = '▲ 접기';
         }

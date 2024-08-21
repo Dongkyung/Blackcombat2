@@ -135,7 +135,7 @@ if ($config['cf_analytics']) {
     <!-- <? }else{ ?> -->
     <!-- <? } ?> -->
 
-    <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/seatChoice_n11_TEST2.php'); ?>
+    <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/commonSeatChoice.php'); ?>
 
 
 

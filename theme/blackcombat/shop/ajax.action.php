@@ -3,7 +3,7 @@
 include_once('./_common.php');
 
 $action = isset($_REQUEST['action']) ? preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['action']) : '';
-$it_id_for_seat = isset($_REQUEST['it_id']) ? preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['it_id']) : '1722696532';
+$it_id_for_seat = isset($_REQUEST['it_id']) ? preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['it_id']) : '1723217030';
 
 switch ($action) {
     case 'refresh_cart' :

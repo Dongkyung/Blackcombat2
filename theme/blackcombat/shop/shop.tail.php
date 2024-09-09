@@ -81,12 +81,12 @@ if ($config['cf_analytics']) {
 <style>
     .seat_choice_popup {display:block; position:fixed; top:0; left:0; width:100%; height:100%; margin:0; padding:0; box-sizing:border-box; z-index:9999;}
     .seat_choice_popup_wrap {position:relative; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; width:100%; height:100%; margin:0 auto; padding:0; background:#fff; overflow-y:scroll; z-index:99;}
-    .seat_choice_popup_header {flex:0 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:auto; margin:0; padding:20px 0;}
+    .seat_choice_popup_header {flex:0 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; margin:0; padding:20px 0;    position: fixed;top: 0;height: 70px;}
     .seat_choice_popup_header_title {font-size:30px; font-weight:400; line-height:100%; color:#000;}
-    .seat_choice_popup_body {flex:0 0 auto; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; width:auto; height:calc(100% - 160px); margin:0 auto; padding:10px 0; overflow-x:scroll;}
-    .seat_choice_popup_footer {flex:0 0 auto; display:flex; flex-direction:row; flex-wrap:nowrap; align-items:center; justify-content:center; width:100%; height:auto; margin:0; padding:20px 0; column-gap:20px;}
-    .seat_choice_popup_close_btn {flex:0 0 auto; display:block; width:186px; height:50px; margin:0; padding:15px 20px; font-size:1.25em; font-weight:bold; color:#000; text-align:center; border:1px solid #98a3b3; border-radius:3px; background:#fff; box-sizing:border-box; box-shadow:unset;}
-    .seat_choice_btn {flex:0 0 auto; display:block; width:186px; height:50px; margin:0; padding:15px 20px; font-size:1.25em; font-weight:bold; color:#fff; text-align:center; border:1px solid #1c70e9; border-radius:3px; background:#3a8afd; box-sizing:border-box; box-shadow:unset;}
+    .seat_choice_popup_body {flex:0 0 auto; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; width:1700px; height:calc(100% - 130px); margin:0 auto; padding:10px 0; overflow-x:scroll; margin-top: 70px; /* 헤더 높이만큼 마진 */}
+    .seat_choice_popup_footer {flex:0 0 auto; display:flex; flex-direction:row; flex-wrap:nowrap; align-items:center; justify-content:center; width:100%; height:auto; margin:0; padding:10px 0; column-gap:20px;  position: fixed; bottom: 0;}
+    .seat_choice_popup_close_btn {flex:0 0 auto; display:block; width:100px; height:50px; margin:0; padding:15px 20px; font-size:1.25em; font-weight:bold; color:#000; text-align:center; border:1px solid #98a3b3; border-radius:3px; background:#fff; box-sizing:border-box; box-shadow:unset;}
+    .seat_choice_btn {flex:0 0 auto; display:block; width:auto; height:50px; margin:0; padding:15px 20px; font-size:1.25em; font-weight:bold; color:#fff; text-align:center; border:1px solid #1c70e9; border-radius:3px; background:#3a8afd; box-sizing:border-box; box-shadow:unset;}
     .seat_choice_btn[disabled] {color:rgba(16,16,16,0.3); border:1px solid #98a3b3; background:rgba(239,239,239,1); cursor:default;}
 
     .movieLayoutContainer {position:relative; display:block; min-width:2000px; min-height:750px; margin:0; padding:0;}
@@ -128,18 +128,11 @@ if ($config['cf_analytics']) {
 
 <?php if(!$is_soldout) { ?>    
     <div class="seat_choice_popup" style="display:none;">
-
-
-    <!-- <? if ($is_admin) { ?> -->
-        <!-- <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/seatChoice_n11_test.php'); ?> -->
-    <!-- <? }else{ ?> -->
-    <!-- <? } ?> -->
-
-    <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/commonSeatChoice.php'); ?>
-
-
-
-
+        <!-- <? if ($is_admin) { ?> -->
+            <!-- <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/seatChoice_n11_test.php'); ?> -->
+        <!-- <? }else{ ?> -->
+        <!-- <? } ?> -->
+        <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/commonSeatChoice.php'); ?>
         <div class="seat_choice_popup_bg"></div>
     </div>
 <? }?>

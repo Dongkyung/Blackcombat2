@@ -70,20 +70,30 @@ if ($config['cf_analytics']) {
 <script src="<?php echo G5_JS_URL; ?>/sns.js"></script>
 <!-- } 하단 끝 -->
 
+<script type="text/javascript">
+    function setViewportWidthVariable() {
+        var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+        document.documentElement.style.setProperty('--viewport-width', viewportWidth + 'px');
+    }
+
+    window.addEventListener('resize', setViewportWidthVariable);
+    setViewportWidthVariable();
+</script>
+
 <?php if($it_id) { ?>
 
 <style>
     .seat_choice_popup {display:block; position:fixed; top:0; left:0; width:100%; height:100%; margin:0; padding:0; box-sizing:border-box; z-index:9999;}
     .seat_choice_popup_wrap {position:relative; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; width:100%; height:100%; margin:0 auto; padding:0; background:#fff; overflow-y:scroll; z-index:99;}
-    .seat_choice_popup_header {flex:0 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:auto; margin:0; padding:20px 0;}
+    .seat_choice_popup_header {flex:0 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:auto; margin:0; padding:20px 0; position: fixed;top: 0;height: 70px;}
     .seat_choice_popup_header_title {font-size:30px; font-weight:400; line-height:100%; color:#000;}
-    .seat_choice_popup_body {flex:0 0 auto; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; width:auto; height:calc(100% - 160px); margin:0 auto; padding:10px 0; overflow-x:scroll;}
-    .seat_choice_popup_footer {flex:0 0 auto; display:flex; flex-direction:row; flex-wrap:nowrap; align-items:center; justify-content:center; width:100%; height:auto; margin:0; padding:20px 0; column-gap:20px;}
-    .seat_choice_popup_close_btn {flex:0 0 auto; display:block; width:186px; height:50px; margin:0; padding:15px 20px; font-size:1.25em; font-weight:bold; color:#000; text-align:center; border:1px solid #98a3b3; border-radius:3px; background:#fff; box-sizing:border-box; box-shadow:unset;}
-    .seat_choice_btn {flex:0 0 auto; display:block; width:186px; height:50px; margin:0; padding:15px 20px; font-size:1.25em; font-weight:bold; color:#fff; text-align:center; border:1px solid #1c70e9; border-radius:3px; background:#3a8afd; box-sizing:border-box; box-shadow:unset;}
+    .seat_choice_popup_body {flex:0 0 auto; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; width:var(--viewport-width); height:calc(100% - 130px); margin:0 auto; padding:10px 0; overflow-x:scroll; margin-top: 70px; /* 헤더 높이만큼 마진 */}
+    .seat_choice_popup_footer {flex:0 0 auto; display:flex; flex-direction:row; flex-wrap:nowrap; align-items:center; justify-content:center; width:100%; height:auto; margin:0; padding:10px; column-gap:20px; position: fixed; bottom: 0;}
+    .seat_choice_popup_close_btn {flex:0 0 auto; display:block; width:100px; height:50px; margin:0; padding:15px 20px; font-size:1.25em; font-weight:bold; color:#000; text-align:center; border:1px solid #98a3b3; border-radius:3px; background:#fff; box-sizing:border-box; box-shadow:unset;}
+    .seat_choice_btn {flex:0 0 auto; display:block; width:auto; height:50px; margin:0; padding:15px 20px; font-size:1.25em; font-weight:bold; color:#fff; text-align:center; border:1px solid #1c70e9; border-radius:3px; background:#3a8afd; box-sizing:border-box; box-shadow:unset;}
     .seat_choice_btn[disabled] {color:rgba(16,16,16,0.3); border:1px solid #98a3b3; background:rgba(239,239,239,1); cursor:default;}
 
-    .movieLayoutContainer {position:relative; display:block; min-width:2000px; min-height:750px; margin:0; padding:0; transform: scale(0.7) translateX(-550px);}
+    .movieLayoutContainer {position:relative; display:block; min-width:2000px; min-height:750px; margin:-400px; padding:0; transform: scale(0.7);}
     .cage_img_1 {position:absolute; top:255px; left:550px; display:block; width:auto; max-width:430px; height:auto; margin:0; padding:0; z-index:11;}
     .cage_img_2 {position:absolute; top:441px; right:1px; display:block; width:auto; max-width:460px; height:auto; margin:0; padding:0; z-index:11;}
     .cage_img_3 {position:absolute; top:280px; left:500px; display:block; width:350px; height:auto; margin:0; padding:0; z-index:-1;}
@@ -122,7 +132,7 @@ if ($config['cf_analytics']) {
 
         
             <div class="seat_choice_popup" style="display:none; touch-action: pinch-zoom;">
-                <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/seatChoice_n11_TEST2.php'); ?>
+                <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/commonSeatChoice.php'); ?>
                 <div class="seat_choice_popup_bg"></div>
             </div>
     <?php } ?>

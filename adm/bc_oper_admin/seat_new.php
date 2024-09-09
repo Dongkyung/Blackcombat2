@@ -17,12 +17,13 @@ $g5['title'] = "좌석 컨트롤";
 $sql = "select seq, it_id, ct_seat_row_type, ct_seat_number,bigo, fsttm from tb_seat_control order by ct_seat_row_type, CAST(ct_seat_number AS UNSIGNED)";
 $result = sql_query($sql);
 
-$it_id = !empty($_GET['it_id']) ? $_GET['it_id'] : '1704478746';
+$it_id = !empty($_GET['it_id']) ? $_GET['it_id'] : '1723217030';
 
 $itId_file_map = array(
     '1704478746' => "n10",
     '1719322450' => "n11",
-    '1722696532' => "n11test"
+    '1722696532' => "n11test",
+    '1723217030' => "n12"
 );
 
 ?>
@@ -208,6 +209,7 @@ $itId_file_map = array(
         <option value="1704478746" <? if($it_id === '1704478746') {echo "selected"; } ?>>Black Combat 10: 서울의 밤</option>
         <option value="1719322450" <? if($it_id === '1719322450') {echo "selected"; } ?>>Black Combat 11: 부산상륙작전</option>
         <option value="1722696532" <? if($it_id === '1722696532') {echo "selected"; } ?>>Black Combat 11: 부산상륙작전_TEST</option>
+        <option value="1723217030" <? if($it_id === '1723217030') {echo "selected"; } ?>>Black Combat 12: THE RETURN OF THE KINGS</option>
     </select>
 </div>
 

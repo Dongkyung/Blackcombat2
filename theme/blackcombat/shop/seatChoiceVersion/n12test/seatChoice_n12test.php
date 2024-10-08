@@ -94,7 +94,7 @@ function add_items($start, $end, $row_type, $is_admin, $style) {
 }
 
 ?>
-
+테스트화면
 <div class="seat_choice_popup_body">
     <div class="movieLayoutContainer" data-product-id="<?php echo $it_id; ?>">
     
@@ -204,6 +204,8 @@ function add_items($start, $end, $row_type, $is_admin, $style) {
             <div class="objArea" style="width:114px; height:500px; left:1936px; top:1040px;  padding:10px; z-index:2; font-size:1.2rem; background-color:#99ff99">
             </div>
 
+            
+            
 
             
 

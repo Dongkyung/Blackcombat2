@@ -559,9 +559,22 @@ function get_option_stock_qty($it_id, $io_id, $type)
 {
     global $g5;
 
+    $io_id_clone = $io_id;
+    if($io_id == 'GOLD(PKG)'){
+        $io_id_clone = 'GOLD';
+    }else if($io_id == 'SILVER(PKG)'){
+        $io_id_clone = 'SILVER';
+    }else if($io_id == 'GOLD'){
+        $io_id_clone = 'GOLD';
+        $io_id = "GOLD(PKG)";
+    }else if($io_id == 'SILVER'){
+        $io_id_clone = 'SILVER';
+        $io_id = "SILVER(PKG)";
+    }
+
     $sql = " select io_stock_qty
                 from {$g5['g5_shop_item_option_table']}
-                where it_id = '$it_id' and io_id = '$io_id' and io_type = '$type' and io_use = '1' ";
+                where it_id = '$it_id' and io_id = '$io_id_clone' and io_type = '$type' and io_use = '1' ";
     $row = sql_fetch($sql);
     $jaego = (int)$row['io_stock_qty'];
 
@@ -576,7 +589,21 @@ function get_option_stock_qty($it_id, $io_id, $type)
     $row = sql_fetch($sql);
     $daegi = (int)$row['sum_qty'];
 
+    //넘버링12에서 실버,골드 패키지의경우 해당건의 주문도 차감해서 재고계산
+    if($io_id != $io_id_clone){
+        $sql = " select SUM(ct_qty) as sum_qty
+               from {$g5['g5_shop_cart_table']}
+              where it_id = '$it_id'
+                and io_id = '$io_id_clone'
+                and io_type = '$type'
+                and ct_stock_use = 0
+                and ct_status in ('주문', '입금', '준비') ";
+        $row = sql_fetch($sql);
+        $daegi = $daegi + (int)$row['sum_qty'];
+    }
+
     return $jaego - $daegi;
+    // return 1;
 }
 
 

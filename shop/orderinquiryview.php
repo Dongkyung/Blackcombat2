@@ -309,7 +309,10 @@ if($od['od_pg'] == 'lg') {
                 </tr>
                 <tr>
                     <th scope="row">입금계좌</th>
-                    <td><?php echo get_text($od['od_bank_account']); ?></td>
+                    <td>
+                        <?php echo get_text($od['od_bank_account']); ?><br>
+                        <p style="color:red"><strong>가상계좌</strong> 는 24시간 이내에 입금하지 않으면 자동으로 취소 됩니다.</p>
+                    </td>
                 </tr>
                 <?php
                 }
@@ -704,7 +707,10 @@ if($od['od_pg'] == 'lg') {
         </tr>
         <tr>
             <th scope="col"><label for="deposit_no">입금계좌</label></th>
-            <td><input type="text" name="deposit_no" value="<?php echo $deposit_no; ?>"></td>
+            <td>
+                <input type="text" name="deposit_no" value="<?php echo $deposit_no; ?>">
+                <p style="color:red"><strong>가상계좌</strong> 는 24시간 이내에 입금하지 않으면 자동으로 취소 됩니다.</p>
+            </td>
         </tr>
         <tr>
             <th scope="col"><label for="req_name">입금자명</label></th>

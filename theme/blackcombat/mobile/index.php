@@ -20,6 +20,7 @@ include_once(G5_THEME_MOBILE_PATH.'/head.php');
 <div class="key_visual">
     <div class="swiper key_visual_wrap">
         <div class="swiper-wrapper key_visual_items">
+            <div class="swiper-slide key_visual_item"><a href="https://www.blackcombat-official.com/shop/1723217030"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/main/key_visual_m_n12_1.jpg" /></a></div>
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/main/key_visual_m_n11_3.jpg" /></div>
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/main/key_visual_m_n11_4.jpg" /></div>
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/main/key_visual_m_n11_5.jpg" /></div>

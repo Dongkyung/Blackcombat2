@@ -227,6 +227,7 @@ $itId_file_map = array(
                     <th>이름</th>
                     <th>연락처_hp</th>
                     <th>연락처_tel</th>
+                    <!-- <th>결제금액</th> -->
                     <th>구매날짜</th>
                 </tr>
             </thead>
@@ -410,7 +411,8 @@ $itId_file_map = array(
                                             value.od_name,
                                             value.od_hp,
                                             value.od_tel,
-                                            value.od_time,
+                                            // value.od_receipt_price,
+                                            value.od_time
                                     ]).node();
 
                                     rowNodes.push({

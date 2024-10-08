@@ -380,7 +380,7 @@ switch ($action) {
     
             sql_query("update {$g5['g5_shop_order_table']} set od_status = '취소' where `od_status` = '주문' and `it_id` = $it_id_for_seat and `od_time` <= date_add(now(), INTERVAL -24 HOUR)");
     
-            $sql = "select `od_id`, `od_seat_row_type`, `od_seat_number`, `od_name`, `od_tel`, `od_hp`, `od_time` from {$g5['g5_shop_order_table']} where `od_status` != '취소' and `it_id` = $it_id_for_seat order by od_time desc";
+            $sql = "select `od_id`, `od_seat_row_type`, `od_seat_number`, `od_name`, `od_tel`, `od_hp`, `od_time`, `od_receipt_price` from {$g5['g5_shop_order_table']} where `od_status` != '취소' and `it_id` = $it_id_for_seat order by od_time desc";
             $result = sql_query($sql);
     
             for($k=0; $row=sql_fetch_array($result); $k++) {
@@ -392,6 +392,7 @@ switch ($action) {
                     'od_tel' => $row['od_tel'],
                     'od_hp' => $row['od_hp'],
                     'od_time' => $row['od_time'],
+                    'od_receipt_price' => $row['od_receipt_price']
                 );
                 $disabled_seat[] = $tmpArray;
             } // for End

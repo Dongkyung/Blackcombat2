@@ -125,7 +125,7 @@ $historyResult = sql_query($historySql);
                                     <?= $row['win'] ?> <div class="mini">Win</div>
                                 </div>
                                 <div class="data_record_draw">
-                                    <?= $row['lose'] ?> <div class="mini">Lose</div>
+                                    <?= $row['lose'] ?> <div class="mini">Loss</div>
                                 </div>
                                 <div class="data_record_lose">
                                     <?= $row['draw'] ?> <div class="mini">Draw</div>
@@ -153,7 +153,7 @@ $historyResult = sql_query($historySql);
                                                 } else if($historyRow['result'] == 'N/C'){
                                                     echo "<span class='match_result NC' style='background-color:unset'></span>";
                                                 } else{
-                                                    echo "<span class='match_result lose'>Lose</span>";
+                                                    echo "<span class='match_result lose'>Loss</span>";
                                                 }
                                             ?>
                                             <a href="https://www.blackcombat-official.com/fighter.php?page=<?=$historyRow['player1']?>" style="color:white"><span <? if( $historyRow['winner_player'] == $historyRow['player1'] ){ echo "class='winner_name'"; }?> ><?= $historyRow['player1_name'] ?></span> </a>

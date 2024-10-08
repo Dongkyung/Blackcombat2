@@ -128,10 +128,6 @@ if ($config['cf_analytics']) {
 
 <?php if(!$is_soldout) { ?>    
     <div class="seat_choice_popup" style="display:none;">
-        <!-- <? if ($is_admin) { ?> -->
-            <!-- <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/seatChoice_n11_test.php'); ?> -->
-        <!-- <? }else{ ?> -->
-        <!-- <? } ?> -->
         <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/commonSeatChoice.php'); ?>
         <div class="seat_choice_popup_bg"></div>
     </div>

@@ -333,7 +333,6 @@ if (array_key_exists($tab, $tabItems)) {
                     *Please submit all documents to brandaidkr@gmail.com
                 </div>
 <? }else if($tab === '2') { ?>
-                <? if($is_admin) { ?>
                 <div class="doping-list">
                     <table>
                         <thead>
@@ -348,33 +347,24 @@ if (array_key_exists($tab, $tabItems)) {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>홍길동</td>
-                                <td>블랙컴벳99</td>
-                                <td><span>제13조 제1호,제2호</span></td>
-                                <td>S6, Methylephedrine</td>
-                                <td>18개월자격정지<br></td>
-                                <td>2024-01-22 ~ 2025-07-21</td>
+                                <td>Aori**le</td>
+                                <td>블랙컴뱃11 </td>
+                                <td><span>제 13조 1항</span></td>
+                                <td>푸로세미드</td>
+                                <td>24개월자격정지<br></td>
+                                <td>2024-09-16 ~ 2026-09-16</td>
                             </tr>
                             <tr>
-                                <td>홍길동</td>
-                                <td>블랙컴벳99</td>
-                                <td><span>제13조 제1호,제2호</span></td>
-                                <td>S6, Methylephedrine</td>
-                                <td>18개월자격정지<br></td>
-                                <td>2024-01-22 ~ 2025-07-21</td>
-                            </tr>
-                            <tr>
-                                <td>홍길동</td>
-                                <td>블랙컴벳99</td>
-                                <td><span>제13조 제1호,제2호</span></td>
-                                <td>S6, Methylephedrine</td>
-                                <td>18개월자격정지<br></td>
-                                <td>2024-01-22 ~ 2025-07-21</td>
+                                <td>Zhang **zhen</td>
+                                <td>블랙컴뱃11</td>
+                                <td><span>제 13조 1항</span></td>
+                                <td>푸로세미드</td>
+                                <td>24개월자격정지<br></td>
+                                <td>2024-09-16 ~ 2026-09-16</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <? } ?>
 <? } ?>
 
 

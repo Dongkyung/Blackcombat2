@@ -1,4 +1,5 @@
 <script>
+    alert("관리자용 테스트화면입니다.")
     function number_format(number, decimals, dec_point, thousands_sep) {
         number = (number + '').replace(/[^0-9+\-Ee.]/g, '');
         var n = !isFinite(+number) ? 0 : +number;

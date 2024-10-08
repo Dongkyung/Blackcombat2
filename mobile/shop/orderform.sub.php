@@ -607,6 +607,7 @@ if($is_kakaopay_use) {
         <?php
         if (!$default['de_card_point'])
             echo '<p id="sod_frm_pt_alert"><strong>무통장입금</strong> 이외의 결제 수단으로 결제하시는 경우 포인트를 적립해드리지 않습니다.</p>';
+            echo '<p style="color:red"><strong>가상계좌</strong> 는 24시간 이내에 입금하지 않으면 자동으로 취소 됩니다.</p>';
 
         $multi_settle = 0;
         $checked = '';

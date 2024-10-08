@@ -51,6 +51,7 @@ $sql = " select od_id,
       where SUBSTRING(od_time,1,7) between '$fr_month' and '$to_month'
       order by od_time desc ";
 $result = sql_query($sql);
+echo $sql;
 ?>
 
 <div class="tbl_head01 tbl_wrap">

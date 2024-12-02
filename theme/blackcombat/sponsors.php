@@ -53,6 +53,18 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/sponsors.css
                     </div>
                     <div class="sponsors_list_item">
                         <div class="sponsors_list_logo">
+                            <a href="https://w-z.kr/" style="    padding: 20px;"  target="_blank">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_wzbio.png"/>
+                            </a>
+                        </div>
+                        <div class="sponsors_list_caption">
+                            <div class="sponsors_list_info">
+                            건강하고 좋은 원료에 대한 고집으로<br /> 모든 순간이 빛나는 아름다움을 선물하다.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sponsors_list_item">
+                        <div class="sponsors_list_logo">
                             <a href="https://www.deepcoin.com/" style="    padding: 20px;"  target="_blank">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_deepcoin.png"/>
                             </a>

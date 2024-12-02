@@ -34,6 +34,10 @@ if ($ticket_row) {
 <div id="tnb" style="background:#212020;">
     <div class="inner">
         <ul id="hd_qnb">
+            <li>
+                <input type="text" class="search-value-input" style="background-color: #212020;color: #919191;border: 1px solid #919191;padding: 2px;width: 100px;margin-top: -6px;" />
+                <button onclick="searchPlayer(this)" style="margin-top: -6px; height: 27px; width: 40px; background-color: #111111; color: gray;">검색</button>
+            </li>
             <?php if ($is_member) {  ?>
             <li><a href="<?php echo G5_URL ?>/shop/mypage.php">마이페이지</a></li>
             <li><a href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=<?php echo G5_BBS_URL ?>/register_form.php">정보수정</a></li>
@@ -49,6 +53,50 @@ if ($ticket_row) {
         </ul>
     </div>
 </div>
+
+<script>
+    var ajax_url = "https://www.blackcombat-official.com/theme/blackcombat/shop";
+    function searchPlayer(){
+        let keyword = $(".search-value-input").val();
+        if(keyword === null || keyword === undefined || keyword === ""){
+            alert("검색어를 입력하세요.");
+            return;
+        }else if(keyword.length <= 1){
+            alert("검색어를 두 글자 이상 입력하세요.");
+            return;
+        }
+
+        $.ajax({
+            url: ajax_url + "/ajax.action.php",
+            type: "POST",
+            data: {"action":"get_player_info", "search_keyword":keyword},
+            dataType: "json",
+            async: true,
+            cache: false,
+            success: function(data, textStatus) {
+                if(data.resultArray.length === 0){
+                    alert("검색된 선수가 없습니다.");
+                }else if(data.resultArray.length > 1){
+                    let message = "검색된 선수가 두 명 이상입니다.\n -";
+                    message += data.resultArray.map(item => item.fighter_name + " (" + item.fighter_ringname + ")").join("\n -");
+                    alert(message);
+                }else{
+                    location.href="https://www.blackcombat-official.com/fighter.php?page="+data.resultArray[0].fighter_seq;
+                }
+            },
+            error : function(request, status, error){
+                console.log(error);
+                alert("false ajax :"+request.responseText);
+            }
+        });
+    }
+
+    $('.search-value-input').keypress(function(event) {
+        if (event.which === 13 || event.key === 'Enter') {
+            searchPlayer()
+        }
+    });
+</script>
 
 <div id="hd">
     <h1 id="hd_h1"><?php echo $g5['title'] ?></h1>
@@ -79,7 +127,7 @@ if ($ticket_row) {
                 </div>
                 <div class="menu_item"><a href="http://www.hegemonyblack.com/main/index.php" class="menu_item_anchor" target="_blank">STORE</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/event.php?page=10" class="menu_item_anchor">EVENT</a></div>
-                <div class="menu_item"><a href="<?php echo G5_URL ?>/video" class="menu_item_anchor">VIDEO</a></div>
+                <!-- <div class="menu_item"><a href="<?php echo G5_URL ?>/video" class="menu_item_anchor">VIDEO</a></div> -->
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/ranking.php?type=fighter" class="menu_item_anchor">RANKING</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/cl.php" class="menu_item_anchor">C.L</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/community" class="menu_item_anchor">COMMUNITY</a></div>

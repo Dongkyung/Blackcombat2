@@ -3,8 +3,19 @@
 .ranking_category { text-align: center; margin-bottom: 30px; }
 .ranking_category ul:after { display: block; content: ''; clear: both; }
 .ranking_category li { display: inline-block; line-height: 40px; text-align: center;  margin: 0px 15px; }
-.ranking_category li a { display: inline-block; font-family: 'Great Vibes', cursive; font-size: 30px; color:#aaa; border-bottom: 1px solid #aaa; }
-.ranking_category li a.active { color:#000000; border-bottom: 1px solid #000; }
+.ranking_category li a { display: inline-block;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #ffdd77;
+    border: 2px solid #777777;
+    border-radius: 7px;
+    cursor: pointer;
+    line-height: 43px;
+	color: #666;}
+.ranking_category li a.active { color:black; background-color: #ffba3c;}
 .ranking_list:after { display: block; content: ''; clear: both; }
 .ranking_list_part { background-color: rgba( 255, 255, 255, 0.3); float: left; width: 31.3333%; margin: 1%; }
 .ranking_list_part:nth-child(7) { clear:both; }

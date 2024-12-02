@@ -17,6 +17,7 @@ event_name_short,
 event_place,
 event_date,
 selling_yn,
+vote_yn,
 sell_url,
 max_img_idx,
 prologue,
@@ -126,6 +127,52 @@ $row = mysqli_fetch_assoc($eventResult);
         font-weight:normal;
         font-size: 11px;
     }
+
+    .vote-rate-bar{
+        flex:7 0 0; 
+        display : flex; 
+        justify-content : space-between; 
+        align-items : center; 
+        
+        font-size: 0.8rem;
+        margin:10px 10px;
+        font-style:italic;
+    }
+
+    .vote-item{
+        height:23px;
+    }
+
+    .vote-item.vote-right{
+        background-color: cornflowerblue;
+    }
+
+    .vote-item.vote-left{
+        background-color: lightcoral;
+    }
+
+    .vote-desc{
+        flex:0.5 0 0; 
+        display : flex; 
+        justify-content: space-between;
+        padding: 0 80px;
+        align-items : center; 
+        position: relative;
+        top: -32px;
+    }
+
+    .arrow-btn{
+        flex: 1 0 0;
+        display:flex;
+        align-items : center; 
+        z-index:2;
+    }
+    .arrow-btn.arrow-right{
+        justify-content : left; 
+    }
+    .arrow-btn.arrow-left{
+        justify-content : right; 
+    }
     
     
     
@@ -171,6 +218,22 @@ $row = mysqli_fetch_assoc($eventResult);
                     <div style="font-family: 'Teko', sans-serif, cursive;font-size: 3rem;text-align: center; padding-bottom:20px;">FIGHT CARD</div>
                         <div>
 <?
+
+function getClientIP() {
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        // Proxy 서버를 통한 IP
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        // 프록시 서버를 거친 경우
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    } else {
+        // 직접 접근한 IP
+        $ip = $_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
+}
+$clientIP = getClientIP();
+
   $historySql = "SELECT 
   his.seq
   , his.event_seq
@@ -197,7 +260,10 @@ $row = mysqli_fetch_assoc($eventResult);
   , his.play_date
   , his.video_url
   , sc.score_seq
+  , his.vote1
+  , his.vote2
   , his.lsttm
+  , vh.guess_winner
   from tb_fight_history his
   left join tb_fighter_base base1
   on player1 = base1.fighter_seq 
@@ -209,6 +275,10 @@ $row = mysqli_fetch_assoc($eventResult);
   on event.event_seq = his.event_seq
   left join tb_score_card sc
   on his.seq = sc.fight_history_seq
+  left join tb_vote_history vh
+  on his.seq = vh.tb_fight_history
+  	and vh.ip = '$clientIP'
+  	and vh.vote_date = DATE_FORMAT(CURDATE(), '%Y-%m-%d')
   where his.event_seq = '$eventSeq'
   order by his.`order` desc;";
 
@@ -269,7 +339,7 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                                         </div>
                                         <div style="flex:1 0 0; text-align:center;">VS</div>
                                         <div style="flex:1 0 0; text-align:right;">
-                                            <span style="float:right; word-break: auto-phrase;";><?= $hisRow['name2'] ?></span>
+                                            <span style="float:right; word-break: auto-phrase;"><?= $hisRow['name2'] ?></span>
                                         </div>
                                     </div>
                                     <div style="flex:1 0 0; display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 50px; ">
@@ -302,8 +372,60 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                                     <div style="flex:1 0 0; display : flex; justify-content : center; align-items : center; background-color: #ffba3c; font-size: 1.2rem;vertical-align: center; margin:0px 30px;">
                                         <?= $hisRow['fight_name'] ?>
                                     </div>
+                                    
+                                        <? 
+                                            $noVote = false;
+                                            if($hisRow["vote1"] == 0 && $hisRow["vote2"] == 0){
+                                                $vote1Per = '0%';
+                                                $vote2Per = '0%';
+                                                $noVote = true;
+                                            }else if($hisRow["vote1"] == 0) {
+                                                $vote1Per = '0%';
+                                                $vote2Per = '100%';
+                                            }else if($hisRow["vote2"] == 0){
+                                                $vote1Per = '100%';
+                                                $vote2Per = '0%';
+                                            }else{
+                                                $vote1Per = round($hisRow["vote1"]/($hisRow["vote1"]+$hisRow["vote2"])*100, 0)."%"; 
+                                                $vote2Per = round($hisRow["vote2"]/($hisRow["vote1"]+$hisRow["vote2"])*100, 0)."%"; 
+                                            }
+                                        ?>
+                                        <div style="flex: 0.5 0 0; display:flex;">
+                                            <? if($row["vote_yn"] == '0'){ ?>
+                                                <a class="arrow-btn arrow-left"></a>
+                                            <? }else if($hisRow["guess_winner"] == null){ ?>
+                                                <a class="arrow-btn arrow-left" href="javascript:winnerVote('<?= $hisRow["seq"] ?>', 1)"><img style="width:25px; margin-bottom: 3px;" src="<?php echo G5_THEME_IMG_URL; ?>/up-arrow.png" /></a>
+                                            <? }else if($hisRow["guess_winner"] == 1){?>
+                                                <a class="arrow-btn arrow-left"><img style="width:25px; margin-bottom: 3px;" src="<?php echo G5_THEME_IMG_URL; ?>/up-arrow-disabled.png" /></a>
+                                            <? }else{ ?>
+                                                <a class="arrow-btn arrow-left"></a>
+                                            <? } ?>
+                                            
+                                            
+                                            <div class="vote-rate-bar" <? if($noVote) { echo 'style="border: 1px solid gray;"'; } ?>>
+                                                <div class="vote-item vote-left" style="width:<?=$vote1Per?>; <? if($vote1Per != '0%') { echo 'border: 1px solid gray;"'; } ?>"></div>
+                                                <div class="vote-item vote-right" style="width:<?=$vote2Per?>; <? if($vote2Per != '0%') { echo 'border: 1px solid gray;"'; } ?>"></div>
+                                            </div>
+                                            <? if($row["vote_yn"] == '0'){ ?>
+                                                <a class="arrow-btn arrow-right"></a>
+                                            <? }else if($hisRow["guess_winner"] == null){ ?>
+                                                <a class="arrow-btn arrow-right" href="javascript:winnerVote('<?= $hisRow["seq"] ?>', 2)"><img style="width:25px; margin-bottom: 3px;" src="<?php echo G5_THEME_IMG_URL; ?>/up-arrow.png" /></a>
+                                            <? }else if($hisRow["guess_winner"] == 2){?>
+                                                <a class="arrow-btn arrow-right"><img style="width:25px; margin-bottom: 3px;" src="<?php echo G5_THEME_IMG_URL; ?>/up-arrow-disabled.png" /></a>
+                                            <? }else{ ?>
+                                                <a class="arrow-btn arrow-right"></a>
+                                            <? } ?>
+                                                
+                                            
+                                            
+                                        </div>
+                                        <div class="vote-desc">
+                                            <span style=""><?=$vote1Per?> <? if($is_admin){ echo "(".$hisRow["vote1"].")"; } ?></span>
+                                            <span style="">승부예측</span>
+                                            <span style=""><? if($is_admin){ echo "(".$hisRow["vote2"].")"; } ?> <?=$vote2Per?></span>
+                                        </div>
                                 </div>
-                                <div style="flex:1 0 0";>
+                                <div style="flex:1 0 0">
                                     <a href="/fighter.php?page=<?= $hisRow["player2"] ?>">
                                         <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
                                             src='data:image/png;base64,<?= $base64ImageDataRanking2 ?>' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
@@ -675,6 +797,26 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                     document.body.style.overflow = 'auto';
                 }, 300); // Duration matches CSS transition
             }
+        }
+
+        let winnerVote = (historySeq, guessWiner) => {
+            $.ajax({
+                type: 'POST',
+                url: '/theme/blackcombat/api/winner_vote.php', // 실제 추가를 처리하는 PHP 파일 경로
+                data: {
+                    "historySeq": historySeq,
+                    "guessWiner": guessWiner
+                },
+                success: function(response) {
+                    // 서버에서 추가 성공한 경우
+                    console.log(response); // 추가 성공한 경우 콘솔에 출력 (디버깅용)
+                    location.reload();
+                },
+                error: function(error) {
+                    console.error('Error adding data:', error);
+                    // 에러 처리 (실제 프로덕션에서는 사용자에게 알림 등을 보여주어야 함)
+                }
+            });
         }
         
 

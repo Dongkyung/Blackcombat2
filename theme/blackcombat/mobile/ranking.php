@@ -22,13 +22,13 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                 <div class="ranking_category">
                     <ul>
                         <li>
-                            <a href="<?php echo G5_URL ?>/ranking.php?type=fighter" class="<?php echo $type == 'fighter' ? 'active' : ''; ?>">Fighter</a>
+                            <a href="<?php echo G5_URL ?>/ranking.php?type=fighter" class="<?php echo $type == 'fighter' ? 'active' : ''; ?>">FIGHTER</a>
                         </li>
                         <li>
-                            <a href="<?php echo G5_URL ?>/ranking.php?type=team" class="<?php echo $type == 'team' ? 'active' : ''; ?>">Team</a>
+                            <a href="<?php echo G5_URL ?>/ranking.php?type=team" class="<?php echo $type == 'team' ? 'active' : ''; ?>">TEAM</a>
                         </li>
                         <li>
-                            <a href="<?php echo G5_URL ?>/ranking.php?type=semi_pro" class="<?php echo $type == 'semi_pro' ? 'active' : ''; ?>">Semi-Pro</a>
+                            <a href="<?php echo G5_URL ?>/ranking.php?type=semi_pro" class="<?php echo $type == 'semi_pro' ? 'active' : ''; ?>">SEMI-PRO</a>
                         </li>
                     </ul>
                 </div>

@@ -3,7 +3,7 @@
 include_once('./_common.php');
 
 $action = isset($_REQUEST['action']) ? preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['action']) : '';
-$it_id_for_seat = isset($_REQUEST['it_id']) ? preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['it_id']) : '1723217030';
+$it_id_for_seat = isset($_REQUEST['it_id']) ? preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['it_id']) : '1726748479';
 
 switch ($action) {
     case 'refresh_cart' :
@@ -490,6 +490,35 @@ switch ($action) {
         //     'disabled_seat' => $disabled_seat
         // );
 
+        die(json_encode($result));
+
+        break;
+    case 'get_player_info' : //공통헤더 선수검색기능 API
+        $post_search_keyword = $_POST['search_keyword'];
+        $sql = "SELECT base.fighter_seq, base.fighter_type, base.fighter_name, base.fighter_ringname
+                FROM tb_fighter_base base
+                INNER JOIN tb_fighter_ranking ranking
+                    ON base.fighter_seq = ranking.fighter_seq 
+                WHERE base.del_yn = 0
+                AND fighter_name like '%$post_search_keyword%' OR fighter_ringname like '%$post_search_keyword%';
+            ";
+        $search_player_result = sql_query($sql);
+        
+        
+        $resultArray = array();
+        for($k=0; $row=sql_fetch_array($search_player_result); $k++) {
+            $tmpArray = array(
+                'fighter_seq' => $row['fighter_seq'],
+                'fighter_type' => $row['fighter_type'],
+                'fighter_name' => $row['fighter_name'],
+                'fighter_ringname' => $row['fighter_ringname']
+            );
+            $resultArray[] = $tmpArray;
+        } // for End
+
+        $result = array(
+            'resultArray' => $resultArray
+        );
         die(json_encode($result));
 
         break;

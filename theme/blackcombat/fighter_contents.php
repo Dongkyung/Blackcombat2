@@ -54,6 +54,7 @@ $historySql = "SELECT
     , his.winner_player
     , his.result
     , his.play_date
+    , his.video_url
     from tb_fight_history his
     LEFT JOIN tb_fighter_base base1
     on his.player1 = base1.fighter_seq 
@@ -65,6 +66,18 @@ $historySql = "SELECT
     OR player2 = $page
     order by play_date desc;";
 $historyResult = sql_query($historySql);
+
+
+$viewCountUpdateSql = "INSERT INTO tb_fighter_view_count (fighter_seq, view_count_day, view_count_week, view_count_month, view_count_total, lsttm)
+    VALUES ($page, 1, 1, 1, 1, NOW())
+    ON DUPLICATE KEY UPDATE 
+        view_count_day = view_count_day + 1,
+        view_count_week = view_count_week + 1,
+        view_count_month = view_count_month + 1,
+        view_count_total = view_count_total + 1,
+        lsttm = NOW();";
+sql_query($viewCountUpdateSql);
+
 ?>
 <style>
     .match_list li{
@@ -146,6 +159,14 @@ $historyResult = sql_query($historySql);
                                             </div>
                                             <div style="flex:0 0 auto;">
                                             <? 
+                                                if($historyRow['video_url'] === null || $historyRow['video_url'] === ''){
+                                                    echo '<a href="javascript:alert(\'등록된 경기영상이 없습니다.\');">';
+                                                }else {
+                                                    echo '<a href="'.$historyRow['video_url'].'">';
+                                                }
+                                                echo '<img style="width:25px; margin-bottom: 3px;" src="'.G5_THEME_IMG_URL.'/youtube_icon.png" />';
+                                                echo '</a>';
+                                                
                                                 if($historyRow['winner_player'] === "" || $historyRow['winner_player'] === null){
                                                     echo "";
                                                 } else if($historyRow['winner_player'] == $page){
@@ -222,7 +243,7 @@ $historyResult = sql_query($historySql);
             });
             toggleButton.textContent = '▼ 더보기';
         } else {
-                let maxheight = (170 + 20*hiddenItems.length);
+                let maxheight = (170 + 30*hiddenItems.length);
             listContainer.style.maxHeight = `${maxheight}px`;
             hiddenItems.forEach(item => {
                 item.style.display = 'flex';

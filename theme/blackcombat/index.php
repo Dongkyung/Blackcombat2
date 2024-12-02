@@ -40,10 +40,13 @@ include_once(G5_THEME_PATH.'/head.php');
 <div class="key_visual">
     <div class="swiper key_visual_wrap">
         <div class="swiper-wrapper key_visual_items">
-            <div class="swiper-slide key_visual_item"><a href="https://www.blackcombat-official.com/shop/1723217030"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n12_1.jpg" /></a></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n12_2.jpg" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n12_3.jpg" /></div>
+            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n12_5.jpg" /></div>
+            <!-- <div class="swiper-slide key_visual_item"><a href="https://www.blackcombat-official.com/shop/1723217030"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n12_1.jpg" /></a></div> -->
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n11_3.jpg" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n11_4.jpg" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n11_5.jpg" /></div>
+            <!-- <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n11_4.jpg" /></div> -->
+            <!-- <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n11_5.jpg" /></div> -->
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n11_1.jpg" /></div>
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_0.jpg" /></div>
             <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_1.jpg" /></div>
@@ -68,13 +71,6 @@ include_once(G5_THEME_PATH.'/head.php');
                 <img src="<?php echo G5_THEME_IMG_URL; ?>/main/favorite_menu_event.png?v=20220918" />
 
                 <a href="<?php echo G5_URL ?>/event.php?page=1" class="favorite_menu_item_img_anchor"><span>자세히보기</span><img src="<?php echo G5_THEME_IMG_URL; ?>/main/favorite_menu_anchor_arrow.png" /></a>
-            </div>
-        </div>
-        <div class="favorite_menu_item">
-            <div class="favorite_menu_item_img">
-                <img src="<?php echo G5_THEME_IMG_URL; ?>/main/favorite_menu_video.png?v=20220918" />
-
-                <a href="<?php echo G5_URL ?>/video" class="favorite_menu_item_img_anchor"><span>자세히보기</span><img src="<?php echo G5_THEME_IMG_URL; ?>/main/favorite_menu_anchor_arrow.png" /></a>
             </div>
         </div>
         <div class="favorite_menu_item">
@@ -143,6 +139,7 @@ include_once(G5_THEME_PATH.'/head.php');
         <img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_title.png" />
         <div style="display:flex; flex-direction:row; justify-content:center; gap:15px; margin-top:30px;">
             <div class="sponsor_first"><a href="https://www.pgsoft.com/ko/games/all/" class="" target="_blank"><img  style="background-color:white; padding:20px" src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_pg.png" /></a></div>
+            <div class="sponsor_first"><a href="https://w-z.kr/" class="" target="_blank"><img  style="background-color:white; padding:20px" src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_wzbio.png" /></a></div>
             <div class="sponsor_first"><a href="https://www.deepcoin.com/" class="" target="_blank"><img  style="background-color:white; padding:20px" src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_deepcoin.png" /></a></div>
         </div>
     </div>

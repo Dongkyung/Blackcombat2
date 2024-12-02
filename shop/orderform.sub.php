@@ -639,8 +639,6 @@ if($is_kakaopay_use) {
                 <h3>결제수단</h3>
                 <?php
                 if (!$default['de_card_point'])
-                    echo '<p id="sod_frm_pt_alert"><strong>무통장입금</strong> 이외의 결제 수단으로 결제하시는 경우 포인트를 적립해드리지 않습니다.</p>';
-                    echo '<p style="color:red"><strong>가상계좌</strong> 는 24시간 이내에 입금하지 않으면 자동으로 취소 됩니다.</p>';
 
                 $multi_settle = 0;
                 $checked = '';
@@ -669,12 +667,12 @@ if($is_kakaopay_use) {
                     $checked = '';
                 }
 
-                // 가상계좌 사용
-                if ($default['de_vbank_use']) {
-                    $multi_settle++;
-                    echo '<input type="radio" id="od_settle_vbank" name="od_settle_case" value="가상계좌" '.$checked.'> <label for="od_settle_vbank" class="lb_icon vbank_icon">'.$escrow_title.'가상계좌</label>'.PHP_EOL;
-                    $checked = '';
-                }
+                // // 가상계좌 사용
+                // if ($default['de_vbank_use']) {
+                //     $multi_settle++;
+                //     echo '<input type="radio" id="od_settle_vbank" name="od_settle_case" value="가상계좌" '.$checked.'> <label for="od_settle_vbank" class="lb_icon vbank_icon">'.$escrow_title.'가상계좌</label>'.PHP_EOL;
+                //     $checked = '';
+                // }
 
                 // 계좌이체 사용
                 if ($default['de_iche_use']) {

@@ -24,6 +24,8 @@ his.seq
 , his.result
 , his.play_date
 , sc.score_seq
+, vote1
+, vote2
 , his.lsttm
 from tb_fight_history his
 left join tb_fighter_base base1
@@ -54,6 +56,8 @@ while ($row = sql_fetch_array($result)) {
         ,winner_player:'".$row["winner_player"]."'
         ,name_w:'".$row["name_w"]."'
         ,result:`".$row["result"]."`
+        ,vote1:`".$row["vote1"]."`
+        ,vote2:`".$row["vote2"]."`
         ,play_date:'".$row["play_date"]."'});";
 }
 echo "</script>";
@@ -207,20 +211,20 @@ echo "</script>"
     <!-- 테이블의 헤더 부분은 그대로 유지 -->
     <thead>
         <tr>
-            <th style="width:50px">seq</th>
+            <th style="width:30px">seq</th>
             <th style="width:100px">대회명</th>
             <th style="width:100px">대진명</th>
-            <th style="width:100px">경기순서</th>
+            <th style="width:80px">경기순서</th>
             <th style="width:70px">선수1</th>
             <th style="width:70px">선수2</th>
             <th style="width:70px">승자</th>
             <th style="width:150px">결과</th>
-            <th style="width:50px">경기날짜</th>
+            <th style="width:100px">경기날짜</th>
             <th style="width:50px">경기URL</th>
             <th style="width:50px">채점표</th>
-            <th style="width:100px">등록일</th>
-            <th style="width:100px">수정</th>
-            <th style="width:100px">삭제</th>
+            <th style="width:150px">등록일</th>
+            <th style="width:50px">수정</th>
+            <th style="width:50px">삭제</th>
         </tr>
     </thead>
     <tbody>
@@ -313,8 +317,15 @@ echo "</script>"
                         <div class="autocomplete player2"></div>
                     </div>
                 </div>
-                <div>
-                    <input class="form-control" id="result" placeholder="경기상세결과">
+                <div style="display:flex">
+                    <div class="input-group">
+                        <span class="input-group-text">선수1 승자투표</span>
+                        <input type="text" id="vote1" class="form-control" placeholder="Server" aria-label="Server">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text">선수2 승자투표</span>
+                        <input type="text" id="vote2" class="form-control" placeholder="Server" aria-label="Server">
+                    </div>
                 </div>
                 <div>
                     <input class="form-control" id="datepicker" placeholder="경기날짜">
@@ -775,6 +786,8 @@ echo "</script>"
         $("#fighter_seq2").val("");
         $("#search_player1").val("");
         $("#search_player2").val("");
+        $("#vote1").val("");
+        $("#vote2").val("");
         $("#result").val("");
         $("#datepicker").datepicker("setDate", new Date());
         $("input[name = 'winner']").prop("checked",false)
@@ -800,6 +813,8 @@ echo "</script>"
         $("#fighter_seq2").val(targetHistory.player2);
         $("#search_player1").val(targetHistory.name1);
         $("#search_player2").val(targetHistory.name2);
+        $("#vote1").val(targetHistory.vote1);
+        $("#vote2").val(targetHistory.vote2);
         $("#result").val(targetHistory.result);
         $("#datepicker").datepicker("setDate", targetHistory.play_date.split(' ')[0]);
         
@@ -880,6 +895,8 @@ echo "</script>"
         let order = $("#order").val();
         let fighter_seq1 = $("#fighter_seq1").val();
         let fighter_seq2 = $("#fighter_seq2").val();
+        let vote1 = $("#vote1").val();
+        let vote2 = $("#vote2").val();
         let result = $("#result").val();
         let datepicker = $("#datepicker").val();
         
@@ -905,6 +922,8 @@ echo "</script>"
             fighter_seq1: fighter_seq1,
             fighter_seq2: fighter_seq2,
             winner_seq: winner_seq,
+            vote1 : vote1,
+            vote2 : vote2,
             result : result,
             play_date : datepicker
         };

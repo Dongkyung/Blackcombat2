@@ -118,9 +118,9 @@ if ($ticket_row) {
                     <li>
                         <a href="<?php echo G5_URL ?>/event.php?page=1">EVENT</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="<?php echo G5_URL ?>/video">VIDEO</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="<?php echo G5_URL ?>/ranking.php?type=fighter">RANKING</a>
                     </li>

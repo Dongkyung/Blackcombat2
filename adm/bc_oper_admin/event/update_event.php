@@ -11,6 +11,7 @@ $event_name_short = $_POST['event_name_short'];
 $event_place = $_POST['event_place'];
 $event_date = $_POST['event_date'];
 $selling_yn = $_POST['selling_yn'];
+$vote_yn = $_POST['vote_yn'];
 $max_img_idx = $_POST['max_img_idx'];
 $sell_url = $_POST['sell_url'];
 $prologue = $_POST['prologue'];
@@ -27,6 +28,7 @@ selling_yn = $selling_yn,
 sell_url = '$sell_url', 
 max_img_idx = $max_img_idx, 
 prologue = '$prologue', 
+vote_yn = $vote_yn,
 lsttm = now()
 where
 event_seq = $event_seq";

@@ -38,6 +38,7 @@ event_name_short,
 event_place,
 event_date,
 selling_yn,
+vote_yn,
 sell_url,
 max_img_idx,
 prologue,
@@ -61,6 +62,7 @@ while ($row = sql_fetch_array($eventListResult)) {
         ,event_place:'".$row["event_place"]."'
         ,event_date:'".$row["event_date"]."'
         ,selling_yn:'".$row["selling_yn"]."'
+        ,vote_yn:'".$row["vote_yn"]."'
         ,sell_url:'".$row["sell_url"]."'
         ,max_img_idx:'".$row["max_img_idx"]."'
         ,prologue:`".$row["prologue"]."`
@@ -159,6 +161,7 @@ echo "</script>";
             <th style="width:auto">대회장소</th>
             <th style="width:auto">대회날짜</th>
             <th style="width:80px">판매유무</th>
+            <th style="width:80px">승자예측</th>
             <th style="width:60px">판매링크</th>
             <th style="width:150px">이미지Max번호</th>
             <th style="width:150px">최종수정일</th>
@@ -181,6 +184,7 @@ echo "</script>";
             <td><?= $row["event_place"] ?></td>
             <td><?= $row["event_date"] ?></td>
             <td><?= $row["selling_yn"] ?></td>
+            <td><?= $row["vote_yn"] ?></td>
             <td><?= $row["sell_url"] ?></td>
             <td><?= $row["max_img_idx"] ?></td>
             <td><?= $row["lsttm"] ?></td>
@@ -217,6 +221,7 @@ echo "</script>";
                             <th scope="col" style="width:200px">대회장소</th>
                             <th scope="col" style="width:100px">대회날짜</th>
                             <th scope="col" style="width:80px">판매유무</th>
+                            <th scope="col" style="width:80px">승자예측유무</th>
                             <th scope="col" style="width:100px">이미지Max번호</th>
                         </tr>
                         <tr>
@@ -238,11 +243,20 @@ echo "</script>";
                             </td>
                             <td class="pop_selling_yn">
                                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" date="0" autocomplete="off" checked>
-                                    <label class="btn btn-outline-danger" for="btnradio1">Off</label>
+                                    <input type="radio" class="btn-check" name="btnradio_selling" id="btnradio_selling1" date="0" autocomplete="off" checked>
+                                    <label class="btn btn-outline-danger" for="btnradio_selling1">Off</label>
 
-                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" date="1" autocomplete="off">
-                                    <label class="btn btn-outline-success" for="btnradio2">On</label>
+                                    <input type="radio" class="btn-check" name="btnradio_selling" id="btnradio_selling2" date="1" autocomplete="off">
+                                    <label class="btn btn-outline-success" for="btnradio_selling2">On</label>
+                                </div>
+                            </td>
+                            <td class="pop_vote_yn">
+                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                    <input type="radio" class="btn-check" name="btnradio_vote" id="btnradio_vote1" date="0" autocomplete="off" checked>
+                                    <label class="btn btn-outline-danger" for="btnradio_vote1">Off</label>
+
+                                    <input type="radio" class="btn-check" name="btnradio_vote" id="btnradio_vote2" date="1" autocomplete="off">
+                                    <label class="btn btn-outline-success" for="btnradio_vote2">On</label>
                                 </div>
                             </td>
                             
@@ -331,6 +345,7 @@ echo "</script>";
             const changed_pop_event_place = $(".pop_event_place input").val();
             const changed_pop_event_date = $(".pop_event_date input").val();
             const changed_pop_selling_yn = $(".pop_selling_yn .btn-check:checked").attr("date");
+            const changed_pop_vote_yn = $(".pop_vote_yn .btn-check:checked").attr("date");
             const changed_pop_max_img_idx = $(".pop_max_img_idx select").val();
             const changed_pop_sell_url = $(".pop_sell_url input").val();
             const changed_pop_prologue = $(".pop_prologue").val()
@@ -350,6 +365,7 @@ echo "</script>";
                     "event_place" : changed_pop_event_place,
                     "event_date" : changed_pop_event_date,
                     "selling_yn" : changed_pop_selling_yn,
+                    "vote_yn" : changed_pop_vote_yn,
                     "max_img_idx" : changed_pop_max_img_idx,
                     "sell_url" : changed_pop_sell_url,
                     "prologue" : changed_pop_prologue,
@@ -378,6 +394,7 @@ echo "</script>";
             const changed_pop_event_place = $(".pop_event_place input").val();
             const changed_pop_event_date = $(".pop_event_date input").val();
             const changed_pop_selling_yn = $(".pop_selling_yn .btn-check:checked").attr("date");
+            const changed_pop_vote_yn = $(".pop_vote_yn .btn-check:checked").attr("date");
             const changed_pop_max_img_idx = $(".pop_max_img_idx select").val();
             const changed_pop_sell_url = $(".pop_sell_url input").val();
             const changed_pop_prologue = $(".pop_prologue").val()
@@ -394,6 +411,7 @@ echo "</script>";
                     "event_place" : changed_pop_event_place,
                     "event_date" : changed_pop_event_date,
                     "selling_yn" : changed_pop_selling_yn,
+                    "vote_yn" : changed_pop_vote_yn,
                     "max_img_idx" : changed_pop_max_img_idx,
                     "sell_url" : changed_pop_sell_url,
                     "prologue" : changed_pop_prologue,
@@ -423,6 +441,7 @@ echo "</script>";
         $(".pop_event_place input").val("");
         $(".pop_event_date input").val("");
         $(".pop_selling_yn .btn-check[date=0]").prop("checked", true)
+        $(".pop_vote_yn .btn-check[date=0]").prop("checked", true)
         $(".pop_max_img_idx select").val(0);
         $(".pop_sell_url input").val("");
         $(".pop_prologue").val("");
@@ -447,6 +466,7 @@ echo "</script>";
         var date = new Date(targetEvent.event_date);
         $("#datePicker").datepicker("setDate", date);
         $(`.pop_selling_yn .btn-check[date=${targetEvent.selling_yn}]`).prop("checked", true)
+        $(`.pop_vote_yn .btn-check[date=${targetEvent.vote_yn}]`).prop("checked", true)
         $(".pop_max_img_idx select").val(targetEvent.max_img_idx);
         $(".pop_sell_url input").val(targetEvent.sell_url);
         $(".pop_prologue").val(targetEvent.prologue);

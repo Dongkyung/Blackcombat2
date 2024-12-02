@@ -45,7 +45,10 @@ if ($ticket_row) {
         <div id="logo">
             <a href="<?php echo G5_URL ?>"><img src="<?php echo G5_IMG_URL ?>/m_logo.png" alt="<?php echo $config['cf_title']; ?>"></a>
         </div>
-
+        <div style="width:100%; padding: 0px 20px; text-align: right;">
+            <input type="text" class="search-value-input" style="background-color: #212020;color: #919191;border: 1px solid #919191;padding: 2px;width: 60%; height:30px; max-width: 100px;" />
+            <button onclick="searchPlayer(this)" style="height: 30px; width: 30%; background-color: #111111; color: gray; max-width: 40px;">검색</button>
+        </div>
         <button type="button" id="gnb_open" class="hd_opener"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/gnb_menu_icon.png" /><span class="sound_only"> 메뉴열기</span></button>
         <div class="mobiel_nav_wrap">
 
@@ -72,9 +75,9 @@ if ($ticket_row) {
                     <li>
                         <a href="<?php echo G5_URL ?>/event.php?page=10">EVENT</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="<?php echo G5_URL ?>/video">VIDEO</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="<?php echo G5_URL ?>/ranking.php?type=fighter">RANKING</a>
                     </li>
@@ -196,6 +199,49 @@ if ($ticket_row) {
         </div>
         <?php */ ?>
 
+        <script>
+            var ajax_url = "https://www.blackcombat-official.com/theme/blackcombat/shop";
+            function searchPlayer(){
+                let keyword = $(".search-value-input").val();
+                if(keyword === null || keyword === undefined || keyword === ""){
+                    alert("검색어를 입력하세요.");
+                    return;
+                }else if(keyword.length <= 1){
+                    alert("검색어를 두 글자 이상 입력하세요.");
+                    return;
+                }
+
+                $.ajax({
+                    url: ajax_url + "/ajax.action.php",
+                    type: "POST",
+                    data: {"action":"get_player_info", "search_keyword":keyword},
+                    dataType: "json",
+                    async: true,
+                    cache: false,
+                    success: function(data, textStatus) {
+                        if(data.resultArray.length === 0){
+                            alert("검색된 선수가 없습니다.");
+                        }else if(data.resultArray.length > 1){
+                            let message = "검색된 선수가 두 명 이상입니다.\n -";
+                            message += data.resultArray.map(item => item.fighter_name + " (" + item.fighter_ringname + ")").join("\n -");
+                            alert(message);
+                        }else{
+                            location.href="https://www.blackcombat-official.com/fighter.php?page="+data.resultArray[0].fighter_seq;
+                        }
+                    },
+                    error : function(request, status, error){
+                        console.log(error);
+                        alert("false ajax :"+request.responseText);
+                    }
+                });
+            }
+
+            $('.search-value-input').keypress(function(event) {
+                if (event.which === 13 || event.key === 'Enter') {
+                    searchPlayer()
+                }
+            });
+        </script>
         <script>
         $(function () {
             //폰트 크기 조정 위치 지정

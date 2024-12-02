@@ -34,9 +34,16 @@
         border: 1px solid #9bbb59;
     }
 
+    .seat_rows.vertical{
+        flex-direction: row;
+    }
+
     .seat_row_items{
         margin-bottom: 2px;
         flex-direction:row;
+    }
+    .seat_row_items.vertical{
+        flex-direction:column;
     }
 
     .no-margin-bottom .seat_row_items{
@@ -65,9 +72,15 @@
 </style>
 
 <?php
-function add_row($start, $end, $row_type, $is_admin, $style) {
+function add_row($start, $end, $row_type, $is_admin, $style, $direction) {
     global $member;
-    echo "<div class=\"seat_row_items\" data-row-type=\"$row_type\" style=\"$style\">";
+    if($direction == "row"){
+        echo "<div class=\"seat_row_items\" data-row-type=\"$row_type\" style=\"$style\">";
+    }else if($direction == "column"){
+        echo "<div class=\"seat_row_items vertical\" data-row-type=\"$row_type\" style=\"$style\">";
+        
+    }
+    
 
     for ($i = $start; $i <= $end; $i++) {
         $adminSpan = $is_admin || $member['mb_id'] == "seatChecker"? $i : "";
@@ -94,7 +107,7 @@ function add_items($start, $end, $row_type, $is_admin, $style) {
 }
 
 ?>
-테스트화면
+
 <div class="seat_choice_popup_body">
     <div class="movieLayoutContainer" data-product-id="<?php echo $it_id; ?>">
     
@@ -204,8 +217,6 @@ function add_items($start, $end, $row_type, $is_admin, $style) {
             <div class="objArea" style="width:114px; height:500px; left:1936px; top:1040px;  padding:10px; z-index:2; font-size:1.2rem; background-color:#99ff99">
             </div>
 
-            
-            
 
             
 
@@ -215,67 +226,49 @@ function add_items($start, $end, $row_type, $is_admin, $style) {
 
             <!-- VVIP-F 10시-->
             <div style="position: absolute; z-index:1; top: 675px; left: 650px;">
-                <div class="seat_rows vvip_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                    <? add_row(1, 8, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(9, 16, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(17, 24, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(25, 32, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(33, 40, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(41, 48, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(49, 56, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(57, 64, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(65, 65, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(66, 66, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(67, 74, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(75, 82, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(83, 90, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(91, 98, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(99, 106, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(107, 114, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(115, 122, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(123, 130, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(131, 138, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(139, 146, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(147, 154, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(155, 162, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(163, 170, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(171, 178, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(179, 186, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(187, 194, 'VVIP-F',$is_admin,""); ?>
-                    <? add_row(195, 195, 'VVIP-F',$is_admin,""); ?>
+                <div class="seat_rows vvip_border vertical" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
+                    <? add_row(169, 195, 'VVIP-F',$is_admin,"","column"); ?>
+                    <div class="seat_row_items vertical" data-row-type="VVIP-F"><? add_items(145, 152, 'VVIP-F',$is_admin,""); ?> <? add_items(0, 1, 'blank',$is_admin,""); ?> <? add_items(153, 168, 'VVIP-F',$is_admin,""); ?></div>
+                    <div class="seat_row_items vertical" data-row-type="VVIP-F"><? add_items(121, 128, 'VVIP-F',$is_admin,""); ?> <? add_items(0, 1, 'blank',$is_admin,""); ?> <? add_items(129, 144, 'VVIP-F',$is_admin,""); ?></div>
+                    <div class="seat_row_items vertical" data-row-type="VVIP-F"><? add_items(97, 104, 'VVIP-F',$is_admin,""); ?> <? add_items(0, 1, 'blank',$is_admin,""); ?> <? add_items(105, 120, 'VVIP-F',$is_admin,""); ?></div>
+                    <div class="seat_row_items vertical" data-row-type="VVIP-F"><? add_items(73, 80, 'VVIP-F',$is_admin,""); ?> <? add_items(0, 1, 'blank',$is_admin,""); ?> <? add_items(81, 96, 'VVIP-F',$is_admin,""); ?></div>
+                    <div class="seat_row_items vertical" data-row-type="VVIP-F"><? add_items(49, 56, 'VVIP-F',$is_admin,""); ?> <? add_items(0, 1, 'blank',$is_admin,""); ?> <? add_items(57, 72, 'VVIP-F',$is_admin,""); ?></div>
+                    <div class="seat_row_items vertical" data-row-type="VVIP-F"><? add_items(25, 32, 'VVIP-F',$is_admin,""); ?> <? add_items(0, 1, 'blank',$is_admin,""); ?> <? add_items(33, 48, 'VVIP-F',$is_admin,""); ?></div>
+                    <div class="seat_row_items vertical" data-row-type="VVIP-F"><? add_items(1, 8, 'VVIP-F',$is_admin,""); ?> <? add_items(0, 1, 'blank',$is_admin,""); ?> <? add_items(9, 24, 'VVIP-F',$is_admin,""); ?></div>
+                    
                 </div>
             </div>
 
             <!-- VVIP-G 8시-->
             <div style="position: absolute; z-index:1; top: 1290px; left: 650px; -ms-transform: rotateX(180deg); -webkit-transform: rotateX(180deg); transform: rotateX(180deg);">
                 <div class="seat_rows vvip_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                    <? add_row(1, 8, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(9, 16, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(17, 24, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(25, 32, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(33, 40, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(41, 48, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(49, 56, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(57, 64, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(65, 65, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(66, 66, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(67, 74, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(75, 82, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(83, 90, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(91, 98, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(99, 106, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(107, 114, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(115, 122, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(123, 130, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(131, 138, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(139, 146, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(147, 154, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(155, 162, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(163, 170, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(171, 178, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(179, 186, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(187, 194, 'VVIP-G',$is_admin,""); ?>
-                    <? add_row(195, 195, 'VVIP-G',$is_admin,""); ?>
+                    <? add_row(1, 8, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(9, 16, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(17, 24, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(25, 32, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(33, 40, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(41, 48, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(49, 56, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(57, 64, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(65, 65, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(66, 66, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(67, 74, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(75, 82, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(83, 90, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(91, 98, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(99, 106, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(107, 114, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(115, 122, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(123, 130, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(131, 138, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(139, 146, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(147, 154, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(155, 162, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(163, 170, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(171, 178, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(179, 186, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(187, 194, 'VVIP-G',$is_admin,"","row"); ?>
+                    <? add_row(195, 195, 'VVIP-G',$is_admin,"","row"); ?>
                 </div>
             </div>
           
@@ -284,66 +277,66 @@ function add_items($start, $end, $row_type, $is_admin, $style) {
                 <!-- VVIP-C 2시-->
                 <div style="position: absolute; z-index:1; top: 0px; left: 0px;">
                     <div class="seat_rows vvip_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                        <? add_row(1, 8, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(9, 16, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(17, 24, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(25, 32, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(33, 40, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(41, 48, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(49, 56, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(57, 64, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(65, 65, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(66, 66, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(67, 74, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(75, 82, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(83, 90, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(91, 98, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(99, 106, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(107, 114, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(115, 122, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(123, 130, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(131, 138, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(139, 146, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(147, 154, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(155, 162, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(163, 170, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(171, 178, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(179, 186, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(187, 194, 'VVIP-C',$is_admin,""); ?>
-                        <? add_row(195, 195, 'VVIP-C',$is_admin,""); ?>
+                        <? add_row(1, 8, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(9, 16, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(17, 24, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(25, 32, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(33, 40, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(41, 48, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(49, 56, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(57, 64, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(65, 65, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(66, 66, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(67, 74, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(75, 82, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(83, 90, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(91, 98, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(99, 106, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(107, 114, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(115, 122, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(123, 130, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(131, 138, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(139, 146, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(147, 154, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(155, 162, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(163, 170, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(171, 178, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(179, 186, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(187, 194, 'VVIP-C',$is_admin,"","row"); ?>
+                        <? add_row(195, 195, 'VVIP-C',$is_admin,"","row"); ?>
                     </div>
                 </div>
 
                 <!-- VVIP-B 4시-->
                 <div style="position: absolute; z-index:1; top: 620px; left: 0px; -ms-transform: rotateX(180deg); -webkit-transform: rotateX(180deg); transform: rotateX(180deg);">
                     <div class="seat_rows vvip_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                        <? add_row(1, 8, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(9, 16, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(17, 24, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(25, 32, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(33, 40, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(41, 48, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(49, 56, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(57, 64, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(65, 65, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(66, 66, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(67, 74, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(75, 82, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(83, 90, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(91, 98, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(99, 106, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(107, 114, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(115, 122, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(123, 130, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(131, 138, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(139, 146, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(147, 154, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(155, 162, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(163, 170, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(171, 178, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(179, 186, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(187, 194, 'VVIP-B',$is_admin,""); ?>
-                        <? add_row(195, 195, 'VVIP-B',$is_admin,""); ?>
+                        <? add_row(1, 8, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(9, 16, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(17, 24, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(25, 32, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(33, 40, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(41, 48, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(49, 56, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(57, 64, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(65, 65, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(66, 66, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(67, 74, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(75, 82, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(83, 90, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(91, 98, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(99, 106, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(107, 114, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(115, 122, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(123, 130, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(131, 138, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(139, 146, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(147, 154, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(155, 162, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(163, 170, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(171, 178, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(179, 186, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(187, 194, 'VVIP-B',$is_admin,"","row"); ?>
+                        <? add_row(195, 195, 'VVIP-B',$is_admin,"","row"); ?>
                     </div>
                 </div>
             </div>
@@ -357,40 +350,40 @@ function add_items($start, $end, $row_type, $is_admin, $style) {
             <div style="position: absolute; z-index:1; top: 1610px; left: 910px;">
                 <div style="position: absolute; z-index:1; top: 0px; left: 0px;">
                     <div class="seat_rows vip_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                        <? add_row(1, 8, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(9, 16, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(17, 24, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(25, 32, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(33, 40, 'VIP-H',$is_admin,""); ?>
+                        <? add_row(1, 8, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(9, 16, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(17, 24, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(25, 32, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(33, 40, 'VIP-H',$is_admin,"","row"); ?>
                     </div>
                 </div>
                 <div style="position: absolute; z-index:1; top: -23px; left: 196px;">
                     <div class="seat_rows vip_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: end;">
-                        <? add_row(41, 42, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(43, 46, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(47, 50, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(51, 55, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(56, 60, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(61, 65, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(66, 71, 'VIP-H',$is_admin,""); ?>
+                        <? add_row(41, 42, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(43, 46, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(47, 50, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(51, 55, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(56, 60, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(61, 65, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(66, 71, 'VIP-H',$is_admin,"","row"); ?>
                     </div>
                 </div>
                 <div style="position: absolute; z-index:1; top: 152px; left: -19px;">
                     <div class="seat_rows vip_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: end;">
-                        <? add_row(72, 79, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(80, 87, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(88, 95, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(96, 103, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(104, 111, 'VIP-H',$is_admin,""); ?>
+                        <? add_row(72, 79, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(80, 87, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(88, 95, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(96, 103, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(104, 111, 'VIP-H',$is_admin,"","row"); ?>
                     </div>
                 </div>
                 <div style="position: absolute; z-index:1; top: 152px; left: 160px;">
                     <div class="seat_rows vip_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: end;">
-                        <? add_row(112, 119, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(120, 127, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(128, 135, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(136, 143, 'VIP-H',$is_admin,""); ?>
-                        <? add_row(144, 151, 'VIP-H',$is_admin,""); ?>
+                        <? add_row(112, 119, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(120, 127, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(128, 135, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(136, 143, 'VIP-H',$is_admin,"","row"); ?>
+                        <? add_row(144, 151, 'VIP-H',$is_admin,"","row"); ?>
                     </div>
                 </div>
             </div>
@@ -399,40 +392,40 @@ function add_items($start, $end, $row_type, $is_admin, $style) {
             <div style="position: absolute; z-index:1; top: 1610px; left: 1570px; -ms-transform: rotateY(180deg); -webkit-transform: rotateY(180deg); transform: rotateY(180deg);">
                 <div style="position: absolute; z-index:1; top: 0px; left: 0px;">
                     <div class="seat_rows vip_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                        <? add_row(1, 8, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(9, 16, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(17, 24, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(25, 32, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(33, 40, 'VIP-A',$is_admin,""); ?>
+                        <? add_row(1, 8, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(9, 16, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(17, 24, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(25, 32, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(33, 40, 'VIP-A',$is_admin,"","row"); ?>
                     </div>
                 </div>
                 <div style="position: absolute; z-index:1; top: -23px; left: 196px;">
                     <div class="seat_rows vip_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: end;">
-                        <? add_row(41, 42, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(43, 46, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(47, 50, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(51, 55, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(56, 60, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(61, 65, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(66, 71, 'VIP-A',$is_admin,""); ?>
+                        <? add_row(41, 42, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(43, 46, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(47, 50, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(51, 55, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(56, 60, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(61, 65, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(66, 71, 'VIP-A',$is_admin,"","row"); ?>
                     </div>
                 </div>
                 <div style="position: absolute; z-index:1; top: 152px; left: -19px;">
                     <div class="seat_rows vip_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: end;">
-                        <? add_row(72, 79, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(80, 87, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(88, 95, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(96, 103, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(104, 111, 'VIP-A',$is_admin,""); ?>
+                        <? add_row(72, 79, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(80, 87, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(88, 95, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(96, 103, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(104, 111, 'VIP-A',$is_admin,"","row"); ?>
                     </div>
                 </div>
                 <div style="position: absolute; z-index:1; top: 152px; left: 160px;">
                     <div class="seat_rows vip_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: end;">
-                        <? add_row(112, 119, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(120, 127, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(128, 135, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(136, 143, 'VIP-A',$is_admin,""); ?>
-                        <? add_row(144, 151, 'VIP-A',$is_admin,""); ?>
+                        <? add_row(112, 119, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(120, 127, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(128, 135, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(136, 143, 'VIP-A',$is_admin,"","row"); ?>
+                        <? add_row(144, 151, 'VIP-A',$is_admin,"","row"); ?>
                     </div>
                 </div>
             </div>       
@@ -440,16 +433,16 @@ function add_items($start, $end, $row_type, $is_admin, $style) {
             <!-- VIP-D 1시 -->
             <div style="position: absolute; z-index:1; top: 750px; left: 1371px;">
                 <div class="seat_rows vip_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                    <? add_row(1, 12,   'VIP-D',$is_admin,""); ?>
-                    <? add_row(13, 24,   'VIP-D',$is_admin,""); ?>
-                    <? add_row(25, 36,  'VIP-D',$is_admin,""); ?>
-                    <? add_row(37, 48, 'VIP-D',$is_admin,""); ?>
-                    <? add_row(49, 60, 'VIP-D',$is_admin,""); ?>
-                    <? add_row(61, 72, 'VIP-D',$is_admin,""); ?>
-                    <? add_row(73, 84, 'VIP-D',$is_admin,""); ?>
-                    <? add_row(85, 96, 'VIP-D',$is_admin,""); ?>
-                    <? add_row(97, 108, 'VIP-D',$is_admin,""); ?>
-                    <div class="seat_row_items" data-row-type="VIP-D"><? add_items(109, 113, 'VIP-D',$is_admin,""); ?> <? add_items(0, 1, 'blank',$is_admin,""); ?> <? add_items(114, 118, 'VIP-D',$is_admin,""); ?></div>
+                    <? add_row(1, 12,   'VIP-D',$is_admin,"","row"); ?>
+                    <? add_row(13, 24,   'VIP-D',$is_admin,"","row"); ?>
+                    <? add_row(25, 36,  'VIP-D',$is_admin,"","row"); ?>
+                    <? add_row(37, 48, 'VIP-D',$is_admin,"","row"); ?>
+                    <? add_row(49, 60, 'VIP-D',$is_admin,"","row"); ?>
+                    <? add_row(61, 72, 'VIP-D',$is_admin,"","row"); ?>
+                    <? add_row(73, 84, 'VIP-D',$is_admin,"","row"); ?>
+                    <? add_row(85, 96, 'VIP-D',$is_admin,"","row"); ?>
+                    <? add_row(97, 108, 'VIP-D',$is_admin,"","row"); ?>
+                    <div class="seat_row_items" data-row-type="VIP-D"><? add_items(109, 113, 'VIP-D',$is_admin,"","row"); ?> <? add_items(0, 1, 'blank',$is_admin,""); ?> <? add_items(114, 118, 'VIP-D',$is_admin,"","row"); ?></div>
 
                 </div>
             </div>
@@ -458,16 +451,16 @@ function add_items($start, $end, $row_type, $is_admin, $style) {
             <!-- VIP-E 11시 -->
             <div style="position: absolute; z-index:1; top: 750px; left: 880px;">
                 <div class="seat_rows vip_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                    <? add_row(1, 12,   'VIP-E',$is_admin,""); ?>
-                    <? add_row(13, 24,   'VIP-E',$is_admin,""); ?>
-                    <? add_row(25, 36,  'VIP-E',$is_admin,""); ?>
-                    <? add_row(37, 48, 'VIP-E',$is_admin,""); ?>
-                    <? add_row(49, 60, 'VIP-E',$is_admin,""); ?>
-                    <? add_row(61, 72, 'VIP-E',$is_admin,""); ?>
-                    <? add_row(73, 84, 'VIP-E',$is_admin,""); ?>
-                    <? add_row(85, 96, 'VIP-E',$is_admin,""); ?>
-                    <? add_row(97, 108, 'VIP-E',$is_admin,""); ?>
-                    <div class="seat_row_items" data-row-type="VIP-E"><? add_items(109, 113, 'VIP-E',$is_admin,""); ?> <? add_items(0, 1, 'blank',$is_admin,""); ?> <? add_items(114, 118, 'VIP-E',$is_admin,""); ?></div>
+                    <? add_row(1, 12,   'VIP-E',$is_admin,"","row"); ?>
+                    <? add_row(13, 24,   'VIP-E',$is_admin,"","row"); ?>
+                    <? add_row(25, 36,  'VIP-E',$is_admin,"","row"); ?>
+                    <? add_row(37, 48, 'VIP-E',$is_admin,"","row"); ?>
+                    <? add_row(49, 60, 'VIP-E',$is_admin,"","row"); ?>
+                    <? add_row(61, 72, 'VIP-E',$is_admin,"","row"); ?>
+                    <? add_row(73, 84, 'VIP-E',$is_admin,"","row"); ?>
+                    <? add_row(85, 96, 'VIP-E',$is_admin,"","row"); ?>
+                    <? add_row(97, 108, 'VIP-E',$is_admin,"","row"); ?>
+                    <div class="seat_row_items" data-row-type="VIP-E"><? add_items(109, 113, 'VIP-E',$is_admin,"","row"); ?> <? add_items(0, 1, 'blank',$is_admin,""); ?> <? add_items(114, 118, 'VIP-E',$is_admin,"","row"); ?></div>
 
                 </div>
             </div>
@@ -480,17 +473,17 @@ function add_items($start, $end, $row_type, $is_admin, $style) {
             <div style="position: absolute; z-index:1; top: 1060px; left: 1000px;">
                 <div style="position: absolute; z-index:1; top: 125px; left: 0px; -ms-transform: rotate(-90deg); -webkit-transform: rotate(-90deg); transform: rotate(-90deg);">
                     <div class="seat_rows tinum_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                        <? add_row(1, 4, 'BLACKTINUM-C',$is_admin,""); ?>
+                        <? add_row(1, 4, 'BLACKTINUM-C',$is_admin,"","row"); ?>
                     </div>
                 </div>
                 <div style="position: absolute; z-index:1; top: 30px; left: 30px; -ms-transform: rotate(-45deg); -webkit-transform: rotate(-45deg); transform: rotate(-45deg);">
                     <div class="seat_rows tinum_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                        <? add_row(5, 8, 'BLACKTINUM-C',$is_admin,""); ?>
+                        <? add_row(5, 8, 'BLACKTINUM-C',$is_admin,"","row"); ?>
                     </div>
                 </div>
                 <div style="position: absolute; z-index:1; top: 0px; left: 125px;">
                     <div class="seat_rows tinum_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                        <? add_row(9, 12, 'BLACKTINUM-C',$is_admin,""); ?>
+                        <? add_row(9, 12, 'BLACKTINUM-C',$is_admin,"","row"); ?>
                     </div>
                 </div>
             </div>
@@ -499,17 +492,17 @@ function add_items($start, $end, $row_type, $is_admin, $style) {
             <div style="position: absolute; z-index:1; top: 1480px; left: 998px; -ms-transform: rotateX(180deg); -webkit-transform: rotateX(180deg); transform: rotateX(180deg);">
                 <div style="position: absolute; z-index:1; top: 125px; left: 0px; -ms-transform: rotate(-90deg); -webkit-transform: rotate(-90deg); transform: rotate(-90deg);">
                     <div class="seat_rows tinum_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                        <? add_row(1, 4, 'BLACKTINUM-D',$is_admin,""); ?>
+                        <? add_row(1, 4, 'BLACKTINUM-D',$is_admin,"","row"); ?>
                     </div>
                 </div>
                 <div style="position: absolute; z-index:1; top: 30px; left: 30px; -ms-transform: rotate(-45deg); -webkit-transform: rotate(-45deg); transform: rotate(-45deg);">
                     <div class="seat_rows tinum_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                        <? add_row(5, 8, 'BLACKTINUM-D',$is_admin,""); ?>
+                        <? add_row(5, 8, 'BLACKTINUM-D',$is_admin,"","row"); ?>
                     </div>
                 </div>
                 <div style="position: absolute; z-index:1; top: 0px; left: 125px;">
                     <div class="seat_rows tinum_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                        <? add_row(9, 12, 'BLACKTINUM-D',$is_admin,""); ?>
+                        <? add_row(9, 12, 'BLACKTINUM-D',$is_admin,"","row"); ?>
                     </div>
                 </div>
             </div>
@@ -520,17 +513,17 @@ function add_items($start, $end, $row_type, $is_admin, $style) {
             <div style="position: absolute;z-index:1;top: 1060px;left: 1330px;">
                 <div style="position: absolute;z-index:1;top: 125px;left: 60px;-ms-transform: rotate(-90deg);-webkit-transform: rotate(-90deg);transform: rotate(-90deg);">
                     <div class="seat_rows tinum_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                        <? add_row(1, 4, 'BLACKTINUM-B',$is_admin,""); ?>
+                        <? add_row(1, 4, 'BLACKTINUM-B',$is_admin,"","row"); ?>
                     </div>
                 </div>
                 <div style="position: absolute;z-index:1;top: 30px;left: 30px;-ms-transform: rotate(-135deg);-webkit-transform: rotate(-135deg);transform: rotate(-135deg);">
                     <div class="seat_rows tinum_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: end;">
-                        <? add_row(5, 8, 'BLACKTINUM-B',$is_admin,""); ?>
+                        <? add_row(5, 8, 'BLACKTINUM-B',$is_admin,"","row"); ?>
                     </div>
                 </div>
                 <div style="position: absolute; z-index:1; top: 0px; left: -60px; -ms-transform: rotate(-180deg);-webkit-transform: rotate(-180deg);transform: rotate(-180deg);">
                     <div class="seat_rows tinum_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: end;">
-                        <? add_row(9, 12, 'BLACKTINUM-B',$is_admin,""); ?>
+                        <? add_row(9, 12, 'BLACKTINUM-B',$is_admin,"","row"); ?>
                     </div>
                 </div>
             </div>
@@ -539,17 +532,17 @@ function add_items($start, $end, $row_type, $is_admin, $style) {
             <div style="position: absolute; z-index:1; top: 1480px; left: 1330px; -ms-transform: rotateX(180deg); -webkit-transform: rotateX(180deg); transform: rotateX(180deg);">
                 <div style="position: absolute; z-index:1; top: 125px; left: 60px; -ms-transform: rotate(-90deg); -webkit-transform: rotate(-90deg); transform: rotate(-90deg);">
                     <div class="seat_rows tinum_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                        <? add_row(1, 4, 'BLACKTINUM-A',$is_admin,""); ?>
+                        <? add_row(1, 4, 'BLACKTINUM-A',$is_admin,"","row"); ?>
                     </div>
                 </div>
                 <div style="position: absolute; z-index:1; top: 30px; left: 30px; -ms-transform: rotate(-135deg); -webkit-transform: rotate(-135deg); transform: rotate(-135deg);">
                     <div class="seat_rows tinum_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                        <? add_row(5, 8, 'BLACKTINUM-A',$is_admin,""); ?>
+                        <? add_row(5, 8, 'BLACKTINUM-A',$is_admin,"","row"); ?>
                     </div>
                 </div>
                 <div style="position: absolute; z-index:1; top: 0px; left: -60px; -ms-transform: rotate(-180deg);-webkit-transform: rotate(-180deg);transform: rotate(-180deg);">
                     <div class="seat_rows tinum_border" style="row-gap:4px; z-index:1;padding: 5px; align-items: start;">
-                        <? add_row(9, 12, 'BLACKTINUM-A',$is_admin,""); ?>
+                        <? add_row(9, 12, 'BLACKTINUM-A',$is_admin,"","row"); ?>
                     </div>
                 </div>
             </div>

@@ -175,57 +175,57 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
 
 	            <?php if ($is_admin) { 
 
-                $total_stock_blacktinum = 48;
-                $total_stock_vvip = 796;
-                $total_stock_vip = 538;
-                $total_stock_gold = 166;
-                $total_stock_silver = 520;
-                $total_stock_standard = 2924;
+                // $total_stock_blacktinum = 48;
+                // $total_stock_vvip = 796;
+                // $total_stock_vip = 538;
+                // $total_stock_gold = 166;
+                // $total_stock_silver = 520;
+                $total_stock_standard = 10;
 
-				$current_stock_blacktinum = get_option_stock_qty($it_id, 'BLACKTINUM','0');
-                $current_stock_vvip = get_option_stock_qty($it_id, 'VVIP','0');
-                $current_stock_vip = get_option_stock_qty($it_id, 'VIP','0');
-                $current_stock_gold = get_option_stock_qty($it_id, 'GOLD','0');
-                $current_stock_silver = get_option_stock_qty($it_id, 'SILVER','0');
+				// $current_stock_blacktinum = get_option_stock_qty($it_id, 'BLACKTINUM','0');
+                // $current_stock_vvip = get_option_stock_qty($it_id, 'VVIP','0');
+                // $current_stock_vip = get_option_stock_qty($it_id, 'VIP','0');
+                // $current_stock_gold = get_option_stock_qty($it_id, 'GOLD','0');
+                // $current_stock_silver = get_option_stock_qty($it_id, 'SILVER','0');
                 $current_stock_standard = get_option_stock_qty($it_id, 'STANDARD','0');
 
-$sold_stock_blacktinum = $current_stock_blacktinum - $total_stock_blacktinum;
-$sold_stock_vvip = $current_stock_vvip - $total_stock_vvip;
-$sold_stock_vip = $current_stock_vip - $total_stock_vip;
-$sold_stock_gold = $current_stock_gold - $total_stock_gold;
-$sold_stock_silver = $current_stock_silver - $total_stock_silver;
+// $sold_stock_blacktinum = $current_stock_blacktinum - $total_stock_blacktinum;
+// $sold_stock_vvip = $current_stock_vvip - $total_stock_vvip;
+// $sold_stock_vip = $current_stock_vip - $total_stock_vip;
+// $sold_stock_gold = $current_stock_gold - $total_stock_gold;
+// $sold_stock_silver = $current_stock_silver - $total_stock_silver;
 $sold_stock_standard = $current_stock_standard - $total_stock_standard;
 
-$sale_rate_blacktinum = ceil(($sold_stock_blacktinum / $total_stock_blacktinum) * 100);
-$sale_rate_vvip = ceil(($sold_stock_vvip / $total_stock_vvip) * 100);
-$sale_rate_vip = ceil(($sold_stock_vip / $total_stock_vip) * 100);
-$sale_rate_gold = ceil(($sold_stock_gold / $total_stock_gold) * 100);
-$sale_rate_silver = ceil(($sold_stock_silver / $total_stock_silver) * 100);
+// $sale_rate_blacktinum = ceil(($sold_stock_blacktinum / $total_stock_blacktinum) * 100);
+// $sale_rate_vvip = ceil(($sold_stock_vvip / $total_stock_vvip) * 100);
+// $sale_rate_vip = ceil(($sold_stock_vip / $total_stock_vip) * 100);
+// $sale_rate_gold = ceil(($sold_stock_gold / $total_stock_gold) * 100);
+// $sale_rate_silver = ceil(($sold_stock_silver / $total_stock_silver) * 100);
 $sale_rate_standard = ceil(($sold_stock_standard / $total_stock_standard) * 100);
 
 
 
 	            /* 재고 표시하는 경우 주석 해제*/
-					echo "<tr>";
-					echo "<th scope='row'>BLACKTINUM 재고수량</th>";
-					echo "<td>".number_format($current_stock_blacktinum)." / ".number_format($total_stock_blacktinum)." (".number_format($sold_stock_blacktinum)." , ".$sale_rate_blacktinum."%)</td>";
-					echo "</tr>";
-                    echo "<tr>";
-					echo "<th scope='row'>VVIP 재고수량</th>";
-					echo "<td>".number_format($current_stock_vvip)." / ".number_format($total_stock_vvip)." (".number_format($sold_stock_vvip)." , ".$sale_rate_vvip."%)</td>";
-					echo "</tr>";
-                    echo "<tr>";
-					echo "<th scope='row'>VIP 재고수량</th>";
-					echo "<td>".number_format($current_stock_vip)." / ".number_format($total_stock_vip)." (".number_format($sold_stock_vip)." , ".$sale_rate_vip."%)</td>";
-					echo "</tr>";
-                    echo "<tr>";
-					echo "<th scope='row'>GOLD 재고수량</th>";
-					echo "<td>".number_format($current_stock_gold)." / ".number_format($total_stock_gold)." (".number_format($sold_stock_gold)." , ".$sale_rate_gold."%)</td>";
-					echo "</tr>";
-                    echo "<tr>";
-					echo "<th scope='row'>SILVER 재고수량</th>";
-					echo "<td>".number_format($current_stock_silver)." / ".number_format($total_stock_silver)." (".number_format($sold_stock_silver)." , ".$sale_rate_silver."%)</td>";
-					echo "</tr>";
+					// echo "<tr>";
+					// echo "<th scope='row'>BLACKTINUM 재고수량</th>";
+					// echo "<td>".number_format($current_stock_blacktinum)." / ".number_format($total_stock_blacktinum)." (".number_format($sold_stock_blacktinum)." , ".$sale_rate_blacktinum."%)</td>";
+					// echo "</tr>";
+                    // echo "<tr>";
+					// echo "<th scope='row'>VVIP 재고수량</th>";
+					// echo "<td>".number_format($current_stock_vvip)." / ".number_format($total_stock_vvip)." (".number_format($sold_stock_vvip)." , ".$sale_rate_vvip."%)</td>";
+					// echo "</tr>";
+                    // echo "<tr>";
+					// echo "<th scope='row'>VIP 재고수량</th>";
+					// echo "<td>".number_format($current_stock_vip)." / ".number_format($total_stock_vip)." (".number_format($sold_stock_vip)." , ".$sale_rate_vip."%)</td>";
+					// echo "</tr>";
+                    // echo "<tr>";
+					// echo "<th scope='row'>GOLD 재고수량</th>";
+					// echo "<td>".number_format($current_stock_gold)." / ".number_format($total_stock_gold)." (".number_format($sold_stock_gold)." , ".$sale_rate_gold."%)</td>";
+					// echo "</tr>";
+                    // echo "<tr>";
+					// echo "<th scope='row'>SILVER 재고수량</th>";
+					// echo "<td>".number_format($current_stock_silver)." / ".number_format($total_stock_silver)." (".number_format($sold_stock_silver)." , ".$sale_rate_silver."%)</td>";
+					// echo "</tr>";
                     echo "<tr>";
 					echo "<th scope='row'>STANDARD 재고수량</th>";
 					echo "<td>".number_format($current_stock_standard)." / ".number_format($total_stock_standard)." (".number_format($sold_stock_standard)." , ".$sale_rate_standard."%)</td>";
@@ -381,7 +381,13 @@ $sale_rate_standard = ceil(($sold_stock_standard / $total_stock_standard) * 100)
                 <input type="hidden" name="seat_row_type" value="" />
                 <input type="hidden" name="seat_number" value="" />
                 <button type="button" class="open_seat_choice_btn" style="width:100%;">좌석 선택하기</button>
-                    <?php } ?>
+                    <?php }else{ ?>
+                        <script>
+                            $(document).ready(() => {
+                                $(".get_item_options").css("position","unset");
+                            })
+                        </script>
+                    <? } ?>
 
 	            <button type="submit" onclick="document.pressed=this.value;" value="장바구니" class="sit_btn_cart">장바구니(CART)</button>
 	            <button type="submit" onclick="document.pressed=this.value;" value="바로구매" class="sit_btn_buy">바로구매(BUY)</button>

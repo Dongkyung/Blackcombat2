@@ -11,6 +11,8 @@ $order = $_POST['order'];
 $fighter_seq1 = $_POST['fighter_seq1'];
 $fighter_seq2 = $_POST['fighter_seq2'];
 $winner_seq = $_POST['winner_seq'];
+$vote1 = $_POST['vote1'];
+$vote2 = $_POST['vote2'];
 $result = $_POST['result'];
 $play_date = $_POST['play_date'];
 
@@ -25,6 +27,8 @@ winner_player = '$winner_seq',
 `result` = '$result', 
 play_date = '$play_date',
 video_url = '$video_url',
+vote1 = $vote1,
+vote2 = $vote2,
 lsttm = now()
 where
 seq = $history_seq";

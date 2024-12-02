@@ -54,8 +54,8 @@ body.active { overflow: hidden; }
 .mobile_nav { padding-top: 20px; }
 .mobile_nav li a { display: block; font-size: 15px; color:#FFF; text-align: center; line-height: 40px; }
 
-#gnb_open {position:relative;right:10px;margin:0;padding:0 5px;height:40px;width:40px;border:0;background-size:70%;color:#fff;background:none;font-size:2em}
-#gnb_open img {width:100%;max-width:100%;height:auto;}
+#gnb_open {position:relative;right:10px;margin:0;padding:0 5px;height:40px;width:40px;border:0;background-size:70%;color:#fff;background:none;font-size:2em; margin-bottom: 8px;}
+#gnb_open img {width:30px;}
 #gnb {display:none;background:#efefef;position:fixed;top:0;left:0;z-index:99999;width:100%;max-width:400px;height:100%;overflow-y:auto;
 -webkit-box-shadow:0 0 5px rgba(55,55,5,0.4);
 -moz-box-shadow:0 0 5px rgba(55,55,5,0.4);

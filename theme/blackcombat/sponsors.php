@@ -63,18 +63,6 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/sponsors.css
                             </div>
                         </div>
                     </div>
-                    <div class="sponsors_list_item">
-                        <div class="sponsors_list_logo">
-                            <a href="https://www.deepcoin.com/" style="    padding: 20px;"  target="_blank">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_deepcoin.png"/>
-                            </a>
-                        </div>
-                        <div class="sponsors_list_caption">
-                            <div class="sponsors_list_info">
-                            세계 최고의 트레이딩 시스템을 갖춘<br /> 글로벌 암호화폐 거래소
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="sponsor_list_title">Sponsored by</div>

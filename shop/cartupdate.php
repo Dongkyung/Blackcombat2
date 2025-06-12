@@ -154,7 +154,7 @@ if($act == "buy")
                     if($row['io_id'])
                         $item_option .= '('.$row['ct_option'].')';
 
-                    alert($item_option." 의 재고수량이 부족합니다.\\n\\n현재 재고수량 : " . number_format($it_stock_qty - $sum_qty) . " 개");
+                    alert($item_option." 의 재고수량이 부족합니다");
                 }
             }
 
@@ -317,9 +317,12 @@ else // 장바구니에 담기
                 else
                     $it_stock_qty = get_option_stock_qty($it_id, $io_id, $io_type);
 
-                if ($ct_qty + $sum_qty > $it_stock_qty)
+                    // $it_stock_qty : 실제 남은 재고수량(총량 - 판매량)
+                // if ($ct_qty + $sum_qty > $it_stock_qty)
+                if ($opt_count + $sum_qty > $it_stock_qty)
                 {
-                    alert($io_value." 의 재고수량이 부족합니다.\\n\\n현재 재고수량 : " . number_format($it_stock_qty - $sum_qty) . " 개");
+                    alert($io_value." 의 재고수량이 부족합니다.");
+                
                 }
             }
         }
@@ -388,7 +391,7 @@ else // 장바구니에 담기
 
                 if ($tmp_ct_qty + $ct_qty > $tmp_it_stock_qty)
                 {
-                    alert($io_value." 의 재고수량이 부족합니다.\\n\\n현재 재고수량 : " . number_format($tmp_it_stock_qty) . " 개");
+                    alert($io_value." 의 재고수량이 부족합니다.");
                 }
 
                 $sql3 = " update {$g5['g5_shop_cart_table']}

@@ -58,6 +58,7 @@ $row = mysqli_fetch_assoc($eventResult);
         background: rgba(0, 0, 0, 0.5);
         justify-content: center;
         align-items: center;
+        z-index:10;
     }
 
     .modal {
@@ -120,7 +121,7 @@ $row = mysqli_fetch_assoc($eventResult);
 
     span.division-info{
         display: inline-block;
-        padding: 5px 10px;
+        padding: 5px 5px;
         margin: 0px 2px;
         background-color: #999999;
         color:white;
@@ -246,14 +247,16 @@ $clientIP = getClientIP();
   , base1.lose as lose1
   , base1.draw as draw1
   , base1.fighter_ringname as ringname1
-  , base1.rankingImageBin as img1
+  , base1.ranking_image_name as img1
+  , base1.rankingChamp_image_name as imgChamp1
   , his.player2
   , base2.fighter_name as name2
   , base2.win as win2
   , base2.lose as lose2
   , base2.draw as draw2
   , base2.fighter_ringname as ringname2
-  , base2.rankingImageBin as img2
+  , base2.ranking_image_name as img2
+  , base2.rankingChamp_image_name as imgChamp2
   , his.winner_player
   , base_w.fighter_name as name_w
   , his.result
@@ -285,9 +288,40 @@ $clientIP = getClientIP();
     $historyResult = sql_query($historySql);
 
 
-while ($hisRow = sql_fetch_array($historyResult)) {
-    $base64ImageDataRanking1 = base64_encode($hisRow['img1']);
-    $base64ImageDataRanking2 = base64_encode($hisRow['img2']);
+    while ($hisRow = sql_fetch_array($historyResult)) {
+        $rankingImgPath1 = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$hisRow["player1"]."/".$hisRow['img1'];
+        $rankingImgPath2 = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$hisRow["player2"]."/".$hisRow['img2'];
+        $rankingChampImgPath1 = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$hisRow['player1']."/".$hisRow['imgChamp1'];
+        $rankingChampImgPath2 = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$hisRow['player2']."/".$hisRow['imgChamp2'];
+
+        $base64ImageDataRanking1 = base64_encode($hisRow['img1']);
+        $base64ImageDataRanking2 = base64_encode($hisRow['img2']);
+        $base64ImageChampDataRanking1 = base64_encode($hisRow['imgChamp1']);
+        $base64ImageChampDataRanking2 = base64_encode($hisRow['imgChamp2']);
+
+        $division1Sql = "SELECT ranking.division, ranking.ranking, ranking.ranking_type
+                        FROM tb_fighter_ranking ranking
+                        where ranking.fighter_seq = ".$hisRow['player1'];
+        $division1Result = sql_query($division1Sql);
+        $champ1Flag = 0;
+        while ($division1Row = sql_fetch_array($division1Result)) {
+                if($division1Row['ranking'] === '0') {
+                    $champ1Flag = 1;
+                }
+        }
+        mysqli_data_seek($division1Result, 0);
+
+        $division2Sql = "SELECT ranking.division, ranking.ranking, ranking.ranking_type
+                        FROM tb_fighter_ranking ranking
+                        where ranking.fighter_seq = ".$hisRow['player2'];
+        $division2Result = sql_query($division2Sql);
+        $champ2Flag = 0;
+        while ($division2Row = sql_fetch_array($division2Result)) {
+                if($division2Row['ranking'] === '0') {
+                    $champ2Flag = 1;
+                }
+        }
+        mysqli_data_seek($division2Result, 0);
 ?>
 
 
@@ -295,7 +329,7 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                                 <div style="flex:1 0 0;">
                                     <a href="/fighter.php?page=<?= $hisRow["player1"] ?>">
                                         <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
-                                            src='data:image/png;base64,<?= $base64ImageDataRanking1 ?>' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" >
+                                            src='<? if($champ1Flag === 1){ echo $rankingChampImgPath1; }else{ echo $rankingImgPath1; } ?>' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" >
                                             <? if($hisRow["result"] === 'N/C') { ?> <div style="position:relative; bottom: 100%; left: calc(100% - 43px); width:45px; background-color: #dddddd; font-size:1rem; padding:2px 10px; font-weight:bold;">N/C</div> <? } ?>
                                             <? if($hisRow["player1"] === $hisRow["winner_player"]) { ?> <div style="position:relative; bottom: 100%; left: calc(100% - 43px); width:45px; background-color: #ffba3c; font-size:1rem; padding:2px 10px; font-weight:bold;">Win</div> <? } ?>
                                         </img>
@@ -305,40 +339,32 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                                 <div style="flex:2 0 0; display:flex; flex-direction:column; font-weight:bold;">
 
                                     <div style="height:26px; display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 50px; ">
-                                        <div style="flex:1 0 0; text-align:left;">
+                                        <div style="flex:2 0 0; text-align:left;">
                                         <?
-                                            $divisionSql = "SELECT ranking.division, ranking.ranking, ranking.ranking_type
-                                            FROM tb_fighter_ranking ranking
-                                            where ranking.fighter_seq = ".$hisRow['player1'];
-                                            $divisionResult = sql_query($divisionSql);
-                                            while ($divisionRow = sql_fetch_array($divisionResult)) { ?>
-                                                <span class="division-info"><?=$divisionRow['division']?> #<? if($divisionRow['ranking'] === '0') { echo "C"; } else { echo $divisionRow['ranking']; }?></span>
-                                                <? if($divisionRow['ranking_type'] === '2'){ ?>
+                                            while ($division1Row = sql_fetch_array($division1Result)) { ?>
+                                                <span class="division-info"><?=$division1Row['division']?> #<? if($division1Row['ranking'] === '0') { echo "C"; } else { echo $division1Row['ranking']; }?></span>
+                                                <? if($division1Row['ranking_type'] === '2'){ ?>
                                                     <span style="background-color: #4477ff; font-size: 0.5rem; line-height: 5px; padding: 5px; border-radius: 13px; margin-left: -11px;" >A</span>
                                                 <? } ?>
                                         <? } ?>
                                         </div>  
                                         <div style="flex:1 0 0; text-align:center;"></div>
-                                        <div style="flex:1 0 0; text-align:right;">
+                                        <div style="flex:2 0 0; text-align:right;">
                                         <?
-                                            $divisionSql = "SELECT ranking.division, ranking.ranking, ranking.ranking_type
-                                            FROM tb_fighter_ranking ranking
-                                            where ranking.fighter_seq = ".$hisRow['player2'];
-                                            $divisionResult = sql_query($divisionSql);
-                                            while ($divisionRow = sql_fetch_array($divisionResult)) { ?>
-                                                <span class="division-info"><?=$divisionRow['division']?> #<? if($divisionRow['ranking'] === '0') { echo "C"; } else { echo $divisionRow['ranking']; }?></span>
-                                                <? if($divisionRow['ranking_type'] === '2'){ ?>
+                                            while ($division2Row = sql_fetch_array($division2Result)) { ?>
+                                                <span class="division-info"><?=$division2Row['division']?> #<? if($division2Row['ranking'] === '0') { echo "C"; } else { echo $division2Row['ranking']; }?></span>
+                                                <? if($division2Row['ranking_type'] === '2'){ ?>
                                                     <span style="background-color: #4477ff; font-size: 0.5rem; line-height: 5px; padding: 5px; border-radius: 13px; margin-left: -11px;" >A</span>
                                                 <? } ?>
                                         <? } ?>
                                         </div>  
                                     </div>
                                     <div style="flex:1 0 0; display:flex; font-size:1.5rem; padding:0px 50px">
-                                        <div style="flex:1 0 0; text-align:left;">
+                                        <div style="flex:2 0 0; text-align:left;">
                                             <span style="white-space: word-break: auto-phrase;"><?= $hisRow['name1'] ?></span>
                                         </div>
                                         <div style="flex:1 0 0; text-align:center;">VS</div>
-                                        <div style="flex:1 0 0; text-align:right;">
+                                        <div style="flex:2 0 0; text-align:right;">
                                             <span style="float:right; word-break: auto-phrase;"><?= $hisRow['name2'] ?></span>
                                         </div>
                                     </div>
@@ -428,7 +454,7 @@ while ($hisRow = sql_fetch_array($historyResult)) {
                                 <div style="flex:1 0 0">
                                     <a href="/fighter.php?page=<?= $hisRow["player2"] ?>">
                                         <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
-                                            src='data:image/png;base64,<?= $base64ImageDataRanking2 ?>' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                            src='<? if($champ2Flag === 1){ echo $rankingChampImgPath2; }else{ echo $rankingImgPath2; } ?>' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                                             <? if($hisRow["result"] === 'N/C') { ?> <div style="position:relative; bottom: 100%; left: calc(100% - 43px); width:45px; background-color: #dddddd; font-size:1rem; padding:2px 10px; font-weight:bold;">N/C</div> <? } ?>
                                             <? if($hisRow["player2"] === $hisRow["winner_player"]) { ?> <div style="position:relative; bottom: 100%; width:45px; background-color: #ffba3c; font-size:1rem; padding:2px 10px; font-weight:bold;">Win</div> <? } ?>
                                     </a>
@@ -668,6 +694,7 @@ while ($hisRow = sql_fetch_array($historyResult)) {
         </div>
     </div>
     <script>
+        
         $(document).ready(function() {
             var key_visual_swiper = new Swiper('.key_visual_wrap', {
                 // Optional parameters

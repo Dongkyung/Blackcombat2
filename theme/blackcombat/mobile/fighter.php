@@ -7,6 +7,10 @@ include_once(G5_THEME_PATH.'/head.php');
 add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_fighter.css">', 0);
 
 $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
+
+if($page === '28227780'){
+    echo '<script type="text/javascript">alert(\'조회할 수 없습니다\'); window.history.back();</script>';
+}
 ?>
 <style>
         .match_result{

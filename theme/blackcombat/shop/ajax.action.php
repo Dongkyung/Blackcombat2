@@ -3,7 +3,7 @@
 include_once('./_common.php');
 
 $action = isset($_REQUEST['action']) ? preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['action']) : '';
-$it_id_for_seat = isset($_REQUEST['it_id']) ? preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['it_id']) : '1726748479';
+$it_id_for_seat = isset($_REQUEST['it_id']) ? preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['it_id']) : '1744036257';
 
 switch ($action) {
     case 'refresh_cart' :
@@ -522,5 +522,72 @@ switch ($action) {
         die(json_encode($result));
 
         break;
+    case 'search_ticket_event_result' :
+        $paramName = $_POST['paramName'];
+        $paramTel = $_POST['paramTel'];
+        $eventSeq = '277';
+        $sql = "SELECT *
+                FROM tb_event_winner
+                WHERE `tel` = '$paramTel' 
+                and `name` = '$paramName'
+                and `eventSeq` = '$eventSeq';
+            ";
+        $ticket_event_result = sql_query($sql);
+
+        $resultArray = array();
+        for($k=0; $row=sql_fetch_array($ticket_event_result); $k++) {
+            $tmpArray = array(
+                'content1' => $row['content1'],
+                'content2' => $row['content2'],
+                'content3' => $row['content3'],
+                'confirm' => $row['confirm']
+            );
+            $resultArray[] = $tmpArray;
+        } // for End
+
+        //토큰생성
+        $secretKey = "ticket-event-info-key";
+        $token = hash_hmac('sha256', $paramName . $paramTel, $secretKey);
+
+        $result = array(
+            'resultArray' => $resultArray,
+            'token' => $token
+        );
+        die(json_encode($result));
+
+        break;
+    case 'update_event_status' :
+            $paramName = $_POST['paramName'];
+            $paramTel = $_POST['paramTel'];
+            $confirmYn = $_POST['confirmYn'];
+            $token = $_POST['token'];
+            $eventSeq = '277';
+
+            $secretKey = "ticket-event-info-key";
+            $expected = hash_hmac('sha256', $paramName . $paramTel, $secretKey);
+            if ($_POST['token'] !== $expected) {
+                http_response_code(403);
+                exit("Invalid token");
+            }
+
+
+            $sql = "UPDATE tb_event_winner
+                SET `confirm` = '$confirmYn'
+                WHERE `tel` = '$paramTel' 
+                and `name` = '$paramName'
+                and `eventSeq` = '$eventSeq';
+                ";
+
+            sql_query($sql);
+    
+            
+            $result = array(
+                'code' => '200'
+            );
+            die(json_encode($result));
+    
+            break;
+
     default :
+    
 }

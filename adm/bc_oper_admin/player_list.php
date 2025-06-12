@@ -380,6 +380,7 @@ echo "</script>";
         newRow.append('<td class="lose"><input type="text"></td>'); 
         newRow.append('<td class="draw"><input type="text"></td>'); 
         newRow.append('<td>-</td>');
+        newRow.append('<td>-</td>');
         newRow.append('<td>-</td>'); 
         newRow.append('<td class="tel"><input type="text"></td>'); 
         // 수정날짜는 입력 시간으로 고정
@@ -591,6 +592,7 @@ echo "</script>";
         <th style="width:40px">패</th>
         <th style="width:40px">무</th>
         <th style="width:70px; text-align:center;">랭킹<br/>이미지</th>
+        <th style="width:70px; text-align:center;">랭킹<br/>챔프<br/>이미지</th>
         <th style="width:70px; text-align:center;">상세<br/>이미지</th>
         <th style="width:120px">연락처</th>
         <th style="width:150px">수정날짜</th>
@@ -622,30 +624,22 @@ echo "</script>";
         echo "<td class='win'>" . $row["win"] . "</td>";
         echo "<td class='lose'>" . $row["lose"] . "</td>";
         echo "<td class='draw'>" . $row["draw"] . "</td>";
+
         // echo "<td class='img_ranking' style='text-align:center'>
-        //         <img width='30px' onclick='openModal(\"$base64ImageDataRanking\")' style='cursor:pointer'
-        //             src='data:image/png;base64,$base64ImageDataRanking' 
-        //             onerror=\"this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter/fighter_full_blank.png'\"
-        //         />
         //         <button onclick=editClick(this)>편집</button>
         //         <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=editProcess(this,'".$row["fighter_seq"]."','ranking')>
         //     </td>";
+        // echo "<td class='img_ranking_champ' style='text-align:center'>
+        //     <button onclick=editClick(this)>편집</button>
+        //     <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=editProcess(this,'".$row["fighter_seq"]."','ranking_champ')>
+        // </td>";
         // echo "<td class='img_detail' style='text-align:center'>
-        //         <img width='30px' onclick='openModal(\"$base64ImageDataDetail\")' style='cursor:pointer'
-        //         src='data:image/png;base64,$base64ImageDataDetail' 
-        //             onerror=\"this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter/fighter_full_blank.png'\"
-        //         />
         //         <button onclick=editClick(this)>편집</button>
         //         <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=editProcess(this,'".$row["fighter_seq"]."','detail')>
         //     </td>";
-        echo "<td class='img_ranking' style='text-align:center'>
-                <button onclick=editClick(this)>편집</button>
-                <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=editProcess(this,'".$row["fighter_seq"]."','ranking')>
-            </td>";
-        echo "<td class='img_detail' style='text-align:center'>
-                <button onclick=editClick(this)>편집</button>
-                <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=editProcess(this,'".$row["fighter_seq"]."','detail')>
-            </td>";
+        echo "<td></td>";
+        echo "<td></td>";
+        echo "<td></td>";
         echo "<td class='tel'>" . $row["tel"] . "</td>";
         echo "<td class='lsttm'>" . $row["lsttm"] . "</td>";
         echo '<td class="btn_edit"><button onclick="editRow(' . $row["fighter_seq"] . ')">수정</button></td>';
@@ -658,7 +652,13 @@ echo "</script>";
 </table>
 
 <button onclick="addRow()">입력</button>
-
+<div>
+    <form action="./fighter/photo_upload_test.php" method="post" enctype="multipart/form-data">
+        <label for="uploadFile">파일 선택:</label>
+        <input type="file" name="uploadFile" id="uploadFile" required>
+        <button type="submit">업로드</button>
+    </form>
+</div>
 
 <script type="text/javascript">
     let $autoComplete;

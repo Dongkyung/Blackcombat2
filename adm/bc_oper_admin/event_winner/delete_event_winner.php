@@ -3,22 +3,22 @@
 include_once ('../../../common.php');
 
  // POST 데이터에서 팀번호 받아오기
- $fighterSeq = $_POST["fighterSeq"];
+ $seq = $_POST["seq"];
 
  
  // SQL 쿼리 작성
- $sql = "UPDATE tb_fighter_base 
-         SET del_yn = 1, lsttm = now()
-         WHERE fighter_seq = $fighterSeq";
+ $sql = "delete from tb_event_winner 
+         WHERE seq = $seq";
 
  // 쿼리 실행
  $result = sql_query($sql);
 
  if ($result) {
-     // 업데이트 성공한 경우
-     echo json_encode(['seq' => $sql, 'success' => true]);
+     // 삭제 성공한 경우
+     echo json_encode(['success' => true]);
  } else {
-     // 업데이트 실패한 경우
+     // 삭제 실패한 경우
      echo json_encode(['success' => false, 'error' => sql_error()]);
  }
+ 
 ?>

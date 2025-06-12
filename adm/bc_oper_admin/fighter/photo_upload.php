@@ -17,7 +17,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $imageBinaryData = file_get_contents($_FILES['fileToUpload']['tmp_name']);
 
         // photo_type에 따라 업데이트할 컬럼 설정
-        $columnName = ($photo_type == "ranking") ? "rankingImageBin" : "detailImageBin";
+        $columnName = "";
+        if($photo_type == "ranking"){
+            $columnName = "rankingImageBin";
+        }else if($photo_type == "ranking_champ"){
+            $columnName = "rankingChampImageBin";
+        }else{
+            $columnName = "detailImageBin";
+        }
 
         echo "save this file >> ".$imageBinaryData;
         // SQL 쿼리를 생성할 때 데이터의 유니코드 처리를 위해 mysqli_real_escape_string 함수 사용

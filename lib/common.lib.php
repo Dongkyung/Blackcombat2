@@ -2504,8 +2504,10 @@ function add_javascript($javascript, $order=0)
 {
     global $html_process;
 
-    if(trim($javascript) && method_exists($html_process, 'merge_javascript') )
+    if(trim($javascript) && method_exists($html_process, 'merge_javascript') ){
         $html_process->merge_javascript($javascript, $order);
+    }
+        
 }
 
 class html_process {
@@ -2540,8 +2542,10 @@ class html_process {
             }
         }
 
-        if($is_merge)
+        if($is_merge){
             $this->js[] = array($order, $javascript);
+        }
+            
     }
 
     function run()

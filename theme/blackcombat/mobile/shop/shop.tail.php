@@ -93,7 +93,7 @@ if ($config['cf_analytics']) {
     .seat_choice_btn {flex:0 0 auto; display:block; width:auto; height:50px; margin:0; padding:15px 20px; font-size:1.25em; font-weight:bold; color:#fff; text-align:center; border:1px solid #1c70e9; border-radius:3px; background:#3a8afd; box-sizing:border-box; box-shadow:unset;}
     .seat_choice_btn[disabled] {color:rgba(16,16,16,0.3); border:1px solid #98a3b3; background:rgba(239,239,239,1); cursor:default;}
 
-    .movieLayoutContainer {position:relative; display:block; min-width:2000px; min-height:750px; margin:-400px; padding:0; transform: scale(0.7);}
+    .movieLayoutContainer {position:relative; display:block; min-width:2000px; min-height:750px; padding:0; transform: scale(0.5);}
     .cage_img_1 {position:absolute; top:255px; left:550px; display:block; width:auto; max-width:430px; height:auto; margin:0; padding:0; z-index:11;}
     .cage_img_2 {position:absolute; top:441px; right:1px; display:block; width:auto; max-width:460px; height:auto; margin:0; padding:0; z-index:11;}
     .cage_img_3 {position:absolute; top:280px; left:500px; display:block; width:350px; height:auto; margin:0; padding:0; z-index:-1;}

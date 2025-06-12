@@ -560,17 +560,17 @@ function get_option_stock_qty($it_id, $io_id, $type)
     global $g5;
 
     $io_id_clone = $io_id;
-    if($io_id == 'GOLD(PKG)'){
-        $io_id_clone = 'GOLD';
-    }else if($io_id == 'SILVER(PKG)'){
-        $io_id_clone = 'SILVER';
-    }else if($io_id == 'GOLD'){
-        $io_id_clone = 'GOLD';
-        $io_id = "GOLD(PKG)";
-    }else if($io_id == 'SILVER'){
-        $io_id_clone = 'SILVER';
-        $io_id = "SILVER(PKG)";
-    }
+    // if($io_id == 'GOLD(PKG)'){
+    //     $io_id_clone = 'GOLD';
+    // }else if($io_id == 'SILVER(PKG)'){
+    //     $io_id_clone = 'SILVER';
+    // }else if($io_id == 'GOLD'){
+    //     $io_id_clone = 'GOLD';
+    //     $io_id = "GOLD(PKG)";
+    // }else if($io_id == 'SILVER'){
+    //     $io_id_clone = 'SILVER';
+    //     $io_id = "SILVER(PKG)";
+    // }
 
     $sql = " select io_stock_qty
                 from {$g5['g5_shop_item_option_table']}
@@ -603,6 +603,34 @@ function get_option_stock_qty($it_id, $io_id, $type)
     }
 
     return $jaego - $daegi;
+    // return 1;
+}
+
+// 옵션의 재고 (창고재고수량 - 주문대기수량)
+function get_option_total_stock_qty($it_id, $io_id, $type)
+{
+    global $g5;
+
+    $io_id_clone = $io_id;
+    // if($io_id == 'GOLD(PKG)'){
+    //     $io_id_clone = 'GOLD';
+    // }else if($io_id == 'SILVER(PKG)'){
+    //     $io_id_clone = 'SILVER';
+    // }else if($io_id == 'GOLD'){
+    //     $io_id_clone = 'GOLD';
+    //     $io_id = "GOLD(PKG)";
+    // }else if($io_id == 'SILVER'){
+    //     $io_id_clone = 'SILVER';
+    //     $io_id = "SILVER(PKG)";
+    // }
+
+    $sql = " select io_stock_qty
+                from {$g5['g5_shop_item_option_table']}
+                where it_id = '$it_id' and io_id = '$io_id_clone' and io_type = '$type' and io_use = '1' ";
+    $row = sql_fetch($sql);
+    $jaego = (int)$row['io_stock_qty'];
+
+    return $jaego;
     // return 1;
 }
 

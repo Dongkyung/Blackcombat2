@@ -19,6 +19,9 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/fighter.css"
 
 $page = $_GET['page'];
 
+if($page === '28227780'){
+    echo '<script type="text/javascript">alert(\'조회할 수 없습니다\'); window.history.back();</script>';
+}
 
 ?>
     <style>

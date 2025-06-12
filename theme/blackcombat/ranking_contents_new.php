@@ -48,75 +48,12 @@
 </style>
 
 <div class="ranking_list">
-                <!-- 언더그라운드 -------------------------->
-                <div class="ranking_list_part">
-<?
-    $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.rankingImageBin, ranking.ranking_updown, ranking.lsttm, base.fighter_status
-        FROM blackcombat.tb_fighter_ranking ranking
-        LEFT JOIN blackcombat.tb_fighter_base base
-            ON ranking.fighter_seq = base.fighter_seq 
-        LEFT JOIN blackcombat.tb_team_base team
-            ON base.team_seq = team.team_seq 
-        WHERE division='언더그라운드' AND ranking_type = 1
-        ORDER BY 
-        CASE WHEN ranking = 'c' THEN 0  
-        ELSE CAST(ranking AS UNSIGNED) END, ranking;";
-        $result = sql_query($sql);
-
-        while ($row = sql_fetch_array($result)) {
-            
-            $base64ImageDataRanking = base64_encode($row['rankingImageBin']);
-            if($row['ranking'] === '0'){
-                if($row['fighter_seq'] == '39753529'){
-?>
-                    <div class="ranking_list_part_champ"><h3><span class="weight">언더그라운드</span> <span class="champ"></span></h3><div class="ranking_champ_name"></div><div class="ranking_champ_photo"></div></div>
-<?              }else{ ?>
-                    <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
-                        <h3><span class="weight">언더그라운드</span> <span class="champ">CHAMPION</span></h3>
-                        <div class="ranking_champ_name">
-                            <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
-                            <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
-                            <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
-                        </div>
-                        <div class="ranking_champ_photo">
-                            <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
-                                onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
-                        </div>
-                    </div>      
-<?              }?>                   
-<?          }else{ ?>
-                        <div class="ranking_list_part_item <? if($flyIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
-                            <div class="ranking_list_num"> <?=$row['ranking']?> </div>
-                            <div class="ranking_list_photo">
-                            <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
-                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
-                            </div>
-                            <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
-                            <div class="ranking_list_change">
-                                <?
-                                 if($row['ranking_updown'] === '0'){
-                                    echo '-';
-                                 }else if($row['ranking_updown'] === 'new'){
-                                    echo 'New';
-                                 }else if($row['ranking_updown'] > 0){
-                                    echo '▲ '.$row['ranking_updown'];
-                                 }else{
-                                    echo '▼ '.(0 - $row['ranking_updown']);
-                                 }
-                                ?>
-                            </div>
-                        </div>
-<?          }
-        }?>
-                </div>
-
 
                 <!---------------- 플라이급 ------------------------->
                 <div class="ranking_list_part fly">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.rankingImageBin, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -130,7 +67,8 @@
         $flyIndex = 0;
         while ($row = sql_fetch_array($result)) {
             $flyIndex++;
-            $base64ImageDataRanking = base64_encode($row['rankingImageBin']);
+            $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
+            $rankingChampImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['rankingChamp_image_name'];
             if($row['ranking'] === '0'){
                 if($row['fighter_seq'] == '39753529'){
 ?>
@@ -144,7 +82,7 @@
                             <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                         </div>
                         <div class="ranking_champ_photo">
-                            <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                            <img src='<?= $rankingChampImgPath ?>'
                                 onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                     </div>
@@ -153,7 +91,7 @@
                     <div class="ranking_list_part_item <? if($flyIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
                         <div class="ranking_list_num"> <?=$row['ranking']?> </div>
                         <div class="ranking_list_photo">
-                        <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                        <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                         <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
@@ -188,7 +126,7 @@
                 <div class="ranking_list_part bantam">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.rankingImageBin, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -204,7 +142,8 @@
         while ($row = sql_fetch_array($result)) {
             $bantamIndex++;
             
-            $base64ImageDataRanking = base64_encode($row['rankingImageBin']);
+            $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
+            $rankingChampImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['rankingChamp_image_name'];
             if($row['ranking'] === '0'){
                 if($row['fighter_seq'] == '39753529'){
 ?>
@@ -218,7 +157,7 @@
                             <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                         </div>
                         <div class="ranking_champ_photo">
-                            <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                            <img src='<?= $rankingChampImgPath ?>'
                                 onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                     </div>
@@ -227,7 +166,7 @@
                     <div class="ranking_list_part_item <? if($bantamIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
                         <div class="ranking_list_num"> <?=$row['ranking']?> </div>
                         <div class="ranking_list_photo">
-                        <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                        <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                         <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
@@ -256,14 +195,14 @@
                     </div>
 <? } ?>
                 </div>
-</div>
-<div class="ranking_list">
+
+
 
                 <!---------------- 페더급 ------------------------->
                 <div class="ranking_list_part feather">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.rankingImageBin, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -279,7 +218,8 @@
         while ($row = sql_fetch_array($result)) {
             $featherIndex++;
             
-            $base64ImageDataRanking = base64_encode($row['rankingImageBin']);
+            $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
+            $rankingChampImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['rankingChamp_image_name'];
             if($row['ranking'] === '0'){
                 if($row['fighter_seq'] == '39753529'){
 ?>
@@ -293,7 +233,7 @@
                             <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                         </div>
                         <div class="ranking_champ_photo">
-                            <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                            <img src='<?= $rankingChampImgPath ?>'
                                 onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                     </div>
@@ -302,7 +242,7 @@
                     <div class="ranking_list_part_item <? if($featherIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
                         <div class="ranking_list_num"> <?=$row['ranking']?> </div>
                         <div class="ranking_list_photo">
-                        <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                        <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                         <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
@@ -331,15 +271,14 @@
                     </div>
 <? } ?>
                 </div>
-                    
-                    
-
+</div>
+<div class="ranking_list">
 
                 <!---------------- 라이트급 ------------------------->
                 <div class="ranking_list_part light">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.rankingImageBin, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -355,7 +294,8 @@
         while ($row = sql_fetch_array($result)) {
             $lightIndex++;
             
-            $base64ImageDataRanking = base64_encode($row['rankingImageBin']);
+            $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
+            $rankingChampImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['rankingChamp_image_name'];
             if($row['ranking'] === '0'){
                 if($row['fighter_seq'] == '39753529'){
 ?>
@@ -369,7 +309,7 @@
                             <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                         </div>
                         <div class="ranking_champ_photo">
-                            <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                            <img src='<?= $rankingChampImgPath ?>'
                                 onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                     </div>
@@ -378,7 +318,7 @@
                     <div class="ranking_list_part_item <? if($lightIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
                         <div class="ranking_list_num"> <?=$row['ranking']?> </div>
                         <div class="ranking_list_photo">
-                        <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                        <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                         <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
@@ -413,7 +353,7 @@
                 <div class="ranking_list_part welter">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.rankingImageBin, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -429,7 +369,8 @@
         while ($row = sql_fetch_array($result)) {
             $welterIndex++;
             
-            $base64ImageDataRanking = base64_encode($row['rankingImageBin']);
+            $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
+            $rankingChampImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['rankingChamp_image_name'];
             if($row['ranking'] === '0'){
                 if($row['fighter_seq'] == '39753529'){
 ?>
@@ -443,7 +384,7 @@
                             <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                         </div>
                         <div class="ranking_champ_photo">
-                            <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                            <img src='<?= $rankingChampImgPath ?>'
                                 onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                     </div>
@@ -452,7 +393,7 @@
                     <div class="ranking_list_part_item <? if($welterIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
                         <div class="ranking_list_num"> <?=$row['ranking']?> </div>
                         <div class="ranking_list_photo">
-                        <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                        <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                         <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
@@ -481,17 +422,11 @@
                     </div>
 <? } ?>
                 </div>
-
-
-                    
-</div>
-
-<div class="ranking_list">
                 <!---------------- 미들급 ------------------------->
                 <div class="ranking_list_part middle">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.rankingImageBin, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -507,7 +442,8 @@
         while ($row = sql_fetch_array($result)) {
             $middleIndex++;
             
-            $base64ImageDataRanking = base64_encode($row['rankingImageBin']);
+            $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
+            $rankingChampImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['rankingChamp_image_name'];
             if($row['ranking'] === '0'){
                 if($row['fighter_seq'] == '39753529'){
 ?>
@@ -521,7 +457,7 @@
                             <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                         </div>
                         <div class="ranking_champ_photo">
-                            <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                            <img src='<?= $rankingChampImgPath ?>'
                                 onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                     </div>
@@ -530,7 +466,7 @@
                     <div class="ranking_list_part_item <? if($middleIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
                         <div class="ranking_list_num"> <?=$row['ranking']?> </div>
                         <div class="ranking_list_photo">
-                        <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                        <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                         <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
@@ -560,11 +496,17 @@
 <? } ?>
                 </div>
 
+                    
+</div>
+
+<div class="ranking_list">
+                
+
                 <!---------------- 중량급 ------------------------->
                 <div class="ranking_list_part heavy">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.rankingImageBin, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -580,7 +522,8 @@
         while ($row = sql_fetch_array($result)) {
             $heavyIndex++;
             
-            $base64ImageDataRanking = base64_encode($row['rankingImageBin']);
+            $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
+            $rankingChampImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['rankingChamp_image_name'];
             if($row['ranking'] === '0'){
                 if($row['fighter_seq'] == '39753529'){
 ?>
@@ -594,7 +537,7 @@
                             <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                         </div>
                         <div class="ranking_champ_photo">
-                            <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                            <img src='<?= $rankingChampImgPath ?>'
                                 onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                     </div>
@@ -603,7 +546,7 @@
                     <div class="ranking_list_part_item <? if($heavyIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
                         <div class="ranking_list_num"> <?=$row['ranking']?> </div>
                         <div class="ranking_list_photo">
-                        <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                        <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                         <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
@@ -631,7 +574,71 @@
                         <button id="toggleButton" onclick="foldToggle('heavy')">▼ 더보기</button>
                     </div>
 <? } ?>
-                    </div>
+                </div>
+                
+                <!-- 언더그라운드 -------------------------->
+                <div class="ranking_list_part">
+<?
+    $sql = "SELECT 
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        FROM blackcombat.tb_fighter_ranking ranking
+        LEFT JOIN blackcombat.tb_fighter_base base
+            ON ranking.fighter_seq = base.fighter_seq 
+        LEFT JOIN blackcombat.tb_team_base team
+            ON base.team_seq = team.team_seq 
+        WHERE division='언더그라운드' AND ranking_type = 1
+        ORDER BY 
+        CASE WHEN ranking = 'c' THEN 0  
+        ELSE CAST(ranking AS UNSIGNED) END, ranking;";
+        $result = sql_query($sql);
+
+        while ($row = sql_fetch_array($result)) {
+            
+            $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
+            $rankingChampImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['rankingChamp_image_name'];
+            if($row['ranking'] === '0'){
+                if($row['fighter_seq'] == '39753529'){
+?>
+                    <div class="ranking_list_part_champ"><h3><span class="weight">언더그라운드</span> <span class="champ"></span></h3><div class="ranking_champ_name"></div><div class="ranking_champ_photo"></div></div>
+<?              }else{ ?>
+                    <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
+                        <h3><span class="weight">언더그라운드</span> <span class="champ">CHAMPION</span></h3>
+                        <div class="ranking_champ_name">
+                            <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                            <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
+                            <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
+                        </div>
+                        <div class="ranking_champ_photo">
+                            <img src='<?= $rankingChampImgPath ?>'
+                                onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                        </div>
+                    </div>      
+<?              }?>                   
+<?          }else{ ?>
+                        <div class="ranking_list_part_item" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
+                            <div class="ranking_list_num"> <?=$row['ranking']?> </div>
+                            <div class="ranking_list_photo">
+                            <img src='<?= $rankingImgPath ?>'
+                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                            </div>
+                            <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                            <div class="ranking_list_change">
+                                <?
+                                 if($row['ranking_updown'] === '0'){
+                                    echo '-';
+                                 }else if($row['ranking_updown'] === 'new'){
+                                    echo 'New';
+                                 }else if($row['ranking_updown'] > 0){
+                                    echo '▲ '.$row['ranking_updown'];
+                                 }else{
+                                    echo '▼ '.(0 - $row['ranking_updown']);
+                                 }
+                                ?>
+                            </div>
+                        </div>
+<?          }
+        }?>
+                </div>
 
 
 
@@ -639,7 +646,7 @@
                 <div class="ranking_list_part atom">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.rankingImageBin, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -655,7 +662,8 @@
         while ($row = sql_fetch_array($result)) {
             $atomIndex++;
             
-            $base64ImageDataRanking = base64_encode($row['rankingImageBin']);
+            $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
+            $rankingChampImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['rankingChamp_image_name'];
             if($row['ranking'] === '0'){
                 if($row['fighter_seq'] == '39753529'){
 ?>
@@ -669,7 +677,7 @@
                             <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                         </div>
                         <div class="ranking_champ_photo">
-                            <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                            <img src='<?= $rankingChampImgPath ?>'
                                 onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                     </div>
@@ -678,7 +686,7 @@
                     <div class="ranking_list_part_item <? if($atomIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
                         <div class="ranking_list_num"> <?=$row['ranking']?> </div>
                         <div class="ranking_list_photo">
-                        <img src='data:image/png;base64,<?= $base64ImageDataRanking ?>'
+                        <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
                         </div>
                         <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
@@ -710,7 +718,6 @@
 </div>
 
 <script type="text/javascript">
-
     let expandedMap = {
         "fly":false,
         "bantam":false,
@@ -723,9 +730,7 @@
     }
 
     $(document).ready(() => {
-        const toggleButton = document.getElementById('toggleButton');
-        const listContainer = document.querySelector('.fly');
-        const hiddenItems = document.querySelectorAll('.fly .ranking_list_part_item.hidden');
+        
     });
     
     let foldToggle = (division) => {
@@ -743,7 +748,7 @@
                 let maxheight = (660 + 43*hiddenItems.length);
             listContainer.style.maxHeight = `${maxheight}px`;
             hiddenItems.forEach(item => {
-                item.style.display = 'block';
+                item.style.display = '<? if(G5_IS_MOBILE) { echo 'flex'; }else{ echo 'block';  }?>';
             });
             toggleButton.textContent = '▲ 접기';
         }

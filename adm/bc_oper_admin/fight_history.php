@@ -317,6 +317,9 @@ echo "</script>"
                         <div class="autocomplete player2"></div>
                     </div>
                 </div>
+                <div>
+                    <input class="form-control" id="result" placeholder="경기상세결과">
+                </div>
                 <div style="display:flex">
                     <div class="input-group">
                         <span class="input-group-text">선수1 승자투표</span>

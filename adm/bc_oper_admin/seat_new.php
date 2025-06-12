@@ -17,17 +17,39 @@ $g5['title'] = "좌석 컨트롤";
 $sql = "select seq, it_id, ct_seat_row_type, ct_seat_number,bigo, fsttm from tb_seat_control order by ct_seat_row_type, CAST(ct_seat_number AS UNSIGNED)";
 $result = sql_query($sql);
 
-$it_id = !empty($_GET['it_id']) ? $_GET['it_id'] : '1723217030';
+$it_id = !empty($_GET['it_id']) ? $_GET['it_id'] : '1744036257';
 
 $itId_file_map = array(
     '1704478746' => "n10",
     '1719322450' => "n11",
     '1722696532' => "n11test",
-    '1723217030' => "n12"
+    '1723217030' => "n12",
+    '1733239478' => "n13",
+    '1744036257' => "n14"
 );
 
 ?>
 <style>
+
+    /* 부트스트랩 CSS 예외처리*/
+    .row {
+        --bs-gutter-x: unset !important;
+        --bs-gutter-y: unset !important;
+        
+        flex-wrap: unset !important;
+        margin-top: unset !important;
+        margin-right: unset !important;
+        margin-left: unset !important;
+    }
+    .row>* {
+        flex-shrink: unset !important;
+        /* width: unset !important; */
+        max-width: unset !important;
+        padding-right: unset !important;
+        padding-left: unset !important;
+        margin-top: unset !importantZ;
+    }
+
     #myTable {
         border-collapse: collapse;
     }
@@ -96,7 +118,7 @@ $itId_file_map = array(
     .seat_rows {display:flex; flex-direction:column; align-items:center; justify-content:flex-start; width:auto; height:auto; margin:0; padding:0; background:#fff; z-index:10;}
     .seat_row_items {display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; width:auto; height:auto; margin:0; padding:0; row-gap:2px;}
     .seat_row_items.horizon {flex-direction:row; flex-wrap:nowrap; row-gap:0; column-gap:2px;}
-    .seat_row_item {flex:0 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; width:16px; height:16px; margin:0 1px; padding:2px 2px; border:1px solid transparent; border-radius:2px; cursor:pointer; vertical-align:-webkit-baseline-middle; background:#fff;}
+    .seat_row_item {flex:0 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; width:16px !important; height:16px; margin:0 1px; padding:2px 2px; border:1px solid transparent; border-radius:2px; cursor:pointer; vertical-align:-webkit-baseline-middle; background:#fff;}
     .seat_row_item span {flex:0 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:100%; margin:0; padding:0; border-radius:2px; background:#fff;}
 
     .seat_row_item[data-choosable="Y"] {border-color:#8a8a8a;}
@@ -210,6 +232,9 @@ $itId_file_map = array(
         <option value="1719322450" <? if($it_id === '1719322450') {echo "selected"; } ?>>Black Combat 11: 부산상륙작전</option>
         <option value="1722696532" <? if($it_id === '1722696532') {echo "selected"; } ?>>Black Combat 11: 부산상륙작전_TEST</option>
         <option value="1723217030" <? if($it_id === '1723217030') {echo "selected"; } ?>>Black Combat 12: THE RETURN OF THE KINGS</option>
+        <option value="1733239478" <? if($it_id === '1733239478') {echo "selected"; } ?>>Black Combat 13: 정상결전</option>
+        <option value="1744036257" <? if($it_id === '1744036257') {echo "selected"; } ?>>Black Combat 14: END GAME</option>
+
     </select>
 </div>
 

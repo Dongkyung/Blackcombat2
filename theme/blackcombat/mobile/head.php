@@ -75,6 +75,9 @@ if ($ticket_row) {
                     <li>
                         <a href="<?php echo G5_URL ?>/event.php?page=10">EVENT</a>
                     </li>
+                    <li>
+                        <a href="<?php echo G5_URL ?>/champ.php">CHAMPION</a>
+                    </li>
                     <!-- <li>
                         <a href="<?php echo G5_URL ?>/video">VIDEO</a>
                     </li> -->

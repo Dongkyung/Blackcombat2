@@ -102,37 +102,38 @@ echo "</script>";
         padding: .2rem .6rem;
         cursor: pointer;
       }
-    /* .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        padding-top: 50px;
-        left: auto;
-        right: auto;
-        top: auto;
-        bottom: auto;
-        height: 50%;
-        width: 50%;
-        overflow: auto;
-        background-color: black;
-    }
+        #myModal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 50px;
+            left: auto;
+            right: auto;
+            top: auto;
+            bottom: auto;
+            height: 70% !important;
+            width: 70% !important;
+            overflow: auto;
+            background-color: black;
+        }
 
-    .modal-content {
-        margin: auto;
-        display: block;
-        max-width: 80%;
-        max-height: 80%;
-    }
+        #myModal .modal-content {
+            margin: auto;
+            display: block;
+            width : unset !important;
+            max-width: 80%;
+            max-height: 80%;
+        }
 
-    .close {
-        color: white;
-        position: absolute;
-        top: 10px;
-        right: 25px;
-        font-size: 35px;
-        font-weight: bold;
-        cursor: pointer;
-    } */
+        #myModal .close {
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
     .anchor li.on a {
         background-color: #3f51b5;
@@ -150,6 +151,13 @@ echo "</script>";
 
     .modal-body > div{
         margin: 10px 0px;
+    }
+
+    .data-row{
+        margin-bottom:10px !important;
+    }
+    .data-row span{
+        text-align:center;
     }
     </style>
 
@@ -188,7 +196,7 @@ echo "</script>";
 
 <h2>선수 정보</h2>
 
-<table id="myTable" class="hover">
+<table id="myTable" class="compact cell-border hover">
     <!-- 테이블의 헤더 부분은 그대로 유지 -->
     <thead>
     <tr>
@@ -205,6 +213,7 @@ echo "</script>";
         <th style="width:40px">패</th>
         <th style="width:40px">무</th>
         <th style="width:70px; text-align:center;">랭킹<br/>이미지</th>
+        <th style="width:70px; text-align:center;">랭킹챔프<br/>이미지</th>
         <th style="width:70px; text-align:center;">상세<br/>이미지</th>
         <th style="width:120px">연락처</th>
         <th style="width:150px">수정날짜</th>
@@ -236,38 +245,34 @@ echo "</script>";
         echo "<td class='win'>" . $row["win"] . "</td>";
         echo "<td class='lose'>" . $row["lose"] . "</td>";
         echo "<td class='draw'>" . $row["draw"] . "</td>";
-        // echo "<td class='img_ranking' style='text-align:center'>
-        //         <img width='30px' onclick='openModal(\"$base64ImageDataRanking\")' style='cursor:pointer'
-        //             src='data:image/png;base64,$base64ImageDataRanking' 
-        //             onerror=\"this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter/fighter_full_blank.png'\"
-        //         />
-        //         <button onclick=editClick(this)>편집</button>
-        //         <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=editProcess(this,'".$row["fighter_seq"]."','ranking')>
-        //     </td>";
-        // echo "<td class='img_detail' style='text-align:center'>
-        //         <img width='30px' onclick='openModal(\"$base64ImageDataDetail\")' style='cursor:pointer'
-        //         src='data:image/png;base64,$base64ImageDataDetail' 
-        //             onerror=\"this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter/fighter_full_blank.png'\"
-        //         />
-        //         <button onclick=editClick(this)>편집</button>
-        //         <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=editProcess(this,'".$row["fighter_seq"]."','detail')>
-        //     </td>";
-        echo "<td class='img_ranking' style='font-size:1.8rem; text-align:center;'>
-                <a href='javascript:editClick(this)'>
-                    <i class='bi bi-file-arrow-up'></i>
-                </a>
-                <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=editProcess(this,'".$row["fighter_seq"]."','ranking')>
+        echo "<td class='img_ranking' style='text-align:center'>
+                <img width='30px' onclick='openModal(\"https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name']."\")' style='cursor:pointer'
+                    src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name']."' 
+                    onerror=\"this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'\"
+                />
+                <button onclick=editClick(this)>편집</button>
+                <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=\"editProcess(this,'".$row["fighter_seq"]."','ranking')\">
             </td>";
-        echo "<td class='img_detail' style='font-size:1.8rem; text-align:center;'>
-                <a href='javascript:editClick(this)'>
-                    <i class='bi bi-file-arrow-up'></i>
-                </a>
-                <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=editProcess(this,'".$row["fighter_seq"]."','detail')>
+        echo "<td class='img_detail' style='text-align:center'>
+                <img width='30px' onclick='openModal(\"https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['rankingChamp_image_name']."\")' style='cursor:pointer'
+                    src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['rankingChamp_image_name']."' 
+                    onerror=\"this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'\"
+                />
+                <button onclick=editClick(this)>편집</button>
+                <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=\"editProcess(this,'".$row["fighter_seq"]."','rankingChamp')\">
+            </td>";
+        echo "<td class='img_detail' style='text-align:center'>
+                <img width='30px' onclick='openModal(\"https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['detail_image_name']."\")' style='cursor:pointer'
+                src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['detail_image_name']."' 
+                    onerror=\"this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter/fighter_full_blank.png'\"
+                />
+                <button onclick=editClick(this)>편집</button>
+                <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=\"editProcess(this,'".$row["fighter_seq"]."','detail')\">
             </td>";
         echo "<td class='tel'>" . $row["tel"] . "</td>";
         echo "<td class='lsttm'>" . $row["lsttm"] . "</td>";
-        echo '<td class="btn_edit"><button class="btn btn-sm btn-success" onclick="editRow(' . $row["fighter_seq"] . ')">수정</button></td>';
-        echo '<td class="btn_delete"><button class="btn btn-sm btn-danger" onclick="deleteRow(' . $row["team_seq"] . ')">삭제</button></td>';
+        echo '<td class="btn_edit"><button class="btn btn-sm btn-success" onclick="showFighterInfoModal(\'update\',\'' . $row["fighter_seq"] . '\')">수정</button></td>';
+        echo '<td class="btn_delete"><button class="btn btn-sm btn-danger" onclick="deleteRow(\''.$row["fighter_seq"].'\',\'' . $row["fighter_name"] . '\')">삭제</button></td>';
         echo "</tr>";
         
     }
@@ -276,7 +281,7 @@ echo "</script>";
 
 </table>
 
-<button type="button" class="btn btn-primary" style="height:40px" onclick="showCreateModal()">
+<button type="button" class="btn btn-primary" style="height:40px" onclick="showFighterInfoModal('register', null)">
   선수 등록
 </button>
 
@@ -286,44 +291,61 @@ echo "</script>";
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">선수 등록 및 수정</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
             </div>
             <div class="modal-body">
                 <input id="history_seq" hidden>
-                <div style="display:flex">
-                    <input style="flex: 1 1 0" class="form-control" id="fighter_seq" disabled placeholder="선수 SEQ(자동생성)">
-                    <input style="flex: 1 1 0" class="form-control" id="fighter_name" placeholder="이름">
-                    <input style="flex: 1 1 0" class="form-control" id="fighter_ringname" placeholder="링네임">
-                </div>
-                <div style="display:flex">
-                    <input style="flex: 1 1 0" class="form-control" id="team_seq" disabled placeholder="팀 SEQ(자동할당)">
-                    <div style="flex: 2 1 0">
-                        <input class="form-control" id="team_name" placeholder="팀명" autocomplete="off">
-                        <div class="autocomplete"></div>
+                <div class="data-row">
+                    <div style="display:flex">
+                        <span style="flex: 1 1 0">선수 SEQ(자동생성)</span>
+                        <span style="flex: 1 1 0">이름</span>
+                        <span style="flex: 1 1 0">링네임</span>
+                    </div>
+                    <div style="display:flex">
+                        <input style="flex: 1 1 0" class="form-control" id="fighter_seq" disabled placeholder="선수 SEQ(자동생성)">
+                        <input style="flex: 1 1 0" class="form-control" id="fighter_name" placeholder="이름">
+                        <input style="flex: 1 1 0" class="form-control" id="fighter_ringname" placeholder="링네임">
                     </div>
                 </div>
-                <div style="display:flex">
-                    <input style="flex: 1 1 0" class="form-control" id="birth" placeholder="생년월일">
-                    <input style="flex: 1 1 0" class="form-control" id="insta_id" placeholder="인스타 ID">
-                    <input style="flex: 1 1 0" class="form-control" id="tel" placeholder="연락처">
-                </div>
-                <div style="display:flex">
-                    <input style="flex: 1 1 0" class="form-control" id="height" placeholder="키">
-                    <input style="flex: 1 1 0" class="form-control" id="weight" placeholder="체중">
-                    <input style="flex: 1 1 0" class="form-control" id="win" placeholder="승">
-                    <input style="flex: 1 1 0" class="form-control" id="lose" placeholder="패">
-                    <input style="flex: 1 1 0" class="form-control" id="draw" placeholder="무">
-                </div>
-                <div style="display:flex; justify-content: center; gap: 10px;">
-                    <div id='img_ranking' style='text-align:center'>
-                        <button class="btn btn-success" onclick=editClick(this)>랭킹이미지</button>
-                        <input style='display:none' type='file' name='fileToUpload' class='fileToUpload'>
+                <div class="data-row">
+                    <div style="display:flex">
+                        <span style="flex: 1 1 0">팀 SEQ(자동할당)</span>
+                        <span style="flex: 2 1 0">팀명</span>
                     </div>
-                    <div id='img_detail' style='text-align:center'>
-                        <button class="btn btn-success" onclick=editClick(this)>상세이미지</button>
-                        <input style='display:none' type='file' name='fileToUpload' class='fileToUpload'>
+                    <div style="display:flex">
+                        <input style="flex: 1 1 0" class="form-control" id="team_seq" disabled placeholder="팀 SEQ(자동할당)">
+                        <div style="flex: 2 1 0">
+                            <input class="form-control" id="team_name" placeholder="팀명" autocomplete="off">
+                            <div class="autocomplete"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-row">
+                    <div style="display:flex">
+                        <span style="flex: 1 1 0">생년월일</span>
+                        <span style="flex: 1 1 0">인스타 ID</span>
+                        <span style="flex: 1 1 0">연락처</span>
+                    </div>
+                    <div style="display:flex">
+                        <input style="flex: 1 1 0" class="form-control" id="birth" placeholder="생년월일">
+                        <input style="flex: 1 1 0" class="form-control" id="insta_id" placeholder="인스타 ID">
+                        <input style="flex: 1 1 0" class="form-control" id="tel" placeholder="연락처">
+                    </div>
+                </div>
+                
+                <div class="data-row">
+                    <div style="display:flex">
+                        <span style="flex: 1 1 0">키</span>
+                        <span style="flex: 1 1 0">체중</span>
+                        <span style="flex: 1 1 0">승</span>
+                        <span style="flex: 1 1 0">패</span>
+                        <span style="flex: 1 1 0">무</span>
+                    </div>
+                    <div style="display:flex">
+                        <input style="flex: 1 1 0" class="form-control" id="height" placeholder="키">
+                        <input style="flex: 1 1 0" class="form-control" id="weight" placeholder="체중">
+                        <input style="flex: 1 1 0" class="form-control" id="win" placeholder="승">
+                        <input style="flex: 1 1 0" class="form-control" id="lose" placeholder="패">
+                        <input style="flex: 1 1 0" class="form-control" id="draw" placeholder="무">
                     </div>
                 </div>
             </div>
@@ -440,98 +462,99 @@ echo "</script>";
     /* 수정버튼 클릭 => Tr을 input으로 바꿈 */
     function editRow(fighterSeq) {
 
-        $.ajax({
-            url: './fighter/find_fighter.php?fighter_seq=' + fighterSeq,
-            type: 'GET',
-            dataType: 'json',
-            success: function (info) {
-                console.log(info);
+        // $.ajax({
+        //     url: './fighter/find_fighter.php?fighter_seq=' + fighterSeq,
+        //     type: 'GET',
+        //     dataType: 'json',
+        //     success: function (info) {
+        //         console.log(info);
 
-                // var tds = $(event.target).closest('tr').find('td');
-                var tds = $(".fighter_"+fighterSeq).find('td');
-                // var targetRow = $(event.target).closest('tr');
+        //         // var tds = $(event.target).closest('tr').find('td');
+        //         var tds = $(".fighter_"+fighterSeq).find('td');
+        //         // var targetRow = $(event.target).closest('tr');
 
-                // fighterSeq는 첫 번째 td에 있을 것으로 가정
-                // fighterSeq = tds.eq(0).text();
+        //         // fighterSeq는 첫 번째 td에 있을 것으로 가정
+        //         // fighterSeq = tds.eq(0).text();
 
 
-                $.each(tds, (index,item) => {
-                    let className = $(item).attr("class");
-                    let oldValueDB = info[className];
-                    var oldValue =  $(item).text();
-                    switch($(item).attr("class")){    
-                        case "team_seq" : 
-                            $(item).html('<input type="text" id="input-teamSeq" value="' + oldValue + '">');
-                            $(item).find('input').data('originalValue', oldValue);
-                            break;
-                        case "team_name" : 
-                            $(item).html(`
-                                <input type="text" id="search" placeholder="팀이름을 입력하세요." autocomplete="off" value="`+oldValue+`"/>
-                                <!-- 자동완성 단어 리스트 -->
-                                <div class="autocomplete"></div>
-                            `);
-                            $(item).find('input').data('originalValue', oldValue);
-                            applyAutoComplete();
-                            break;
-                        case "fighter_name" : case "fighter_ringname" : 
-                        case "birth" : case "insta_id" : case "height" : case "weight" : 
-                        case "win" : case "lose" : case "draw" : case "tel" : 
-                            $(item).html('<input type="text" value="' + oldValueDB + '">');
-                            $(item).find('input').data('originalValue', oldValue);
-                            break;
-                        case "img_ranking" : break;
-                        case "img_detail" : break;
-                        case "lsttm" : break;
-                        case "btn_edit" : 
-                            $(item).find('button').hide();
-                            var updateButton = $('<button>수정완료</button>').click(function() {
-                                updateRow(fighterSeq);
-                            });
-                            $(item).html(updateButton)
-                            break;
-                        case "btn_delete" : 
-                            $(item).find('button').hide();
-                            var cancelButton = $('<button>취소</button>').click(function() {
-                                cancelEditRow(tds);
-                            });
-                            $(item).html(cancelButton); 
-                            break;
-                    }
-                })
-            },
-            error: function (error) {
-                console.error('API 호출 실패:', error);
-            }
-        });
+
+        //         $.each(tds, (index,item) => {
+        //             let className = $(item).attr("class");
+        //             let oldValueDB = info[className];
+        //             var oldValue =  $(item).text();
+        //             switch($(item).attr("class")){    
+        //                 case "team_seq" : 
+        //                     $(item).html('<input type="text" id="input-teamSeq" value="' + oldValue + '">');
+        //                     $(item).find('input').data('originalValue', oldValue);
+        //                     break;
+        //                 case "team_name" : 
+        //                     $(item).html(`
+        //                         <input type="text" id="search" placeholder="팀이름을 입력하세요." autocomplete="off" value="`+oldValue+`"/>
+        //                         <!-- 자동완성 단어 리스트 -->
+        //                         <div class="autocomplete"></div>
+        //                     `);
+        //                     $(item).find('input').data('originalValue', oldValue);
+        //                     applyAutoComplete();
+        //                     break;
+        //                 case "fighter_name" : case "fighter_ringname" : 
+        //                 case "birth" : case "insta_id" : case "height" : case "weight" : 
+        //                 case "win" : case "lose" : case "draw" : case "tel" : 
+        //                     $(item).html('<input type="text" value="' + oldValueDB + '">');
+        //                     $(item).find('input').data('originalValue', oldValue);
+        //                     break;
+        //                 case "img_ranking" : break;
+        //                 case "img_detail" : break;
+        //                 case "lsttm" : break;
+        //                 case "btn_edit" : 
+        //                     $(item).find('button').hide();
+        //                     var updateButton = $('<button>수정완료</button>').click(function() {
+        //                         updateRow(fighterSeq);
+        //                     });
+        //                     $(item).html(updateButton)
+        //                     break;
+        //                 case "btn_delete" : 
+        //                     $(item).find('button').hide();
+        //                     var cancelButton = $('<button>취소</button>').click(function() {
+        //                         cancelEditRow(tds);
+        //                     });
+        //                     $(item).html(cancelButton); 
+        //                     break;
+        //             }
+        //         })
+        //     },
+        //     error: function (error) {
+        //         console.error('API 호출 실패:', error);
+        //     }
+        // });
     }
 
     /* 수정버튼 --> 취소버튼 클릭 => Tr을 input바꾼걸 원복시킴 */
     function cancelEditRow(tds) {
-        // 모든 input을 해당 td의 값으로 복원
-        for (var i = 1; i < tds.length - 4; i++) { // 수정날짜를 제외한 열에 대해서만 반복
-            var input = tds.eq(i).find('input');
-            var originalValue = input.data('originalValue'); // 변경된 부분: data-originalValue에 저장된 원래 값으로 복원
-            tds.eq(i).html(originalValue);
-        }
+        // // 모든 input을 해당 td의 값으로 복원
+        // for (var i = 1; i < tds.length - 4; i++) { // 수정날짜를 제외한 열에 대해서만 반복
+        //     var input = tds.eq(i).find('input');
+        //     var originalValue = input.data('originalValue'); // 변경된 부분: data-originalValue에 저장된 원래 값으로 복원
+        //     tds.eq(i).html(originalValue);
+        // }
 
-        //연락처행은 별개로 처리
-        var originalTelValue = tds.eq(tds.length - 4).find('input').data('originalValue');
-        tds.eq(tds.length - 4).html(originalTelValue);
+        // //연락처행은 별개로 처리
+        // var originalTelValue = tds.eq(tds.length - 4).find('input').data('originalValue');
+        // tds.eq(tds.length - 4).html(originalTelValue);
 
-        // 수정 버튼 다시 보이게
-        var editButton = tds.eq(tds.length - 2).find('button');
-        editButton.show();
+        // // 수정 버튼 다시 보이게
+        // var editButton = tds.eq(tds.length - 2).find('button');
+        // editButton.show();
 
-        // 삭제 버튼 다시 보이게
-        var deleteButton = tds.eq(tds.length - 1).find('button');
-        deleteButton.show();
+        // // 삭제 버튼 다시 보이게
+        // var deleteButton = tds.eq(tds.length - 1).find('button');
+        // deleteButton.show();
 
-        // 수정 완료 버튼과 취소 버튼 삭제
-        tds.eq(tds.length - 2).html('<button onclick="editRow(' + tds.eq(0).text() + ')">수정</button>'); // 수정 버튼이 들어갈 열 수정
-        tds.eq(tds.length - 1).html('<button onclick="deleteRow(' + tds.eq(0).text() + ')">삭제</button>'); // 삭제 버튼이 들어갈 열 수정
+        // // 수정 완료 버튼과 취소 버튼 삭제
+        // tds.eq(tds.length - 2).html('<button onclick="editRow(' + tds.eq(0).text() + ')">수정</button>'); // 수정 버튼이 들어갈 열 수정
+        // tds.eq(tds.length - 1).html('<button onclick="deleteRow(' + tds.eq(0).text() + ')">삭제</button>'); // 삭제 버튼이 들어갈 열 수정
         
-        // input 요소 삭제
-        tds.find('input').remove();
+        // // input 요소 삭제
+        // tds.find('input').remove();
     }
 
 
@@ -541,24 +564,23 @@ echo "</script>";
         let targetRow = $(".fighter_"+fighterSeq);
         var updatedData = {
             fighterSeq: fighterSeq,
-            fighter_name : targetRow.find(".fighter_name").find('input').val(),
-            fighter_ringname : targetRow.find(".fighter_ringname").find('input').val(),
-            team_seq : targetRow.find(".team_seq").find('input').val(),
-            birth : targetRow.find(".birth").find('input').val(),
-            insta_id : targetRow.find(".insta_id").find('input').val(),
-            height : targetRow.find(".height").find('input').val(),
-            weight : targetRow.find(".weight").find('input').val(),
-            win : targetRow.find(".win").find('input').val(),
-            lose : targetRow.find(".lose").find('input').val(),
-            draw : targetRow.find(".draw").find('input').val(),
-            tel : targetRow.find(".tel").find('input').val()
+            fighter_name: $("#fighter_name").val(),
+            fighter_ringname: $("#fighter_ringname").val(),
+            team_seq:  $("#team_seq").val(),
+            birth: $("#birth").val(),
+            insta_id: $("#insta_id").val(),
+            height: $("#height").val(),
+            weight: $("#weight").val(),
+            win: $("#win").val(),
+            lose: $("#lose").val(),
+            draw: $("#draw").val(),
+            tel:  $("#tel").val()
         };
 
         if(!validCheck(updatedData)){
             return;
         }
 
-        console.log(updatedData);
         $.ajax({
             type: 'POST',
             url: './fighter/update_fighter.php', // 실제 업데이트를 처리하는 PHP 파일 경로
@@ -566,47 +588,7 @@ echo "</script>";
             success: function(response) {
                 // 서버에서 업데이트 성공한 경우
                 console.log(response); // 업데이트 성공한 경우 콘솔에 출력 (디버깅용)
-
-                // 수정 완료 버튼과 취소 버튼 삭제
-                targetRow.find('.btn_edit').html('<button onclick="editRow(' + fighterSeq + ')">수정</button>'); // 수정 버튼이 들어갈 열 수정
-                targetRow.find('.btn_delete').html('<button onclick="deleteRow(' + fighterSeq + ')">삭제</button>'); // 삭제 버튼이 들어갈 열 수정
-                
-                $.ajax({
-                    url: './fighter/find_fighter.php?fighter_seq=' + fighterSeq,
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function (info) {
-                        // 수정된 데이터로 행 갱신
-                        var tds = $(targetRow).find('td');
-                        for (var i = 1; i < tds.length - 5; i++) { // 수정날짜를 제외한 열에 대해서만 반복
-                            let className = $(tds.eq(i)).attr("class");
-                            
-                            if(className == 'birth'){
-                                if(info['birth'] == ""){
-                                    tds.eq(i).html('');
-                                }else{
-                                    tds.eq(i).html(info['birth']+ " : " +info['calculatedAge']);
-                                }
-                            }else{
-                                tds.eq(i).html(info[className]);
-                            }
-                        }
-                        var currentDate = new Date(); // 현재 날짜 및 시간 가져오기
-                        var year = currentDate.getFullYear();
-                        var month = String(currentDate.getMonth() + 1).padStart(2, '0');
-                        var day = String(currentDate.getDate()).padStart(2, '0');
-                        var hours = String(currentDate.getHours()).padStart(2, '0');
-                        var minutes = String(currentDate.getMinutes()).padStart(2, '0');
-                        var seconds = String(currentDate.getSeconds()).padStart(2, '0');
-                        var formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-                        tds.eq(tds.length - 3).html(formattedDate);
-
-                        tds.eq(tds.length - 4).html(info[$(tds.eq(tds.length - 4)).attr("class")]); //연락처 행
-                    },
-                    error: function (error) {
-                        console.error('API 호출 실패:', error);
-                    }
-                });
+                location.reload();
             },
             error: function(error) {
                 console.error('Error updating data:', error);
@@ -616,14 +598,9 @@ echo "</script>";
     }
 
     // 선수정보 삭제버튼 
-    function deleteRow(fighterSeq) {
-        if(confirm("삭제하시겠습니까?")){
-            var tds = $(event.target).closest('tr').find('td');
-            var targetTr =  $(event.target).closest('tr');
-
-            // fighterSeq는 첫 번째 td에 있을 것으로 가정
-            fighterSeq = tds.eq(0).text();
-
+    function deleteRow(fighterSeq, fighterName) {
+        if(confirm(fighterName+" 선수를 삭제하시겠습니까?")){
+           
             // 여기서 AJAX 호출로 delete_team.php를 호출하여 삭제 처리를 수행
             $.ajax({
                 type: 'POST',
@@ -631,10 +608,7 @@ echo "</script>";
                 data: { fighterSeq: fighterSeq },
                 success: function(response) {
                     // 서버에서 삭제 성공한 경우
-                    console.log(response); // 삭제 성공한 경우 콘솔에 출력 (디버깅용)
-
-                    // 삭제 성공 후 테이블에서 해당 행을 제거
-                    targetTr.remove();
+                    location.reload();
                 },
                 error: function(error) {
                     console.error('Error deleting data:', error);
@@ -648,64 +622,65 @@ echo "</script>";
 
     // 입력 버튼 클릭 시 호출되는 함수
     function addRow() {
-        var newRow = $('<tr>');
+        // var newRow = $('<tr>');
 
-        // 팀번호는 자동 증가 형태로 구현
-        newRow.append('<td>자동 생성</td>');
-        newRow.append('<td class="fighter_name"><input type="text"></td>'); 
-        newRow.append('<td class="fighter_ringname"><input type="text"></td>'); 
-        newRow.append('<td class="team_seq" style="display:none"><input type="text" id="input-teamSeq"</td>'); 
-        newRow.append(`<td class="team_name">
-                            <input type="text" id="search" placeholder="팀이름을 입력하세요." autocomplete="off"/>
-                            <!-- 자동완성 단어 리스트 -->
-                            <div class="autocomplete"></div>
-                        </td>`);
-        newRow.append('<td class="birth"><input type="text"></td>'); 
-        newRow.append('<td class="insta_id"><input type="text"></td>'); 
-        newRow.append('<td class="height"><input type="text"></td>'); 
-        newRow.append('<td class="weight"><input type="text"></td>'); 
-        newRow.append('<td class="win"><input type="text"></td>'); 
-        newRow.append('<td class="lose"><input type="text"></td>'); 
-        newRow.append('<td class="draw"><input type="text"></td>'); 
-        newRow.append('<td>-</td>');
-        newRow.append('<td>-</td>'); 
-        newRow.append('<td class="tel"><input type="text"></td>'); 
-        // 수정날짜는 입력 시간으로 고정
-        newRow.append('<td>' + getCurrentDateTime() + '</td>');
+        // // 팀번호는 자동 증가 형태로 구현
+        // newRow.append('<td>자동 생성</td>');
+        // newRow.append('<td class="fighter_name"><input type="text"></td>'); 
+        // newRow.append('<td class="fighter_ringname"><input type="text"></td>'); 
+        // newRow.append('<td class="team_seq" style="display:none"><input type="text" id="input-teamSeq"</td>'); 
+        // newRow.append(`<td class="team_name">
+        //                     <input type="text" id="search" placeholder="팀이름을 입력하세요." autocomplete="off"/>
+        //                     <!-- 자동완성 단어 리스트 -->
+        //                     <div class="autocomplete"></div>
+        //                 </td>`);
+        // newRow.append('<td class="birth"><input type="text"></td>'); 
+        // newRow.append('<td class="insta_id"><input type="text"></td>'); 
+        // newRow.append('<td class="height"><input type="text"></td>'); 
+        // newRow.append('<td class="weight"><input type="text"></td>'); 
+        // newRow.append('<td class="win"><input type="text"></td>'); 
+        // newRow.append('<td class="lose"><input type="text"></td>'); 
+        // newRow.append('<td class="draw"><input type="text"></td>'); 
+        // newRow.append('<td>-</td>');
+        // newRow.append('<td>-</td>'); 
+        // newRow.append('<td class="tel"><input type="text"></td>'); 
+        // // 수정날짜는 입력 시간으로 고정
+        // newRow.append('<td>' + getCurrentDateTime() + '</td>');
 
-        // 입력 완료 버튼 생성 및 클릭 이벤트 등록
-        var addButton = $('<button>입력완료</button>').click(function() {
-            addData(newRow);
-        });
-        newRow.append($('<td>').append(addButton));
+        // // 입력 완료 버튼 생성 및 클릭 이벤트 등록
+        // var addButton = $('<button>입력완료</button>').click(function() {
+        //     addData(newRow);
+        // });
+        // newRow.append($('<td>').append(addButton));
 
-        // 취소 버튼 생성 및 클릭 이벤트 등록
-        var cancelButton = $('<button>취소</button>').click(function() {
-            cancelAddRow(newRow);
-        });
-        newRow.append($('<td>').append(cancelButton));
+        // // 취소 버튼 생성 및 클릭 이벤트 등록
+        // var cancelButton = $('<button>취소</button>').click(function() {
+        //     cancelAddRow(newRow);
+        // });
+        // newRow.append($('<td>').append(cancelButton));
 
-        // 테이블에 새로운 행 추가
-        $('table').append(newRow);
-        applyAutoComplete();
+        // // 테이블에 새로운 행 추가
+        // $('table').append(newRow);
+        // applyAutoComplete();
     }
 
     // 입력 완료 버튼 클릭 시 호출되는 함수
-    function addData(newRow) {
+    function addData() {
         // 새로 입력한 데이터를 가져와서 AJAX로 서버에 추가 요청
+
         var newTeamData = {
             fighter_type: '<?= $fighterTypeNum ?>',            
-            fighter_name: newRow.find('.fighter_name').find('input').val(),
-            fighter_ringname: newRow.find('.fighter_ringname').find('input').val(),
-            team_seq: newRow.find('.team_seq').find('input').val(),
-            birth: newRow.find('.birth').find('input').val(),
-            insta_id: newRow.find('.insta_id').find('input').val(),
-            height: newRow.find('.height').find('input').val(),
-            weight: newRow.find('.weight').find('input').val(),
-            win: newRow.find('.win').find('input').val(),
-            lose: newRow.find('.lose').find('input').val(),
-            draw: newRow.find('.draw').find('input').val(),
-            tel: newRow.find('.tel').find('input').val(),
+            fighter_name: $("#fighter_name").val(),
+            fighter_ringname: $("#fighter_ringname").val(),
+            team_seq:  $("#team_seq").val(),
+            birth: $("#birth").val(),
+            insta_id: $("#insta_id").val(),
+            height: $("#height").val(),
+            weight: $("#weight").val(),
+            win: $("#win").val(),
+            lose: $("#lose").val(),
+            draw: $("#draw").val(),
+            tel:  $("#tel").val()
         };
 
         if(!validCheck(newTeamData)){
@@ -776,23 +751,24 @@ echo "</script>";
     }
 
     // 취소 버튼 클릭 시 호출되는 함수
-    function cancelAddRow(newRow) {
-        // 새로 추가한 행 삭제
-        newRow.remove();
-    }
+    // function cancelAddRow(newRow) {
+    //     // 새로 추가한 행 삭제
+    //     newRow.remove();
+    // }
 
     // 현재 날짜 및 시간을 가져오는 함수
-    function getCurrentDateTime() {
-        var currentDate = new Date();
-        var year = currentDate.getFullYear();
-        var month = String(currentDate.getMonth() + 1).padStart(2, '0');
-        var day = String(currentDate.getDate()).padStart(2, '0');
-        var hours = String(currentDate.getHours()).padStart(2, '0');
-        var minutes = String(currentDate.getMinutes()).padStart(2, '0');
-        var seconds = String(currentDate.getSeconds()).padStart(2, '0');
-        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-    }
+    // function getCurrentDateTime() {
+    //     var currentDate = new Date();
+    //     var year = currentDate.getFullYear();
+    //     var month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    //     var day = String(currentDate.getDate()).padStart(2, '0');
+    //     var hours = String(currentDate.getHours()).padStart(2, '0');
+    //     var minutes = String(currentDate.getMinutes()).padStart(2, '0');
+    //     var seconds = String(currentDate.getSeconds()).padStart(2, '0');
+    //     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    // }
 
+    //사진 편집버튼 이벤트
     function editClick(el){
         if (confirm("이미지 선택 시 이미지가 즉시 교체됩니다. 계속하시겠습니까?")) {
             // 파일 선택 창 열기
@@ -801,6 +777,7 @@ echo "</script>";
         }
     }
 
+    //사진 업로드 프로세스
     function editProcess(el, seq, type){
         console.log(el.files[0]);
         console.log(seq,type);
@@ -809,20 +786,20 @@ echo "</script>";
                 
         // FormData 객체 생성
         var formData = new FormData();
-        formData.append("fileToUpload", file);
+        
         formData.append("fighter_seq", seq);
         formData.append("photo_type", type);
+        formData.append("uploadFile", file);
 
-
-        // Ajax로 파일 업로드 처리
         $.ajax({
-            url: "./fighter/photo_upload.php",
+            url: "./fighter/photo_upload_test.php",
             type: "POST",
             data: formData,
             processData: false,
             contentType: false,
             success: function(response) {
-                location.reload();
+                // location.reload();
+                console.log(response);
             },
             error: function(error) {
                 console.error("Error uploading file:", error);
@@ -831,12 +808,12 @@ echo "</script>";
     }
 
 
-    function openModal(base64ImageData) {
+    function openModal(src) {
         // 모달 표시
         var modal = document.getElementById('myModal');
         var modalImg = document.getElementById("imgModal");
         modal.style.display = "block";
-        modalImg.src = 'data:image/png;base64,' + base64ImageData;
+        modalImg.src = src;
 
         // 닫기 버튼 이벤트 처리
         var span = document.getElementsByClassName("close")[0];
@@ -845,36 +822,79 @@ echo "</script>";
         }
     }
 
-    function showCreateModal() {
-        $("#modal-submit").off("click");
+    function showFighterInfoModal(action,fighterSeq) {
+        if(action === 'register'){
+            $("#modal-submit").off("click");
+            
+            $("#fighter_seq").val("");
+            $("#fighter_name").val("");
+            $("#fighter_ringname").val("");
+
+            $("#team_seq").val("");
+            $("#team_name").val("");
+
+            $("#birth").val("");
+            $("#insta_id").val("");
+            $("#tel").val("");
+
+            $("#height").val("");
+            $("#weight").val("");
+            $("#win").val("");
+            $("#lose").val("");
+            $("#draw").val("");
+
+            applyAutoComplete();
+            
+            $("#modal-submit").text("등록");
+            $("#modal-submit").on("click", () => {
+                //TODO 수정
+                // createFightHistory();
+                addData();
+            })
+        }else if(action === 'update'){
+            $.ajax({
+                url: './fighter/find_fighter.php?fighter_seq=' + fighterSeq,
+                type: 'GET',
+                dataType: 'json',
+                success: function (info) {
+                    console.log(info);
+
+
+                    $("#modal-submit").off("click");
+            
+                    $("#fighter_seq").val(fighterSeq);
+                    $("#fighter_name").val(info['fighter_name']);
+                    $("#fighter_ringname").val(info['fighter_ringname']);
+
+                    $("#team_seq").val(info['team_seq']);
+                    $("#team_name").val(info['team_name']);
+
+                    $("#birth").val(info['birth']);
+                    $("#insta_id").val(info['insta_id']);
+                    $("#tel").val(info['tel']);
+
+                    $("#height").val(info['height']);
+                    $("#weight").val(info['weight']);
+                    $("#win").val(info['win']);
+                    $("#lose").val(info['lose']);
+                    $("#draw").val(info['draw']);
+
+                    applyAutoComplete();
+                    
+                    $("#modal-submit").text("수정");
+                    $("#modal-submit").on("click", () => {
+                        //TODO 수정
+                        // createFightHistory();
+                        updateRow(fighterSeq);
+                    })
+                    
+                },
+                error: function (error) {
+                    console.error('API 호출 실패:', error);
+                }
+            });
+        }
         
-        $("#fighter_seq").val("");
-        $("#fighter_name").val("");
-        $("#fighter_ringname").val("");
-
-        $("#team_seq").val("");
-        $("#team_name").val("");
-
-        $("#birth").val("");
-        $("#insta_id").val("");
-        $("#tel").val("");
-
-        $("#height").val("");
-        $("#weight").val("");
-        $("#win").val("");
-        $("#lose").val("");
-        $("#draw").val("");
-
-        $("#img_ranking button").prop('disabled',true);
-        $("#img_detail button").prop('disabled',true);
-
-        applyAutoComplete();
-        
-        $("#modal-submit").text("등록");
-        $("#modal-submit").on("click", () => {
-            //TODO 수정
-            createFightHistory();
-        })
 
         $("#exampleModal").modal('show'); 
     }

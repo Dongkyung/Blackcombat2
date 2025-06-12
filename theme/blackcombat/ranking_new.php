@@ -11,11 +11,10 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/ranking.css"
 
 $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
 ?>
-
     <div class="sub_visual">
         <div class="sub_visual_items">
             <div class="sub_visual_caption">
-                <div class="category">RANKING_NEW</div>
+                <div class="category">RANKING</div>
             </div>
         </div>
     </div>
@@ -25,13 +24,13 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                 <div class="ranking_category">
                     <ul>
                         <li>
-                            <a href="<?php echo G5_URL ?>/ranking_new.php?type=fighter" class="<?php echo $type == 'fighter' ? 'active' : ''; ?>">Fighter</a>
+                            <a href="<?php echo G5_URL ?>/ranking.php?type=fighter" class="<?php echo $type == 'fighter' ? 'active' : ''; ?>">FIGHTER</a>
                         </li>
                         <li>
-                            <a href="<?php echo G5_URL ?>/ranking_new.php?type=team" class="<?php echo $type == 'team' ? 'active' : ''; ?>">Team</a>
+                            <a href="<?php echo G5_URL ?>/ranking.php?type=team" class="<?php echo $type == 'team' ? 'active' : ''; ?>">TEAM</a>
                         </li>
                         <li>
-                            <a href="<?php echo G5_URL ?>/ranking_new.php?type=semi_pro" class="<?php echo $type == 'semi_pro' ? 'active' : ''; ?>">Semi-Pro</a>
+                            <a href="<?php echo G5_URL ?>/ranking.php?type=semi_pro" class="<?php echo $type == 'semi_pro' ? 'active' : ''; ?>">SEMI-PRO</a>
                         </li>
                     </ul>
                 </div>
@@ -41,7 +40,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                 <?php } else if ($type == 'semi_pro') { ?>
                     <? include_once(G5_THEME_PATH.'/ranking_semi_pro_contents_new.php'); ?>
                 <?php } else { ?>
-                    <? include_once(G5_THEME_PATH.'/ranking_team_new.php'); ?>
+                    <? include_once(G5_THEME_PATH.'/ranking_team.php'); ?>
                 <?php } ?>
             </div>
         </div>

@@ -1131,3 +1131,8 @@ input[type="text"]{max-width:200px}
 /* Styles */
 input[type="text"]{max-width:200px}
 }
+
+
+.gnb_oparea ul {
+    padding-left: unset !important;
+}

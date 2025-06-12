@@ -23,7 +23,7 @@ $sql = "SELECT
             ,base.win 
             ,base.lose
             ,base.draw 
-            ,base.detailImageBin
+            ,base.detail_image_name
             ,base.fighter_type 
         FROM 
             tb_fighter_base base
@@ -37,7 +37,7 @@ $calculatedAge = age($row["birth"]);
 
 
 
-$base64ImageDataDetail = base64_encode($row['detailImageBin']);
+$detailImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$page."/".$row['detail_image_name'];
 
 $divisionSql = "SELECT ranking.division, ranking.ranking, ranking.ranking_type
                 FROM tb_fighter_ranking ranking
@@ -47,6 +47,7 @@ $divisionResult = sql_query($divisionSql);
 
 $historySql = "SELECT
     event.event_name_short as game_name 
+    , event.event_seq
     , his.player1
     , base1.fighter_name as player1_name
     , his.player2
@@ -155,7 +156,9 @@ sql_query($viewCountUpdateSql);
                                         $historyIndex++; ?>
                                         <li class="<? if($historyIndex > 4){ echo 'hidden'; } ?>">
                                             <div style="text-align:left; flex:0 0 auto;">
-                                                <b><span <? if(!(strpos($historyRow['game_name'], "블랙컴뱃") !== false)){ echo "style='color:rgba(255, 255, 255, 0.6)'"; } ?> class='game_name'><?= $historyRow['game_name'] ?> : </span></b> 
+                                                <a href="https://www.blackcombat-official.com/eventDetail.php?eventSeq=<?=$historyRow['event_seq']?>" style="color:#FFFFFF">
+                                                    <b><span <? if(!(strpos($historyRow['game_name'], "블랙컴뱃") !== false)){ echo "style='color:rgba(255, 255, 255, 0.6)'"; } ?> class='game_name'><?= $historyRow['game_name'] ?> : </span></b> 
+                                                </a>
                                             </div>
                                             <div style="flex:0 0 auto;">
                                             <? 
@@ -190,7 +193,7 @@ sql_query($viewCountUpdateSql);
                             </div>
                         </div>
                         <div class="fighter_img">
-                            <img src='data:image/png;base64,<?=$base64ImageDataDetail ?>' 
+                            <img src='<?=$detailImgPath ?>' 
                                 onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter/fighter_full_blank.png'"
                             />  
                         </div>

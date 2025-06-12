@@ -6,3 +6,4 @@
 5. script_nXX 파일에서 MUST CHECK .1 , 2, 3 을 찾아서 조치해준다.
 6. theme\blackcombat\shop\ajax.action.php 파일에서 최상단에 $it_id_for_seat 변수에다가 현재 대회ID를 입력한다.
 7. theme\blackcombat\shop\seatChoiceVersion\에서 방금 만든 파일에다가 좌석표 그린다
+

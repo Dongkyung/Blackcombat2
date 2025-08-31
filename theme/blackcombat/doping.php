@@ -16,11 +16,13 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : '1';
 $tabItems = array(
     '1' => '',
     '2' => '',
+    '3' => '',
 );
 
 $tabNameMap = array(
     '1' => '정보',
-    '2' => '양성명단',
+    '2' => '검사이력',
+    '3' => '양성명단',
 );
 
 if (array_key_exists($tab, $tabItems)) {
@@ -333,6 +335,33 @@ if (array_key_exists($tab, $tabItems)) {
                     *Please submit all documents to brandaidkr@gmail.com
                 </div>
 <? }else if($tab === '2') { ?>
+                <div class="doping-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width:10%">대회명</th>
+                                <th style="width:30%;">검사내용</th>
+                                <th style="width:10%">결과</th>
+                                <th style="width:10%">기록날짜</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>블랙컴뱃15 </td>
+                                <td>총 10명 불시 검문 실시</td>
+                                <td>전원 음성</td>
+                                <td>2025.08.19</td>
+                            </tr>
+                            <tr>
+                                <td>블랙컴뱃14 </td>
+                                <td>총 6명 불시 검문 실시</td>
+                                <td>전원 음성</td>
+                                <td>2025.05.03</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+<? }else if($tab === '3') { ?>
                 <div class="doping-list">
                     <table>
                         <thead>

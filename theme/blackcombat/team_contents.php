@@ -99,7 +99,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
         LEFT JOIN tb_fighter_ranking ranking 
         ON base.fighter_seq = ranking.fighter_seq
         INNER JOIN tb_champion_history champ
-        ON base.fighter_seq = champ.fighter_seq
+        ON base.fighter_seq = champ.fighter_seq AND champ.division = ranking.division
     WHERE base.team_seq = $page;";
 
  $champHistoryResult = sql_query($champHistorySeq);
@@ -112,7 +112,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                                     <b><span class="winner_name" style="width:60px; display: inline-block;" ><?= $champRow['division'] ?> </span></b>
                                                     <b><span style="width:30px; display: inline-block;" ><?= $champRow['order'] ?>&nbsp;대 </span></b>
                                                     <b><span style="width:50px; display: inline-block;" > 방어 : <?= $champRow['defend'] ?>&nbsp; </span></b>
-                                                    <a href="https://www.blackcombat-official.com/fighter.php?page=<?= $champRow['fighter_seq'] ?>" style="color:white;">
+                                                    <a href="https://www.blackcombat-official.com/fighter/<?= $champRow['fighter_seq'] ?>" style="color:white;">
                                                         <b><span><?= $champRow['fighter_name'] ?>&nbsp;&nbsp;(&nbsp;&nbsp;<?= $champRow['fighter_ringname'] ?>&nbsp;&nbsp;)</span></b>
                                                     </a>
                                                 </li>
@@ -132,7 +132,8 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                 <? } ?>
                             </div>
                         </div>
-                        <div class="team_fighter_info" style="display: flex;flex-direction: row; flex-wrap: wrap; gap: 60px; color:white; margin-top:30px;">
+                        <div class="team_fighter_info" style="display: flex;flex-direction: row; flex-wrap: wrap; color:white; margin-top:30px;">
+                            <div class="division_group">
                                 <div class="fighter_match">
                                     <div class="match_title">
                                         Fly Weight
@@ -165,7 +166,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
     <? }else{ ?>
         <? while ($fighterRow = sql_fetch_array($fighterSearchResult)) { ?>
                                             <li style="display:flex;">
-                                                <a href="https://www.blackcombat-official.com/fighter.php?page=<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
+                                                <a href="https://www.blackcombat-official.com/fighter/<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
                                                     <div>
                                                         <b>
                                                             <? if($fighterRow['ranking_type'] === '2'){ ?>
@@ -216,7 +217,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
     <? }else{ ?>
         <? while ($fighterRow = sql_fetch_array($fighterSearchResult)) { ?>
                                             <li style="display:flex;">
-                                                <a href="https://www.blackcombat-official.com/fighter.php?page=<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
+                                                <a href="https://www.blackcombat-official.com/fighter/<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
                                                     <div>
                                                         <b>
                                                             <? if($fighterRow['ranking_type'] === '2'){ ?>
@@ -267,7 +268,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
     <? }else{ ?>
         <? while ($fighterRow = sql_fetch_array($fighterSearchResult)) { ?>
                                             <li style="display:flex;">
-                                                <a href="https://www.blackcombat-official.com/fighter.php?page=<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
+                                                <a href="https://www.blackcombat-official.com/fighter/<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
                                                     <div>
                                                         <b>
                                                             <? if($fighterRow['ranking_type'] === '2'){ ?>
@@ -288,6 +289,8 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         </ul>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="division_group">
                                 <div class="fighter_match">
                                     <div class="match_title">
                                         Light Weight
@@ -318,7 +321,58 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
     <? }else{ ?>
         <? while ($fighterRow = sql_fetch_array($fighterSearchResult)) { ?>
                                             <li style="display:flex;">
-                                                <a href="https://www.blackcombat-official.com/fighter.php?page=<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
+                                                <a href="https://www.blackcombat-official.com/fighter/<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
+                                                    <div>
+                                                        <b>
+                                                            <? if($fighterRow['ranking_type'] === '2'){ ?>
+                                                                <span style="background-color: #4477ff; font-size: 0.8rem; line-height: 7px; padding: 4px; border-radius: 13px; display: inline-block; height: 16px; width: 16px;" >A</span>
+                                                            <? } ?>
+                                                            <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
+                                                        </b>
+                                                        <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
+                                                    </div>
+                                                    ─
+                                                    <div style="font-size:0.7rem;">
+                                                        <span class="winner_name" style="font-size:1rem; line-height: 1rem;"><?= $fighterRow['win'] ?></span> / <?= $fighterRow['lose'] ?> / <?= $fighterRow['draw'] ?>
+                                                    </div>
+                                                </a>
+                                            </li>
+        <? } ?>
+    <? } ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="fighter_match">
+                                    <div class="match_title">
+                                        Welter Weight
+                                    </div>
+                                    <div class="match_list">
+                                        <ul>
+<?
+    $fighterSearchSql = "SELECT 
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
+            FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
+            WHERE base.team_seq = $page AND ranking.division = '웰터급' ORDER BY CAST(ranking AS UNSIGNED)";
+    $fighterSearchResult = sql_query($fighterSearchSql);
+    $numRows = mysqli_num_rows($fighterSearchResult);
+
+    if($numRows === 0){ ?>
+                                             <li style="display:flex;">
+                                                <a style="color:white; display:flex; gap:10px;">
+                                                    <div>
+                                                        <b><span class="winner_name">&nbsp &nbsp</span></b>
+                                                        <b><span>등록된 선수가 없습니다.</span></b>
+                                                    </div>
+                                                    &nbsp &nbsp
+                                                    <div style="font-size:0.7rem;">
+                                                        <span class="winner_name" style="font-size:1rem; line-height: 1rem;">&nbsp &nbsp</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+    <? }else{ ?>
+        <? while ($fighterRow = sql_fetch_array($fighterSearchResult)) { ?>
+                                            <li style="display:flex;">
+                                                <a href="https://www.blackcombat-official.com/fighter/<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
                                                     <div>
                                                         <b>
                                                             <? if($fighterRow['ranking_type'] === '2'){ ?>
@@ -369,7 +423,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
     <? }else{ ?>
         <? while ($fighterRow = sql_fetch_array($fighterSearchResult)) { ?>
                                             <li style="display:flex;">
-                                                <a href="https://www.blackcombat-official.com/fighter.php?page=<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
+                                                <a href="https://www.blackcombat-official.com/fighter/<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
                                                     <div>
                                                         <b>
                                                             <? if($fighterRow['ranking_type'] === '2'){ ?>
@@ -390,6 +444,8 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         </ul>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="division_group">
                                 <div class="fighter_match">
                                     <div class="match_title">
                                         Heavy Weight
@@ -420,7 +476,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
     <? }else{ ?>
         <? while ($fighterRow = sql_fetch_array($fighterSearchResult)) { ?>
                                             <li style="display:flex;">
-                                                <a href="https://www.blackcombat-official.com/fighter.php?page=<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
+                                                <a href="https://www.blackcombat-official.com/fighter/<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
                                                     <div>
                                                         <b>
                                                             <? if($fighterRow['ranking_type'] === '2'){ ?>
@@ -471,7 +527,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
     <? }else{ ?>
         <? while ($fighterRow = sql_fetch_array($fighterSearchResult)) { ?>
                                             <li style="display:flex;">
-                                                <a href="https://www.blackcombat-official.com/fighter.php?page=<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
+                                                <a href="https://www.blackcombat-official.com/fighter/<?= $fighterRow['fighter_seq'] ?>" style="color:white; display:flex; gap:10px;">
                                                     <div>
                                                         <b>
                                                             <? if($fighterRow['ranking_type'] === '2'){ ?>
@@ -492,6 +548,9 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         </ul>
                                     </div>
                                 </div>
+                                <div class="fighter_match">
+                                </div>
+                            </div>
                                 
                         </div>
                         

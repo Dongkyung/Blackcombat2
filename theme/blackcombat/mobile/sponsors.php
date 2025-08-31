@@ -43,13 +43,25 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_spons
                     </div>
                     <div class="sponsors_list_item">
                         <div class="sponsors_list_logo">
-                            <a href="https://w-z.kr/" style="    padding: 20px;" target="_blank">
+                            <a href="https://w-z.kr/" style="padding: 20px;" target="_blank">
                                 <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_wzbio.png"/>
                             </a>
                         </div>
                         <div class="sponsors_list_caption">
                             <div class="sponsors_list_info">
                             건강하고 좋은 원료에 대한 고집으로<br /> 모든 순간이 빛나는 아름다움을 선물하다.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sponsors_list_item">
+                        <div class="sponsors_list_logo">
+                            <a href="https://www.j-talk.co.kr/" style="padding: 20px;" target="_blank">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsors_jtalk.png"/>
+                            </a>
+                        </div>
+                        <div class="sponsors_list_caption">
+                            <div class="sponsors_list_info">
+                            정책자금 컨설턴트 1:1 매칭 플랫폼
                             </div>
                         </div>
                     </div>
@@ -107,13 +119,13 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/mobile_spons
                     </div>
                     <div class="sponsors_list_item">
                         <div class="sponsors_list_logo">
-                            <a href="https://www.cgv.co.kr/" target="_blank">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_cgv.png" />
+                            <a href="https://bndh.co.kr/" target="_blank">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsors_bnd.png" />
                             </a>
                         </div>
                         <div class="sponsors_list_caption">
                             <div class="sponsors_list_info">
-                            '영화 그 이상의 감동’ , CGV 
+                            피부클리닉, 성형외과, 치과 분야를 통합 진료하는 전문 병원
                             </div>
                         </div>
                     </div>

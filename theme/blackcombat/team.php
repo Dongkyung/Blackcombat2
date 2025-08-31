@@ -46,6 +46,18 @@ $page = $_GET['page'];
             width: 100%;
             justify-content: space-between;
         }
+        .team_fighter_info{
+            gap: 60px;
+        }
+        .division_group{
+            display: flex; 
+            justify-content: space-between;  
+            width: 100%;
+        }
+
+        .fighter_page .fighter_match{
+            flex: 1 1 0;
+        }
 
     </style>
     

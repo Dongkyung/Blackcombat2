@@ -119,7 +119,7 @@ $result = sql_query($sql);
     });
  
     function moveToPlayerPage(fighterSeq){
-        window.open('https://www.blackcombat-official.com/fighter.php?page='+fighterSeq, '_blank');
+        window.open('https://www.blackcombat-official.com/fighter/'+fighterSeq, '_blank');
     }
 
     

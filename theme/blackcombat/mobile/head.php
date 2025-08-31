@@ -229,7 +229,7 @@ if ($ticket_row) {
                             message += data.resultArray.map(item => item.fighter_name + " (" + item.fighter_ringname + ")").join("\n -");
                             alert(message);
                         }else{
-                            location.href="https://www.blackcombat-official.com/fighter.php?page="+data.resultArray[0].fighter_seq;
+                            location.href="https://www.blackcombat-official.com/fighter/"+data.resultArray[0].fighter_seq;
                         }
                     },
                     error : function(request, status, error){

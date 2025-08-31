@@ -229,7 +229,7 @@ echo "</script>";
         // $base64ImageDataRanking = base64_encode($row['rankingImageBin']);
         // $base64ImageDataDetail = base64_encode($row['detailImageBin']);
         echo "<tr class='fighter_".$row["fighter_seq"] ."'>";
-        echo "<td class='fighter_seq'>" . $row["fighter_seq"] . "</td>";
+        echo "<td class='fighter_seq'><a href='/fighter/" . $row["fighter_seq"] . "' target='_blank'>" . $row["fighter_seq"] . "</a></td>";
         echo "<td class='fighter_name'>" . $row["fighter_name"] . "</td>";
         echo "<td class='fighter_ringname'>" . $row["fighter_ringname"] . "</td>";
         echo "<td class='team_seq' style='display:none'>" . $row["team_seq"] . "</td>";
@@ -248,7 +248,7 @@ echo "</script>";
         echo "<td class='img_ranking' style='text-align:center'>
                 <img width='30px' onclick='openModal(\"https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name']."\")' style='cursor:pointer'
                     src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name']."' 
-                    onerror=\"this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'\"
+                    onerror=\"this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'\"
                 />
                 <button onclick=editClick(this)>편집</button>
                 <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=\"editProcess(this,'".$row["fighter_seq"]."','ranking')\">
@@ -256,7 +256,7 @@ echo "</script>";
         echo "<td class='img_detail' style='text-align:center'>
                 <img width='30px' onclick='openModal(\"https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['rankingChamp_image_name']."\")' style='cursor:pointer'
                     src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['rankingChamp_image_name']."' 
-                    onerror=\"this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'\"
+                    onerror=\"this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'\"
                 />
                 <button onclick=editClick(this)>편집</button>
                 <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=\"editProcess(this,'".$row["fighter_seq"]."','rankingChamp')\">
@@ -264,7 +264,7 @@ echo "</script>";
         echo "<td class='img_detail' style='text-align:center'>
                 <img width='30px' onclick='openModal(\"https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['detail_image_name']."\")' style='cursor:pointer'
                 src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['detail_image_name']."' 
-                    onerror=\"this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter/fighter_full_blank.png'\"
+                    onerror=\"this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_full_blank.png'\"
                 />
                 <button onclick=editClick(this)>편집</button>
                 <input style='display:none' type='file' name='fileToUpload' class='fileToUpload' onchange=\"editProcess(this,'".$row["fighter_seq"]."','detail')\">
@@ -348,6 +348,17 @@ echo "</script>";
                         <input style="flex: 1 1 0" class="form-control" id="draw" placeholder="무">
                     </div>
                 </div>
+
+                <div class="data-row">
+                    <div style="display:flex">
+                        <span style="flex: 1 1 0">등장곡 명</span>
+                        <span style="flex: 1 1 0">등장곡 Youtube URL</span>
+                    </div>
+                    <div style="display:flex">
+                        <input style="flex: 1 1 0" class="form-control" id="music_name" placeholder="등장곡 명">
+                        <input style="flex: 1 1 0" class="form-control" id="music_url" placeholder="등장곡 Youtube URL">
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" id="modal-cancel" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
@@ -359,9 +370,20 @@ echo "</script>";
 
 
 <script type="text/javascript">
+    let state = JSON.parse(localStorage.getItem('datatableState'));
     let table = new DataTable('#myTable', {
         pageLength: 25,
+        order: state?.order ?? [],
     });
+
+    if(state){
+        if (state?.search) table.search(state.search).draw();
+        if (state?.page) table.page(state.page).draw(false);
+        localStorage.removeItem('datatableState');
+    }
+    
+
+
     let $autoComplete;
     function applyAutoComplete(){
         //자동완성기능
@@ -574,7 +596,9 @@ echo "</script>";
             win: $("#win").val(),
             lose: $("#lose").val(),
             draw: $("#draw").val(),
-            tel:  $("#tel").val()
+            tel:  $("#tel").val(),
+            music_name:  $("#music_name").val(),
+            music_url:  $("#music_url").val()
         };
 
         if(!validCheck(updatedData)){
@@ -588,6 +612,7 @@ echo "</script>";
             success: function(response) {
                 // 서버에서 업데이트 성공한 경우
                 console.log(response); // 업데이트 성공한 경우 콘솔에 출력 (디버깅용)
+                saveDatatableState()
                 location.reload();
             },
             error: function(error) {
@@ -608,6 +633,7 @@ echo "</script>";
                 data: { fighterSeq: fighterSeq },
                 success: function(response) {
                     // 서버에서 삭제 성공한 경우
+                    saveDatatableState();
                     location.reload();
                 },
                 error: function(error) {
@@ -680,7 +706,9 @@ echo "</script>";
             win: $("#win").val(),
             lose: $("#lose").val(),
             draw: $("#draw").val(),
-            tel:  $("#tel").val()
+            tel:  $("#tel").val(),
+            music_name:  $("#music_name").val(),
+            music_url:  $("#music_url").val()
         };
 
         if(!validCheck(newTeamData)){
@@ -694,6 +722,7 @@ echo "</script>";
             success: function(response) {
                 // 서버에서 추가 성공한 경우
                 console.log(response); // 추가 성공한 경우 콘솔에 출력 (디버깅용)
+                saveDatatableState();
                 location.reload();
             },
             error: function(error) {
@@ -792,14 +821,15 @@ echo "</script>";
         formData.append("uploadFile", file);
 
         $.ajax({
-            url: "./fighter/photo_upload_test.php",
+            url: "./fighter/photo_upload_file.php",
             type: "POST",
             data: formData,
             processData: false,
             contentType: false,
             success: function(response) {
-                // location.reload();
                 console.log(response);
+                saveDatatableState();
+                location.reload();
             },
             error: function(error) {
                 console.error("Error uploading file:", error);
@@ -843,6 +873,9 @@ echo "</script>";
             $("#lose").val("");
             $("#draw").val("");
 
+            $("#music_name").val("");
+            $("#music_url").val("");
+
             applyAutoComplete();
             
             $("#modal-submit").text("등록");
@@ -879,6 +912,9 @@ echo "</script>";
                     $("#lose").val(info['lose']);
                     $("#draw").val(info['draw']);
 
+                    $("#music_name").val(info['music_name']);
+                    $("#music_url").val(info['music_url']);
+
                     applyAutoComplete();
                     
                     $("#modal-submit").text("수정");
@@ -897,6 +933,15 @@ echo "</script>";
         
 
         $("#exampleModal").modal('show'); 
+    }
+
+    function saveDatatableState(){
+        let state = {
+            search: table.search(),
+            order: table.order(),
+            page: table.page()
+        };
+        localStorage.setItem('datatableState', JSON.stringify(state));
     }
 
 </script>

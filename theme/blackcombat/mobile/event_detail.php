@@ -326,8 +326,8 @@ $row = mysqli_fetch_assoc($eventResult)
                                     <div style="flex:1 0 0; display:flex; font-size:1.5rem;">
                                         <div style="flex:1 0 0; display:flex; flex-direction:column; gap: 5px;">
                                             <div>
-                                                <a href="/fighter.php?page=<?= $hisRow["player1"] ?>" style="position:relative">
-                                                    <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" src='<? if($champ1Flag === 1){ echo $rankingChampImgPath1; }else{ echo $rankingImgPath1; } ?>' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'">
+                                                <a href="/fighter/<?= $hisRow["player1"] ?>" style="position:relative">
+                                                    <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" src='<? if($champ1Flag === 1){ echo $rankingChampImgPath1; }else{ echo $rankingImgPath1; } ?>' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'">
                                                     <? if($hisRow["result"] === 'N/C') { ?> <div style="position:absolute; bottom: 100%; left: calc(100% - 53px); width:45px;  bottom: 70px; background-color: #dddddd; font-size:0.8rem; padding:2px 10px; font-weight:bold;">N/C</div> <? } ?>
                                                     <? if($hisRow["player1"] === $hisRow["winner_player"]) { ?> <div style="position:absolute; bottom: 100%; left: calc(100% - 53px); width:45px; bottom: 70px; background-color: #ffba3c; font-size:0.8rem; padding:2px 10px; font-weight:bold;">Win</div> <? } ?>
                                                 </a>
@@ -346,8 +346,8 @@ $row = mysqli_fetch_assoc($eventResult)
                                         <div style="flex:1 0 0; display:flex; justify-content: center; align-items: center;">VS</div>
                                         <div style="flex:1 0 0; display:flex; flex-direction:column; gap:5px;">
                                             <div>
-                                                <a href="/fighter.php?page=<?= $hisRow["player2"] ?>" style="position:relative">
-                                                    <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" src='<? if($champ2Flag === 1){ echo $rankingChampImgPath2; }else{ echo $rankingImgPath2; } ?>' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'">
+                                                <a href="/fighter/<?= $hisRow["player2"] ?>" style="position:relative">
+                                                    <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" src='<? if($champ2Flag === 1){ echo $rankingChampImgPath2; }else{ echo $rankingImgPath2; } ?>' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'">
                                                     <? if($hisRow["result"] === 'N/C') { ?> <div style="position:absolute; bottom: 100%; left: calc(100% - 50px); width:45px; bottom: 70px; background-color: #dddddd; font-size:0.8rem; padding:2px 10px; font-weight:bold;">N/C</div> <? } ?>
                                                     <? if($hisRow["player2"] === $hisRow["winner_player"]) { ?> <div style="position:absolute; bottom: 100%; left: calc(100% - 50px); width:45px; bottom: 70px; background-color: #ffba3c; font-size:0.8rem; padding:2px 10px; font-weight:bold;">Win</div> <? } ?>
                                                 </a>

@@ -63,6 +63,18 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/sponsors.css
                             </div>
                         </div>
                     </div>
+                    <div class="sponsors_list_item">
+                        <div class="sponsors_list_logo">
+                            <a href="https://www.j-talk.co.kr/" style="padding: 20px;" target="_blank">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsors_jtalk.png"/>
+                            </a>
+                        </div>
+                        <div class="sponsors_list_caption">
+                            <div class="sponsors_list_info">
+                            정책자금 컨설턴트 1:1 매칭 플랫폼
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="sponsor_list_title">Sponsored by</div>
@@ -117,13 +129,13 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/sponsors.css
                     </div>
                     <div class="sponsors_list_item">
                         <div class="sponsors_list_logo">
-                            <a href="https://www.cgv.co.kr/" target="_blank">
-                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_cgv.png" />
+                            <a href="https://bndh.co.kr/" target="_blank">
+                                <img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsors_bnd.png" />
                             </a>
                         </div>
                         <div class="sponsors_list_caption">
                             <div class="sponsors_list_info">
-                            '영화 그 이상의 감동’ , CGV 
+                                피부클리닉, 성형외과, 치과 분야를 통합 진료하는 전문 병원
                             </div>
                         </div>
                     </div>

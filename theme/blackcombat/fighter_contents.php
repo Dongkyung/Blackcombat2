@@ -24,7 +24,9 @@ $sql = "SELECT
             ,base.lose
             ,base.draw 
             ,base.detail_image_name
-            ,base.fighter_type 
+            ,base.fighter_type
+            ,base.music_name 
+            ,base.music_url 
         FROM 
             tb_fighter_base base
             LEFT JOIN tb_team_base team
@@ -94,6 +96,35 @@ sql_query($viewCountUpdateSql);
         cursor:pointer;
     }
 
+    #album_container {
+      cursor: pointer;
+    }
+
+    #album {
+      width: 30px;
+      height: 30px;
+      background-image: url('https://www.blackcombat-official.com/theme/blackcombat/img/cd.png'); /* 원하는 이미지 */
+      background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      border-radius: 50%;
+    }
+
+    #album_title{
+        font-size:1rem;
+        font-weight:bold;
+        font-style:italic;
+    }
+
+    .spinning {
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
     
 </style>
 
@@ -103,6 +134,20 @@ sql_query($viewCountUpdateSql);
 
                     <div class="fighter_info">
                         <div class="fighter_data">
+
+                        <?php 
+                            if(!($row['music_name'] === null || $row['music_name'] === "")){
+                        ?>
+                            <div id="album_container" style="display:flex; margin-bottom:15px;">
+                                <div id="yt-container" style="display:none"></div>
+                                <div id="album"></div>
+                                <div id="album_title" style="margin-left:10px;"><?=$row['music_name']?></div>
+                            </div>
+                            
+                        <?php
+                            }
+                        ?>
+
                             <div class="data_tags">
 <? while ($divisionRow = sql_fetch_array($divisionResult)) { ?>
                                 <span><?=$divisionRow['division']?> #<? if($divisionRow['ranking'] === '0') { echo "C"; } else { echo $divisionRow['ranking']; }?></span>
@@ -151,17 +196,17 @@ sql_query($viewCountUpdateSql);
                                 </div>
                                 <div class="match_list">
                                     <ul>
-                                    <?  $historyIndex = 0;
+                                    <?php  $historyIndex = 0;
                                     while ($historyRow = sql_fetch_array($historyResult)) {
                                         $historyIndex++; ?>
-                                        <li class="<? if($historyIndex > 4){ echo 'hidden'; } ?>">
+                                        <li class="<?php if($historyIndex > 4){ echo 'hidden'; } ?>">
                                             <div style="text-align:left; flex:0 0 auto;">
                                                 <a href="https://www.blackcombat-official.com/eventDetail.php?eventSeq=<?=$historyRow['event_seq']?>" style="color:#FFFFFF">
                                                     <b><span <? if(!(strpos($historyRow['game_name'], "블랙컴뱃") !== false)){ echo "style='color:rgba(255, 255, 255, 0.6)'"; } ?> class='game_name'><?= $historyRow['game_name'] ?> : </span></b> 
                                                 </a>
                                             </div>
                                             <div style="flex:0 0 auto;">
-                                            <? 
+                                            <?php 
                                                 if($historyRow['video_url'] === null || $historyRow['video_url'] === ''){
                                                     echo '<a href="javascript:alert(\'등록된 경기영상이 없습니다.\');">';
                                                 }else {
@@ -180,21 +225,21 @@ sql_query($viewCountUpdateSql);
                                                     echo "<span class='match_result lose'>Loss</span>";
                                                 }
                                             ?>
-                                            <a href="https://www.blackcombat-official.com/fighter.php?page=<?=$historyRow['player1']?>" style="color:white"><span <? if( $historyRow['winner_player'] == $historyRow['player1'] ){ echo "class='winner_name'"; }?> ><?= $historyRow['player1_name'] ?></span> </a>
+                                            <a href="https://www.blackcombat-official.com/fighter/<?=$historyRow['player1']?>" style="color:white"><span <? if( $historyRow['winner_player'] == $historyRow['player1'] ){ echo "class='winner_name'"; }?> ><?= $historyRow['player1_name'] ?></span> </a>
                                             vs
-                                            <a href="https://www.blackcombat-official.com/fighter.php?page=<?=$historyRow['player2']?>" style="color:white"><span <? if( $historyRow['winner_player'] == $historyRow['player2'] ){ echo "class='winner_name'"; }?> ><?= $historyRow['player2_name'] ?></span> </a>
+                                            <a href="https://www.blackcombat-official.com/fighter/<?=$historyRow['player2']?>" style="color:white"><span <? if( $historyRow['winner_player'] == $historyRow['player2'] ){ echo "class='winner_name'"; }?> ><?= $historyRow['player2_name'] ?></span> </a>
                                             <span style="margin-left:10px; font-size:0.7rem; display:contents;"><?=$historyRow['result']?></span>
                                             </div>
                                         </li>
-                                    <? } ?>
-                                    <? if($historyIndex > 4){ echo '<li id="toggleButton" style="text-align:center" onclick="foldToggle()">▼ 더보기</li>';} ?>
+                                    <?php } ?>
+                                    <?php if($historyIndex > 4){ echo '<li id="toggleButton" style="text-align:center" onclick="foldToggle()">▼ 더보기</li>';} ?>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="fighter_img">
                             <img src='<?=$detailImgPath ?>' 
-                                onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter/fighter_full_blank.png'"
+                                onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_full_blank.png'"
                             />  
                         </div>
                     </div>
@@ -231,8 +276,10 @@ sql_query($viewCountUpdateSql);
         </div>
     </div>
 
-
+    
+<script src="https://www.youtube.com/iframe_api"></script>
 <script type="text/javascript">
+    let isMobile = '<?= G5_IS_MOBILE ?>';
     let foldFlag = false;
     let foldToggle = () => {
         const toggleButton = document.querySelector(`.match_list li#toggleButton`);
@@ -256,3 +303,75 @@ sql_query($viewCountUpdateSql);
         foldFlag = !foldFlag;
     }
 </script>
+
+<?php 
+    if(!($row['music_name'] === null || $row['music_name'] === "")){
+?>
+    
+    <script type="text/javascript">
+        let player;
+        let isPlaying = false;
+
+        function onYouTubeIframeAPIReady() {
+                player = new YT.Player('yt-container', {
+                    height: '0',
+                    width: '0',
+                    videoId: '<?= $row['music_url'] ?>',
+                    playerVars: {
+                    'autoplay': 0,
+                    'controls': 0,
+                    'mute': 0
+                    },
+                    events: {
+                    'onReady': function (event) {
+                    }
+                    }
+                });
+            }
+
+        const albumContainer = document.getElementById("album_container");
+        const album = document.getElementById("album");
+
+        albumContainer.addEventListener("click", () => {
+            tryPlayOrPause(0);
+        });
+
+        let showPlayer = false;
+        function tryPlayOrPause(retryCount) {
+            const maxRetries = 30; // 최대 3초 (100ms * 30)
+
+            if (!player || typeof player.playVideo !== 'function') {
+                if (retryCount < maxRetries) {
+                    setTimeout(() => {
+                        tryPlayOrPause(retryCount + 1);
+                    }, 300);
+                } else {
+                    alert("음악 재생에 실패하였습니다. 새로고침 후 다시 시도해주세요.")
+                    console.warn("유튜브 플레이어 초기화 실패 (재시도 초과)");
+                }
+                return;
+            }
+
+            if(!showPlayer){
+
+                let ytContainer = $("#yt-container");
+                if(isMobile === '1'){
+                    ytContainer.css({'display': 'block', 'width': '100px', 'height': '50px', 'position': 'absolute', 'top': '130px'})
+                }else{
+                    ytContainer.css({'display': 'block', 'width': '100px', 'height': '50px', 'position': 'absolute', 'top': '20px'})
+                }
+            }
+
+            if (isPlaying) {
+                player.pauseVideo();
+                album.classList.remove("spinning");
+            } else {
+                player.playVideo();
+                album.classList.add("spinning");
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+<?php        
+    }
+?>

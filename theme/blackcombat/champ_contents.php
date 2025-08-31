@@ -114,7 +114,7 @@
 
     if ($row) { ?>
         <!-- 데이터가 존재하는경우 -->
-        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
+        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">플라이급</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
                 <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
@@ -125,7 +125,7 @@
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
-                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
             </div>
             <? if( $row['defend'] !== '0'){ ?>
                 <div class="hexagon">
@@ -154,12 +154,12 @@
             $flyIndex++;
             $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
             ?>
-            <div class="ranking_list_part_item <? if($flyIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
+            <div class="ranking_list_part_item <? if($flyIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
                 <div class="first_row" style="width:100%">
                     <div class="ranking_list_num" style="width:50px; margin-top: 10px;"> <?=$row['order'] == 1? "초":$row['order']?>대 </div>
                     <div class="ranking_list_photo">
                     <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
                     <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
@@ -216,7 +216,7 @@
 
     if ($row) { ?>
         <!-- 데이터가 존재하는경우 -->
-        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
+        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">밴텀급</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
                 <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
@@ -226,7 +226,7 @@
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
-                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
             </div>
             <? if( $row['defend'] !== '0'){ ?>
                 <div class="hexagon">
@@ -255,12 +255,12 @@
             $bantamIndex++;
             $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
             ?>
-            <div class="ranking_list_part_item <? if($bantamIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
+            <div class="ranking_list_part_item <? if($bantamIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
                 <div class="first_row" style="width:100%">
                     <div class="ranking_list_num" style="width:50px; margin-top: 10px;"> <?=$row['order'] == 1? "초":$row['order']?>대 </div>
                     <div class="ranking_list_photo">
                     <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
                     <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
@@ -318,7 +318,7 @@
 
     if ($row) { ?>
         <!-- 데이터가 존재하는경우 -->
-        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
+        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">페더급</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
                 <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
@@ -329,7 +329,7 @@
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
-                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
             </div>
             <? if( $row['defend'] !== '0'){ ?>
                 <div class="hexagon">
@@ -358,12 +358,12 @@
             $featherIndex++;
             $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
             ?>
-            <div class="ranking_list_part_item <? if($featherIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
+            <div class="ranking_list_part_item <? if($featherIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
                 <div class="first_row" style="width:100%">
                     <div class="ranking_list_num" style="width:50px; margin-top: 10px;"> <?=$row['order'] == 1? "초":$row['order']?>대 </div>
                     <div class="ranking_list_photo">
                     <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
                     <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
@@ -421,7 +421,7 @@
 
     if ($row) { ?>
         <!-- 데이터가 존재하는경우 -->
-        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
+        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">라이트급</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
                 <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
@@ -432,7 +432,7 @@
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
-                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
             </div>
             <? if( $row['defend'] !== '0'){ ?>
                 <div class="hexagon">
@@ -461,12 +461,12 @@
             $lightIndex++;
             $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
             ?>
-            <div class="ranking_list_part_item <? if($lightIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
+            <div class="ranking_list_part_item <? if($lightIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
                 <div class="first_row" style="width:100%">
                     <div class="ranking_list_num" style="width:50px; margin-top: 10px;"> <?=$row['order'] == 1? "초":$row['order']?>대 </div>
                     <div class="ranking_list_photo">
                     <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
                     <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
@@ -523,7 +523,7 @@
 
     if ($row) { ?>
         <!-- 데이터가 존재하는경우 -->
-        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
+        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">웰터급</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
                 <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
@@ -534,7 +534,7 @@
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
-                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
             </div>
             <? if( $row['defend'] !== '0'){ ?>
                 <div class="hexagon">
@@ -563,12 +563,12 @@
             $welterIndex++;
             $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
             ?>
-            <div class="ranking_list_part_item <? if($welterIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
+            <div class="ranking_list_part_item <? if($welterIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
                 <div class="first_row" style="width:100%">
                     <div class="ranking_list_num" style="width:50px; margin-top: 10px;"> <?=$row['order'] == 1? "초":$row['order']?>대 </div>
                     <div class="ranking_list_photo">
                     <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
                     <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
@@ -623,7 +623,7 @@
 
     if ($row) { ?>
         <!-- 데이터가 존재하는경우 -->
-        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
+        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">미들급</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
                 <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
@@ -634,7 +634,7 @@
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
-                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
             </div>
             <? if( $row['defend'] !== '0'){ ?>
                 <div class="hexagon">
@@ -663,12 +663,12 @@
             $middleIndex++;
             $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
             ?>
-            <div class="ranking_list_part_item <? if($middleIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
+            <div class="ranking_list_part_item <? if($middleIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
                 <div class="first_row" style="width:100%">
                     <div class="ranking_list_num" style="width:50px; margin-top: 10px;"> <?=$row['order'] == 1? "초":$row['order']?>대 </div>
                     <div class="ranking_list_photo">
                     <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
                     <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
@@ -730,7 +730,7 @@
 
     if ($row) { ?>
         <!-- 데이터가 존재하는경우 -->
-        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
+        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">중량급</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
                 <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
@@ -741,7 +741,7 @@
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
-                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
             </div>
             <? if( $row['defend'] !== '0'){ ?>
                 <div class="hexagon">
@@ -770,12 +770,12 @@
             $heavyIndex++;
             $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
             ?>
-            <div class="ranking_list_part_item <? if($heavyIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
+            <div class="ranking_list_part_item <? if($heavyIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
                 <div class="first_row" style="width:100%">
                     <div class="ranking_list_num" style="width:50px; margin-top: 10px;"> <?=$row['order'] == 1? "초":$row['order']?>대 </div>
                     <div class="ranking_list_photo">
                     <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
                     <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
@@ -831,7 +831,7 @@
 
     if ($row) { ?>
         <!-- 데이터가 존재하는경우 -->
-        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
+        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">언더그라운드</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
                 <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
@@ -842,7 +842,7 @@
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
-                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
             </div>
             <? if( $row['defend'] !== '0'){ ?>
                 <div class="hexagon">
@@ -871,12 +871,12 @@
             $undergroundIndex++;
             $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
             ?>
-            <div class="ranking_list_part_item <? if($undergroundIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
+            <div class="ranking_list_part_item <? if($undergroundIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
                 <div class="first_row" style="width:100%">
                     <div class="ranking_list_num" style="width:50px; margin-top: 10px;"> <?=$row['order'] == 1? "초":$row['order']?>대 </div>
                     <div class="ranking_list_photo">
                     <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
                     <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
@@ -934,7 +934,7 @@
 
     if ($row) { ?>
         <!-- 데이터가 존재하는경우 -->
-        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';">
+        <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">여성부</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
                 <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
@@ -945,7 +945,7 @@
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
-                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
             </div>
             <? if( $row['defend'] !== '0'){ ?>
                 <div class="hexagon">
@@ -974,12 +974,12 @@
             $atomIndex++;
             $rankingImgPath = "https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/".$row['fighter_seq']."/".$row['ranking_image_name'];
             ?>
-            <div class="ranking_list_part_item <? if($atomIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter.php?page=<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
+            <div class="ranking_list_part_item <? if($atomIndex > 11){ echo 'hidden'; } ?>" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';" style="line-height:25px;">
                 <div class="first_row" style="width:100%">
                     <div class="ranking_list_num" style="width:50px; margin-top: 10px;"> <?=$row['order'] == 1? "초":$row['order']?>대 </div>
                     <div class="ranking_list_photo">
                     <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
                     <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>

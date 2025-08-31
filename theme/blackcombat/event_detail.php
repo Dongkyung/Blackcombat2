@@ -327,9 +327,9 @@ $clientIP = getClientIP();
 
                             <div style="display:flex; margin-bottom:50px;  padding-bottom:50px; border-bottom:1px solid #bbbbbb;">
                                 <div style="flex:1 0 0;">
-                                    <a href="/fighter.php?page=<?= $hisRow["player1"] ?>">
+                                    <a href="/fighter/<?= $hisRow["player1"] ?>">
                                         <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
-                                            src='<? if($champ1Flag === 1){ echo $rankingChampImgPath1; }else{ echo $rankingImgPath1; } ?>' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" >
+                                            src='<? if($champ1Flag === 1){ echo $rankingChampImgPath1; }else{ echo $rankingImgPath1; } ?>' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" >
                                             <? if($hisRow["result"] === 'N/C') { ?> <div style="position:relative; bottom: 100%; left: calc(100% - 43px); width:45px; background-color: #dddddd; font-size:1rem; padding:2px 10px; font-weight:bold;">N/C</div> <? } ?>
                                             <? if($hisRow["player1"] === $hisRow["winner_player"]) { ?> <div style="position:relative; bottom: 100%; left: calc(100% - 43px); width:45px; background-color: #ffba3c; font-size:1rem; padding:2px 10px; font-weight:bold;">Win</div> <? } ?>
                                         </img>
@@ -452,9 +452,9 @@ $clientIP = getClientIP();
                                         </div>
                                 </div>
                                 <div style="flex:1 0 0">
-                                    <a href="/fighter.php?page=<?= $hisRow["player2"] ?>">
+                                    <a href="/fighter/<?= $hisRow["player2"] ?>">
                                         <img class="fighter_img" style="width:100%; height:100%; object-fit: contain;" 
-                                            src='<? if($champ2Flag === 1){ echo $rankingChampImgPath2; }else{ echo $rankingImgPath2; } ?>' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                            src='<? if($champ2Flag === 1){ echo $rankingChampImgPath2; }else{ echo $rankingImgPath2; } ?>' onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                                             <? if($hisRow["result"] === 'N/C') { ?> <div style="position:relative; bottom: 100%; left: calc(100% - 43px); width:45px; background-color: #dddddd; font-size:1rem; padding:2px 10px; font-weight:bold;">N/C</div> <? } ?>
                                             <? if($hisRow["player2"] === $hisRow["winner_player"]) { ?> <div style="position:relative; bottom: 100%; width:45px; background-color: #ffba3c; font-size:1rem; padding:2px 10px; font-weight:bold;">Win</div> <? } ?>
                                     </a>

@@ -76,7 +76,7 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/rules.css">'
             <div class="rules_page">
                 <div class="rules_contents">
                 <? if($ruleType === 'pro'){ ?>
-<span>2025.06.06 최종 수정</span><br><br>
+<span>2025.08.06 최종 수정</span><br><br>
 <h3>제 1 조 대회사 공식 명칭</h3>
 
 본 대회사의 명칭은 <span class="nameHighlight">Black Combat : Who is the King</span> 으로 한다.
@@ -100,10 +100,15 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/rules.css">'
 본 대회사가 주최하는 대회에 참가하는 모든 선수들은 계체량 전까지 자신이 경기를 진행함에 있어서 아무런 문제가 없다 라는 진단서를 대회사 제출해야만 한다. 만약 어떠한 결함이 발견될 경우, 전문의를 통해 판단 후 대회사와 협의 후 경기 진행 여부를 결정한다.<br />
 해당 대회의 선수가 부상으로 인해 계약된 경기를 진행하지 못할 시 대회사가 정해주는 병원에서 진료 및 진단서를 받아 대회사에 제출한 뒤, 추후 협의 후 대회사의 결정에 따른다.<br /><br />
 
-- 본 대회사가 공식적으로 지정한 체급 이외의 경기는 대회사가 지정해주는 체중을 한계체중으로 진행한다.<br />
-- 1차 계체량 시작 시간은 본 대회사가 지정하며 지정된 계체량 시작시간 기준으로 30분 이상 지각하는 선수는 대회사와 심판위원회가 주는 파이트머니 삭감 등의 패널티를 받아야 한다.<br />
-- 1차 계체량은 대회사가 지정한 시각에 진행되며 해당 선수가 1차 계측에 실패할 시, 심판위원회가 정해주는 시간 안에 2차 계측을 하여 통과해야 한다.<br />
-(1) 공식 계체량 때는 해당 경기에 참가하는 모든 선수들과 세컨진, 대회사측 인원, 주심 최소 1명 이상이 모두 참여해야한다.<br /><br />
+- 1차 계체량 시작 시간은 본 대회사가 지정한다.<br />
+- 예를 들어, 계체시간이 대회사에 의해 "오전 11시"로 고지된 경우, 지각 시간에 따라 다음과 같은 패널티가 적용된다.<br />
+(1) 11시를 넘긴 시점부터 11시 30분 사이에 도착할 경우<br />
+- 선수는 경기 출전이 가능하나 파이트머니의 10%를 삭감한 후 대회사에 지급한다.<br />
+(2) 11시 31분부터 12시 사이 도착 시 (2차 계체 시간 초과)<br />
+- 총 경기 점수에서 -1점 감점,<br />
+- 파이트머니의 50%를 상대 선수에게 지급<br />
+(3) 12시 이후 도착 시 (1시간 이상 지각)<br />
+- 해당 선수는 실격 처리되며, 대회사 판단에 따라 향후 경기 출전 정지, 계약 해지 등의 추가 제재가 부과될 수 있다<br /><br />
 
 - 본 대회사가 진행하는 대회의 경기에 참가하는 모든 선수들은 정해진 룰에 따라 계체를 통과해야 한다.<br />
 - 만일 계체를 통과하지 못한 선수가 피니시를 내거나 판정에서 높은 점수를 얻을 경우 해당 경기는 무효 처리된다. (단, 제 10조에 의거한 연장 라운드 돌입은 가능하다.)<br />
@@ -294,7 +299,14 @@ All fighters must submit a medical certificate to the organization before the we
 If a fighter cannot participate in a scheduled bout due to injury, they must be examined by a hospital designated by the organization and submit a diagnosis certificate. The final decision on their participation will be made after discussion with the organization.<br />
 Weigh-in Procedures & Penalties<br />
 •	All participating fighters, corner team, organization staff, and at least one referee must attend the official weigh-in.<br />
-•	The first weigh-in time is set by the organization. Fighters arriving more than 30 minutes late will face penalties (e.g., deduction from fight purse).<br />
+•	The official weigh-in start time shall be designated by the organization.<br />
+For example, if the weigh-in time is officially announced as 11:00 AM, penalties for tardiness shall be applied as follows:<br />
+(1) Arrival between 11:01 AM and 11:30 AM<br />
+- The fighter remains eligible to compete, but 10% of their fight purse will be deducted.<br />
+(2) Arrival between 11:31 AM and 12:00 PM (past secondary weigh-in deadline)<br />
+- 1 point deduction from the fighter's total score, 50% of the fight purse will be awarded to the opponent.<br />
+(3) Arrival after 12:00 PM (over 1 hour late)<br />
+- The fighter shall be disqualified, Additional disciplinary actions such as suspension from future events or contract termination may be imposed at the discretion of the organization.<br />
 •	If a fighter fails the first weigh-in, a second weigh-in must be conducted within the timeframe determined by the referee panel.<br />
 •	Fighters who fail to make weight are penalized as follows:<br />
 <table class="penalties_table">

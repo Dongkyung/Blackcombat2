@@ -14,10 +14,11 @@ include_once(G5_ADMIN_PATH.'/admin.head.php');
 $g5['title'] = "좌석 컨트롤";
 
 $eventSeq_name_map = array(
-    '277' => "블랙컴뱃 14"
+    '277' => "블랙컴뱃 14",
+    '281' => "블랙컴뱃 15"
 );
 
-$eventSeq = !empty($_GET['eventSeq']) ? $_GET['eventSeq'] : '277';
+$eventSeq = !empty($_GET['eventSeq']) ? $_GET['eventSeq'] : '281';
 
 
 $sql = "SELECT seq, eventSeq, content1, content2, content3, confirm, noShowYn, tel, name, fsttm FROM blackcombat.tb_event_winner WHERE 1=1";
@@ -160,7 +161,7 @@ echo "</script>";
     <select onchange="location.href='/adm/bc_oper_admin/event_winner.php?eventSeq='+value">
         <option value="all" <? if($eventSeq === 'all') {echo "selected"; } ?>>전체</option>
         <option value="277" <? if($eventSeq === '277') {echo "selected"; } ?>>Black Combat 14: END GAME</option>
-
+        <option value="281" <? if($eventSeq === '281') {echo "selected"; } ?>>Black Combat 15: PARA BELLUM</option>
     </select>
 </div>
 

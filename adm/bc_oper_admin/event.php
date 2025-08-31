@@ -111,11 +111,39 @@ echo "</script>";
             height:40px;
         }
 
+        /* Drozpone 관련 */
+        .dz-image img {
+            display: block;
+            width: 100%;  /* 또는 적절한 너비 */
+            height: auto;
+        }
+
+        .dz-progress {
+            display: none !important;
+        }
+
+        input[type="radio"][name="thumbnailSelector"] {
+            display: none;
+        }
+
+        /* 썸네일에 선택된 테두리 스타일 */
+        .dz-thumbnail-selected {
+            border: 3px solid #007bff; /* 파란색 테두리 */
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        .dz-preview {
+            cursor: pointer;
+        }
 
 
       
     </style>
-
+<!-- Dropzone JS -->
+<link href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" rel="stylesheet" />
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
 
 <!-- Jquery -->
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
@@ -136,6 +164,7 @@ echo "</script>";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js" integrity="sha512-L4qpL1ZotXZLLe8Oo0ZyHrj/SweV7CieswUODAAPN/tnqN3PA1P+4qPu5vIryNor6HQ5o22NujIcAZIfyVXwbQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
 <ul class="anchor">
     <? foreach ($tabArr as $tabTarget => $class) : ?>
@@ -166,12 +195,11 @@ echo "</script>";
             <th style="width:150px">이미지Max번호</th>
             <th style="width:150px">최종수정일</th>
             <th style="width:150px">수정버튼</th>
-            <th style="width:150px">삭제버튼</th>
         </tr>
         </thead>
         <!-- 테이블 내용 부분은 그대로 유지하며, 수정 버튼 클릭 시 editRow 함수 호출 -->
         <tbody>
-    <?
+    <?php
         mysqli_data_seek($eventListResult, 0);
         while ($row = sql_fetch_array($eventListResult)) {
     ?>
@@ -189,9 +217,8 @@ echo "</script>";
             <td><?= $row["max_img_idx"] ?></td>
             <td><?= $row["lsttm"] ?></td>
             <td><button type="button" class="btn btn-sm btn-success" onclick="showUpdateModal('<?= $row['event_seq'] ?>')">수정</button>
-            <td><button type="button" class="btn btn-sm btn-danger">삭제</button></td>
         </tr>
-    <? 
+    <?php 
         }
     ?>
     </tbody>
@@ -262,26 +289,11 @@ echo "</script>";
                             
                             <td class="pop_max_img_idx">
                                 <select class="form-select form-select-sm">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
+                                <?php
+                                    for ($i = 0; $i <= 99; $i++) {
+                                        echo "<option value=\"$i\">$i</option>";
+                                    }
+                                ?>
                                 </select>
                             </td>
                         </tr>
@@ -297,7 +309,12 @@ echo "</script>";
                         </tr>
                     </tbody>
                 </table>
-                <div><b>프롤로그</b></div>
+
+                <div><b>이미지</b></div>
+                <form class="dropzone" id="my-dropzone"></form>
+                <p id="image-count" style="margin-top:10px;">총 이미지 수: 0</p>
+
+                <div style="margin-top:10px;"><b>프롤로그</b></div>
                 <div>
                     <textarea class="form-control pop_prologue"rows="15"></textarea>
                 </div>
@@ -311,8 +328,10 @@ echo "</script>";
 </div>
 
 
-
 <script type="text/javascript">
+
+    Dropzone.autoDiscover = false;
+    var myDropzone1;
 
     $(function() {	
 		$('#datePicker').datepicker({
@@ -386,6 +405,30 @@ echo "</script>";
 
     function updateEvent(){
         if(confirm("이벤트 정보를 수정 하시겠습니까?")){
+            myDropzone1.processQueue();
+            const sortedFiles = getSortedFilesByDOMOrder(myDropzone1);
+            const formData = new FormData();
+
+            let normalIndex = 1;
+
+            sortedFiles.forEach((file) => {
+                const ext = file.name.split('.').pop();
+
+                if (file.isThumbnail) {
+                    // 썸네일 파일
+                    const thumbName = `thumb.${ext}`;
+                    const thumbFile = new File([file], thumbName, { type: file.type });
+                    formData.append('thumbnail', thumbFile); // ✅ 별도의 키로 전송
+                } else {
+                    // 일반 이미지 파일 (1.jpg, 2.png ...)
+                    const newName = `${normalIndex++}.${ext}`;
+                    const renamedFile = new File([file], newName, { type: file.type });
+                    formData.append('photo1[]', renamedFile);
+                }
+            });
+
+            
+
             const origin_event_seq = $(".pop_event_seq").text();
             const changed_pop_event_category = $(".pop_event_category select").val();
             const changed_pop_order = $(".pop_order input").val();
@@ -399,23 +442,27 @@ echo "</script>";
             const changed_pop_sell_url = $(".pop_sell_url input").val();
             const changed_pop_prologue = $(".pop_prologue").val()
             
+
+            formData.append("event_seq", origin_event_seq);
+            formData.append("event_category", changed_pop_event_category);
+            formData.append("order", changed_pop_order);
+            formData.append("event_name", changed_pop_event_name);
+            formData.append("event_name_short", changed_pop_event_name_short);
+            formData.append("event_place", changed_pop_event_place);
+            formData.append("event_date", changed_pop_event_date);
+            formData.append("selling_yn", changed_pop_selling_yn);
+            formData.append("vote_yn", changed_pop_vote_yn);
+            formData.append("max_img_idx", changed_pop_max_img_idx);
+            formData.append("sell_url", changed_pop_sell_url);
+            formData.append("prologue", changed_pop_prologue);
+
+
             $.ajax({
                 type: 'POST',
                 url: './event/update_event.php', // 실제 추가를 처리하는 PHP 파일 경로
-                data: {
-                    "event_seq" : origin_event_seq,
-                    "event_category" : changed_pop_event_category,
-                    "order" : changed_pop_order,
-                    "event_name" : changed_pop_event_name,
-                    "event_name_short" : changed_pop_event_name_short,
-                    "event_place" : changed_pop_event_place,
-                    "event_date" : changed_pop_event_date,
-                    "selling_yn" : changed_pop_selling_yn,
-                    "vote_yn" : changed_pop_vote_yn,
-                    "max_img_idx" : changed_pop_max_img_idx,
-                    "sell_url" : changed_pop_sell_url,
-                    "prologue" : changed_pop_prologue,
-                },
+                processData: false,
+                contentType: false,
+                data: formData,
                 success: function(response) {
                     // 서버에서 추가 성공한 경우
                     console.log(response); // 추가 성공한 경우 콘솔에 출력 (디버깅용)
@@ -451,6 +498,8 @@ echo "</script>";
             createEvent();
         })
 
+        $("#my-dropzone").css("background-color","#eee");
+        dropzoneInit('register', null);
         $("#exampleModal").modal('show'); 
     }
 
@@ -476,8 +525,139 @@ echo "</script>";
             updateEvent();
         })
 
+        $("#my-dropzone").css("background-color","#fff");
+        dropzoneInit('update', eventSeq);
         $("#exampleModal").modal('show'); 
 
+    }
+
+    function dropzoneInit(action, eventSeq){
+        // 기존 인스턴스 제거 필요 시: 기존 Dropzone 인스턴스를 파괴
+        if (Dropzone.instances.length > 0) {
+            Dropzone.instances.forEach(dz => dz.destroy());
+        }
+
+        if(action === "register"){
+            return;
+        }
+
+        myDropzone1 = new Dropzone("#my-dropzone", {
+            url: "./dummy-upload.php", // ✅ 실제 업로드 안 해도 placeholder라도 필요
+            autoProcessQueue: false,
+            clickable: true,
+            maxFilesize: 100,
+            maxFiles: 99,
+            parallelUploads: 5,
+            dictDefaultMessage: "여기에 파일을 드래그하거나 클릭하여 업로드하세요.<br> 이벤트 수정시에만 사용 가능합니다.",
+            addRemoveLinks: true, // ✅ 삭제 버튼 활성화
+            dictRemoveFile: "삭제", // 버튼 텍스트 (선택사항)
+            acceptedFiles: 'image/*',
+            init: function () {
+                const dropzoneInstance = this;
+
+                this.on("addedfile", function (file) {
+                    // 라디오 버튼 생성 (숨겨짐)
+                    const radio = document.createElement("input");
+                    radio.type = "radio";
+                    radio.name = "thumbnailSelector";
+                    radio.style.display = "none"; // 숨김 처리
+                    file.isThumbnail = false;
+
+                    // 썸네일 클릭 시 선택
+                    file.previewElement.addEventListener("click", function () {
+                        // 모든 썸네일 초기화
+                        myDropzone1.files.forEach(f => {
+                            f.isThumbnail = false;
+                            if (f.previewElement) {
+                                f.previewElement.classList.remove("dz-thumbnail-selected");
+                            }
+                        });
+
+                        // 현재 클릭된 썸네일만 선택
+                        file.isThumbnail = true;
+                        if (file.previewElement) {
+                            file.previewElement.classList.add("dz-thumbnail-selected");
+                        }
+                        radio.checked = true;
+                    });
+
+                    file.previewElement.appendChild(radio);
+
+                    if (file.name.startsWith("thumb.")) {
+                        file.isThumbnail = true;
+                        if (file.previewElement) {
+                            file.previewElement.classList.add("dz-thumbnail-selected");
+                        }
+                    }
+                    updateImageCount();
+                });
+
+                this.on("removedfile", function (file) {
+                    updateImageCount();
+                });
+
+
+                // Drag & Drop 순서 변경
+                new Sortable(dropzoneInstance.previewsContainer, {
+                    animation: 150,
+                    onEnd: function () {
+                        // 순서 변경 후 작업이 필요하면 여기에 작성
+                        console.log("드래그 정렬 완료");
+                    }
+                });
+
+                
+                // 서버에서 파일 목록 불러오기
+                fetch("./event/dropzone_file_read.php?event_seq="+eventSeq)
+                .then(res => res.json())
+                .then(files => {
+                    // 파일 이름 기준 정렬 (예: 1.jpg, 2.jpg, ...)
+                    files.sort((a, b) => {
+                        const numA = parseInt(a.name);
+                        const numB = parseInt(b.name);
+                        return numA - numB;
+                    });
+
+                    // 비동기 fetch → 순차 처리
+                    const loadSequentially = async () => {
+                        for (let i = 0; i < files.length; i++) {
+                            const file = files[i];
+                            const res = await fetch(file.url);
+                            const blob = await res.blob();
+                            const fileBlob = new File([blob], file.name, { type: blob.type });
+
+                            myDropzone1.emit("addedfile", fileBlob);
+                            myDropzone1.emit("thumbnail", fileBlob, file.url);
+                            myDropzone1.emit("complete", fileBlob);
+                            myDropzone1.files.push(fileBlob);
+
+                            // 썸네일 순서 CSS 보장
+                            const last = myDropzone1.files[myDropzone1.files.length - 1];
+                            if (last.previewElement) {
+                                last.previewElement.style.order = i;
+                            }
+                        }
+                    };
+
+                    loadSequentially().then(() => {
+                        updateImageCount();
+                    });
+                });
+                
+            }
+        });
+    }
+
+    function getSortedFilesByDOMOrder(dropzoneInstance) {
+        const previewElements = [...dropzoneInstance.previewsContainer.children];
+        return previewElements.map(preview => {
+            return dropzoneInstance.files.find(f => f.previewElement === preview);
+        }).filter(f => !!f);
+    }
+
+    function updateImageCount() {
+        const count = myDropzone1.files.length;
+        document.getElementById("image-count").textContent = `총 이미지 수: ${count}`;
     }
 
 </script>

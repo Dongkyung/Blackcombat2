@@ -525,7 +525,7 @@ switch ($action) {
     case 'search_ticket_event_result' :
         $paramName = $_POST['paramName'];
         $paramTel = $_POST['paramTel'];
-        $eventSeq = '277';
+        $eventSeq = '281';
         $sql = "SELECT *
                 FROM tb_event_winner
                 WHERE `tel` = '$paramTel' 
@@ -551,7 +551,8 @@ switch ($action) {
 
         $result = array(
             'resultArray' => $resultArray,
-            'token' => $token
+            'token' => $token,
+            'testSql' => $sql,
         );
         die(json_encode($result));
 
@@ -561,7 +562,7 @@ switch ($action) {
             $paramTel = $_POST['paramTel'];
             $confirmYn = $_POST['confirmYn'];
             $token = $_POST['token'];
-            $eventSeq = '277';
+            $eventSeq = '281';
 
             $secretKey = "ticket-event-info-key";
             $expected = hash_hmac('sha256', $paramName . $paramTel, $secretKey);
@@ -587,7 +588,6 @@ switch ($action) {
             die(json_encode($result));
     
             break;
-
     default :
     
 }

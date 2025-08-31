@@ -223,7 +223,7 @@ echo "</script>"
             <td><?= $row["fighter_ringname"] ?></td>
             <td style="text-align:center"><img width='40px' onclick='openModal("<?=$rankingImgPath ?>")' style='cursor:pointer'
                      src='<?= $rankingImgPath ?>'
-                     onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'"
+                     onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'"
                  /></td>
             <td><input value='<?= $row["defend"] ?>' /></td>
             <td>

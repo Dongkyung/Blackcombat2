@@ -39,3 +39,14 @@
 .fighter_news_page .news_page_list ul:after { display: block; content: ''; clear: both; }
 .fighter_news_page .news_page_list li { float: left; width: 48%; margin: 1% }
 .fighter_news_page .news_page_list li img { width: 100%; }
+
+#album {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  #album_title{
+      font-size:0.8rem !important;
+      font-weight:bold !important;;
+      font-style:italic !important;;
+  }

@@ -57,7 +57,7 @@
                             </div>
                             <div class="ranking_champ_photo">
                                 <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                         </div>
 <?              }?>                   
@@ -66,7 +66,7 @@
                             <div class="ranking_list_num"> <?=$row['ranking']+1?> </div>
                             <div class="ranking_list_photo">
                             <img src='<?= $rankingImgPath ?>'
-                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                             <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                             <div class="ranking_list_change">
@@ -126,7 +126,7 @@
                             </div>
                             <div class="ranking_champ_photo">
                                 <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                         </div>
 <?              }?>                   
@@ -135,7 +135,7 @@
                             <div class="ranking_list_num"> <?=$row['ranking']+1?> </div>
                             <div class="ranking_list_photo">
                             <img src='<?= $rankingImgPath ?>'
-                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                             <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                             <div class="ranking_list_change">
@@ -193,7 +193,7 @@
                             </div>
                             <div class="ranking_champ_photo">
                                 <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                         </div>
 <?              }?>                   
@@ -202,7 +202,7 @@
                             <div class="ranking_list_num"> <?=$row['ranking']+1?> </div>
                             <div class="ranking_list_photo">
                             <img src='<?= $rankingImgPath ?>'
-                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                             <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                             <div class="ranking_list_change">
@@ -262,7 +262,7 @@
                             </div>
                             <div class="ranking_champ_photo">
                                 <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                         </div>
 <?              }?>                   
@@ -271,7 +271,7 @@
                             <div class="ranking_list_num"> <?=$row['ranking']+1?> </div>
                             <div class="ranking_list_photo">
                             <img src='<?= $rankingImgPath ?>'
-                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                             <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                             <div class="ranking_list_change">
@@ -328,7 +328,7 @@
                             </div>
                             <div class="ranking_champ_photo">
                                 <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                         </div>
 <?              }?>                   
@@ -337,7 +337,7 @@
                             <div class="ranking_list_num"> <?=$row['ranking']+1?> </div>
                             <div class="ranking_list_photo">
                             <img src='<?= $rankingImgPath ?>'
-                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                             <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                             <div class="ranking_list_change">
@@ -396,7 +396,7 @@
                             </div>
                             <div class="ranking_champ_photo">
                                 <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                         </div>
 <?              }?>                   
@@ -405,7 +405,7 @@
                             <div class="ranking_list_num"> <?=$row['ranking']+1?> </div>
                             <div class="ranking_list_photo">
                             <img src='<?= $rankingImgPath ?>'
-                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                             <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                             <div class="ranking_list_change">
@@ -463,7 +463,7 @@
                             </div>
                             <div class="ranking_champ_photo">
                                 <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                         </div>
 <?              }?>                   
@@ -472,7 +472,7 @@
                             <div class="ranking_list_num"> <?=$row['ranking']+1?> </div>
                             <div class="ranking_list_photo">
                             <img src='<?= $rankingImgPath ?>'
-                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                             <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                             <div class="ranking_list_change">
@@ -528,7 +528,7 @@
                             </div>
                             <div class="ranking_champ_photo">
                                 <img src='<?= $rankingImgPath ?>'
-                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                    onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                         </div>
 <?              }?>                   
@@ -537,7 +537,7 @@
                             <div class="ranking_list_num"> <?=$row['ranking']+1?> </div>
                             <div class="ranking_list_photo">
                             <img src='<?= $rankingImgPath ?>'
-                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'" />
+                                            onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
                             <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                             <div class="ranking_list_change">

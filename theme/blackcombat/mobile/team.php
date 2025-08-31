@@ -48,6 +48,10 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 'under_1';
     .team_info_wrapper .fighter_img{
         width:80%;
     }
+    .division_group .fighter_match{
+        margin-bottom:60px;
+    }
+
 </style>
 <div class="sub_visual">
     <div class="sub_visual_items">

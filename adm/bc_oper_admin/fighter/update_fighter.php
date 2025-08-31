@@ -15,6 +15,8 @@ $win = $_POST['win'];
 $lose = $_POST['lose'];
 $draw = $_POST['draw'];
 $tel = $_POST['tel'];
+$music_name = $_POST['music_name'];
+$music_url = $_POST['music_url'];
 
 
 
@@ -31,6 +33,8 @@ win = $win,
 lose = $lose,
 draw = $draw,
 tel = '$tel',
+music_name = '$music_name',
+music_url = '$music_url',
 lsttm = NOW()
 WHERE fighter_seq = $fighterSeq";
 

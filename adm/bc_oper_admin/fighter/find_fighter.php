@@ -31,6 +31,8 @@ $sql = "SELECT
             fb.lose,
             fb.draw,
             fb.tel,
+            fb.music_name,
+            fb.music_url,
             fb.lsttm,
             fb.fsttm
         FROM tb_fighter_base fb

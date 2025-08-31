@@ -15,7 +15,7 @@ if(G5_COMMUNITY_USE === false) {
 include_once(G5_THEME_PATH.'/head.php');
 include_once('./_common.php');
 
-add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/fighter.css">', 0);
+add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/fighter.css">', 1);
 
 $page = $_GET['page'];
 

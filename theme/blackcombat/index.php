@@ -39,28 +39,7 @@ include_once(G5_THEME_PATH.'/head.php');
 
 <div class="key_visual">
     <div class="swiper key_visual_wrap">
-        <div class="swiper-wrapper key_visual_items">
-            <div class="swiper-slide key_visual_item"><a href="https://www.blackcombat-official.com/eventDetail.php?eventSeq=277"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n14_2.jpg" /></a></div>
-            <!-- <div class="swiper-slide key_visual_item">
-                <a href="https://tickets.interpark.com/goods/25005686">
-                    <img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n14_1.png" style="object-fit:contain" width="1361" height="624" />
-                </a>
-            </div> -->
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n13_2.jpg" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n13_3.jpg" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n12_2.jpg" /></div>
-            <!-- <div class="swiper-slide key_visual_item"><a href="https://www.blackcombat-official.com/shop/1723217030"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n12_1.jpg" /></a></div> -->
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n11_3.jpg" /></div>
-            <!-- <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n11_4.jpg" /></div> -->
-            <!-- <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n11_5.jpg" /></div> -->
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_n11_1.jpg" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_0.jpg" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_1.jpg" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_3.jpg" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_4.jpg" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_5.jpg" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_7.jpg" /></div>
-            <div class="swiper-slide key_visual_item"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/key_visual_8.jpg" /></div>
+        <div class="swiper-wrapper key_visual_items home_img_container">
         </div>
 
         <div class="swiper-button-next"></div>
@@ -70,14 +49,14 @@ include_once(G5_THEME_PATH.'/head.php');
     </div>
 </div>
 
-<? if($is_admin){ ?>
-<!-- <div>
+<!-- <? //if($is_admin){ ?> -->
+<div>
     <div class="store_item_price" style="padding:20px 10px">
         <a href="#" onclick="window.open('/ticket_event_result.php', 'popup',  'width=500,height=500,toolbar=no,menubar=no,scrollbars=no,resizable=no,status=no,location=no'); return false;"
             style="width:400px; padding: 20px; font-size: 17px; font-weight: bold; background: #ffba3c;">멤버쉽 티켓증정 이벤트<br> 당첨결과 조회</a>
     </div>
-</div> -->
-<? } ?>
+</div>
+<!-- <? //} ?> -->
 
 
 
@@ -85,7 +64,7 @@ include_once(G5_THEME_PATH.'/head.php');
     <div class="favorite_menu_items">
         <div class="favorite_menu_item">
             <div class="favorite_menu_item_img">
-                <img src="<?php echo G5_THEME_IMG_URL; ?>/main/favorite_menu_event.png?v=20250103" />
+                <img src="<?php echo G5_THEME_IMG_URL; ?>/main/favorite_menu_event.png?v=20250815" />
 
                 <a href="#" class="favorite_menu_item_img_anchor recentEvent"><span>자세히보기</span><img src="<?php echo G5_THEME_IMG_URL; ?>/main/favorite_menu_anchor_arrow.png" /></a>
             </div>
@@ -157,6 +136,7 @@ include_once(G5_THEME_PATH.'/head.php');
         <div style="display:flex; flex-direction:row; justify-content:center; gap:15px; margin-top:30px;">
             <div class="sponsor_first"><a href="https://www.pgsoft.com/ko/games/all/" class="" target="_blank"><img  style="background-color:white; padding:20px" src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_pg.png" /></a></div>
             <div class="sponsor_first"><a href="https://w-z.kr/" class="" target="_blank"><img  style="background-color:white; padding:20px" src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_wzbio.png" /></a></div>
+            <div class="sponsor_first"><a href="https://www.j-talk.co.kr/" class="" target="_blank"><img  style="background-color:white; padding:20px" src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsors_jtalk.png" /></a></div>
         </div>
     </div>
 
@@ -167,7 +147,7 @@ include_once(G5_THEME_PATH.'/head.php');
     </div>
     <div class="sponsor_items">
         <div class="sponsor_item"><a href="https://exxxtreme.co.kr/index.html" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_img_1.png" /></a></div>
-        <div class="sponsor_item"><a href="https://www.cgv.co.kr/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_cgv.png" /></a></div>
+        <div class="sponsor_item"><a href="https://bndh.co.kr/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsors_bnd.png" /></a></div>
         <div class="sponsor_item"><a href="https://bf-am.com/home/index.php" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_bf.png" style="width:60%"/></a></div>
         
     </div>
@@ -218,27 +198,6 @@ include_once(G5_THEME_PATH.'/head.php');
 
 <script>
     $(document).ready(function() {
-        var key_visual_swiper = new Swiper('.key_visual_wrap', {
-            // Optional parameters
-            speed: 300,
-            nested: true,
-            loop: true,
-            spaceBetween: 0,
-            slidesPerView: 1,
-            centeredSlides: true,
-            grabCursor: true,
-            autoplay: {
-                delay: 3000,
-            },
-            navigation: {
-                nextEl: '.key_visual_wrap .swiper-button-next',
-                prevEl: '.key_visual_wrap .swiper-button-prev',
-            },
-            pagination: {
-                el: '.key_visual_wrap .swiper-pagination',
-                type: 'bullets',
-            },
-        });
 
         var training_center_swiper = new Swiper('.training_center_wrap', {
             // Optional parameters
@@ -269,6 +228,61 @@ include_once(G5_THEME_PATH.'/head.php');
             success: function(response) {
                 let event_seq = JSON.parse(response)[0].event_seq;
                 $(".recentEvent").prop("href","<?php echo G5_URL ?>/eventDetail.php?eventSeq="+event_seq);
+
+            },
+            error: function(error) {
+                console.error('Error adding data:', error);
+            }
+        });
+
+        $.ajax({
+            type: 'get',
+            url: '/theme/blackcombat/api/get_home_img_list.php',
+            success: function(response) {
+                imgList = JSON.parse(response);
+               
+                    
+                for(let i=0; i < imgList.length; i++ ){
+                    let targetData = imgList[i];
+                    let hasLink = targetData.link !== "";
+
+                    let imgTag = `<img src="https://www.blackcombat-official.com/theme/blackcombat/img/main/PC/`+targetData.file_name +`" />`;
+
+                    let elItem  = `<div class="swiper-slide key_visual_item">`;
+                    if(hasLink){
+                        elItem += `<a href="`+targetData.link+`">`
+                        elItem += imgTag;
+                        elItem += `</a>`;
+                    }else{
+                        elItem += imgTag;;
+                    }
+                    elItem  += `</div>`;
+                    
+                    
+                    $(".home_img_container").append(elItem)
+                }
+
+                var key_visual_swiper = new Swiper('.key_visual_wrap', {
+                    // Optional parameters
+                    speed: 300,
+                    nested: true,
+                    loop: true,
+                    spaceBetween: 0,
+                    slidesPerView: 1,
+                    centeredSlides: true,
+                    grabCursor: true,
+                    autoplay: {
+                        delay: 3000,
+                    },
+                    navigation: {
+                        nextEl: '.key_visual_wrap .swiper-button-next',
+                        prevEl: '.key_visual_wrap .swiper-button-prev',
+                    },
+                    pagination: {
+                        el: '.key_visual_wrap .swiper-pagination',
+                        type: 'bullets',
+                    },
+                });
 
             },
             error: function(error) {

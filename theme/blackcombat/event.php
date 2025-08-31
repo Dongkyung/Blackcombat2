@@ -37,8 +37,7 @@ $eventListResult = sql_query($eventListSql);
     .event_category li a{
         font-size:40px;
     }
-    .event_category select{
-        width: 300px;
+    .event_category .custom_btn{
         height: 50px;
         font-size: 20px;
         text-align: center;
@@ -48,6 +47,22 @@ $eventListResult = sql_query($eventListSql);
         border-radius: 7px;
         cursor: pointer;
     }
+
+    .event_category .custom_btn:hover{
+        background-color:rgb(255, 166, 0);
+    }
+
+    select.custom_btn {
+        width: 300px;  
+    }
+
+    button.custom_btn {
+        width: 100px;
+        margin-left:10px;
+    }
+
+    
+
     .event_category select option{
         background: white;
     }
@@ -75,11 +90,14 @@ $eventListResult = sql_query($eventListSql);
         <div class="sub_container">
             <div class="event_page">
                 <div class="event_category">
-                    <select onchange="location.href='/event.php?eventCategory='+value">
+                    <select class="custom_btn" onchange="location.href='/event.php?eventCategory='+value">
                         <option value="N" <? if($eventCategory === 'N') {echo "selected"; } ?>>NUMBERING SERIES</option>
                         <option value="R" <? if($eventCategory === 'R') {echo "selected"; } ?>>RISE SERIES</option>
                         <option value="C" <? if($eventCategory === 'C') {echo "selected"; } ?>>CHAMPIONS LEAGUES</option>
                     </select>
+                    <button class="custom_btn" id="latest_event_btn">
+                        LATEST
+                    </button>
                 </div>
                 <div class="event_contents">
                     <? if($eventCategory === 'N'){ echo '<div class="event_title">BLACK COMBAT NUMBERING SERIES</div>';} ?>
@@ -117,6 +135,25 @@ $eventListResult = sql_query($eventListSql);
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(() => {
+            $.ajax({
+            type: 'get',
+            url: '/theme/blackcombat/api/get_recent_event.php',
+            success: function(response) {
+                let event_seq = JSON.parse(response)[0].event_seq;
+                $("#latest_event_btn").on("click",() => {
+                    location.href = "<?php echo G5_URL ?>/eventDetail.php?eventSeq="+event_seq;
+                });
+
+            },
+            error: function(error) {
+                console.error('Error adding data:', error);
+            }
+        });
+    });
+    </script>
 
 <?php
 include_once(G5_THEME_PATH.'/tail.php');

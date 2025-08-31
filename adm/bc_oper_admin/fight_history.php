@@ -37,7 +37,8 @@ on winner_player = base_w.fighter_seq
 left join tb_event event
 on event.event_seq = his.event_seq
 left join tb_score_card sc
-on his.seq = sc.fight_history_seq;";
+on his.seq = sc.fight_history_seq
+order by seq desc;";
 $result = sql_query($sql);
 
 echo "<script type='text/javascript'>";
@@ -642,10 +643,18 @@ echo "</script>"
 		});//datepicker end
 	});//ready end
 
+
+    let state = JSON.parse(localStorage.getItem('datatableState'));
     let table = new DataTable('#myTable', {
         pageLength: 25,
+        order: state?.order ?? [],
     });
 
+    if(state){
+        if (state?.search) table.search(state.search).draw();
+        if (state?.page) table.page(state.page).draw(false);
+        localStorage.removeItem('datatableState');
+    }
     
 
     // 날짜를 동적으로 설정하는 함수
@@ -880,6 +889,7 @@ echo "</script>"
                 data: newHistoryData,
                 success: function(response) {
                     // 서버에서 추가 성공한 경우
+                    saveDatatableState()
                     location.reload();
                 },
                 error: function(error) {
@@ -938,6 +948,7 @@ echo "</script>"
                 data: newHistoryData,
                 success: function(response) {
                     // 서버에서 추가 성공한 경우
+                    saveDatatableState()
                     location.reload();
                 },
                 error: function(error) {
@@ -956,6 +967,7 @@ echo "</script>"
             data: { historySeq: historySeq },
             success: function(response) {
                 // 서버에서 삭제 성공한 경우
+                saveDatatableState()
                 location.reload();
             },
             error: function(error) {
@@ -1056,6 +1068,7 @@ function findEventnameByEventSeq(eventSeq){
                     data: scoreCardDate,
                     success: function(response) {
                         // 서버에서 추가 성공한 경우
+                        saveDatatableState()
                         location.reload();
                     },
                     error: function(error) {
@@ -1083,6 +1096,7 @@ function findEventnameByEventSeq(eventSeq){
                     data: scoreCardDate,
                     success: function(response) {
                         // 서버에서 추가 성공한 경우
+                        saveDatatableState()
                         location.reload();
                     },
                     error: function(error) {
@@ -1091,6 +1105,15 @@ function findEventnameByEventSeq(eventSeq){
                     }
                 });
             }
+        }
+
+        function saveDatatableState(){
+            let state = {
+                search: table.search(),
+                order: table.order(),
+                page: table.page()
+            };
+            localStorage.setItem('datatableState', JSON.stringify(state));
         }
 
 </script>

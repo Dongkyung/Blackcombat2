@@ -305,7 +305,7 @@ echo "</script>"
             <td><input style="width:50px" value='<?= $row["ranking_updown"] ?>' /></td>
             <td style="text-align:center"><img width='40px' onclick='openModal("<?=$rankingImgPath ?>")' style='cursor:pointer'
                      src='<?= $rankingImgPath ?>'
-                     onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_blank.png'"
+                     onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'"
                  /></td>
             <td><?= $row["lsttm"] ?></td>
             <td>

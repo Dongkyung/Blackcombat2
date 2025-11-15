@@ -24,8 +24,6 @@ if($page === '28227780'){
         .winner_name{
             color: #ffba3c;
             font-weight:bold;
-            text-size:1.2rem;
-
         }
     </style>
 <div class="sub_visual">
@@ -36,7 +34,13 @@ if($page === '28227780'){
     </div>
 </div>    
     
-<? include_once(G5_THEME_PATH.'/fighter_contents.php'); ?>
+<?
+//if($is_admin){ 
+    // include_once(G5_THEME_PATH.'/fighter_contents_new.php');
+//}else{
+    include_once(G5_THEME_PATH.'/fighter_contents.php');
+//} 
+?>
 
 <?php
 include_once(G5_THEME_PATH.'/tail.php');

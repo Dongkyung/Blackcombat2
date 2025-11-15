@@ -26,7 +26,9 @@ $sql = "SELECT
             ,base.detail_image_name
             ,base.fighter_type
             ,base.music_name 
-            ,base.music_url 
+            ,base.music_url
+            ,base.country
+            ,base.sherdog_url
         FROM 
             tb_fighter_base base
             LEFT JOIN tb_team_base team
@@ -52,8 +54,10 @@ $historySql = "SELECT
     , event.event_seq
     , his.player1
     , base1.fighter_name as player1_name
+    , base1.country as country1
     , his.player2
     , CASE WHEN his.player2 REGEXP '^[0-9]+$' THEN base2.fighter_name ELSE his.player2 END AS player2_name
+    , base2.country as country2
     , his.winner_player
     , his.result
     , his.play_date
@@ -125,6 +129,52 @@ sql_query($viewCountUpdateSql);
       to   { transform: rotate(360deg); }
     }
 
+    /* new */
+    .fighter_page .data_name span {
+        font-size:unset;
+    }
+    .fighter_page .fighter_match .match_list li { 
+        margin-bottom: unset; 
+        align-items: flex-start; /* 위쪽 맞춤 */
+        height:30px;
+        white-space: nowrap;
+        font-size:14px;
+    }
+
+    .fighter_page .fighter_match .match_list .match_result {
+        display: inline-block;
+        font-weight: bold;
+        padding:unset;
+        margin-left:unset;
+        margin: 0px 6px;
+    }
+
+    span.fi{
+            border-radius: 4px;
+    }
+    .game_name {
+        display: inline-block;
+        text-align: left;     /* 오른쪽 끝 정렬 */
+        padding-right: 6px;    /* : 여백 */
+        flex: 0 0 90px;
+    }
+
+    .game_name span {
+        display:inline-block;
+    }
+
+    .game_name::after {
+        content: ":";          /* 자동으로 콜론 붙이기 */
+        margin-left: 2px;
+    }
+
+    .match_info{
+        display: flex;
+        justify-content: flex-start;
+        gap: 4px;
+    }
+
+
     
 </style>
 
@@ -157,7 +207,7 @@ sql_query($viewCountUpdateSql);
 <? } ?>
                             </div>
                             <div class="data_name">
-                                <?= $row['fighter_name'] ?><br />
+                                <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <?= $row['fighter_name'] ?><br />
                                 <span class="data_ringname">"<?= $row['fighter_ringname'] ?>"</span>
 <? if($calculatedAge != -1){ ?>
                                 <span class="data_age">AGE : <?= $calculatedAge ?></span> <!-- 날짜계산해서넣기 -->
@@ -190,6 +240,16 @@ sql_query($viewCountUpdateSql);
                                     <?= $row['draw'] ?> <div class="mini">Draw</div>
                                 </div>
                             </div>
+
+                            <?php if($row['sherdog_url'] != null &&  $row['sherdog_url'] != '') {?>
+                                <div class="fighter_match" style="margin:30px 0px;">
+                                    <div class="match_title">
+                                        CERTIFIED BY &nbsp &nbsp <a target="_blank" href="<?= $row['sherdog_url'] ?>"><img style="margin-bottom: 5px;" width="100px" src="<?php echo G5_THEME_IMG_URL; ?>/sherdog_logo.PNG" /></a>
+                                    </div>
+                                </div>    
+                            <?php } ?>
+                                                                
+                            
                             <div class="fighter_match">
                                 <div class="match_title">
                                     LATEST MATCHES
@@ -200,19 +260,19 @@ sql_query($viewCountUpdateSql);
                                     while ($historyRow = sql_fetch_array($historyResult)) {
                                         $historyIndex++; ?>
                                         <li class="<?php if($historyIndex > 4){ echo 'hidden'; } ?>">
-                                            <div style="text-align:left; flex:0 0 auto;">
+                                            <div class="game_name">
                                                 <a href="https://www.blackcombat-official.com/eventDetail.php?eventSeq=<?=$historyRow['event_seq']?>" style="color:#FFFFFF">
-                                                    <b><span <? if(!(strpos($historyRow['game_name'], "블랙컴뱃") !== false)){ echo "style='color:rgba(255, 255, 255, 0.6)'"; } ?> class='game_name'><?= $historyRow['game_name'] ?> : </span></b> 
+                                                    <b><span <? if(!(strpos($historyRow['game_name'], "블랙컴뱃") !== false)){ echo "style='color:rgba(255, 255, 255, 0.6)'"; } ?>><?= $historyRow['game_name'] ?> </span></b> 
                                                 </a>
                                             </div>
-                                            <div style="flex:0 0 auto;">
+                                            <div class="match_info">
                                             <?php 
                                                 if($historyRow['video_url'] === null || $historyRow['video_url'] === ''){
                                                     echo '<a href="javascript:alert(\'등록된 경기영상이 없습니다.\');">';
                                                 }else {
                                                     echo '<a href="'.$historyRow['video_url'].'">';
                                                 }
-                                                echo '<img style="width:25px; margin-bottom: 3px;" src="'.G5_THEME_IMG_URL.'/youtube_icon.png" />';
+                                                echo '<img style="width:21px;" src="'.G5_THEME_IMG_URL.'/youtube_icon.png" />';
                                                 echo '</a>';
                                                 
                                                 if($historyRow['winner_player'] === "" || $historyRow['winner_player'] === null){
@@ -225,9 +285,13 @@ sql_query($viewCountUpdateSql);
                                                     echo "<span class='match_result lose'>Loss</span>";
                                                 }
                                             ?>
-                                            <a href="https://www.blackcombat-official.com/fighter/<?=$historyRow['player1']?>" style="color:white"><span <? if( $historyRow['winner_player'] == $historyRow['player1'] ){ echo "class='winner_name'"; }?> ><?= $historyRow['player1_name'] ?></span> </a>
+                                            <a href="https://www.blackcombat-official.com/fighter/<?=$historyRow['player1']?>" style="color:white">
+                                                <span class="fi fi-<?= strtolower($historyRow["country1"]) ?>"></span> <span <? if( $historyRow['winner_player'] == $historyRow['player1'] ){ echo "class='winner_name'"; }?> ><?= $historyRow['player1_name'] ?></span>
+                                            </a>
                                             vs
-                                            <a href="https://www.blackcombat-official.com/fighter/<?=$historyRow['player2']?>" style="color:white"><span <? if( $historyRow['winner_player'] == $historyRow['player2'] ){ echo "class='winner_name'"; }?> ><?= $historyRow['player2_name'] ?></span> </a>
+                                            <a href="https://www.blackcombat-official.com/fighter/<?=$historyRow['player2']?>" style="color:white">
+                                                <span class="fi fi-<?= strtolower($historyRow["country2"]) ?>"></span> <span <? if( $historyRow['winner_player'] == $historyRow['player2'] ){ echo "class='winner_name'"; }?> ><?= $historyRow['player2_name'] ?></span>
+                                            </a>
                                             <span style="margin-left:10px; font-size:0.7rem; display:contents;"><?=$historyRow['result']?></span>
                                             </div>
                                         </li>

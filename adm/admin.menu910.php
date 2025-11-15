@@ -15,4 +15,6 @@ $menu["menu910"] = array(
     array('910900', '선수조회수', '' . G5_ADMIN_URL . '/bc_oper_admin/player_view_count.php', 'player'),
     array('910901', '이벤트당첨자 관리', '' . G5_ADMIN_URL . '/bc_oper_admin/event_winner.php', 'player'),
     array('910902', '메인 이미지 관리', '' . G5_ADMIN_URL . '/bc_oper_admin/home_img_mgnt.php', 'player'),
+    array('910903', '룰북 관리', '' . G5_ADMIN_URL . '/bc_oper_admin/rule_content.php', 'player'),
+    array('910904', '계약 관리', '' . G5_ADMIN_URL . '/bc_oper_admin/contract_list.php', 'player'),
 );

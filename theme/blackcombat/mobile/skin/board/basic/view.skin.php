@@ -79,7 +79,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css?v=202
                     <h2>페이지 정보</h2>
                     <span class="sound_only">작성자 </span><?php echo $view['name'] ?><span class="ip"><?php if ($is_ip_view) { echo "&nbsp;($ip)"; } ?></span>
                     <span class="sound_only">작성일</span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo date("y-m-d H:i", strtotime($view['wr_datetime'])) ?>
-                    <span class="sound_only">조회</span><strong><i class="fa fa-eye" aria-hidden="true"></i> <?php echo number_format($view['wr_hit']) ?></strong>
+                    <?php if($view['ca_name'] != "문의"){ ?>
+                        <span class="sound_only">조회</span><strong><i class="fa fa-eye" aria-hidden="true"></i> <?php echo number_format($view['wr_hit']) ?></strong>
+                    <?php } ?>
                     <span class="sound_only">댓글</span><strong><i class="fa fa-commenting-o" aria-hidden="true"></i> <?php echo number_format($view['wr_comment']) ?></strong>
                 </div>
             </header>
@@ -105,32 +107,35 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css?v=202
 
                 <?php if ($is_signature) { ?><p><?php echo $signature ?></p><?php } ?>
 
-                <?php if ( $good_href || $nogood_href) { ?>
-                <div id="bo_v_act">
-                    <?php if ($good_href) { ?>
-                    <span class="bo_v_act_gng">
-                        <a href="<?php echo $good_href.'&amp;'.$qstr ?>" id="good_button" class="bo_v_good"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <span class="sound_only">추천</span><strong><?php echo number_format($view['wr_good']) ?></strong></a>
-                        <b id="bo_v_act_good">이 글을 추천하셨습니다</b>
-                    </span>
-                    <?php } ?>
-                    <?php if ($nogood_href) { ?>
-                    <span class="bo_v_act_gng">
-                        <a href="<?php echo $nogood_href.'&amp;'.$qstr ?>" id="nogood_button" class="bo_v_nogood"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> <span class="sound_only">비추천</span><strong><?php echo number_format($view['wr_nogood']) ?></strong></a>
-                        <b id="bo_v_act_nogood"></b>
-                    </span>
-                    <?php } ?>
-                </div>
-                <?php } else {
-                    if($board['bo_use_good'] || $board['bo_use_nogood']) {
-                ?>
-                <div id="bo_v_act">
-                    <?php if($board['bo_use_good']) { ?><span class="bo_v_good"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="sound_only">추천</span><strong><?php echo number_format($view['wr_good']) ?></strong></span><?php } ?>
-                    <?php if($board['bo_use_nogood']) { ?><span class="bo_v_nogood"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i><span class="sound_only">비추천</span> <strong><?php echo number_format($view['wr_nogood']) ?></strong></span><?php } ?>
-                </div>
-                <?php
+                <?php if($view['ca_name'] != "문의"){ ?>
+                    <?php if ( $good_href || $nogood_href) { ?>
+                    <div id="bo_v_act">
+                        <?php if ($good_href) { ?>
+                        <span class="bo_v_act_gng">
+                            <a href="<?php echo $good_href.'&amp;'.$qstr ?>" id="good_button" class="bo_v_good"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <span class="sound_only">추천</span><strong><?php echo number_format($view['wr_good']) ?></strong></a>
+                            <b id="bo_v_act_good">이 글을 추천하셨습니다</b>
+                        </span>
+                        <?php } ?>
+                        <?php if ($nogood_href) { ?>
+                        <span class="bo_v_act_gng">
+                            <a href="<?php echo $nogood_href.'&amp;'.$qstr ?>" id="nogood_button" class="bo_v_nogood"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> <span class="sound_only">비추천</span><strong><?php echo number_format($view['wr_nogood']) ?></strong></a>
+                            <b id="bo_v_act_nogood"></b>
+                        </span>
+                        <?php } ?>
+                    </div>
+                    <?php } else {
+                        if($board['bo_use_good'] || $board['bo_use_nogood']) {
+                    ?>
+                    <div id="bo_v_act">
+                        <?php if($board['bo_use_good']) { ?><span class="bo_v_good"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="sound_only">추천</span><strong><?php echo number_format($view['wr_good']) ?></strong></span><?php } ?>
+                        <?php if($board['bo_use_nogood']) { ?><span class="bo_v_nogood"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i><span class="sound_only">비추천</span> <strong><?php echo number_format($view['wr_nogood']) ?></strong></span><?php } ?>
+                    </div>
+                    
+                    <?php
+                        }
                     }
-                }
-                ?>
+                    ?>
+                <?php } ?>
             </section>
 
             <?php

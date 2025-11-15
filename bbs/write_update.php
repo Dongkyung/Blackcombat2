@@ -2,6 +2,7 @@
 include_once('./_common.php');
 include_once(G5_LIB_PATH.'/naver_syndi.lib.php');
 include_once(G5_CAPTCHA_PATH.'/captcha.lib.php');
+include_once(G5_LIB_PATH.'/mailer.lib.php');
 
 // 토큰체크
 check_write_token($bo_table);
@@ -290,7 +291,23 @@ if ($w == '' || $w == 'r') {
                      wr_8 = '$wr_8',
                      wr_9 = '$wr_9',
                      wr_10 = '$wr_10' ";
-    sql_query($sql);
+    $result = sql_query($sql);
+
+    if ($result) {
+        // 마지막 insert된 글의 PK 값 가져오기 (예: wr_id가 AUTO_INCREMENT라면)
+        $seq = sql_insert_id();
+        $link = "https://www.blackcombat-official.com/community/{$seq}";
+
+        $subject = "[BlackCombat] 새 문의글이 등록되었습니다";
+        $content = "새 문의글이 작성되었습니다.<br><br>
+                    아래 주소를 통해 확인하세요:<br>
+                    <a href='{$link}' target='_blank'>{$link}</a>";
+
+        // 받는사람, 제목, 내용, 보내는사람 이름, 보내는사람 이메일
+        mailer("BlackCombat", "webmaster@blackcombat-official.com", "qwhusz@naver.com", $subject, $content, 1);
+    }
+
+
 
     $wr_id = sql_insert_id();
 

@@ -3,7 +3,7 @@
 include_once('./_common.php');
 
 $action = isset($_REQUEST['action']) ? preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['action']) : '';
-$it_id_for_seat = isset($_REQUEST['it_id']) ? preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['it_id']) : '1744036257';
+$it_id_for_seat = isset($_REQUEST['it_id']) ? preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['it_id']) : '1733239478';
 
 switch ($action) {
     case 'refresh_cart' :
@@ -495,12 +495,19 @@ switch ($action) {
         break;
     case 'get_player_info' : //공통헤더 선수검색기능 API
         $post_search_keyword = $_POST['search_keyword'];
-        $sql = "SELECT base.fighter_seq, base.fighter_type, base.fighter_name, base.fighter_ringname
-                FROM tb_fighter_base base
-                INNER JOIN tb_fighter_ranking ranking
-                    ON base.fighter_seq = ranking.fighter_seq 
-                WHERE base.del_yn = 0
-                AND fighter_name like '%$post_search_keyword%' OR fighter_ringname like '%$post_search_keyword%';
+        $sql = "SELECT DISTINCT t1.*
+        FROM (
+            SELECT 
+                base.fighter_seq, 
+                base.fighter_type, 
+                base.fighter_name, 
+                base.fighter_ringname
+            FROM tb_fighter_base base
+            INNER JOIN tb_fighter_ranking ranking
+                ON base.fighter_seq = ranking.fighter_seq 
+            WHERE base.del_yn = 0
+              AND (fighter_name LIKE '%$post_search_keyword%' OR fighter_ringname LIKE '%$post_search_keyword%')
+        ) AS t1;
             ";
         $search_player_result = sql_query($sql);
         

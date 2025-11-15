@@ -37,7 +37,7 @@ header("Pragma: no-cache"); // HTTP/1.0
 <meta charset="utf-8">
 <?php
 if (G5_IS_MOBILE) {
-    echo '<meta name="viewport" id="meta_viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=3">'.PHP_EOL;
+    echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">'.PHP_EOL;
     echo '<meta name="HandheldFriendly" content="true">'.PHP_EOL;
     echo '<meta name="format-detection" content="telephone=no">'.PHP_EOL;
 } else {
@@ -116,8 +116,8 @@ if(!defined('G5_IS_ADMIN'))
 <link rel="canonical" href="https://www.blackcombat-official.com/">
 <meta name="robots" content="index,follow" />
 <link rel="shortcut icon" href="/img/blackcombat_favicon.png?v=20221017" />
+<link href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css" rel="stylesheet">
 </head>
-
 
 <body<?php echo isset($g5['body_script']) ? $g5['body_script'] : ''; ?>>
 <?php
@@ -141,3 +141,10 @@ if ($is_member) { // 회원이라면 로그인 중이라는 메세지를 출력�
 
   gtag('config', 'G-TNKR3YS1FL');
 </script>
+
+<style>
+    html, body {
+        -webkit-text-size-adjust: none; /* 모바일 브라우저 자동 확대 방지 */
+        text-size-adjust: none;
+    }
+</style>

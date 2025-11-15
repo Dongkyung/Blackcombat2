@@ -64,9 +64,13 @@ if ($ticket_row) {
                     </li>
                     <li>
                         <?php if($ticket_link) { ?>
-                        <a href="<?php echo $ticket_link; ?>">TICKET</a>
+                            <?php if($member['mb_id'] == 'pay_test' || $is_admin){ ?>
+                                <a href="<?php echo $ticket_link; ?>">TICKET</a>
+                            <?php }else{ ?>
+                                <a href="#" onclick="alert('상품을 준비중입니다.');return false;">TICKET</a>
+                            <?php } ?>
                         <?php } else { ?>
-                        <a href="#" onclick="alert('상품을 준비중입니다.');return false;">TICKET</a>
+                            <a href="#" onclick="alert('상품을 준비중입니다.');return false;">TICKET</a>
                         <?php } ?>
                     </li>
                     <li>
@@ -84,9 +88,9 @@ if ($ticket_row) {
                     <li>
                         <a href="<?php echo G5_URL ?>/ranking.php?type=fighter">RANKING</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="<?php echo G5_URL ?>/cl.php">C.L</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="<?php echo G5_URL ?>/community">COMMUNITY</a>
                     </li>

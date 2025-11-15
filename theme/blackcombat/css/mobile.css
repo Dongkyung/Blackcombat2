@@ -463,3 +463,10 @@ box-shadow:2px 2px 3px 0px rgba(0,0,0,0.2)}
 .sub_visual_caption { display: table-cell; text-align: center; vertical-align: middle; }
 .sub_visual_caption .category { font-family: 'Teko', sans-serif; font-size: 40px; color:#ffffff;  }
 .sub_visual_caption .script { font-family: 'Great Vibes', cursive; font-size: 14px; color:#ffba3c; margin-top: -10px;}
+
+.fi.fi-kur {
+  background-image: url('/img/flag/kd.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -347,6 +347,12 @@ if (array_key_exists($tab, $tabItems)) {
                         </thead>
                         <tbody>
                             <tr>
+                                <td>C.L week 15 </td>
+                                <td>메인카드 총 8명 불시 검문 실시</td>
+                                <td>전원 음성</td>
+                                <td>2025.10.30</td>
+                            </tr>
+                            <tr>
                                 <td>블랙컴뱃15 </td>
                                 <td>총 10명 불시 검문 실시</td>
                                 <td>전원 음성</td>

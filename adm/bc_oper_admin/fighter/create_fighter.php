@@ -17,13 +17,15 @@ $draw = $_POST['draw'];
 $tel = $_POST['tel'];
 $music_name = $_POST['music_name'];
 $music_url = $_POST['music_url'];
+$country = $_POST['country'];
+$sherdog_url = $_POST['sherdog_url'];
 
 
 $random_fighter_seq = rand(10000000,99999999);
 
 // TODO: 적절한 SQL INSERT 쿼리를 사용하여 데이터 추가
-$sql = "INSERT INTO tb_fighter_base (fighter_seq, fighter_type, fighter_name, fighter_ringname, team_seq, birth, insta_id, height, weight, win, lose, draw, tel, music_name, music_url, lsttm)
-VALUES ('$random_fighter_seq', $fighter_type, '$fighter_name', '$fighter_ringname', '$team_seq', '$birth', '$insta_id', '$height', '$weight', '$win', '$lose', '$draw','$tel','$music_name','$music_url', NOW())";
+$sql = "INSERT INTO tb_fighter_base (fighter_seq, fighter_type, fighter_name, fighter_ringname, team_seq, birth, insta_id, height, weight, win, lose, draw, tel, music_name, music_url, country, sherdog_url, lsttm)
+VALUES ('$random_fighter_seq', $fighter_type, '$fighter_name', '$fighter_ringname', '$team_seq', '$birth', '$insta_id', '$height', '$weight', '$win', '$lose', '$draw','$tel','$music_name','$music_url','$country','$sherdog_url', NOW())";
 
 // 쿼리 실행
 $result = sql_query($sql);

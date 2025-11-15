@@ -126,7 +126,7 @@ $row = mysqli_fetch_assoc($eventResult);
         background-color: #999999;
         color:white;
         font-weight:normal;
-        font-size: 11px;
+        font-size: 9px;
     }
 
     .vote-rate-bar{
@@ -173,6 +173,11 @@ $row = mysqli_fetch_assoc($eventResult);
     }
     .arrow-btn.arrow-left{
         justify-content : right; 
+    }
+
+    span.fi {
+        font-size: 1.4rem;
+        top:7px;
     }
     
     
@@ -249,6 +254,7 @@ $clientIP = getClientIP();
   , base1.fighter_ringname as ringname1
   , base1.ranking_image_name as img1
   , base1.rankingChamp_image_name as imgChamp1
+  , base1.country as country1
   , his.player2
   , base2.fighter_name as name2
   , base2.win as win2
@@ -257,6 +263,7 @@ $clientIP = getClientIP();
   , base2.fighter_ringname as ringname2
   , base2.ranking_image_name as img2
   , base2.rankingChamp_image_name as imgChamp2
+  , base2.country as country2
   , his.winner_player
   , base_w.fighter_name as name_w
   , his.result
@@ -340,6 +347,7 @@ $clientIP = getClientIP();
 
                                     <div style="height:26px; display:flex; justify-content:space-between; font-size:0.8rem; padding:0px 50px; ">
                                         <div style="flex:2 0 0; text-align:left;">
+                                            <span class="fi fi-<?= strtolower($hisRow["country1"]) ?>"></span> 
                                         <?
                                             while ($division1Row = sql_fetch_array($division1Result)) { ?>
                                                 <span class="division-info"><?=$division1Row['division']?> #<? if($division1Row['ranking'] === '0') { echo "C"; } else { echo $division1Row['ranking']; }?></span>
@@ -357,9 +365,10 @@ $clientIP = getClientIP();
                                                     <span style="background-color: #4477ff; font-size: 0.5rem; line-height: 5px; padding: 5px; border-radius: 13px; margin-left: -11px;" >A</span>
                                                 <? } ?>
                                         <? } ?>
+                                            <span class="fi fi-<?= strtolower($hisRow["country2"]) ?>"></span> 
                                         </div>  
                                     </div>
-                                    <div style="flex:1 0 0; display:flex; font-size:1.5rem; padding:0px 50px">
+                                    <div style="flex:1 0 0; display:flex; font-size:1.5rem; padding:0px 50px; margin-top:10px;">
                                         <div style="flex:2 0 0; text-align:left;">
                                             <span style="white-space: word-break: auto-phrase;"><?= $hisRow['name1'] ?></span>
                                         </div>

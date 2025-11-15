@@ -122,16 +122,21 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/owlcarousel/owl.carou
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/sponsors.php" class="menu_item_anchor">SPONSORS</a></div>
                 <div class="menu_item">
                     <?php if($ticket_link) { ?>
-                        <a href="<?php echo $ticket_link; ?>" class="menu_item_anchor ticket_link">TICKET</a>
+                        <?php if($member['mb_id'] == 'pay_test' || $is_admin){ ?>
+                            <a href="<?php echo $ticket_link; ?>" class="menu_item_anchor ticket_link">TICKET</a>
+                        <?php }else{ ?>
+                            <a href="#" class="menu_item_anchor" onclick="alert('상품을 준비중입니다.');return false;">TICKET</a>    
+                        <?php } ?>
                     <?php } else { ?>
                         <a href="#" class="menu_item_anchor" onclick="alert('상품을 준비중입니다.');return false;">TICKET</a>
                     <?php } ?>
                 </div>
                 <div class="menu_item"><a href="http://www.hegemonyblack.com/main/index.php" class="menu_item_anchor" target="_blank">STORE</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/event.php?page=1" class="menu_item_anchor">EVENT</a></div>
+                <div class="menu_item"><a href="<?php echo G5_URL ?>/champ.php" class="menu_item_anchor">CHAMPION</a></div>
                 <!-- <div class="menu_item"><a href="<?php echo G5_URL ?>/video" class="menu_item_anchor">VIDEO</a></div> -->
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/ranking.php?type=fighter" class="menu_item_anchor">RANKING</a></div>
-                <div class="menu_item"><a href="<?php echo G5_URL ?>/cl.php" class="menu_item_anchor">C.L</a></div>
+                <!-- <div class="menu_item"><a href="<?php echo G5_URL ?>/cl.php" class="menu_item_anchor">C.L</a></div> -->
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/community" class="menu_item_anchor">COMMUNITY</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/gym.php" class="menu_item_anchor">GYM</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/rules.php" class="menu_item_anchor">RULES</a></div>

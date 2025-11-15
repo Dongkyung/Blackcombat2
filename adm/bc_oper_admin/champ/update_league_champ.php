@@ -32,7 +32,7 @@
 //         AND team_seq = '$team_seq'
 //     ";
 //     $result = sql_query($sql);
-}
+// }
 
 
 

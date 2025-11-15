@@ -159,6 +159,33 @@ echo "</script>";
     .data-row span{
         text-align:center;
     }
+
+    .select2-container {
+        z-index: 9999 !important;
+    }
+
+    .select2-container .select2-selection{
+        height: 38px !important;
+        padding: 4px;
+    }
+
+    .select2-container .select2-selection__arrow{
+        top :5px !important;
+    }
+
+    .select2-results__option {
+       text-align: left !important;
+    }
+    .select2-selection__rendered {
+        text-align: left !important;
+    }
+    #select2-country-container > span{
+        font-size: 1rem !important;
+    }
+    .td_country{
+        font-size: 1.2rem !important;
+        text-align:center;
+    }
     </style>
 
 <!-- Jquery -->
@@ -176,11 +203,17 @@ echo "</script>";
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />  
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 
+<!-- select2 -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <!-- datepicker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js" integrity="sha512-L4qpL1ZotXZLLe8Oo0ZyHrj/SweV7CieswUODAAPN/tnqN3PA1P+4qPu5vIryNor6HQ5o22NujIcAZIfyVXwbQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js" integrity="sha512-L4qpL1ZotXZLLe8Oo0ZyHrj/SweV7CieswUODAAPN/tnqN3PA1P+4qPu5vIryNor6HQ5o22NujIcAZIfyVXwbQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+<!-- -->
 
 <div id="myModal" class="modal">
   <span class="close">&times;</span>
@@ -201,6 +234,7 @@ echo "</script>";
     <thead>
     <tr>
         <th style="width:50px">No</th>
+        <th style="width:50px">국가</th>
         <th style="width:100px">이름</th>
         <th style="width:100px">링네임</th>
         <th style="display:none">팀번호</th>
@@ -230,6 +264,7 @@ echo "</script>";
         // $base64ImageDataDetail = base64_encode($row['detailImageBin']);
         echo "<tr class='fighter_".$row["fighter_seq"] ."'>";
         echo "<td class='fighter_seq'><a href='/fighter/" . $row["fighter_seq"] . "' target='_blank'>" . $row["fighter_seq"] . "</a></td>";
+        echo "<td class='td_country'>".$row["country"]."</td>";
         echo "<td class='fighter_name'>" . $row["fighter_name"] . "</td>";
         echo "<td class='fighter_ringname'>" . $row["fighter_ringname"] . "</td>";
         echo "<td class='team_seq' style='display:none'>" . $row["team_seq"] . "</td>";
@@ -308,12 +343,17 @@ echo "</script>";
                 </div>
                 <div class="data-row">
                     <div style="display:flex">
+                        <span style="flex: 1 1 0">국가</span>
                         <span style="flex: 1 1 0">팀 SEQ(자동할당)</span>
-                        <span style="flex: 2 1 0">팀명</span>
+                        <span style="flex: 1 1 0">팀명</span>
                     </div>
                     <div style="display:flex">
+                        <div style="flex: 1 1 0" class="countrySelectParent">
+                            <select class="form-control" id="country" style="width:100%;">
+                            </select>
+                        </div>
                         <input style="flex: 1 1 0" class="form-control" id="team_seq" disabled placeholder="팀 SEQ(자동할당)">
-                        <div style="flex: 2 1 0">
+                        <div style="flex: 1 1 0">
                             <input class="form-control" id="team_name" placeholder="팀명" autocomplete="off">
                             <div class="autocomplete"></div>
                         </div>
@@ -359,6 +399,15 @@ echo "</script>";
                         <input style="flex: 1 1 0" class="form-control" id="music_url" placeholder="등장곡 Youtube URL">
                     </div>
                 </div>
+
+                <div class="data-row">
+                    <div style="display:flex">
+                        <span style="flex: 1 1 0">셔독 프로필 URL</span>
+                    </div>
+                    <div style="display:flex">
+                        <input style="flex: 1 1 0" class="form-control" id="sherdog_url" placeholder="셔독 프로필 URL">
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" id="modal-cancel" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
@@ -370,17 +419,90 @@ echo "</script>";
 
 
 <script type="text/javascript">
-    let state = JSON.parse(localStorage.getItem('datatableState'));
-    let table = new DataTable('#myTable', {
-        pageLength: 25,
-        order: state?.order ?? [],
+
+
+    let countryMap = {};
+    let table;
+    $.getJSON('/adm/bc_oper_admin/fighter/contries.json', function(countries) {
+
+        countries.sort(function(a, b) {
+            return a.name_ko.localeCompare(b.name_ko, 'ko');
+        });
+
+        countries.forEach(c => {
+            countryMap[c.code] = {
+                name: c.name_ko,
+                flag: c.flag
+            };
+        });
+
+        let state = JSON.parse(localStorage.getItem('datatableState'));
+        table = new DataTable('#myTable', {
+            pageLength: 25,
+            order: state?.order ?? [],
+            columnDefs: [
+                {
+                    targets: 1,
+                    render: {
+                        display: function (data) {
+                            let c = countryMap[data];
+                            if(c !== null && c !== undefined){
+                                return `<span class="fi fi-${c.flag}"></span>`;
+                            }else{
+                                return '<span class="fi"></span>';
+                            }
+                        },
+                        filter: function (data) {
+                            if(data !== ""){
+                                return countryMap[data].name;
+                            }else{
+                                return null;
+                            }
+                        },
+                        sort: function (data) {
+                            if(data !== ""){
+                                return countryMap[data].name;
+                            }else{
+                                return null;
+                            }
+                        }
+                    }
+                }
+            ]
+        });
+
+        if(state){
+            if (state?.search) table.search(state.search).draw();
+            if (state?.page) table.page(state.page).draw(false);
+            localStorage.removeItem('datatableState');
+        }
+
+
+        $('#country').select2({
+            data: countries.map(c => ({
+                id: c.code,          // 서버 전송용 (ISO 코드)
+                text: c.name_ko,     // 사용자 표시용 (국문명)
+                flag: c.flag         // 아이콘용
+            })),
+            templateResult: function (state) {
+                if (!state.id) return state.text;
+                return $('<span><span class="fi fi-' + state.flag + '"></span> ' + state.text + '</span>');
+            },
+            templateSelection: function (state) {
+                if (!state.id) return state.text;
+                return $('<span><span class="fi fi-' + state.flag + '"></span> ' + state.text + '</span>');
+            },
+            dropdownParent: $('.countrySelectParent'),
+            language: {
+                noResults: function () {
+                    return "검색 결과가 없습니다";
+                }
+            }
+        });
+
+
     });
 
-    if(state){
-        if (state?.search) table.search(state.search).draw();
-        if (state?.page) table.page(state.page).draw(false);
-        localStorage.removeItem('datatableState');
-    }
     
 
 
@@ -598,7 +720,9 @@ echo "</script>";
             draw: $("#draw").val(),
             tel:  $("#tel").val(),
             music_name:  $("#music_name").val(),
-            music_url:  $("#music_url").val()
+            music_url:  $("#music_url").val(),
+            country:  $("#country").val(),
+            sherdog_url:  $("#sherdog_url").val(),
         };
 
         if(!validCheck(updatedData)){
@@ -708,7 +832,9 @@ echo "</script>";
             draw: $("#draw").val(),
             tel:  $("#tel").val(),
             music_name:  $("#music_name").val(),
-            music_url:  $("#music_url").val()
+            music_url:  $("#music_url").val(),
+            country:  $("#country").val(),
+            sherdog_url:  $("#sherdog_url").val(),
         };
 
         if(!validCheck(newTeamData)){
@@ -876,6 +1002,10 @@ echo "</script>";
             $("#music_name").val("");
             $("#music_url").val("");
 
+            $("#country").val("대한민국").trigger('change');
+
+            $("#sherdog_url").val("");
+
             applyAutoComplete();
             
             $("#modal-submit").text("등록");
@@ -915,6 +1045,11 @@ echo "</script>";
                     $("#music_name").val(info['music_name']);
                     $("#music_url").val(info['music_url']);
 
+                    
+                    $('#country').val(info['country']).trigger('change');
+
+                    $("#sherdog_url").val(info['sherdog_url']);
+                    
                     applyAutoComplete();
                     
                     $("#modal-submit").text("수정");
@@ -943,6 +1078,15 @@ echo "</script>";
         };
         localStorage.setItem('datatableState', JSON.stringify(state));
     }
+
+    function formatCountry (state) {
+        if (!state.id) { return state.text; }
+        const flag = $(state.element).data('flag'); 
+        return $(
+            '<span><span class="fi fi-' + flag + '"></span> ' + state.text + '</span>'
+        );
+    }
+
 
 </script>
 

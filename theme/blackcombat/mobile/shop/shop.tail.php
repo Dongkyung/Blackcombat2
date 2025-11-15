@@ -33,10 +33,10 @@ $admin = get_admin("super");
 
     <div class="footer_copyright">
         <p style="padding-bottom:5px;">회사명 : 주식회사 이데아 파라곤</p>
-        <p style="padding-bottom:5px;">주소 : 서울 금천구 가산디지털1로 142 1302호 (가산동, 가산 더스카이밸리 1차)</p>
+        <p style="padding-bottom:5px;">주소 : 서울시 성동구 서울숲2길 35</p>
         <p style="padding-bottom:5px;">사업자 등록번호 : 682-81-02925</p>
         <p style="padding-bottom:5px;">대표 : 박평화</p>
-        <p style="padding-bottom:5px;">전화 : 070-4193-9293</p>
+        <p style="padding-bottom:5px;">전화 : 070-5222-9146</p>
         <p style="padding-bottom:5px;">통신판매업신고번호 : 2022-서울금천-2877</p>
         <p style="padding-bottom:10px;">개인정보 보호책임자 : 박영광 (pykp3927@gmail.com)</p>
 

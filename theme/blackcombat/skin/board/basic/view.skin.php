@@ -42,7 +42,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css?v=202
                     <div class="profile_info_ct">
                         <span class="sound_only">작성자</span> <strong><?php echo $view['name'] ?><?php if ($is_ip_view) { echo "&nbsp;($ip)"; } ?></strong><br>
                         <span class="sound_only">댓글</span><strong><a href="#bo_vc"> <i class="fa fa-commenting-o" aria-hidden="true"></i> <?php echo number_format($view['wr_comment']) ?>건</a></strong>
-                        <span class="sound_only">조회</span><strong><i class="fa fa-eye" aria-hidden="true"></i> <?php echo number_format($view['wr_hit']) ?>회</strong>
+                        <?php if($view['ca_name'] != "문의"){ ?>
+                            <span class="sound_only">조회</span><strong><i class="fa fa-eye" aria-hidden="true"></i> <?php echo number_format($view['wr_hit']) ?>회</strong>
+                        <?php } ?>
                         <strong class="if_date"><span class="sound_only">작성일</span><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo date("y-m-d H:i", strtotime($view['wr_datetime'])) ?></strong>
                     </div>
                 </div>
@@ -121,34 +123,36 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css?v=202
                 <?php if ($is_signature) { ?><p><?php echo $signature ?></p><?php } ?>
 
 
-                <!--  추천 비추천 시작 { -->
-                <?php if ( $good_href || $nogood_href) { ?>
-                <div id="bo_v_act">
-                    <?php if ($good_href) { ?>
-                    <span class="bo_v_act_gng">
-                        <a href="<?php echo $good_href.'&amp;'.$qstr ?>" id="good_button" class="bo_v_good"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="sound_only">추천</span><strong><?php echo number_format($view['wr_good']) ?></strong></a>
-                        <b id="bo_v_act_good"></b>
-                    </span>
-                    <?php } ?>
-                    <?php if ($nogood_href) { ?>
-                    <span class="bo_v_act_gng">
-                        <a href="<?php echo $nogood_href.'&amp;'.$qstr ?>" id="nogood_button" class="bo_v_nogood"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i><span class="sound_only">비추천</span><strong><?php echo number_format($view['wr_nogood']) ?></strong></a>
-                        <b id="bo_v_act_nogood"></b>
-                    </span>
-                    <?php } ?>
-                </div>
-                <?php } else {
-                    if($board['bo_use_good'] || $board['bo_use_nogood']) {
-                ?>
-                <div id="bo_v_act">
-                    <?php if($board['bo_use_good']) { ?><span class="bo_v_good"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="sound_only">추천</span><strong><?php echo number_format($view['wr_good']) ?></strong></span><?php } ?>
-                    <?php if($board['bo_use_nogood']) { ?><span class="bo_v_nogood"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i><span class="sound_only">비추천</span><strong><?php echo number_format($view['wr_nogood']) ?></strong></span><?php } ?>
-                </div>
-                <?php
+                <?php if($view['ca_name'] != "문의"){ ?>
+                    <!--  추천 비추천 시작 { -->
+                    <?php if ( $good_href || $nogood_href) { ?>
+                    <div id="bo_v_act">
+                        <?php if ($good_href) { ?>
+                        <span class="bo_v_act_gng">
+                            <a href="<?php echo $good_href.'&amp;'.$qstr ?>" id="good_button" class="bo_v_good"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="sound_only">추천</span><strong><?php echo number_format($view['wr_good']) ?></strong></a>
+                            <b id="bo_v_act_good"></b>
+                        </span>
+                        <?php } ?>
+                        <?php if ($nogood_href) { ?>
+                        <span class="bo_v_act_gng">
+                            <a href="<?php echo $nogood_href.'&amp;'.$qstr ?>" id="nogood_button" class="bo_v_nogood"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i><span class="sound_only">비추천</span><strong><?php echo number_format($view['wr_nogood']) ?></strong></a>
+                            <b id="bo_v_act_nogood"></b>
+                        </span>
+                        <?php } ?>
+                    </div>
+                    <?php } else {
+                        if($board['bo_use_good'] || $board['bo_use_nogood']) {
+                    ?>
+                    <div id="bo_v_act">
+                        <?php if($board['bo_use_good']) { ?><span class="bo_v_good"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span class="sound_only">추천</span><strong><?php echo number_format($view['wr_good']) ?></strong></span><?php } ?>
+                        <?php if($board['bo_use_nogood']) { ?><span class="bo_v_nogood"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i><span class="sound_only">비추천</span><strong><?php echo number_format($view['wr_nogood']) ?></strong></span><?php } ?>
+                    </div>
+                    <?php
+                        }
                     }
-                }
-                ?>
-                <!-- }  추천 비추천 끝 -->
+                    ?>
+                    <!-- }  추천 비추천 끝 -->
+                <?php } ?>
             </section>
 
             <?php

@@ -26,9 +26,9 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                         <li>
                             <a href="<?php echo G5_URL ?>/ranking.php?type=fighter" class="<?php echo $type == 'fighter' ? 'active' : ''; ?>">FIGHTER</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo G5_URL ?>/ranking.php?type=team" class="<?php echo $type == 'team' ? 'active' : ''; ?>">TEAM</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="<?php echo G5_URL ?>/ranking.php?type=semi_pro" class="<?php echo $type == 'semi_pro' ? 'active' : ''; ?>">SEMI-PRO</a>
                         </li>
@@ -36,7 +36,13 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
                 </div>
 
                 <?php if ($type == 'fighter') { ?>
-                    <? include_once(G5_THEME_PATH.'/ranking_contents.php'); ?>
+                    <?php
+                    if($is_admin){ 
+                        include_once(G5_THEME_PATH.'/ranking_contents_new.php');
+                    }else{
+                        include_once(G5_THEME_PATH.'/ranking_contents.php');
+                    } 
+                    ?>
                 <?php } else if ($type == 'semi_pro') { ?>
                     <? include_once(G5_THEME_PATH.'/ranking_semi_pro_contents.php'); ?>
                 <?php } else { ?>

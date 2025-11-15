@@ -22,12 +22,13 @@ foreach ($orderData as $item) {
     $fighter_seq = $item['fighter_seq'];
     $defend = $item['defend'];
     $status = $item['status'];
-    $fsttm = $item['fsttm']; 
+    $start_date = $item['start_date']; 
+    $end_date = $item['end_date']; 
 
     // TODO: 적절한 SQL UPDATE 쿼리를 사용하여 데이터 업데이트
     $sql = "INSERT INTO blackcombat.tb_champion_history
-        (division, `order`, fighter_seq, defend, status, fsttm)
-        VALUES('$division', $order, $fighter_seq, $defend, $status, '$fsttm');";
+        (division, `order`, fighter_seq, defend, status, start_date, end_date, fsttm)
+        VALUES('$division', $order, $fighter_seq, $defend, $status, '$start_date', '$end_date', now());";
 
     // 쿼리 실행
     $result = sql_query($sql);    

@@ -29,14 +29,14 @@ include_once(G5_THEME_MOBILE_PATH.'/head.php');
     </div>
 </div>
 
-<? // if($is_admin){ ?>
+<? if($is_admin){ ?>
 <div>
     <div class="store_item_price" style="padding:20px 10px">
         <a href="#" onclick="window.open('/ticket_event_result.php', 'popup',  'width=500,height=500,toolbar=no,menubar=no,scrollbars=no,resizable=no,status=no,location=no'); return false;"
             style="width:400px; padding: 20px; font-size: 17px; font-weight: bold; background: #ffba3c;">멤버쉽 티켓증정 이벤트<br> 당첨결과 조회</a>
     </div>
 </div>
-<? //} ?>
+<? } ?>
 
 <div class="favorite_menus">
     <div class="favorite_menu_items">
@@ -106,6 +106,10 @@ include_once(G5_THEME_MOBILE_PATH.'/head.php');
             </div>
         </div>
     </div>
+</div>
+
+<div class="sponsors" style="padding-top:unset; width:100%; text-align:center;">
+    <div><a href="https://www.marqvision.com/kr/report-a-fake-blackcombat" target="_blank"><img style="width:100%" src="<?php echo G5_THEME_IMG_URL; ?>/KRBanner_mobile_BlackCombat_dark.png" /></a></div>
 </div>
 
 <div class="sponsors">

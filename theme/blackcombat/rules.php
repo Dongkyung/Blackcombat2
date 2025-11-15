@@ -13,6 +13,24 @@ include_once(G5_THEME_PATH.'/head.php');
 $ruleType = !empty($_GET['ruleType']) ? $_GET['ruleType'] : 'pro';
 
 add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/rules.css">', 0);
+
+
+$ruleTypeNum;
+if($ruleType == "pro"){
+    $ruleTypeNum = 1;
+}else if($ruleType == "amateur"){
+    $ruleTypeNum = 2;
+}
+
+
+$sql = "SELECT rule_seq, title, rule_contents, upt_date, reg_date 
+        FROM blackcombat.tb_rule_content 
+        WHERE `type` = $ruleTypeNum
+        ORDER BY upt_date DESC, rule_seq DESC 
+        LIMIT 1";
+
+$latest = sql_fetch($sql);
+
 ?>
 
 <style>
@@ -43,6 +61,14 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/rules.css">'
         margin-bottom:50px;
     }
 
+    .rule-meta {
+        font-size: 0.9rem;
+        font-weight:bold;
+        color: #666;
+        margin-bottom: 50px;
+        border-bottom: 2px solid #007bff;
+    }
+
     .nameHighlight{
         font-weight:bold;
         font-size:1.1rem;
@@ -53,6 +79,8 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/rules.css">'
         border: 1px solid black;
         padding:10px;
     }
+
+
 </style>
 
     <div class="sub_visual">
@@ -63,8 +91,6 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/rules.css">'
         </div>
     </div>
 
-<?php ?>
-
     <div class="sub_content">
         <div class="sub_container">
             <div class="rules_type">
@@ -74,587 +100,25 @@ add_stylesheet('<link rel="stylesheet" href="/theme/blackcombat/css/rules.css">'
                 </select>
             </div>
             <div class="rules_page">
-                <div class="rules_contents">
-                <? if($ruleType === 'pro'){ ?>
-<span>2025.08.06 최종 수정</span><br><br>
-<h3>제 1 조 대회사 공식 명칭</h3>
-
-본 대회사의 명칭은 <span class="nameHighlight">Black Combat : Who is the King</span> 으로 한다.
-
-<br /><br />
-<h3>제 2 조 체급</h3>
-
-<남성부><br />
-(1) 56.7kg 이하 : 플라이급 (Flyweight Division)<br />
-(2) 56.8kg 이상 ~ 61.3kg 이하 : 밴텀급 (Bantamweight Division)<br />
-(3) 61.4kg 이상 ~ 65.8kg 이하 : 페더급 (Featherweight Division)<br />
-(4) 65.9kg 이상 ~ 70.4kg 이하 : 라이트급 (Lightweight Division)<br />
-(5) 70.5kg 이상 ~ 77.1kg 이하 : 웰터급 (Welterweight Division)<br />
-(6) 77.2kg 이상 ~ 84kg 이하 : 미들급 (Middleweight Division)<br />
-(7) 84.1kg 이상 ~ 100kg 이하 : 중량급 (Heavyweight Division)<br />
-(8) 120kg 이하 : 헤비급 (Heavyweight Division)<br />
-*허용 오차 +/- 500g 까지 (계약 체중 매치 및 타이틀전은 허용 오차 범위를 허용하지 않는다.)<br /><br />
-
-<여성부> <br />
-(1) 48kg 이하 : 아톰급 (Atomweight Division)<br />
-본 대회사가 주최하는 대회에 참가하는 모든 선수들은 계체량 전까지 자신이 경기를 진행함에 있어서 아무런 문제가 없다 라는 진단서를 대회사 제출해야만 한다. 만약 어떠한 결함이 발견될 경우, 전문의를 통해 판단 후 대회사와 협의 후 경기 진행 여부를 결정한다.<br />
-해당 대회의 선수가 부상으로 인해 계약된 경기를 진행하지 못할 시 대회사가 정해주는 병원에서 진료 및 진단서를 받아 대회사에 제출한 뒤, 추후 협의 후 대회사의 결정에 따른다.<br /><br />
-
-- 1차 계체량 시작 시간은 본 대회사가 지정한다.<br />
-- 예를 들어, 계체시간이 대회사에 의해 "오전 11시"로 고지된 경우, 지각 시간에 따라 다음과 같은 패널티가 적용된다.<br />
-(1) 11시를 넘긴 시점부터 11시 30분 사이에 도착할 경우<br />
-- 선수는 경기 출전이 가능하나 파이트머니의 10%를 삭감한 후 대회사에 지급한다.<br />
-(2) 11시 31분부터 12시 사이 도착 시 (2차 계체 시간 초과)<br />
-- 총 경기 점수에서 -1점 감점,<br />
-- 파이트머니의 50%를 상대 선수에게 지급<br />
-(3) 12시 이후 도착 시 (1시간 이상 지각)<br />
-- 해당 선수는 실격 처리되며, 대회사 판단에 따라 향후 경기 출전 정지, 계약 해지 등의 추가 제재가 부과될 수 있다<br /><br />
-
-- 본 대회사가 진행하는 대회의 경기에 참가하는 모든 선수들은 정해진 룰에 따라 계체를 통과해야 한다.<br />
-- 만일 계체를 통과하지 못한 선수가 피니시를 내거나 판정에서 높은 점수를 얻을 경우 해당 경기는 무효 처리된다. (단, 제 10조에 의거한 연장 라운드 돌입은 가능하다.)<br />
-- 계측을 통과하지 못한 선수들은 추가로 다음과 같은 패널티를 받게 된다.<br />
-(1) 해당 선수가 1차 계측을 실패할 시 심판이 정한 시간 내에 2차 계체가 이뤄진다.<br />
-(2) 해당 선수가 2차 계측 또한 실패할 시 초과 체중 기준에 따른 페널티가 적용 된다.<br />
-- 500g 미만으로 초과할 경우 : 전체 R별 -1점 감점<br />
-- 500g이상 ~ 1kg 미만으로 초과할 경우 : 파이트머니의 30% 상대에게 지급, 전체 R별 -1<br />
-- 1kg 이상 ~2kg 미만으로 초과할 경우 : 파이트머니의 50% 상대에게 지급, 전체 R별 -2<br />
-- 2kg 초과시 :<br />
-① 상대 선수가 경기를 희망할 때 : 상대 선수에게 파이트머니 몰수, 전체 R별 -2<br />
-② 상대 선수가 경기를 희망하지 않을 때 : 실격 패<br />
-<br />
-<h3>제 3 조 대회 종류</h3>
-
-1. 블랙컴뱃 챔피언스리그<br />
-: 국내 최강팀을 가리는 세계 최초 mma 프로 리그전<br />
-(1) 한 시즌에 최대 7개의 팀이 참여하며, 각 팀이 모든 팀과 반드시 한번은 싸우는 리그 시스템.<br />
-(2) 한 달에 1회의 대회가 열리며 각 팀당 5체급 매치로 총 5개의 경기가 열린다. (단, 넘버링 이벤트가 있는 주와 그 전주는 제외)<br />
-(3) 모든 경기 결과는 팀 랭킹과 개인 랭킹에 반영이 되며 그 결과는 블랙컴뱃 공식 사이트에 매주 업로드 된다.<br />
-(4) 경기 날짜 1주 전에 양 팀은 선수 명단을 제출해야 하며, 선수 명단과 다른 선수가 출전 시 명단 승점에서 -1점 감점을 받는다.<br />
-(5) 승점 계산법<br />
-1) 팀 랭킹 승점 계산법<br />
-① 피니쉬 승 : +2점<br />
-② 판정승 : +1점<br />
-③ 실격 : -1점<br />
-＊한 쪽 팀에서 특정 체급의 선수가 출전하지 않아 경기가 성사되지 않는다면 출전하지 않은 선수의 팀은 실격패로 간주해서 -1점의 패널티를 받고, 출전한 선수의 팀은 +1점의 점수를 얻는다.<br />
-2) 개인 랭킹 계산법<br />
-: 제 11조에 따라 대회사 주관으로 공정하게 랭킹을 산정한다.<br />
-① 피니쉬 승 : +2점<br />
-② 판정승 : +1점<br />
-(6) 챔피언스리그의 대진은 대회사에서 매치해주며 수정이 불가능하다.<br />
-2. 넘버링 이벤트<br />
-: 흥행성이 있고 체급별 타이틀전 관련 빅 매치들로 구성된 대규모 이벤트<br />
-3. 블랙컴뱃 라이즈<br />
-: 챔피언스리그에서 두각을 나타내거나, 넘버링 이벤트 출신의 흥행성이 있는 선수들간의 매치업으로 구성된 이벤트<br />
-<br />
-<h3>제 4 조 경기 장비</h3>
-- 해당 대회에 참가하는 해당 선수들은 본 대회사가 제공하는 공식 블랙컴뱃 오픈 핑거 글러브를 사용한다.<br />
-- 오픈 핑거 글러브는 경기 시작 전에 선수 대기실에서 착용한다. <br />
-- 심판은 지정된 선수 대기실에서 선수들에게 글러브를 착용시켜야 한다. 착용 후, 손목 테이핑 접합부분에 심판 확인 사인을 해야 한다.<br />
-- 선수는 경기 시작 전 선수대기실에서 심판에게 1차 검사를 받고 케이지에 올라가기 전에 2차 체크를 받아야 한다.<br />
-- 선수는 경기가 끝나기 전까지 글러브를 해체 및 제거할 수 없다.<br />
-(1) 선수는 경기가 끝나면 경기 글러브를 대회사에 반납해야만 한다.<br />
-- 선수들은 대회사가 지정, 지급, 허용하는 테이프를 사용해야 하며 거즈는 필요시 개인이 구입 후 사용한다.<br />
-- 다른 방법을 사용한 주먹 고정, 혹은 주먹 고정을 위한 보형물 삽입은 금지하며 테이핑 이후 정권 뼈 부위가 반드시 만져져야 한다.<br />
-- 경기에 참가하는 모든 선수들은 반드시 개인 마우스피스, 파울컵을 착용해야만 한다.<br />
-- 마우스피스와 파울컵을 착용하지 않은 선수들은 경기를 참가하지 못한다.<br />
-- 경기를 참가하는 선수들은 머리카락에 그 무엇도 바를 수 없다. (왁스, 헤어젤, 헤어스프레이, 오일 등)<br />
-- 바셀린 도포는 부상 방지용이며 심판이 시작 직전에 직접 도포한다. 해당 선수 세컨진이나 다른 사람들이 도포해서는 안된다.<br />
-- 경기에 참가하는 선수 및 세컨진은 다른 종류의 도포제, 호흡기 관련 약제류 등을 가지고 경기장에 입장할 수 없다.<br />
-- 경기 도중 바셀린 도포는 대회 링닥터 및 심판이 원활한 경기 진행 및 응급처치 용도로 사용할 수 있다.<br />
-- 하드 콘택트 렌즈 사용은 금지한다. 경기 전에 심판진이 해당 선수 콘택트 렌즈 사용 여부를 검사한다.<br />
-- 소프트 콘택트 렌즈는 사용이 가능하나, 이로 인해 경기에서 발생한 선수의 부상, 사고에 대해서는 대회사가 책임을 지지 않는다.<br /><br />
-
-
-<h3>제 5 조 경기 시간 / 경기 유니폼</h3>
-- 출전 선수는 심판위원회가 안내한 시간 (룰미팅, 밴디지 검사 시간 등)을 엄수해야 한다. 이를 위반할 시 대회사와 심판위원회가 주는 패널티를 받아야 한다.<br />
-- 모든 경기는 5 분 3 라운드, 라운드 사이 쉬는 시간은 1분으로 진행된다.<br />
-- 모든 경기는 3심제 배심으로 진행한다.<br />
-- 경기가 선수에 의해 승패결정이 되지 않을 경우, 배심의 판정으로 승패가 결정된다.<br />
-- 3라운드 배점 이후, 무승부이거나, 세 명의 배심 중 두 명 이상의 배심이 연장전을 가야 한다고 채점한 경우, 주심 한 명과 배심 세 명 그리고 VAR 판독원 한 명(총 5명)이 모여 연장전 여부를 협의할 수 있다. 협의 이후 무기명 투표를 통해 3명 이상의 투표자가 연장전을 동의할 경우, 연장전 1라운드를 추가 진행한다.<br />
-- 추가로, 계체를 실패한 선수가 연장전에 들어갈 경우 계체 실패 패널티를 연장 라운드에도 동일하게 적용한다.<br />
-- 본 대회사가 주최하는 해당 대회에 참가하는 선수들은 대회사가 공식적으로 지정하고 허용하는 유니폼만을 착용하고 경기를 진행해야 한다. 이를 어길 시, 선수 및 해당 팀은 패널티를 받게 된다.<br />
-- 해당 대회에 참가하는 선수는 대회사의 공식 파이트 쇼츠 (트렁크)를 착용해야 한다. 파이트 쇼츠안에 파울컵, 타이즈 외에는 착용 불가능하다.<br />
-- 입장 시, 해당 선수와 세컨진의 복장은 본 대회사가 허용하는 복장으로 통일해야 한다.<br /><br />
-
-<h3>제 6 조 허용 가능 기술</h3>
-- 스탠딩과 그라운드에서 후두부, 척추라인, 낭심을 제외한 부위에 대해 타격 가능 (킥, 펀치, 허용된 서브미션 기술 등)<br />
-- 그라운드 시 반칙 부위를 제외한 모든 공격 가능 (안면 공격, 4점니킥 허용)<br />
-- 알리 & 이노끼 상황에서 오블리킥을 제외한 모든 킥 공격 가능 (스탬핑킥, 싸커킥, 업킥 등)<br />
-- 특히 제 7조에 나오는 반칙에 주의한다.<br /><br />
-
-<h3>제 7 조 반칙</h3>
-블랙컴뱃은 다음과 같은 공격들 및 상황을 반칙으로 간주한다.<br />
-- 낭심 공격, 눈 찌르기, 머리카락 잡아당기기, 꼬집기, 살 할퀴기, 박치기, 깨물기, 핥기, 목 타격, 후두부에서 꼬리뼈까지의 타격, 오블리 킥, 수직 엘보우 공격, 상대 선수를 들어서 머리를 바닥에 내리 꽂는 공격, 상대에게 침 뱉기, 손톱, 발톱을 이용한 공격<br />
-- 주심이 경기를 중단했는데도 공격할 경우<br />
-- 라운드 종료 벨이 울렸음에도 공격할 경우, 라운드 사이 쉬는 시간에 공격할 경우<br />
-- 상대 선수의 콧구멍, 입 등 안면부위를 손을 사용해서 찢기, 당기는 경우<br />
-- 주심의 지시를 고의적으로 어기고 공격할 경우<br />
-- 손가락, 발가락 관절 꺾기<br />
-- 부상이 없음에도 거짓으로 부상을 연기하거나 주장할 경우<br />
-- 주심과 대화하고 있는 선수를 공격할 경우<br />
-- 경기 진행을 의도적으로, 고의적으로 지연, 방해하는 경우 <br />
-- 선수들의 세컨진이 경기 진행을 의도적으로 방해할 경우 혹은 주심이 그렇다고 판단한 경우<br />
-- 고의적으로 케이지를 손이나 발로 잡는 경우<br />
-- 상대 선수를 의도적으로 다치게 하는 경우<br />
-- 본인 혹은 상대 선수의 파이트 쇼츠 및 글러브 안에 손가락을 넣는 경우<br />
-- 상대 선수 글러브 구멍에 손가락을 끼워 넣거나 구멍에 손가락을 넣어 붙잡는 경우 (단, 상대 글러브를 손바닥으로 잡는 경우는 예외로 한다.)<br />
-- 상대 선수의 부상당한 부위를 고의적으로 찌르거나 비비는 경우<br />
-- 선수가 고의적으로 무기력한 고착 상태를 유지하거나 유발하는 경우<br />
-- 선수 자의로 인해 자동 기권한 선수를 공격할 경우<br />
-*주심의 판단과 재량에 따라 반칙 사항은 더 추가될 수 있다.<br /><br />
-
-
-<h3>제 8 조 레프리 사인</h3>
-- 레프리 사인은 '주의/경고/실격'이 있다. 주심은 해당 선수가 상황을 확인할 수 있도록 Call 사인을 줘야 한다.<br />
-- 경기 후 배심의 채점에서 양 선수가 동점일 경우, 주의/경고를 받은 선수가 불리하다.<br />
-*선수 대기실 및 장외에서 타 선수 및 세컨진에게 피해를 주는 일이 발생할 경우, 심판의 판단에 의해 경기 전 주의를 받을 수 있다. <br />
-*고의적, 악의적으로 경기를 방해하는 세컨진이 있을 경우, 주심이 '주의/경고'를 줄 수 있다.<br />
-- 반칙을 행한 선수는 주심에게 주의를 받는다. 다시 한번 반칙을 행해 또 주의를 받게 될 경우 '경고'로 간주되며 감점이 주어진다. 주심의 판단에 따라 '주의' 없이 바로 '경고'와 감점을 줄 수 있다. <br />
-- 그라운드 공방 상황에서 유리한 포지션을 잡은 선수가 반칙할 경우, 주의/경고 후 스탠딩에서 다시 경기를 진행한다.<br />
-- 그라운드 공방 상황에서 불리한 포지션에 놓인 선수가 반칙할 경우, 주의/경고 후 동일한 포지션에서 다시 경기를 진행한다.<br />
-- 스포츠맨십에 반하는 선수의 악의적이고도 고의적인 반칙 행위는 '주의/경고' 없이 바로 실격패 처리될 수 있다.<br />
-- 반칙을 당한 선수는 링닥터의 소견에 따라 적절한 회복 시간이 주어진다. 링닥터가 닥터 스톱을 선언하지 않은 경우에도, 선수가 부여된 시간을 초과하여 경기를 이행을 하지 않는다면, 해당 선수는 실격패로 처리된다<br>
-- 해당 선수가 경기에 불참하거나, 2KG 이상 계체 초과 실패 시, 패널티를 부여하고 실격패 처리한다.<br /><br />
-
-
-<h3>제 9 조 배점 기준</h3>
-- 모든 경기는 3명의 배심이 배점 기준에 따라 공정하게 판정한다.<br />
-- 블랙컴뱃은 '10-point must scoring system'을 사용하여 배점한다. 즉, 각 라운드마다 승자가 반드시 있어야 하며, 라운드별 승자 선수에게는 10점, 패자에게는 9점 혹은 8점이 부여 된다. <br />
-- 배점기준 1순위는 상대에게 큰데미지를 주거나, 압도적인 타격 혹은 압도적인 그래플링 컨트롤를 가져간 경우 , 2순위는 효과적인 타격횟수(유효타), 테이크다운 횟수나 그래플링 컨트롤 시간(그라운드, 케이지 컨트롤 시간), 서브미션 캐치를 가져간 경우, 3순위는 어그레시브이다.<br />
-- 상대 선수에게 데미지와 임팩트를 주는 공격 및 파운딩은 공격 횟수가 적더라도 점수로 인정된다.<br />
-- 반칙을 제외한 공격기술로 상대방을 다운시킬 경우 점수로 인정된다.<br />
-- 유술, 레슬링 기술 등으로 상대방을 넘어뜨리고 등을 눕혀 유효 포지션/유리한 포지션을 3초 이상 점유한다면 그래플링 컨트롤 타임을 가져간 경우로 간주한다.<br>
-- 테이크다운을 성공하더라도 상대방을 3초 이상 눕혀 놓거나 컨트롤 하지 못하고 상대선수가 바로 일어난다면 큰 점수로 인정되지는 않으나, 유효타 1회에 준하는 점수로 인정된다. 단, 엉덩이를 찍거나 앞으로 넘어져서 중심 뺏기는 경우의 테이크 다운에만 적용되고, 상대방이 케이지에 기대어 등이 눕혀지지 않는 경우나 중심을 빼앗기지 않는 경우에는 적용되지 아니한다.<br>
-- 테이크다운을 당한 상대선수가 일어나기 위한 움직임을 보여주지 않는 경우 이는 테이크다운 성공으로 간주한다.<br />
-- 그라운드 상황/클린치 상황에서 양 선수가 적극성이 느껴지지 않는 무의미한 공격과 공방을 이어갈 경우 주심이 스탠딩 상황으로 재 진행시킬 수 있다.<br />
-- 파운딩이나 서브미션으로 연결할 수 있는 연결 동선 포지션들을 유효 포지션으로 둔다. (마운트, 백마운트, 사이드, 남북, 터틀 포지션 등등) 유효 포지션 점유할 시, 점수가 주어진다.<br />
-- 그라운드 상황 시, 하위 포지션 방어자가 상위 포지션 공격자를 뒤집어 포지션 역전할 경우 점수가 주어진다.<br />
-- 적극적인 서브미션 시도 또한 점수가 주어진다.<br /><br />
-
-<h3>제 10 조 승패 결정</h3>
-1. 판정승 <br />
-(1) 블랙컴뱃은 각 라운드별 점수를 채점한다. 더 많은 라운드를 가져간 선수가 승리한다. 만장일치 판정승, 스플릿 디시젼 판정승, majority 디시젼 판정승이 있다.<br />
-(2) 제 9조 배점 기준에 의거하여 최종적으로 더 높은 점수를 획득한 선수가 승리한다. 단, '10-point must scoring system'의 한계를 보완하기 위하여 3라운드 종료 이후 더 높은 점수를 획득한 선수가 나와도, 두 명 이상의 배심이 연장전에 가야한다고 채점한 경우, 더 높은 점수를 획득한 선수의 승리 선언이 아닌 연장 여부를 먼저 협의한다.<br />
-(3) 3라운드 배점 이후, 무승부이거나, 세 명의 배심 중 두 명 이상의 배심이 연장전을 가야 한다고 채점한 경우, 주심 한 명과 배심 세 명 그리고 VAR 판독원 한 명(총 5명)이 모여 연장전 여부를 협의할 수 있다. 협의 이후 무기명 투표를 통해 3명 이상의 투표자가 연장전을 동의할 경우, 연장전 1라운드를 추가 진행한다.<br />
-- 링닥터와 의료진이 판단했을 때 선수가 경기를 계속 진행할 수 없을 정도의 부상일 경우, 주심은 닥터스탑을 선언할 수 있다.<br />
-- 상대 선수의 타격, 조르기, 관절기에 의해 탭아웃을 칠 경우 해당 선수의 승리로 경기는 끝이 난다.<br />
-- 상대 선수의 공격에 의해 선수가 쓰러져서 의식을 잃거나 어떠한 공격, 방어를 위한 움직임이 보이지 않고 무의미하다고 판단될 경우, 주심은 공격선수에게 승리를 선언한다. (KO승, TKO승이 있다)<br />
-- 경기 도중 양선수가 너무 부상이 심할 경우, 링닥터의 판단에 따라 경기 진행 여부가 결정된다.<br />
-- 상대방의 반칙에 의해 부상이 심할 경우, 주심은 반칙을 한 선수에게 반칙패를 준다.<br /><br />
-
-2. 실격패<br />
-(1) 해당 경기에 참가하기로 한 해당 선수가 경기 시작 1시간전까지 나타나지 않을 시, 해당 선수는 실격패 처리된다.<br />
-(2) 최종 계체 실패 후, 양 선수단이 협의가 되지 않을 경우 계체를 실패한 선수는 실격패 처리된다.<br />
-(3) 세컨진이 케이지 위로 올라와 상대 선수를 공격하거나 난동을 피울 경우, 해당 선수는 실격패 처리된다.<br /><br />
-
-3. 기권승<br />
-(1) 케이지 밖으로 일부러 도망가는 경우 자동 기권으로 간주<br />
-(2) 세컨진이 타월을 경기 도중 케이지에 던지거나 시합을 중지시킨 경우<br />
-(3) 해당 선수가 경기 진행을 자의적으로 포기할 경우<br /><br />
-
-4. 경기 무효<br />
-(1) 선수가 계체를 실패한 이후 피니시를 내거나 채점에서 높은 점수를 획득한 경우<br />
-(2) 어떠한 불의의 사고로 경기가 취소되거나 경기가 중단될 경우<br />
-(3) 낭심 공격에 의해 경기가 더이상 진행이 불가한 경우<br />
-- 배심 판정 결과에 대해 동의가 되지 않거나, 불합리하다고 생각할 경우 경기 결과에 대해 이의를 대회사에 제기할 수 있다. 정확하고도 타당한 증거를 대회사에 제출하여 이의를 제기하도록 한다.<br /><br />
-
-<h3>제 11 조 랭킹 산정 기준</h3>
-- 반드시 해당 체급에서 블랙컴뱃 시합 또는 컨텐츠에 출전한 이력이 있어야 한다.<br />
-- 체급 내 상위 랭커 상대로 승리를 거둘 경우, 해당 상대보다 높은 랭킹에 위치하게 된다. 단, 동시에 체급 내 다른 상대에게 패배한 이력이 있을 경우, 해당 경기 결과를 고려하여 적절한 랭킹을 산정한다.<br />
-- 총 전적에 따라 상대적으로 우수한 전적을 가진 선수가 상위 랭킹에 산정된다.<br />
-- 가장 최근에 치른 경기 내용과 결과를 통해 랭킹을 산정한다.<br />
-- 상위랭킹(1~5위) 진입한 파이터의 경우 경기를 치르지 않고도 랭킹이 유지되거나 상승하는 현상을 방지하고자 시합을 자주 뛰는 상위랭커에게 가산점을 부여한다.<br />
-- 시합 공백기가 길어질수록 랭킹은 점진적으로 하향 된다.<br />
-- 프로 시합 외 프로 오디션에서의 스파링 내용과 결과 또한 반영하여 랭킹을 산정한다. 다만, 프로 시합 내용과 결과가 프로 오디션 스파링의 내용과 결과보다 중요하게 반영된다.<br />
-- 타이틀전에서 계체 실패한 파이터는 챔피언 타이틀 박탈과 동시에 랭킹이 하향 된다.<br />
-- 시합 결과(피니쉬 혹은 판정점수 결과) 또한 랭킹 산정에 중요한 지표로 반영된다.<br />
-- 타 단체에서 쌓은 커리어 또한 랭킹 산정 시 반영하나, 블랙컴뱃에서 쌓은 커리어를 최우선시 하여 산정한다.<br /><br />
-
-* 대회에 참가하는 모든 선수들 및 세컨진은 룰에 의거하여 대회사와 심판진의 지시 및 전달사항을 따라줘야 한다.<br />
-* 블랙컴뱃 룰은 대회사와 심판위원회에 의해 언제든 개정될 수 있다.<br />
-    <br />
-    <br />
-<hr style="display:block" />
-    <br />
-    <br />
-<h3>Article 1: Official Name of the Organization</h3>
-The official name of this organization shall be <span class="nameHighlight">Black Combat : Who is the King</span><br />
-<br />
-<h3>Article 2: Weight Classes</h3>
-•	Men's Division<br />
-(1)	56.7kg and below: Flyweight Division<br />
-(2)	Over 56.7kg to 61.3kg: Bantamweight Division<br />
-(3)	Over 61.3kg to 65.8kg: Featherweight Division<br />
-(4)	Over 65.8kg to 70.4kg: Lightweight Division<br />
-(5)	Over 70.4kg to 77.1kg: Welterweight Division<br />
-(6)	Over 77.1kg to 84kg: Middleweight Division<br />
-(7)	Over 84kg to 100kg: Champions League Heavyweight Division<br />
-(8)	Over 100kg to 120kg: Heavyweight Division<br />
-(Tolerance: ±500g allowed. Contract weight bouts and title matches do not permit any weight tolerance.) <br />
-•	Women's Division<br />
-(1)	48kg and below: Atomweight Division<br />
-(2)	Over 56.7kg to 61.3kg: Bantamweight Division<br />
-<br />
-All fighters must submit a medical certificate to the organization before the weigh-in, confirming their ability to compete. Any medical concerns will be assessed by a medical specialist and coordinated with the organization for final approval.<br />
-If a fighter cannot participate in a scheduled bout due to injury, they must be examined by a hospital designated by the organization and submit a diagnosis certificate. The final decision on their participation will be made after discussion with the organization.<br />
-Weigh-in Procedures & Penalties<br />
-•	All participating fighters, corner team, organization staff, and at least one referee must attend the official weigh-in.<br />
-•	The official weigh-in start time shall be designated by the organization.<br />
-For example, if the weigh-in time is officially announced as 11:00 AM, penalties for tardiness shall be applied as follows:<br />
-(1) Arrival between 11:01 AM and 11:30 AM<br />
-- The fighter remains eligible to compete, but 10% of their fight purse will be deducted.<br />
-(2) Arrival between 11:31 AM and 12:00 PM (past secondary weigh-in deadline)<br />
-- 1 point deduction from the fighter's total score, 50% of the fight purse will be awarded to the opponent.<br />
-(3) Arrival after 12:00 PM (over 1 hour late)<br />
-- The fighter shall be disqualified, Additional disciplinary actions such as suspension from future events or contract termination may be imposed at the discretion of the organization.<br />
-•	If a fighter fails the first weigh-in, a second weigh-in must be conducted within the timeframe determined by the referee panel.<br />
-•	Fighters who fail to make weight are penalized as follows:<br />
-<table class="penalties_table">
-    <tr>
-        <th>OVERWEIGHT RANGE</th>
-        <th>PENALTY</th>
-    </tr>
-    <tr>
-        <td>< 500G</td>
-        <td>-1 point per round</td>
-    </tr>
-    <tr>
-        <td>500G ~ 1KG</td>
-        <td>30% fight purse to opponent & -1 point/round</td>
-    </tr>
-    <tr>
-        <td>1KG ~ 2KG</td>
-        <td>50% fight purse to opponent &  -2 points/round</td>
-    </tr>
-    <tr>
-        <td rowspan=2>≥2KG</td>
-        <td>① If opponent agrees to fight : full fight purse forfeited to opponent & -2 points/round</td>
-    </tr>
-    <tr>
-        <td>② If opponent refuses : disqualification loss</td>
-    </tr>
-    
-</table>
-	
-	
-
-	
-
-
-	
-<br />
-<h3>Article 3: Types of Competitions</h3>
-1. Champions League<br />
-•	The world's first pro MMA team league to determine Korea's strongest team.<br />
-•	Up to 6 teams participate; each team fights all other teams once per season.<br />
-•	Each event features 5 matches per team in different weight classes.<br />
-•	Results are reflected in both team and individual rankings on the official website.<br />
-•	Teams must submit rosters 1 week before the event. Substitutions result in -1 team point.<br />
-•	Scoring<br />
-Team Points<br />
-o	Finish win: +2<br />
-o	Decision win: +1<br />
-o	Disqualification: -1<br />
-o	Failure to appear: -1<br />
-o	Opponent forfeits: +1<br />
-2. Numbering Events<br />
-•	High-profile cards involving title fights and star players.<br />
-•	Only individual rankings are affected (not team rankings).<br />
-3. Rise<br />
-•	Showcases promising fighters from Champions League or Numbering Events with marketable potential.<br />
-<br />
-<h3>Article 4: Match Equipment</h3>
-•	All fighters participating in the event must use the official Black Combat open-finger gloves provided by the organizing company.<br />
-•	Gloves must be worn in the fighter's waiting room before the match.<br />
-•	Referees are responsible for ensuring proper glove application and must sign the wrist tape after checking.<br />
-•	Fighters are subject to two inspections: one in the waiting room and another before entering the cage.<br />
-•	Fighters must not remove or dismantle the gloves until the end of the match.<br />
-Gloves and Bandaging<br />
-•	Fighters must return the gloves to the organization after the match.<br />
-•	Fighters must use only the tape and gauze designated and approved by the organization.<br />
-•	Bandaging of hands shall be conducted exclusively by the official cutman assigned by the organization.<br />
-•	Fighters and their cornermen are strictly prohibited from wrapping the hands themselves.<br />
-•	Use of additional materials, foreign objects, or concealed supports is forbidden.<br />
-•	After taping, the knuckle area must remain touch-verifiable.<br />
-Additional Gear Rules<br />
-•	All fighters must wear personal mouthguards and foul cup.<br />
-•	Fighters not equipped with these will not be permitted to compete.<br />
-•	No hair products (wax, spray, oil, gel, etc.) are allowed.<br />
-•	Vaseline may only be applied by the referee (or cutman) immediately before the match for injury prevention.<br />
-•	No ointments, creams, or breathing aids may be brought into the cage area.<br />
-•	Vaseline use during the match is limited to the referee or ring doctor for medical reasons.<br />
-•	Hard contact lenses are prohibited; soft lenses may be used at the fighter’s own risk.<br />
-<br />
-<h3>Article 5: Match Time & Uniform</h3>
-•	All matches consist of 3 rounds of 5 minutes, with 1-minute breaks between rounds.<br />
-•	All matches are officiated by a three-judge panel.<br />
-•	If a match ends in a draw or if two or more judges call for an overtime round, the referee, three judges, and the VAR official (five persons total) shall convene to vote. If three or more vote in favor, one additional round is added.<br />
-•	Fighters who failed to make weight will have the same penalties applied in the overtime round.<br />
-•	All fighters are required to compete shirtless.<br />
-•	Fighters must wear only the official uniform designated and approved by the organization. Any violation of this rule will result in penalties for the fighter and their team.<br />
-•	Fighters must wear the organization’s official fight shorts (trunks). Only groin protectors and compression tights may be worn underneath the shorts.<br />
-•	Upon entry, both the fighter and their cornermen must wear attire that is uniform and approved by the organization.<br />
-<br />
-<h3>Article 6: Permitted Techniques</h3>
-•	Strikes and submissions are permitted except to:<br />
-o	Back of the head, spine, groin<br />
-•	4-point knees, soccer kicks, Stamping kicks , upkicks allowed.<br />
-•	Ali-Inoki position: all kicks permitted except oblique kicks.<br />
-<br />
-<h3>Article 7: Fouls</h3>
-Prohibited actions include (but are not limited to):<br />
-•	Groin strikes, eye pokes, hair pulling, biting, headbutts, vertical elbows<br />
-•	Cage grabbing, spitting, glove/shorts grabbing, late hits<br />
-•	Faking injury, attacking while opponent talks to ref<br />
-•	Targeting existing injuries, repeated inactivity<br />
-The referee may expand this list at their discretion.<br />
-<br />
-<h3>Article 8: Referee Authority & Penalties</h3>
-•	Referee signs include Caution, Warning, and Disqualification.<br />
-The referee must give a clear verbal signal (Call sign) that the fighter can recognize.<br />
-•	Official referee calls during the fight include:<br />
-"Fight!" – start or resume the fight<br />
-"Time!" – pause due to foul, injury, or equipment<br />
-"Break!" – separate fighters from clinch or cage<br />
-"Action!" – warning to be more active<br />
-"Stop!" – immediate stop to the fight<br />
-"Catch!" – used when submission is caught <br />
-•	If a fighter commits a foul, the referee gives a Caution.<br />
-If the same fighter commits another foul, it becomes a Warning, and a 1-point deduction is applied.<br />
-The referee may go straight to Warning or Disqualification if the foul is serious or intentional.<br />
-•   If a fighter in a dominant position on the ground commits a foul, the referee will issue a caution/warning and restart the fight from a standing position.<br />
-•   If a fighter in a disadvantaged position on the ground commits a foul, the referee will issue a caution/warning and restart the fight from the same position.<br />
-•	The fouled fighter will get recovery time as judged by the referee and ring doctor.<br />
-If they refuse to continue within the allowed time, it can be ruled a Doctor Stoppage.<br />
-•	A fighter with more cautions/warnings will be disadvantaged in a draw.<br />
-•	If any issues happen outside the cage (locker room, walkout, etc.), the referee can issue a pre-fight caution.<br />
-•	If a cornerman interferes or causes a scene, their fighter may receive a Warning or be disqualified.<br />
-<br />
-<h3>Article 9: Scoring Criteria</h3>
-All matches are judged fairly by three judges according to the scoring criteria.<br />
-Black Combat uses the "10-Point Must Scoring System." This means that each round must have a winner. The winner of each round receives 10 points, and the loser receives 9 or 8 points.<br />
-•	Scoring Priorities<br />
-The first priority is given to the fighter who causes significant damage to the opponent, or who shows overwhelming striking or grappling control.<br />
-The second priority is effective number of strikes (clean hits), number of takedowns, or grappling control time (such as ground or cage control), and submission catch attempts.<br />
-The third priority is aggressiveness.<br />
-Attacks that cause damage or impact to the opponent, including ground-and-pound, are scored even if the number of strikes is low.<br />
-If a fighter knocks down the opponent with a legal technique (excluding fouls), it is considered a scoring action.<br />
-If a fighter uses jiu-jitsu or wrestling techniques to take the opponent down and holds a dominant or advantageous position for more than 3 seconds, it is considered effective grappling control time.<br />
-Even if a takedown is successful, it does not receive high points unless the fighter controls the opponent for more than 3 seconds. If the opponent immediately stands up, it is scored as equivalent to one effective strike. However, this only applies to cases where the opponent loses balance or falls to the ground. If the opponent leans against the cage or does not lose balance, it is not scored.<br />
-If the taken-down opponent does not attempt to get back up, it is considered a successful takedown.<br />
-In ground or clinch situations, if both fighters are inactive and show no intention to attack, the referee may return the fight to standing position.<br />
-Positions that can lead to ground-and-pound or submissions are considered effective positions (mount, back mount, side, north-south, turtle, etc.). Holding an effective position earns points.<br />
-If the bottom fighter in a ground situation reverses the top fighter and changes the position, it earns points.<br />
-Active submission attempts also earn points.<br />
-<br />
-<h3>Article 10: Determination of Victory and Defeat</h3>
-1. Decision<br />
-•	Each round is scored individually. The fighter who wins more rounds wins the fight.<br />
-•	Decisions are classified as:<br />
-Unanimous Decision: All judges score for one fighter<br />
-Split Decision: Two judges score for one fighter, one for the other<br />
-Majority Decision: Two judges score for one fighter, one judge scores a draw<br />
-•	If two or more judges call for an overtime round after the third round, the referee, three judges, and the VAR official (total 5 members) will vote anonymously. If 3 or more vote in favor, a 1-round overtime is held.<br />
-•	If one fighter missed weight, their penalty continues into the overtime round.<br />
-2. KO / TKO / Submission<br />
-•	KO: Fighter loses consciousness from a legal strike.<br />
-•	TKO: Fighter is unresponsive or unable to defend.<br />
-•	Submission: Fighter taps or verbally quits due to strikes, chokes, or joint locks.<br />
-3. Doctor Stoppage<br />
-•	If the ring doctor decides a fighter can’t continue due to injury, the referee will declare a doctor stoppage and end the match.<br />
-4. Disqualification<br />
-•	Fighter is disqualified in the following cases:<br />
--	Failing to show up by 1 hour before the scheduled match<br />
--	Missing weight and no agreement is reached with opponent<br />
--	A cornerman enters the cage and attacks or causes a major disruption<br />
--	Serious or repeated fouls (see Article 8)
-5. Forfeit (Voluntary Surrender)<br />
-•	Intentionally escaping the cage = automatic forfeit<br />
-•	The corner throws the towel during the match<br />
-•	The fighter quits the match by own decision<br />
-6. No Contest<br />
-•	Unintentional injuries (e.g., accidents, groin strikes) stop the fight early<br />
-•	If neither fighter can continue before a decision is possible<br />
-7. Appeal Process<br />
-•	If fighters disagree with the decision, they may file an official protest with valid evidence.<br />
-•	The organization will review the case for final judgment.<br />
-<br />
-<h3>Article 11: Ranking Criteria</h3>
-•	Fighters must have participated in Black Combat matches or content.<br />
-•	Defeating a higher-ranked opponent may result in rank gain.<br />
-•	Rankings consider total record, recency of matches, and finish types.<br />
-•	Inactivity results in gradual rank decrease.<br />
-•	Pro audition sparring is factored but weighted less than official matches.<br />
-•	Fighters missing weight in title matches lose the belt and are demoted.<br />
-•	External careers may influence rank, but Black Combat records are prioritized.<br />
-<br />
-Final Provisions<br />
-•	All fighters and seconds must comply with referee and organization directives.<br />
-•	Rules may be updated by Black Combat and its Referee Committee at any time.<br />
-
-
-
-
-                <? }else if($ruleType === 'amateur'){ ?>
-
-
-
-<span>2025.06.06 최종 수정</span><br><br>
-<h3>제 1 조 대회사 공식 명칭</h3>
-본 대회사의 명칭은 <span class="nameHighlight">Black Combat Begins</span> 으로 한다.<br />
-<br />
-<h3>제 2 조 체급</h3>
-<남성부><br />
-(1) 56.7kg 이하 : 플라이급 (Flyweight Division)<br />
-(2) 56.8kg 이상 ~ 61.3kg 이하 : 밴텀급 (Bantamweight Division)<br />
-(3) 61.4kg 이상 ~ 65.8kg 이하 : 페더급 (Featherweight Division)<br />
-(4) 65.9kg 이상 ~ 70.4kg 이하 : 라이트급 (Lightweight Division)<br />
-(5) 70.5kg 이상 ~ 77.1kg 이하 : 웰터급 (Welterweight Division)<br />
-(6) 77.2kg 이상 ~ 84kg 이하 : 미들급 (Middleweight Division)<br />
-(7) 84.1kg 이상 ~ 100kg 이하 : 중량급 (Heavyweight Division)<br />
-(8) 120kg 이하 : 헤비급 (Heavyweight Division)<br />
-* 허용 오차 +/- 500g 까지<br />
-<br />
-<여성부><br />
-(1) 48kg 이하 : 아톰급 (Atomweight Division)<br />
-<br />
-본 대회사가 주최하는 대회에 참가하는 모든 선수들은 대회 당일 계체 시간까지 반드시 대회장에 도착해야 한다. <br />
-해당 대회의 선수가 부상이나 기타 사유 등으로 인해 사전에 안내된 경기를 진행하지 못할 시 대회사가 정한 매치업에 대한 결정을 따라야 한다.<br />
-<br />
-- 본 대회사가 공식적으로 지정한 체급 이외의 경기는 대회사가 지정해주는 체중을 한계체중으로 진행한다.<br />
-- 계체량 시작 시간은 본 대회사가 지정하며 지정된 계체량 시작시간 기준으로 30분 이상 지각하는 선수는 대회사와 심판위원회가 주는 패널티를 받아야 한다.<br />
-- 공식 계체량은 대회사가 지정한 시각에 진행되며 해당 선수가 1차 계측에 실패할 시, 심판위원회가 정해주는 시간(30분) 안에 2차 계측을 하여 통과해야 한다.<br />
-- 공식 계체량 때는 해당 경기에 참가하는 모든 선수들과 대회사측 인원, 주심 최소 1명 이상이 모두 참여해야 한다.<br />
-- 본 대회사가 진행하는 대회의 경기에 참가하는 모든 선수들은 정해진 룰에 따라 계측 및 통과해야 한다.<br />
-- 만일 계체를 통과하지 못한 선수가 피니시를 내거나 판정에서 높은 점수를 얻을 경우 해당 경기는 무효 처리된다. <br />
-- 계측을 통과하지 못한 선수들은 추가로 다음과 같은 패널티를 받게 된다.<br />
-(1) 해당 선수가 1차 계측을 실패할 시 심판이 정한 시간 내에 2차 계체가 이뤄진다.<br />
-(2) 해당 선수가 2차 계측 또한 실패할 시 초과 체중 기준에 따른 페널티가 적용 된다.<br />
-- 1kg 미만으로 초과할 경우 : R당 -1<br />
-- 1kg 이상 ~2kg 미만으로 초과할 경우 : R당 -2<br />
-- 2kg 초과시 :<br />
-① 상대 선수가 경기를 희망할 때 : 전체 R별 -2<br />
-② 상대 선수가 경기를 희망하지 않을 때 : 실격 패<br />
-<br />
-<h3>제 3 조 경기 장비</h3>
-- 해당 대회에 참가하는 출전 선수들은 본 대회사가 제공하는 공식 지브라 MMA용 스파링 글러브와 신가드를 사용한다.<br />
-­- 아마추어 경기는 헤드기어를 착용해야 하며, 상대 선수와 협의 하에 헤드기어를 벗고 경기할 수 있다. 단, 한 선수라도 착용을 희망할 경우 반드시 양 선수 모두 착용해야 한다. <br />
-- 스파링 글러브와 신가드 및 헤드기어는 경기 시작 전에 선수 대기 공간에서 착용한다.<br />
-- 심판은 지정된 공간에서 선수들에게 글러브와 신가드 및 헤드기어를 착용시켜야 한다. 착용 후, 손목 테이핑 접합부분에 심판이 감아주는 테이핑을 해야 한다.<br />
-- 선수는 경기 시작 전 공간에서 심판에게 검사를 받고 케이지에 올라가기 전에 2차 체크를 받아야 한다.<br />
-- 선수는 경기가 끝나기 전까지 글러브와 신가드 및 헤드기어를 해체 및 제거할 수 없다.<br />
-- 선수는 경기가 끝나면 경기 글러브와 신가드 및 헤드기어를 대회사에 반납해야만 한다.<br />
-- 선수들은 대회사가 지정, 지급, 허용하는 테이프를 사용해야 하며 거즈는 필요시 개인이 구입 후 사용한다.<br />
-- 다른 방법을 사용한 주먹 고정, 혹은 주먹 고정을 위한 보형물 삽입은 금지하며 테이핑 이후 정권 뼈 부위가 반드시 만져져야 한다.<br />
-- 경기에 참가하는 모든 선수들은 반드시 개인 마우스피스, 개인 파울컵을 착용해야만 한다.<br />
-- 마우스피스와 파울컵을 착용하지 않은 선수들은 경기를 참가하지 못한다.<br />
-- 경기를 참가하는 선수들은 머리카락에 그 무엇도 바를 수 없다. (왁스, 헤어젤, 헤어스프레이, 오일 등)<br />
-- 바셀린 도포는 부상 방지용이며 심판이 시작 직전에 직접 도포한다. 해당 선수 세컨진이나 다른 사람들이 도포해서는 안된다.<br />
-- 경기에 참가하는 선수 및 세컨진은 다른 종류의 도포제, 호흡기 관련 약제류 등을 가지고 경기장에 입장할 수 없다.<br />
-- 경기 도중 바셀린 도포는 대회 링닥터 및 심판이 원활한 경기 진행 및 응급처치 용도로 사용할 수 있다.<br />
-- 하드 콘택트 렌즈 사용은 금지한다. 경기 전에 심판진이 해당 선수 콘택트 렌즈 사용 여부를 검사한다.<br />
-- 소프트 콘택트 렌즈는 사용이 가능하나, 이로 인해 경기에서 발생한 선수의 부상, 사고에 대해서는 대회사가 책임을 지지 않는다.<br />
-<br />
-<br />
-<h3>제 4 조 경기 시간 / 경기 유니폼</h3>
-- 출전 선수는 심판위원회가 안내한 시간 (룰미팅, 계체 시간 등)을 엄수해야 한다. 이를 위반할 시 대회사와 심판위원회가 주는 패널티를 받아야 한다.<br />
-- 모든 경기는 3 분 2 라운드(아마추어)와 3분 3라운드(세미프로)로 진행 된다. 경기 사이 쉬는 시간은 아마추어는 30초 세미프로는 1분으로 진행된다.<br />
-- 모든 경기는 3심제 배심으로 진행한다.<br />
-- 경기가 선수에 의해 승패결정이 되지 않을 경우, 배심의 판정으로 승패 혹은 무승부가 결정된다.<br />
-- 비긴즈 대회는 연장전 판정을 내리지 않는다. <br />
-- 출전 선수는 대회사가 허용하는 범위 내의 티셔츠 및 파이트 쇼츠를 지참해야 하며, 물, 수건, 핸드랩, 마우스피스 모두 개인 지참해야 한다.  <br />
-- 출전 선수는 대회사의 공식 파이트 쇼츠 (트렁크)나 반바지 유니폼을 착용해야 한다. 단, 타 대회사 로고나 이미지가 박힌 유니폼은 착용할 수 없다. <br />
-- 파이트 쇼츠안에 파울컵, 타이즈 외에는 착용이 불가능하다.<br />
-<br />
-<br />
-<h3>제 5 조 허용 가능 기술</h3>
-- 아마추어 대회는 하체관절기 기술 중에서 아킬레스 홀드만 가능하며, 그 외 모든 하체관절기 기술은 금지<br />
-- 세미프로 대회는 힐훅을 제외한 모든 하체관절기 기술 사용 가능<br />
-- 서브미션 캐치만 나와도 탭 없이 레프리 스탑 가능 <br />
-- 업킥 사용은 바디 공격까지만 가능<br />
-<br />
-<h3>제 6 조 반칙</h3>
-블랙컴뱃 비긴즈 대회는 다음과 같은 공격들 및 상황을 반칙으로 간주한다.<br />
-- 안면 니킥, 엘보, 싸커킥, 3점 및 4점니킥, 수플렉스, 파일 드라이브, 모든 종류의 슬램 기술 금지<br />
-(이하는 프로 룰과 동일)<br />
-- 낭심 공격, 눈 찌르기, 머리카락 잡아당기기, 꼬집기, 살 할퀴기, 박치기, 깨물기, 핥기, 목 타격, 후두부에서 꼬리뼈까지의 타격, 오블리 킥, 수직 엘보우 공격, 상대 선수를 들어서 머리를 바닥에 내리 꽂는 공격, 상대에게 침 뱉기, 손톱, 발톱을 이용한 공격<br />
-- 주심이 경기를 중단했는데도 공격할 경우<br />
-- 라운드 종료 벨이 울렸음에도 공격할 경우, 라운드 사이 쉬는 시간에 공격할 경우<br />
-- 상대 선수의 콧구멍, 입 등 안면부위를 손을 사용해서 찢기, 당기는 경우<br />
-- 주심의 지시를 고의적으로 어기고 공격할 경우<br />
-- 손가락, 발가락 관절 꺾기<br />
-- 부상이 없음에도 거짓으로 부상을 연기하거나 주장할 경우<br />
-- 주심과 대화하고 있는 선수를 공격할 경우<br />
-- 경기 진행을 의도적으로, 고의적으로 지연, 방해하는 경우<br />
-- 선수들의 세컨진이 경기 진행을 의도적으로 방해할 경우 혹은 주심이 그렇다고 판단한 경우<br />
-- 고의적으로 케이지를 손이나 발로 잡는 경우<br />
-- 상대 선수를 의도적으로 다치게 하는 경우<br />
-- 본인 혹은 상대 선수의 파이트 쇼츠 및 글러브 안에 손가락을 넣는 경우<br />
-- 상대 선수 글러브 구멍에 손가락을 끼워 넣거나 구멍에 손가락을 넣어 붙잡는 경우 (단, 상대 글러브를 손바닥으로 잡는 경우는 예외로 한다.)<br />
-- 상대 선수의 부상당한 부위를 고의적으로 찌르거나 비비는 경우<br />
-- 선수가 고의적으로 무기력한 고착 상태를 유지하거나 유발하는 경우<br />
-- 선수 자의로 인해 자동 기권한 선수를 공격할 경우<br />
-*주심의 판단과 재량에 따라 반칙 사항은 더 추가될 수 있다.<br />
-<br />
-<h3>제 7 조 레프리 사인</h3>
-- 레프리 사인은 '주의/경고/실격'이 있다. 주심은 해당 선수가 상황을 확인할 수 있도록 Call 사인을 줘야 한다.<br />
-- 경기 후 배심의 채점에서 양 선수가 동점일 경우, 주의/경고를 받은 선수가 불리하다.<br />
-*선수 대기실 및 장외에서 타 선수 및 세컨진에게 피해를 주는 일이 발생할 경우, 심판의 판단에 의해 경기 전 주의를 받을 수 있다.<br />
-*고의적, 악의적으로 경기를 방해하는 세컨진이 있을 경우, 주심이 '주의/경고'를 줄 수 있다.<br />
-- 반칙을 행한 선수는 주심에게 주의를 받는다. 다시 한번 반칙을 행해 또 주의를 받게 될 경우 '경고'로 간주되며 감점이 주어진다. 주심의 판단에 따라 '주의' 없이 바로 '경고'와 감점을 줄 수 있다.<br />
-- 그라운드 공방 상황에서 유리한 포지션을 잡은 선수가 반칙할 경우, 주의/경고 후 스탠딩에서 다시 경기를 진행한다.<br />
-- 그라운드 공방 상황에서 불리한 포지션에 놓인 선수가 반칙할 경우, 주의/경고 후 동일한 포지션에서 다시 경기를 진행한다.<br />
-- 스포츠맨십에 반하는 선수의 악의적이고도 고의적인 반칙 행위는 '주의/경고' 없이 바로 실격패 처리될 수 있다.<br />
-- 반칙을 당한 선수는 링닥터의 소견에 따라 적절한 회복 시간이 주어진다. 링닥터가 닥터 스톱을 선언하지 않은 경우에도, 선수가 부여된 시간을 초과하여 경기를 이행을 하지 않는다면, 해당 선수는 실격패로 처리된다<br>
-- 해당 선수가 경기에 불참하거나, 2KG 이상 계체 초과 실패 시, 패널티를 부여하고 실격패 처리한다.<br />
-<br />
-<h3>제 8 조 배점 기준</h3>
-- 모든 경기는 3명의 배심이 배점 기준에 따라 공정하게 판정한다.<br />
-- 블랙컴뱃 비긴즈 대회는 프로 대회에서 적용 중인 '10-point must scoring system'을 사용하여 배점한다. 즉, 각 라운드마다 승자가 반드시 있어야 하며, 라운드별 승자 선수에게는 10점, 패자에게는 9점 혹은 8점이 부여 된다.<br />
-- 배점기준 1순위는 상대에게 큰데미지를 주거나, 압도적인 타격 혹은 압도적인 그래플링 컨트롤를 가져간 경우 , 2순위는 효과적인 타격횟수(유효타), 테이크다운 횟수나 그래플링 컨트롤 시간(그라운드, 케이지 컨트롤 시간), 서브미션 캐치를 가져간 경우, 3순위는 어그레시브이다.<br />
-- 상대 선수에게 데미지와 임팩트를 주는 공격 및 파운딩은 공격 횟수가 적더라도 점수로 인정된다.<br />
-- 반칙을 제외한 공격기술로 상대방을 다운시킬 경우 점수로 인정된다. 단, 비긴즈 대회에서 다운이 발생할 경우 선수 보호 차원에서 빠른 스탑 선언이 내려질 수 있다. <br />
-- 유술, 레슬링 기술 등으로 상대방을 넘어뜨리고 등을 눕혀 유효 포지션/유리한 포지션을 3초 이상 점유한다면 그래플링 컨트롤 타임을 가져간 경우로 간주한다.<br />
-- 테이크다운을 성공하더라도 상대방을 3초 이상 눕혀 놓거나 컨트롤 하지 못하고 상대선수가 바로 일어난다면 큰 점수로 인정되지는 않으나, 유효타 1회에 준하는 점수로 인정된다. 단, 엉덩이를 찍거나 앞으로 넘어져서 중심 뺏기는 경우의 테이크 다운에만 적용되고, 상대방이 케이지에 기대어 등이 눕혀지지 않는 경우나 중심을 빼앗기지 않는 경우에는 적용되지 아니한다.<br />
-- 테이크다운을 당한 상대선수가 일어나기 위한 움직임을 보여주지 않는 경우 이는 테이크다운 성공으로 간주한다.<br />
-- 그라운드 상황/클린치 상황에서 양 선수가 적극성이 느껴지지 않는 무의미한 공격과 공방을 이어갈 경우 주심이 스탠딩 상황으로 재 진행시킬 수 있다.<br />
-- 파운딩이나 서브미션으로 연결할 수 있는 연결 동선 포지션들을 유효 포지션으로 둔다. (마운트, 백마운트, 사이드, 남북, 터틀 포지션 등등) 유효 포지션 점유할 시, 점수가 주어진다.<br />
-- 그라운드 상황 시, 하위 포지션 방어자가 상위 포지션 공격자를 뒤집어 포지션 역전할 경우 점수가 주어진다.<br />
-- 적극적인 서브미션 시도 또한 점수가 주어진다.<br />
-<br />
-<h3>제 9 조 승패 결정</h3>
-1. 판정승<br />
-(1) 블랙컴뱃은 각 라운드별 점수를 채점한다. 더 많은 라운드를 가져간 선수가 승리한다. 만장일치 판정승, 스플릿 디시젼 판정승, majority 디시젼 판정승이 있다.<br />
-(2) 제 9조 배점 기준에 의거하여 최종적으로 더 높은 점수를 획득한 선수가 승리한다. <br />
-(3) 2라운드 혹은 3라운드 배점 이후, 무승부가 나올 경우 무승부 선언을 내린다.<br />
-- 링닥터와 의료진이 판단했을 때 선수가 경기를 계속 진행할 수 없을 정도의 부상일 경우, 주심은 닥터스탑을 선언할 수 있다.<br />
-- 상대 선수의 타격, 조르기, 관절기에 의해 탭아웃을 칠 경우 해당 선수의 승리로 경기는 끝이 난다.<br />
-- 상대 선수의 공격에 의해 선수가 쓰러져서 의식을 잃거나 어떠한 공격, 방어를 위한 움직임이 보이지 않고 무의미하다고 판단될 경우, 주심은 공격선수에게 승리를 선언한다. (KO승, TKO승이 있다)<br />
-- 경기 도중 양선수가 너무 부상이 심할 경우, 링닥터의 판단에 따라 경기 진행 여부가 결정된다.<br />
-- 상대방의 반칙에 의해 부상이 심할 경우, 주심은 반칙을 한 선수에게 반칙패를 준다.<br />
-<br />
-2. 실격패<br />
-(1) 해당 경기에 참가하기로 한 해당 선수가 경기 시작 30분전까지 나타나지 않을 시, 해당 선수는 실격패 처리된다.<br />
-(2) 최종 계체 실패 후, 양 선수단이 협의가 되지 않을 경우 계체를 실패한 선수는 실격패 처리된다.<br />
-(3) 세컨진이 케이지 위로 올라와 상대 선수를 공격하거나 난동을 피울 경우, 해당 선수는 실격패 처리된다.<br />
-<br />
-3. 기권승<br />
-(1) 케이지 밖으로 일부러 도망가는 경우 자동 기권으로 간주<br />
-(2) 세컨진이 타월을 경기 도중 케이지에 던지거나 시합을 중지시킨 경우<br />
-(3) 해당 선수가 경기 진행을 자의적으로 포기할 경우<br />
-<br />
-4. 경기 무효<br />
-(1) 선수가 계체를 실패한 이후 피니시를 내거나 채점에서 높은 점수를 획득한 경우<br />
-(2) 어떠한 불의의 사고로 경기가 취소되거나 경기가 중단될 경우<br />
-(3) 낭심 공격에 의해 경기가 더이상 진행이 불가한 경우<br />
-- 배심 판정 결과에 대해 동의가 되지 않거나, 불합리하다고 생각할 경우 경기 결과에 대해 이의를 대회사에 제기할 수 있다. 정확하고도 타당한 증거를 대회사에 제출하여 이의를 제기하도록 한다.<br />
- 
- 
-                <? } ?>
+                <div class="rule-meta">
+                    기준날짜 : <?= date("Y.m.d", strtotime($latest['upt_date'])) ?>
+                </div>
+                <div class="rules_contents" id="rules_contents">
                 </div>
             </div>
         </div>
     </div>
-<?php ?>
+
+    <script type="text/javascript">
+        const container = document.getElementById('rules_contents');
+        const shadow = container.attachShadow({ mode: 'open' });
+
+        shadow.innerHTML = `
+            <link rel="stylesheet" href="/plugin/editor/smarteditor2/css/ko_KR/smart_editor2_in.css">
+            <div class="se2_inputarea">
+                <?= $latest['rule_contents'] ?>
+            </div>
+        `;
+    </script>
 <?php
 include_once(G5_THEME_PATH.'/tail.php');

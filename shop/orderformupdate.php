@@ -59,9 +59,9 @@ if (count($it_ids) && $od_seat_row_type && $od_seat_number) {
 }
 // //이미 결제된 좌석 중복체크 추가
 
-//이니시스 lpay 요청으로 왔다면 $default['de_pg_service'] 값을 이니시스로 변경합니다.
+//(안씀) 이니시스 lpay 요청으로 왔다면 $default['de_pg_service'] 값을 이니시스로 변경합니다.
 if( in_array($od_settle_case, array('lpay', 'inicis_kakaopay')) ){
-    $default['de_pg_service'] = 'inicis';
+    // $default['de_pg_service'] = 'inicis';
 }
 
 // 타 PG 사용시 NHN KCP 네이버페이로 결제 요청이 왔다면 $default['de_pg_service'] 값을 kcp 로 변경합니다.
@@ -71,9 +71,10 @@ if(function_exists('is_use_easypay') && is_use_easypay('global_nhnkcp') && isset
 
 if(function_exists('add_order_post_log')) add_order_post_log('init', 'init');
 
+//(안씀)
 if(($od_settle_case != '무통장' && $od_settle_case != 'KAKAOPAY') && $default['de_pg_service'] == 'lg' && !$_POST['LGD_PAYKEY']){
-    if(function_exists('add_order_post_log')) add_order_post_log('결제등록 요청 후 주문해 주십시오.');
-    alert('결제등록 요청 후 주문해 주십시오.');
+    // if(function_exists('add_order_post_log')) add_order_post_log('결제등록 요청 후 주문해 주십시오.');
+    // alert('결제등록 요청 후 주문해 주십시오.');
 }
 
 // 장바구니가 비어있는가?
@@ -367,23 +368,23 @@ $od_status = '주문';
 $od_tno    = '';
 if ($od_settle_case == "무통장")
 {
-    $od_receipt_point   = $i_temp_point;
-    $od_receipt_price   = 0;
-    $od_misu            = $i_price - $od_receipt_price;
-    if($od_misu == 0) {
-        $od_status      = '입금';
-        $od_receipt_time = G5_TIME_YMDHIS;
-    }
+    // $od_receipt_point   = $i_temp_point;
+    // $od_receipt_price   = 0;
+    // $od_misu            = $i_price - $od_receipt_price;
+    // if($od_misu == 0) {
+    //     $od_status      = '입금';
+    //     $od_receipt_time = G5_TIME_YMDHIS;
+    // }
 }
 else if ($od_settle_case == "계좌이체")
 {
     switch($default['de_pg_service']) {
         case 'lg':
-            include G5_SHOP_PATH.'/lg/xpay_result.php';
-            break;
+            // include G5_SHOP_PATH.'/lg/xpay_result.php';
+            // break;
         case 'inicis':
-            include G5_SHOP_PATH.'/inicis/inistdpay_result.php';
-            break;
+            // include G5_SHOP_PATH.'/inicis/inistdpay_result.php';
+            // break;
         default:
             include G5_SHOP_PATH.'/kcp/pp_ax_hub.php';
             $bank_name  = iconv("cp949", "utf-8", $bank_name);
@@ -403,39 +404,39 @@ else if ($od_settle_case == "계좌이체")
 }
 else if ($od_settle_case == "가상계좌")
 {
-    switch($default['de_pg_service']) {
-        case 'lg':
-            include G5_SHOP_PATH.'/lg/xpay_result.php';
-            $od_receipt_time = '0000-00-00 00:00:00';
-            break;
-        case 'inicis':
-            include G5_SHOP_PATH.'/inicis/inistdpay_result.php';
-            $od_app_no = $app_no;
-            break;
-        default:
-            include G5_SHOP_PATH.'/kcp/pp_ax_hub.php';
-            $bankname   = iconv("cp949", "utf-8", $bankname);
-            $depositor  = iconv("cp949", "utf-8", $depositor);
-            break;
-    }
+    // switch($default['de_pg_service']) {
+    //     case 'lg':
+    //         include G5_SHOP_PATH.'/lg/xpay_result.php';
+    //         $od_receipt_time = '0000-00-00 00:00:00';
+    //         break;
+    //     case 'inicis':
+    //         include G5_SHOP_PATH.'/inicis/inistdpay_result.php';
+    //         $od_app_no = $app_no;
+    //         break;
+    //     default:
+    //         include G5_SHOP_PATH.'/kcp/pp_ax_hub.php';
+    //         $bankname   = iconv("cp949", "utf-8", $bankname);
+    //         $depositor  = iconv("cp949", "utf-8", $depositor);
+    //         break;
+    // }
 
-    $od_receipt_point   = $i_temp_point;
-    $od_tno             = $tno;
-    $od_receipt_price   = 0;
-    $od_bank_account    = $bankname.' '.$account;
-    $od_deposit_name    = $depositor;
-    $pg_price           = $amount;
-    $od_misu            = $i_price - $od_receipt_price;
+    // $od_receipt_point   = $i_temp_point;
+    // $od_tno             = $tno;
+    // $od_receipt_price   = 0;
+    // $od_bank_account    = $bankname.' '.$account;
+    // $od_deposit_name    = $depositor;
+    // $pg_price           = $amount;
+    // $od_misu            = $i_price - $od_receipt_price;
 }
 else if ($od_settle_case == "휴대폰")
 {
     switch($default['de_pg_service']) {
         case 'lg':
-            include G5_SHOP_PATH.'/lg/xpay_result.php';
-            break;
+            // include G5_SHOP_PATH.'/lg/xpay_result.php';
+            // break;
         case 'inicis':
-            include G5_SHOP_PATH.'/inicis/inistdpay_result.php';
-            break;
+            // include G5_SHOP_PATH.'/inicis/inistdpay_result.php';
+            // break;
         default:
             include G5_SHOP_PATH.'/kcp/pp_ax_hub.php';
             break;
@@ -455,11 +456,11 @@ else if ($od_settle_case == "신용카드")
 {
     switch($default['de_pg_service']) {
         case 'lg':
-            include G5_SHOP_PATH.'/lg/xpay_result.php';
-            break;
+            // include G5_SHOP_PATH.'/lg/xpay_result.php';
+            // break;
         case 'inicis':
-            include G5_SHOP_PATH.'/inicis/inistdpay_result.php';
-            break;
+            // include G5_SHOP_PATH.'/inicis/inistdpay_result.php';
+            // break;
         default:
             include G5_SHOP_PATH.'/kcp/pp_ax_hub.php';
             $card_name  = iconv("cp949", "utf-8", $card_name);
@@ -479,44 +480,44 @@ else if ($od_settle_case == "신용카드")
 }
 else if ($od_settle_case == "간편결제" || (($od_settle_case == "lpay" || $od_settle_case == "inicis_kakaopay") && $default['de_pg_service'] === 'inicis') )
 {
-    switch($default['de_pg_service']) {
-        case 'lg':
-            include G5_SHOP_PATH.'/lg/xpay_result.php';
-            break;
-        case 'inicis':
-            include G5_SHOP_PATH.'/inicis/inistdpay_result.php';
-            break;
-        default:
-            include G5_SHOP_PATH.'/kcp/pp_ax_hub.php';
-            $card_name  = iconv("cp949", "utf-8", $card_name);
-            break;
-    }
+    // switch($default['de_pg_service']) {
+    //     case 'lg':
+    //         include G5_SHOP_PATH.'/lg/xpay_result.php';
+    //         break;
+    //     case 'inicis':
+    //         include G5_SHOP_PATH.'/inicis/inistdpay_result.php';
+    //         break;
+    //     default:
+    //         include G5_SHOP_PATH.'/kcp/pp_ax_hub.php';
+    //         $card_name  = iconv("cp949", "utf-8", $card_name);
+    //         break;
+    // }
 
-    $od_tno             = $tno;
-    $od_app_no          = $app_no;
-    $od_receipt_price   = $amount;
-    $od_receipt_point   = $i_temp_point;
-    $od_receipt_time    = preg_replace("/([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})/", "\\1-\\2-\\3 \\4:\\5:\\6", $app_time);
-    $od_bank_account    = $card_name;
-    $pg_price           = $amount;
-    $od_misu            = $i_price - $od_receipt_price;
-    if($od_misu == 0)
-        $od_status      = '입금';
+    // $od_tno             = $tno;
+    // $od_app_no          = $app_no;
+    // $od_receipt_price   = $amount;
+    // $od_receipt_point   = $i_temp_point;
+    // $od_receipt_time    = preg_replace("/([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})/", "\\1-\\2-\\3 \\4:\\5:\\6", $app_time);
+    // $od_bank_account    = $card_name;
+    // $pg_price           = $amount;
+    // $od_misu            = $i_price - $od_receipt_price;
+    // if($od_misu == 0)
+    //     $od_status      = '입금';
 }
 else if ($od_settle_case == "KAKAOPAY")
 {
-    include G5_SHOP_PATH.'/kakaopay/kakaopay_result.php';
+    // include G5_SHOP_PATH.'/kakaopay/kakaopay_result.php';
 
-    $od_tno             = $tno;
-    $od_app_no          = $app_no;
-    $od_receipt_price   = $amount;
-    $od_receipt_point   = $i_temp_point;
-    $od_receipt_time    = preg_replace("/([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})/", "\\1-\\2-\\3 \\4:\\5:\\6", $app_time);
-    $od_bank_account    = $card_name;
-    $pg_price           = $amount;
-    $od_misu            = $i_price - $od_receipt_price;
-    if($od_misu == 0)
-        $od_status      = '입금';
+    // $od_tno             = $tno;
+    // $od_app_no          = $app_no;
+    // $od_receipt_price   = $amount;
+    // $od_receipt_point   = $i_temp_point;
+    // $od_receipt_time    = preg_replace("/([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})/", "\\1-\\2-\\3 \\4:\\5:\\6", $app_time);
+    // $od_bank_account    = $card_name;
+    // $pg_price           = $amount;
+    // $od_misu            = $i_price - $od_receipt_price;
+    // if($od_misu == 0)
+    //     $od_status      = '입금';
 }
 else
 {
@@ -524,8 +525,8 @@ else
 }
 
 $od_pg = $default['de_pg_service'];
-if($od_settle_case == 'KAKAOPAY')
-    $od_pg = 'KAKAOPAY';
+// if($od_settle_case == 'KAKAOPAY')
+    // $od_pg = 'KAKAOPAY';
 
 $tno = isset($tno) ? $tno : '';
 $od_receipt_time = isset($od_receipt_time) ? $od_receipt_time : '';
@@ -537,18 +538,18 @@ if($tno) {
         $cancel_msg = '결제금액 불일치';
         switch($od_pg) {
             case 'lg':
-                include G5_SHOP_PATH.'/lg/xpay_cancel.php';
-                break;
+                // include G5_SHOP_PATH.'/lg/xpay_cancel.php';
+                // break;
             case 'inicis':
-                include G5_SHOP_PATH.'/inicis/inipay_cancel.php';
-                break;
+                // include G5_SHOP_PATH.'/inicis/inipay_cancel.php';
+                // break;
             case 'KAKAOPAY':
-                $_REQUEST['TID']               = $tno;
-                $_REQUEST['Amt']               = $amount;
-                $_REQUEST['CancelMsg']         = $cancel_msg;
-                $_REQUEST['PartialCancelCode'] = 0;
-                include G5_SHOP_PATH.'/kakaopay/kakaopay_cancel.php';
-                break;
+                // $_REQUEST['TID']               = $tno;
+                // $_REQUEST['Amt']               = $amount;
+                // $_REQUEST['CancelMsg']         = $cancel_msg;
+                // $_REQUEST['PartialCancelCode'] = 0;
+                // include G5_SHOP_PATH.'/kakaopay/kakaopay_cancel.php';
+                // break;
             default:
                 include G5_SHOP_PATH.'/kcp/pp_ax_hub_cancel.php';
                 break;
@@ -676,18 +677,18 @@ if(! $result || ! (isset($exists_order['od_id']) && $od_id && $exists_order['od_
         $cancel_msg = '주문정보 입력 오류 : '.$sql;
         switch($od_pg) {
             case 'lg':
-                include G5_SHOP_PATH.'/lg/xpay_cancel.php';
-                break;
+                // include G5_SHOP_PATH.'/lg/xpay_cancel.php';
+                // break;
             case 'inicis':
-                include G5_SHOP_PATH.'/inicis/inipay_cancel.php';
-                break;
+                // include G5_SHOP_PATH.'/inicis/inipay_cancel.php';
+                // break;
             case 'KAKAOPAY':
-                $_REQUEST['TID']               = $tno;
-                $_REQUEST['Amt']               = $amount;
-                $_REQUEST['CancelMsg']         = $cancel_msg;
-                $_REQUEST['PartialCancelCode'] = 0;
-                include G5_SHOP_PATH.'/kakaopay/kakaopay_cancel.php';
-                break;
+                // $_REQUEST['TID']               = $tno;
+                // $_REQUEST['Amt']               = $amount;
+                // $_REQUEST['CancelMsg']         = $cancel_msg;
+                // $_REQUEST['PartialCancelCode'] = 0;
+                // include G5_SHOP_PATH.'/kakaopay/kakaopay_cancel.php';
+                // break;
             default:
                 include G5_SHOP_PATH.'/kcp/pp_ax_hub_cancel.php';
                 break;
@@ -723,18 +724,18 @@ if(!$result) {
         $cancel_msg = '주문상태 변경 오류';
         switch($od_pg) {
             case 'lg':
-                include G5_SHOP_PATH.'/lg/xpay_cancel.php';
-                break;
+                // include G5_SHOP_PATH.'/lg/xpay_cancel.php';
+                // break;
             case 'inicis':
-                include G5_SHOP_PATH.'/inicis/inipay_cancel.php';
-                break;
+                // include G5_SHOP_PATH.'/inicis/inipay_cancel.php';
+                // break;
             case 'KAKAOPAY':
-                $_REQUEST['TID']               = $tno;
-                $_REQUEST['Amt']               = $amount;
-                $_REQUEST['CancelMsg']         = $cancel_msg;
-                $_REQUEST['PartialCancelCode'] = 0;
-                include G5_SHOP_PATH.'/kakaopay/kakaopay_cancel.php';
-                break;
+                // $_REQUEST['TID']               = $tno;
+                // $_REQUEST['Amt']               = $amount;
+                // $_REQUEST['CancelMsg']         = $cancel_msg;
+                // $_REQUEST['PartialCancelCode'] = 0;
+                // include G5_SHOP_PATH.'/kakaopay/kakaopay_cancel.php';
+                // break;
             default:
                 include G5_SHOP_PATH.'/kcp/pp_ax_hub_cancel.php';
                 break;
@@ -849,13 +850,13 @@ if($config['cf_sms_use'] && ($default['de_sms_use2'] || $default['de_sms_use3'])
 
         // 무통장 입금 때 고객에게 계좌정보 보냄
         if($od_settle_case == '무통장' && $default['de_sms_use2'] && $od_misu > 0) {
-            $sms_content = $od_name."님의 입금계좌입니다.\n금액:".number_format($od_misu)."원\n계좌:".$od_bank_account."\n".$default['de_admin_company_name'];
+            // $sms_content = $od_name."님의 입금계좌입니다.\n금액:".number_format($od_misu)."원\n계좌:".$od_bank_account."\n".$default['de_admin_company_name'];
 
-            $recv_number = preg_replace("/[^0-9]/", "", $od_hp);
-            $send_number = preg_replace("/[^0-9]/", "", $default['de_admin_company_tel']);
+            // $recv_number = preg_replace("/[^0-9]/", "", $od_hp);
+            // $send_number = preg_replace("/[^0-9]/", "", $default['de_admin_company_tel']);
 
-            $sms_messages[] = array('recv' => $recv_number, 'send' => $send_number, 'cont' => $sms_content);
-            $sms_count++;
+            // $sms_messages[] = array('recv' => $recv_number, 'send' => $send_number, 'cont' => $sms_content);
+            // $sms_count++;
         }
 
         // SMS 전송
@@ -916,8 +917,8 @@ set_session('ss_orderview_uid', $uid);
 
 // 주문 정보 임시 데이터 삭제
 if($od_pg == 'inicis') {
-    $sql = " delete from {$g5['g5_shop_order_data_table']} where od_id = '$od_id' and dt_pg = '$od_pg' ";
-    sql_query($sql);
+    // $sql = " delete from {$g5['g5_shop_order_data_table']} where od_id = '$od_id' and dt_pg = '$od_pg' ";
+    // sql_query($sql);
 }
 
 if(function_exists('add_order_post_log')) add_order_post_log('', 'delete');

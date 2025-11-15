@@ -1,4 +1,9 @@
 <?php
+
+if($_SERVER['REMOTE_ADDR'] == "185.207.249.67"){
+    die;
+}
+
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
 if (G5_IS_MOBILE) {
@@ -74,6 +79,9 @@ if ($ticket_row) {
             async: true,
             cache: false,
             success: function(data, textStatus) {
+                gtag('event', 'player_search', {
+                    search_term: keyword
+                });
                 if(data.resultArray.length === 0){
                     alert("검색된 선수가 없습니다.");
                 }else if(data.resultArray.length > 1){
@@ -120,7 +128,11 @@ if ($ticket_row) {
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/sponsors.php" class="menu_item_anchor">SPONSORS</a></div>
                 <div class="menu_item">
                     <?php if($ticket_link) { ?>
-                        <a href="<?php echo $ticket_link; ?>" class="menu_item_anchor ticket_link">TICKET</a>
+                        <?php if($member['mb_id'] == 'pay_test' || $is_admin){ ?>
+                            <a href="<?php echo $ticket_link; ?>" class="menu_item_anchor ticket_link">TICKET</a>
+                        <?php }else{ ?>
+                            <a href="#" class="menu_item_anchor" onclick="alert('상품을 준비중입니다.');return false;">TICKET</a>    
+                        <?php } ?>
                     <?php } else { ?>
                         <a href="#" class="menu_item_anchor" onclick="alert('상품을 준비중입니다.');return false;">TICKET</a>
                     <?php } ?>
@@ -130,7 +142,7 @@ if ($ticket_row) {
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/champ.php" class="menu_item_anchor">CHAMPION</a></div>
                 <!-- <div class="menu_item"><a href="<?php echo G5_URL ?>/video" class="menu_item_anchor">VIDEO</a></div> -->
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/ranking.php?type=fighter" class="menu_item_anchor">RANKING</a></div>
-                <div class="menu_item"><a href="<?php echo G5_URL ?>/cl.php" class="menu_item_anchor">C.L</a></div>
+                <!-- <div class="menu_item"><a href="<?php echo G5_URL ?>/cl.php" class="menu_item_anchor">C.L</a></div> -->
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/community" class="menu_item_anchor">COMMUNITY</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/gym.php" class="menu_item_anchor">GYM</a></div>
                 <div class="menu_item"><a href="<?php echo G5_URL ?>/rules.php" class="menu_item_anchor">RULES</a></div>

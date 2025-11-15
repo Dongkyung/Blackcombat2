@@ -17,6 +17,8 @@ $draw = $_POST['draw'];
 $tel = $_POST['tel'];
 $music_name = $_POST['music_name'];
 $music_url = $_POST['music_url'];
+$country = $_POST['country'];
+$sherdog_url = $_POST['sherdog_url'];
 
 
 
@@ -35,6 +37,8 @@ draw = $draw,
 tel = '$tel',
 music_name = '$music_name',
 music_url = '$music_url',
+country = '$country',
+sherdog_url = '$sherdog_url',
 lsttm = NOW()
 WHERE fighter_seq = $fighterSeq";
 

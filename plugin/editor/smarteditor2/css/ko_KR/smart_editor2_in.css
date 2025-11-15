@@ -8,6 +8,7 @@ body,.se2_inputarea{margin:0;padding:0;font-family:'돋움',Dotum,Helvetica,Sans
 .se2_inputarea td{word-break:break-all}
 .se2_inputarea_890{width:741px;margin:20px 0 10px 64px}
 .se2_inputarea_698{width:548px;margin:20px 0 10px 64px}
+.se2_inputarea p{ line-height:1.5 !important; }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
     .se2_inputarea td:empty:after,.se2_inputarea td > p:empty:after{content:"\00A0";line-height:1}
 }

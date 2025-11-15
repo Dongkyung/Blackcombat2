@@ -94,7 +94,8 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
         champ.fighter_seq,
         champ.defend,
         fighter_name,
-        base.fighter_ringname 
+        base.fighter_ringname,
+        base.country
     FROM tb_fighter_base base 
         LEFT JOIN tb_fighter_ranking ranking 
         ON base.fighter_seq = ranking.fighter_seq
@@ -144,7 +145,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
 
 <?
     $fighterSearchSql = "SELECT 
-                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, base.country,ranking.ranking_type
             FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
             WHERE base.team_seq = $page AND ranking.division = '플라이급' ORDER BY CAST(ranking AS UNSIGNED)";
     $fighterSearchResult = sql_query($fighterSearchSql);
@@ -174,7 +175,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                                             <? } ?>
                                                             <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
                                                         </b>
-                                                        <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
+                                                        <span class="fi fi-<?= strtolower($fighterRow["country"]) ?>"></span> <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
                                                     </div>
                                                     ─
                                                     <div style="font-size:0.7rem;">
@@ -195,7 +196,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         <ul>
 <?
     $fighterSearchSql = "SELECT 
-                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, base.country,ranking.ranking_type
             FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
             WHERE base.team_seq = $page AND ranking.division = '밴텀급' ORDER BY CAST(ranking AS UNSIGNED)";
     $fighterSearchResult = sql_query($fighterSearchSql);
@@ -225,7 +226,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                                             <? } ?>
                                                             <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
                                                         </b>
-                                                        <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
+                                                        <span class="fi fi-<?= strtolower($fighterRow["country"]) ?>"></span> <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
                                                     </div>
                                                     ─
                                                     <div style="font-size:0.7rem;">
@@ -246,7 +247,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         <ul>
 <?
     $fighterSearchSql = "SELECT 
-                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, base.country,ranking.ranking_type
             FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
             WHERE base.team_seq = $page AND ranking.division = '페더급' ORDER BY CAST(ranking AS UNSIGNED)";
     $fighterSearchResult = sql_query($fighterSearchSql);
@@ -276,7 +277,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                                             <? } ?>
                                                             <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
                                                         </b>
-                                                        <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
+                                                        <span class="fi fi-<?= strtolower($fighterRow["country"]) ?>"></span> <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
                                                     </div>
                                                     ─
                                                     <div style="font-size:0.7rem;">
@@ -299,7 +300,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         <ul>
 <?
     $fighterSearchSql = "SELECT 
-                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, base.country,ranking.ranking_type
             FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
             WHERE base.team_seq = $page AND ranking.division = '라이트급' ORDER BY CAST(ranking AS UNSIGNED)";
     $fighterSearchResult = sql_query($fighterSearchSql);
@@ -329,7 +330,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                                             <? } ?>
                                                             <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
                                                         </b>
-                                                        <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
+                                                        <span class="fi fi-<?= strtolower($fighterRow["country"]) ?>"></span> <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
                                                     </div>
                                                     ─
                                                     <div style="font-size:0.7rem;">
@@ -350,7 +351,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         <ul>
 <?
     $fighterSearchSql = "SELECT 
-                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, base.country,ranking.ranking_type
             FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
             WHERE base.team_seq = $page AND ranking.division = '웰터급' ORDER BY CAST(ranking AS UNSIGNED)";
     $fighterSearchResult = sql_query($fighterSearchSql);
@@ -380,7 +381,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                                             <? } ?>
                                                             <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
                                                         </b>
-                                                        <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
+                                                        <span class="fi fi-<?= strtolower($fighterRow["country"]) ?>"></span> <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
                                                     </div>
                                                     ─
                                                     <div style="font-size:0.7rem;">
@@ -401,7 +402,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         <ul>
 <?
     $fighterSearchSql = "SELECT 
-                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, base.country,ranking.ranking_type
             FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
             WHERE base.team_seq = $page AND ranking.division = '미들급' ORDER BY CAST(ranking AS UNSIGNED)";
     $fighterSearchResult = sql_query($fighterSearchSql);
@@ -431,7 +432,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                                             <? } ?>
                                                             <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
                                                         </b>
-                                                        <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
+                                                        <span class="fi fi-<?= strtolower($fighterRow["country"]) ?>"></span> <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
                                                     </div>
                                                     ─
                                                     <div style="font-size:0.7rem;">
@@ -454,7 +455,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         <ul>
 <?
     $fighterSearchSql = "SELECT 
-                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, base.country,ranking.ranking_type
             FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
             WHERE base.team_seq = $page AND ranking.division = '중량급' ORDER BY CAST(ranking AS UNSIGNED)";
     $fighterSearchResult = sql_query($fighterSearchSql);
@@ -484,7 +485,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                                             <? } ?>
                                                             <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
                                                         </b>
-                                                        <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
+                                                        <span class="fi fi-<?= strtolower($fighterRow["country"]) ?>"></span> <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
                                                     </div>
                                                     ─
                                                     <div style="font-size:0.7rem;">
@@ -505,7 +506,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                         <ul>
 <?
     $fighterSearchSql = "SELECT 
-                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, ranking.ranking_type
+                ranking.ranking, base.fighter_seq , base.fighter_name ,base.fighter_ringname ,base.win ,base.lose ,base.draw, base.country,ranking.ranking_type
             FROM tb_fighter_base base LEFT JOIN tb_fighter_ranking ranking ON base.fighter_seq = ranking.fighter_seq
             WHERE base.team_seq = $page AND ranking.division = '여성부' ORDER BY CAST(ranking AS UNSIGNED)";
     $fighterSearchResult = sql_query($fighterSearchSql);
@@ -535,7 +536,7 @@ $base64ImageDataTeam = base64_encode($row['teamImageBin']);
                                                             <? } ?>
                                                             <span class="winner_name">#<? if($fighterRow['ranking'] === '0'){ echo 'C'; }else{ echo $fighterRow['ranking']; } ?></span>
                                                         </b>
-                                                        <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
+                                                        <span class="fi fi-<?= strtolower($fighterRow["country"]) ?>"></span> <b><span><?= $fighterRow['fighter_name'] ?> ( <?= $fighterRow['fighter_ringname'] ?> ) </span></b>
                                                     </div>
                                                     ─
                                                     <div style="font-size:0.7rem;">

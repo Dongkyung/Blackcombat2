@@ -175,7 +175,7 @@ echo "</script>"
     
     <? 
     $sql = "SELECT
-            champ.`order`, champ.fighter_seq, champ.defend, champ.status,  DATE_FORMAT(champ.fsttm, '%Y-%m-%d') AS fsttm, base.fighter_name, base.fighter_ringname, base.ranking_image_name, base.fighter_status, base.status_lsttm 
+            champ.`order`, champ.fighter_seq, champ.defend, champ.status,  DATE_FORMAT(champ.start_date, '%Y-%m-%d') AS start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') AS end_date, base.fighter_name, base.fighter_ringname, base.ranking_image_name, base.fighter_status, base.status_lsttm 
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -205,7 +205,8 @@ echo "</script>"
             <th style="width:60px">이미지</th>
             <th style="width:70px">방어횟수</th>
             <th style="width:60px">상태</th>
-            <th style="width:150px">취득날짜</th>
+            <th style="width:150px">시작날짜</th>
+            <th style="width:150px">종료날짜</th>
             <th>삭제</th> 
         </tr>
         </thead>
@@ -234,7 +235,8 @@ echo "</script>"
                     <option <? if($row["status"] == "4"){ echo "selected"; } ?> value="4">박탈</option>
                 </select>
             </td>
-            <td><input value='<?= $row["fsttm"] ?>' /></td>
+            <td><input value='<?= $row["start_date"] ?>' /></td>
+            <td><input value='<?= $row["end_date"] ?>' /></td>
             <td><button onclick='removeFighter(this)'>삭제</button></td>
         </tr>
     <?php
@@ -474,7 +476,8 @@ echo "</script>"
                     fighter_seq : parseInt(tr.cells[2].textContent),
                     defend: tr.cells[6].querySelector('input').value,
                     status: tr.cells[7].querySelector('select').value,
-                    fsttm: tr.cells[8].querySelector('input').value,
+                    start_date: tr.cells[8].querySelector('input').value,
+                    end_date: tr.cells[9].querySelector('input').value,
                 }
             ));
             console.log(currentOrder);

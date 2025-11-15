@@ -326,14 +326,14 @@ if($od['od_pg'] == 'lg') {
                         if($od['od_settle_case'] == '휴대폰')
                         {
                             if($od['od_pg'] == 'lg') {
-                                require_once G5_SHOP_PATH.'/settle_lg.inc.php';
-                                $LGD_TID      = $od['od_tno'];
-                                $LGD_MERTKEY  = $config['cf_lg_mert_key'];
-                                $LGD_HASHDATA = md5($LGD_MID.$LGD_TID.$LGD_MERTKEY);
+                                // require_once G5_SHOP_PATH.'/settle_lg.inc.php';
+                                // $LGD_TID      = $od['od_tno'];
+                                // $LGD_MERTKEY  = $config['cf_lg_mert_key'];
+                                // $LGD_HASHDATA = md5($LGD_MID.$LGD_TID.$LGD_MERTKEY);
 
-                                $hp_receipt_script = 'showReceiptByTID(\''.$LGD_MID.'\', \''.$LGD_TID.'\', \''.$LGD_HASHDATA.'\');';
+                                // $hp_receipt_script = 'showReceiptByTID(\''.$LGD_MID.'\', \''.$LGD_TID.'\', \''.$LGD_HASHDATA.'\');';
                             } else if($od['od_pg'] == 'inicis') {
-                                $hp_receipt_script = 'window.open(\'https://iniweb.inicis.com/DefaultWebApp/mall/cr/cm/mCmReceipt_head.jsp?noTid='.$od['od_tno'].'&noMethod=1\',\'receipt\',\'width=430,height=700\');';
+                                // $hp_receipt_script = 'window.open(\'https://iniweb.inicis.com/DefaultWebApp/mall/cr/cm/mCmReceipt_head.jsp?noTid='.$od['od_tno'].'&noMethod=1\',\'receipt\',\'width=430,height=700\');';
                             } else {
                                 $hp_receipt_script = 'window.open(\''.G5_BILL_RECEIPT_URL.'mcash_bill&tno='.$od['od_tno'].'&order_no='.$od['od_id'].'&trade_mony='.$od['od_receipt_price'].'\', \'winreceipt\', \'width=500,height=690,scrollbars=yes,resizable=yes\');';
                             }
@@ -345,14 +345,14 @@ if($od['od_pg'] == 'lg') {
                         if($od['od_settle_case'] == '신용카드' || is_inicis_order_pay($od['od_settle_case']) || (shop_is_taxsave($od, true) && $misu_price == 0) )
                         {
                             if($od['od_pg'] == 'lg') {
-                                require_once G5_SHOP_PATH.'/settle_lg.inc.php';
-                                $LGD_TID      = $od['od_tno'];
-                                $LGD_MERTKEY  = $config['cf_lg_mert_key'];
-                                $LGD_HASHDATA = md5($LGD_MID.$LGD_TID.$LGD_MERTKEY);
+                                // require_once G5_SHOP_PATH.'/settle_lg.inc.php';
+                                // $LGD_TID      = $od['od_tno'];
+                                // $LGD_MERTKEY  = $config['cf_lg_mert_key'];
+                                // $LGD_HASHDATA = md5($LGD_MID.$LGD_TID.$LGD_MERTKEY);
 
-                                $card_receipt_script = 'showReceiptByTID(\''.$LGD_MID.'\', \''.$LGD_TID.'\', \''.$LGD_HASHDATA.'\');';
+                                // $card_receipt_script = 'showReceiptByTID(\''.$LGD_MID.'\', \''.$LGD_TID.'\', \''.$LGD_HASHDATA.'\');';
                             } else if($od['od_pg'] == 'inicis') {
-                                $card_receipt_script = 'window.open(\'https://iniweb.inicis.com/DefaultWebApp/mall/cr/cm/mCmReceipt_head.jsp?noTid='.$od['od_tno'].'&noMethod=1\',\'receipt\',\'width=430,height=700\');';
+                                // $card_receipt_script = 'window.open(\'https://iniweb.inicis.com/DefaultWebApp/mall/cr/cm/mCmReceipt_head.jsp?noTid='.$od['od_tno'].'&noMethod=1\',\'receipt\',\'width=430,height=700\');';
                             } else {
                                 $card_receipt_script = 'window.open(\''.G5_BILL_RECEIPT_URL.'card_bill&tno='.$od['od_tno'].'&order_no='.$od['od_id'].'&trade_mony='.$od['od_receipt_price'].'\', \'winreceipt\', \'width=470,height=815,scrollbars=yes,resizable=yes\');';
                             }
@@ -363,8 +363,8 @@ if($od['od_pg'] == 'lg') {
 
                         if($od['od_settle_case'] == 'KAKAOPAY')
                         {
-                            //$card_receipt_script = 'window.open(\'https://mms.cnspay.co.kr/trans/retrieveIssueLoader.do?TID='.$od['od_tno'].'&type=0\', \'popupIssue\', \'toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=yes,resizable=yes,width=420,height=540\');';
-                            $card_receipt_script = 'window.open(\'https://iniweb.inicis.com/DefaultWebApp/mall/cr/cm/mCmReceipt_head.jsp?noTid='.$od['od_tno'].'&noMethod=1\',\'receipt\',\'width=430,height=700\');';
+                            // 이 행은 원래 주석되어있었음 $card_receipt_script = 'window.open(\'https://mms.cnspay.co.kr/trans/retrieveIssueLoader.do?TID='.$od['od_tno'].'&type=0\', \'popupIssue\', \'toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=yes,resizable=yes,width=420,height=540\');';
+                            // $card_receipt_script = 'window.open(\'https://iniweb.inicis.com/DefaultWebApp/mall/cr/cm/mCmReceipt_head.jsp?noTid='.$od['od_tno'].'&noMethod=1\',\'receipt\',\'width=430,height=700\');';
 
                         ?>
                         <a href="javascript:;" onclick="<?php echo $card_receipt_script; ?>">영수증 출력</a>
@@ -409,23 +409,23 @@ if($od['od_pg'] == 'lg') {
                     if ($od['od_cash'])
                     {
                         if($od['od_pg'] == 'lg') {
-                            require_once G5_SHOP_PATH.'/settle_lg.inc.php';
+                            // require_once G5_SHOP_PATH.'/settle_lg.inc.php';
 
-                            switch($od['od_settle_case']) {
-                                case '계좌이체':
-                                    $trade_type = 'BANK';
-                                    break;
-                                case '가상계좌':
-                                    $trade_type = 'CAS';
-                                    break;
-                                default:
-                                    $trade_type = 'CR';
-                                    break;
-                            }
-                            $cash_receipt_script = 'javascript:showCashReceipts(\''.$LGD_MID.'\',\''.$od['od_id'].'\',\''.$od['od_casseqno'].'\',\''.$trade_type.'\',\''.$CST_PLATFORM.'\');';
+                            // switch($od['od_settle_case']) {
+                            //     case '계좌이체':
+                            //         $trade_type = 'BANK';
+                            //         break;
+                            //     case '가상계좌':
+                            //         $trade_type = 'CAS';
+                            //         break;
+                            //     default:
+                            //         $trade_type = 'CR';
+                            //         break;
+                            // }
+                            // $cash_receipt_script = 'javascript:showCashReceipts(\''.$LGD_MID.'\',\''.$od['od_id'].'\',\''.$od['od_casseqno'].'\',\''.$trade_type.'\',\''.$CST_PLATFORM.'\');';
                         } else if($od['od_pg'] == 'inicis') {
-                            $cash = unserialize($od['od_cash_info']);
-                            $cash_receipt_script = 'window.open(\'https://iniweb.inicis.com/DefaultWebApp/mall/cr/cm/Cash_mCmReceipt.jsp?noTid='.$cash['TID'].'&clpaymethod=22\',\'showreceipt\',\'width=380,height=540,scrollbars=no,resizable=no\');';
+                            // $cash = unserialize($od['od_cash_info']);
+                            // $cash_receipt_script = 'window.open(\'https://iniweb.inicis.com/DefaultWebApp/mall/cr/cm/Cash_mCmReceipt.jsp?noTid='.$cash['TID'].'&clpaymethod=22\',\'showreceipt\',\'width=380,height=540,scrollbars=no,resizable=no\');';
                         } else {
                             require_once G5_SHOP_PATH.'/settle_kcp.inc.php';
 

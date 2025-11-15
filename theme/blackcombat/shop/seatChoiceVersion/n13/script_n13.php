@@ -51,22 +51,22 @@
                 var objValue = obj.val();
 
                 if (objValue) {
-                    if (objValue.indexOf('BLACKTINUM,370000') !== -1){ obj.attr('data-seat', 'BLACKTINUM'); }
-                    else if (objValue.indexOf('VVIP,170000') !== -1){ obj.attr('data-seat', 'VVIP'); }
-                    else if (objValue.indexOf('VIP,120000') !== -1){ obj.attr('data-seat', 'VIP'); }
-                    else if (objValue.indexOf('GOLD,90000') !== -1){ obj.attr('data-seat', 'GOLD'); }
-                    else if (objValue.indexOf('SILVER(B),40000') !== -1){ obj.attr('data-seat', 'SILVER(B)'); }
-                    else if (objValue.indexOf('SILVER(W),40000') !== -1){ obj.attr('data-seat', 'SILVER(W)'); }
-                    else if (objValue.indexOf('STANDARD(A),20000') !== -1){ obj.attr('data-seat', 'STANDARD(A)'); }
-                    else if (objValue.indexOf('STANDARD(B),20000') !== -1){ obj.attr('data-seat', 'STANDARD(B)'); }
-                    else if (objValue.indexOf('STANDARD(C),20000') !== -1){ obj.attr('data-seat', 'STANDARD(C)'); }
-                    else if (objValue.indexOf('STANDARD(D),20000') !== -1){ obj.attr('data-seat', 'STANDARD(D)'); }
-                    else if (objValue.indexOf('STANDARD(E),20000') !== -1){ obj.attr('data-seat', 'STANDARD(E)'); }
-                    else if (objValue.indexOf('STANDARD(F),20000') !== -1){ obj.attr('data-seat', 'STANDARD(F)'); }
-                    else if (objValue.indexOf('ECONOMY(H),0') !== -1){ obj.attr('data-seat', 'ECONOMY(H)'); }
-                    else if (objValue.indexOf('ECONOMY(I),0') !== -1){ obj.attr('data-seat', 'ECONOMY(I)'); }
-                    else if (objValue.indexOf('ECONOMY(J),0') !== -1){ obj.attr('data-seat', 'ECONOMY(J)'); }
-                    else if (objValue.indexOf('ECONOMY(K),0') !== -1){ obj.attr('data-seat', 'ECONOMY(K)'); }
+                    if (objValue.indexOf('BLACKTINUM,1000') !== -1){ obj.attr('data-seat', 'BLACKTINUM'); }
+                    else if (objValue.indexOf('VVIP,900') !== -1){ obj.attr('data-seat', 'VVIP'); }
+                    else if (objValue.indexOf('VIP,800') !== -1){ obj.attr('data-seat', 'VIP'); }
+                    else if (objValue.indexOf('GOLD,700') !== -1){ obj.attr('data-seat', 'GOLD'); }
+                    else if (objValue.indexOf('SILVER(B),600') !== -1){ obj.attr('data-seat', 'SILVER(B)'); }
+                    else if (objValue.indexOf('SILVER(W),600') !== -1){ obj.attr('data-seat', 'SILVER(W)'); }
+                    else if (objValue.indexOf('STANDARD(A),400') !== -1){ obj.attr('data-seat', 'STANDARD(A)'); }
+                    else if (objValue.indexOf('STANDARD(B),400') !== -1){ obj.attr('data-seat', 'STANDARD(B)'); }
+                    else if (objValue.indexOf('STANDARD(C),400') !== -1){ obj.attr('data-seat', 'STANDARD(C)'); }
+                    else if (objValue.indexOf('STANDARD(D),400') !== -1){ obj.attr('data-seat', 'STANDARD(D)'); }
+                    else if (objValue.indexOf('STANDARD(E),400') !== -1){ obj.attr('data-seat', 'STANDARD(E)'); }
+                    else if (objValue.indexOf('STANDARD(F),400') !== -1){ obj.attr('data-seat', 'STANDARD(F)'); }
+                    else if (objValue.indexOf('ECONOMY(H),300') !== -1){ obj.attr('data-seat', 'ECONOMY(H)'); }
+                    else if (objValue.indexOf('ECONOMY(I),300') !== -1){ obj.attr('data-seat', 'ECONOMY(I)'); }
+                    else if (objValue.indexOf('ECONOMY(J),300') !== -1){ obj.attr('data-seat', 'ECONOMY(J)'); }
+                    else if (objValue.indexOf('ECONOMY(K),300') !== -1){ obj.attr('data-seat', 'ECONOMY(K)'); }
                 }
             });
         }
@@ -308,7 +308,7 @@
 
                                         optionResultObj.append(optionResultHtml);
                                         //MUST CHECK 3
-                                        let basicPrice = 30000;
+                                        let basicPrice = 1000;
                                         let totalPrice = 0;
                                         $.each($(".sit_opt_list").find(".io_price"), function(index,item){
                                             totalPrice += (basicPrice+Number($(item).val()));

@@ -3,7 +3,7 @@
         <h1 class="seat_choice_popup_header_title">좌석 선택하기</h1>
     </div>
 
-        <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/n14/seatChoice_n14.php'); ?>
+        <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/n13/seatChoice_n13.php'); ?>
     
     
     <div class="seat_choice_popup_footer">
@@ -13,5 +13,5 @@
 </div>
 
 
-    <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/n14/script_n14.php'); ?>
+    <? include_once(G5_THEME_PATH.'/shop/seatChoiceVersion/n13/script_n13.php'); ?>
 

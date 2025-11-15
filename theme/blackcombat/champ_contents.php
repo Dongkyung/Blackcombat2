@@ -96,7 +96,7 @@
                 <div class="ranking_list_part fly">
 <?
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -117,11 +117,11 @@
         <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">플라이급</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
-                <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                 <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
                 <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                 <div></div>
-                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['fsttm'] ?></div>
+                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['start_date'] ?></div>
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
@@ -139,7 +139,7 @@
     <? }
 
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -161,11 +161,11 @@
                     <img src='<?= $rankingImgPath ?>'
                                     onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
-                    <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                    <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
                 <div class="second_row" style="width:100%">
-                    <div class="ranking_list_change date_get" style="width:80px">
-                        획득 : <?= $row['fsttm'] ?>
+                    <div class="ranking_list_change date_get" style="width:120px; text-align:unset;">
+                        <?= $row['start_date'] ?> <? if($row['end_date'] != null) { echo " ~ ". $row['end_date']; } ?>
                     </div>
                     <div class="ranking_list_change champ_status" style="width:35px">
                         <?
@@ -198,7 +198,7 @@
                 <div class="ranking_list_part bantam">
 <?
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -219,10 +219,10 @@
         <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">밴텀급</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
-                <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                 <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
                 <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
-                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['fsttm'] ?></div>
+                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['start_date'] ?></div>
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
@@ -240,7 +240,7 @@
     <? }
 
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -262,11 +262,11 @@
                     <img src='<?= $rankingImgPath ?>'
                                     onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
-                    <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                    <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
                 <div class="second_row" style="width:100%">
-                    <div class="ranking_list_change date_get" style="width:80px">
-                        획득 : <?= $row['fsttm'] ?>
+                    <div class="ranking_list_change date_get" style="width:120px; text-align:unset;">
+                        <?= $row['start_date'] ?> <? if($row['end_date'] != null) { echo " ~ ". $row['end_date']; } ?>
                     </div>
                     <div class="ranking_list_change champ_status" style="width:35px">
                         <?
@@ -300,7 +300,7 @@
                 <div class="ranking_list_part feather">
 <?
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -321,11 +321,11 @@
         <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">페더급</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
-                <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                 <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
                 <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                 <div></div>
-                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['fsttm'] ?></div>
+                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['start_date'] ?></div>
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
@@ -343,7 +343,7 @@
     <? }
 
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -365,11 +365,11 @@
                     <img src='<?= $rankingImgPath ?>'
                                     onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
-                    <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                    <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
                 <div class="second_row" style="width:100%">
-                    <div class="ranking_list_change date_get" style="width:80px">
-                        획득 : <?= $row['fsttm'] ?>
+                    <div class="ranking_list_change date_get" style="width:120px; text-align:unset;">
+                        <?= $row['start_date'] ?> <? if($row['end_date'] != null) { echo " ~ ". $row['end_date']; } ?>
                     </div>
                     <div class="ranking_list_change champ_status" style="width:35px">
                         <?
@@ -403,7 +403,7 @@
                 <div class="ranking_list_part light">
 <?
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -424,11 +424,11 @@
         <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">라이트급</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
-                <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                 <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
                 <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                 <div></div>
-                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['fsttm'] ?></div>
+                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['start_date'] ?></div>
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
@@ -446,7 +446,7 @@
     <? }
 
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -468,11 +468,11 @@
                     <img src='<?= $rankingImgPath ?>'
                                     onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
-                    <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                    <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
                 <div class="second_row" style="width:100%">
-                    <div class="ranking_list_change date_get" style="width:80px">
-                        획득 : <?= $row['fsttm'] ?>
+                    <div class="ranking_list_change date_get" style="width:120px; text-align:unset;">
+                        <?= $row['start_date'] ?> <? if($row['end_date'] != null) { echo " ~ ". $row['end_date']; } ?>
                     </div>
                     <div class="ranking_list_change champ_status" style="width:35px">
                         <?
@@ -505,7 +505,7 @@
                 <div class="ranking_list_part welter">
 <?
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -526,11 +526,11 @@
         <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">웰터급</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
-                <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                 <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
                 <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                 <div></div>
-                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['fsttm'] ?></div>
+                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['start_date'] ?></div>
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
@@ -548,7 +548,7 @@
     <? }
 
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -570,11 +570,11 @@
                     <img src='<?= $rankingImgPath ?>'
                                     onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
-                    <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                    <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
                 <div class="second_row" style="width:100%">
-                    <div class="ranking_list_change date_get" style="width:80px">
-                        획득 : <?= $row['fsttm'] ?>
+                    <div class="ranking_list_change date_get" style="width:120px; text-align:unset;">
+                        <?= $row['start_date'] ?> <? if($row['end_date'] != null) { echo " ~ ". $row['end_date']; } ?>
                     </div>
                     <div class="ranking_list_change champ_status" style="width:35px">
                         <?
@@ -605,7 +605,7 @@
                 <div class="ranking_list_part middle">
 <?
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -626,11 +626,11 @@
         <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">미들급</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
-                <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                 <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
                 <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                 <div></div>
-                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['fsttm'] ?></div>
+                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['start_date'] ?></div>
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
@@ -648,7 +648,7 @@
     <? }
 
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -670,11 +670,11 @@
                     <img src='<?= $rankingImgPath ?>'
                                     onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
-                    <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                    <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
                 <div class="second_row" style="width:100%">
-                    <div class="ranking_list_change date_get" style="width:80px">
-                        획득 : <?= $row['fsttm'] ?>
+                    <div class="ranking_list_change date_get" style="width:120px; text-align:unset;">
+                        <?= $row['start_date'] ?> <? if($row['end_date'] != null) { echo " ~ ". $row['end_date']; } ?>
                     </div>
                     <div class="ranking_list_change champ_status" style="width:35px">
                         <?
@@ -712,7 +712,7 @@
                 <div class="ranking_list_part heavy">
 <?
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -733,11 +733,11 @@
         <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">중량급</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
-                <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                 <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
                 <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                 <div></div>
-                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['fsttm'] ?></div>
+                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['start_date'] ?></div>
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
@@ -755,7 +755,7 @@
     <? }
 
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -777,11 +777,11 @@
                     <img src='<?= $rankingImgPath ?>'
                                     onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
-                    <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                    <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
                 <div class="second_row" style="width:100%">
-                    <div class="ranking_list_change date_get" style="width:80px">
-                        획득 : <?= $row['fsttm'] ?>
+                    <div class="ranking_list_change date_get" style="width:120px; text-align:unset;">
+                        <?= $row['start_date'] ?> <? if($row['end_date'] != null) { echo " ~ ". $row['end_date']; } ?>
                     </div>
                     <div class="ranking_list_change champ_status" style="width:35px">
                         <?
@@ -813,7 +813,7 @@
                 <div class="ranking_list_part underground">
 <?
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -834,11 +834,11 @@
         <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">언더그라운드</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
-                <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                 <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
                 <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                 <div></div>
-                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['fsttm'] ?></div>
+                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['start_date'] ?></div>
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
@@ -856,7 +856,7 @@
     <? }
 
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -878,11 +878,11 @@
                     <img src='<?= $rankingImgPath ?>'
                                     onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
-                    <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                    <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
                 <div class="second_row" style="width:100%">
-                    <div class="ranking_list_change date_get" style="width:80px">
-                        획득 : <?= $row['fsttm'] ?>
+                    <div class="ranking_list_change date_get" style="width:120px; text-align:unset;">
+                        <?= $row['start_date'] ?> <? if($row['end_date'] != null) { echo " ~ ". $row['end_date']; } ?>
                     </div>
                     <div class="ranking_list_change champ_status" style="width:35px">
                         <?
@@ -916,7 +916,7 @@
                 <div class="ranking_list_part atom">
 <?
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -937,11 +937,11 @@
         <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
             <h3><span class="weight">여성부</span> <span class="champ"><?=$row['order'] == 1? "초":$row['order']?>대 CHAMPION</span></h3>
             <div class="ranking_champ_name">
-                <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                 <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
                 <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
                 <div></div>
-                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['fsttm'] ?></div>
+                <div class="ranking_ring_name" style="margin-top: 10px; font-size: 0.7rem; font-style: italic;">획득 : <?= $row['start_date'] ?></div>
             </div>
             <div class="ranking_champ_photo">
                 <img src='<?= $rankingChampImgPath ?>'
@@ -959,7 +959,7 @@
     <? }
 
     $sql = "SELECT 
-        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.fsttm, '%Y-%m-%d') as fsttm, base.fighter_status
+        champ.`order` , champ.fighter_seq, champ.defend, champ.status, base.fighter_name, base.fighter_ringname, base.country, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, DATE_FORMAT(champ.start_date, '%Y-%m-%d') as start_date, DATE_FORMAT(champ.end_date, '%Y-%m-%d') as end_date, base.fighter_status
         FROM blackcombat.tb_champion_history champ
         LEFT JOIN blackcombat.tb_fighter_base base
             ON champ.fighter_seq = base.fighter_seq 
@@ -981,11 +981,11 @@
                     <img src='<?= $rankingImgPath ?>'
                                     onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                     </div>
-                    <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                    <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
                 </div>
                 <div class="second_row" style="width:100%">
-                    <div class="ranking_list_change date_get" style="width:80px">
-                        획득 : <?= $row['fsttm'] ?>
+                    <div class="ranking_list_change date_get" style="width:120px; text-align:unset;">
+                        <?= $row['start_date'] ?> <? if($row['end_date'] != null) { echo " ~ ". $row['end_date']; } ?>
                     </div>
                     <div class="ranking_list_change champ_status" style="width:35px">
                         <?

@@ -1,5 +1,6 @@
 <?php
 include_once('./_common.php');
+//실제로 쓰는파일!!
 
 // add_javascript('js 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
@@ -51,10 +52,10 @@ if ($default['de_hope_date_use']) {
 
 // 기기별 주문폼 include
 if($is_mobile_order) {
-    $order_action_url = G5_HTTPS_MSHOP_URL.'/orderformupdate.php';
+    $order_action_url = G5_HTTPS_MSHOP_URL.'/orderformupdate.php'; //현재블컴 주문서 form 업데이트시 사용되는 action url
     require_once(G5_MSHOP_PATH.'/orderform.sub.php');
 } else {
-    $order_action_url = G5_HTTPS_SHOP_URL.'/orderformupdate.php';
+    $order_action_url = G5_HTTPS_SHOP_URL.'/orderformupdate.php'; //현재블컴 주문서 form 업데이트시 사용되는 action url
     require_once(G5_SHOP_PATH.'/orderform.sub.php');
 }
 

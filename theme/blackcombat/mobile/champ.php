@@ -21,7 +21,7 @@ $type = !empty($_GET['type']) ? $_GET['type'] : 'fighter';
         text-align:unset;
     }
     .ranking_list_change.date_get{
-        width:90px !important;
+        width:130px !important;
     }
     /* .first_row{
         line-height:15px;

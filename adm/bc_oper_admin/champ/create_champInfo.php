@@ -8,8 +8,8 @@ $division = $_POST['division'];
 
 
 // TODO: 적절한 SQL INSERT 쿼리를 사용하여 데이터 추가
-$sql = "INSERT INTO blackcombat.tb_champion_history (division, `order`, fighter_seq, defend, status, fsttm)
-SELECT '$division', CONCAT(MAX(CAST(`order` AS UNSIGNED)) + 1, '' ), $fighter_seq, 0, 0, now()
+$sql = "INSERT INTO blackcombat.tb_champion_history (division, `order`, fighter_seq, defend, status, start_date, end_date, fsttm)
+SELECT '$division', CONCAT(MAX(CAST(`order` AS UNSIGNED)) + 1, '' ), $fighter_seq, 0, 0, null, null, now()
    FROM tb_champion_history 
    WHERE division = '$division'";
 

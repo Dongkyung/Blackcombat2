@@ -33,6 +33,8 @@ $sql = "SELECT
             fb.tel,
             fb.music_name,
             fb.music_url,
+            fb.country,
+            fb.sherdog_url,
             fb.lsttm,
             fb.fsttm
         FROM tb_fighter_base fb

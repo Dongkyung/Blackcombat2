@@ -1136,3 +1136,10 @@ input[type="text"]{max-width:200px}
 .gnb_oparea ul {
     padding-left: unset !important;
 }
+
+.fi.fi-kur {
+  background-image: url('/img/flag/kd.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -43,6 +43,9 @@
         #toggleButton:hover{
             background-color: #dddddd;
         }
+        .record{
+            float:right;
+        }
 
 
 </style>
@@ -53,7 +56,7 @@
                 <div class="ranking_list_part fly">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, base.win, base.lose, base.draw,  team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status, base.country
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -77,9 +80,9 @@
                     <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
                         <h3><span class="weight">플라이급</span> <span class="champ">CHAMPION</span></h3>
                         <div class="ranking_champ_name">
-                            <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                            <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                             <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
-                            <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
+                            <div class="ranking_ring_name"><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></div>
                         </div>
                         <div class="ranking_champ_photo">
                             <img src='<?= $rankingChampImgPath ?>'
@@ -94,7 +97,7 @@
                         <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                         </div>
-                        <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                        <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> &nbsp; &nbsp; &nbsp; <span class='record'><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></span></div>
                         <div class="ranking_list_change">
                             <?
                                 if($row['ranking_updown'] === '0'){
@@ -126,7 +129,7 @@
                 <div class="ranking_list_part bantam">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, base.win, base.lose, base.draw,  team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status, base.country
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -152,9 +155,9 @@
                     <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
                         <h3><span class="weight">밴텀급</span> <span class="champ">CHAMPION</span></h3>
                         <div class="ranking_champ_name">
-                            <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                            <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                             <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
-                            <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
+                            <div class="ranking_ring_name"><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></div>
                         </div>
                         <div class="ranking_champ_photo">
                             <img src='<?= $rankingChampImgPath ?>'
@@ -169,7 +172,7 @@
                         <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                         </div>
-                        <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                        <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> &nbsp; &nbsp; &nbsp; <span class='record'><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></span></div>
                         <div class="ranking_list_change">
                             <?
                                 if($row['ranking_updown'] === '0'){
@@ -202,7 +205,7 @@
                 <div class="ranking_list_part feather">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, base.win, base.lose, base.draw,  team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status, base.country
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -228,9 +231,9 @@
                     <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
                         <h3><span class="weight">페더급</span> <span class="champ">CHAMPION</span></h3>
                         <div class="ranking_champ_name">
-                            <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                            <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                             <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
-                            <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
+                            <div class="ranking_ring_name"><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></div>
                         </div>
                         <div class="ranking_champ_photo">
                             <img src='<?= $rankingChampImgPath ?>'
@@ -245,7 +248,7 @@
                         <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                         </div>
-                        <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                        <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> &nbsp; &nbsp; &nbsp; <span class='record'><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></span></div>
                         <div class="ranking_list_change">
                             <?
                                 if($row['ranking_updown'] === '0'){
@@ -278,7 +281,7 @@
                 <div class="ranking_list_part light">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, base.win, base.lose, base.draw,  team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status, base.country
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -304,9 +307,9 @@
                     <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
                         <h3><span class="weight">라이트급</span> <span class="champ">CHAMPION</span></h3>
                         <div class="ranking_champ_name">
-                            <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                            <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                             <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
-                            <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
+                            <div class="ranking_ring_name"><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></div>
                         </div>
                         <div class="ranking_champ_photo">
                             <img src='<?= $rankingChampImgPath ?>'
@@ -321,7 +324,7 @@
                         <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                         </div>
-                        <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                        <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> &nbsp; &nbsp; &nbsp; <span class='record'><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></span></div>
                         <div class="ranking_list_change">
                             <?
                                 if($row['ranking_updown'] === '0'){
@@ -353,7 +356,7 @@
                 <div class="ranking_list_part welter">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, base.win, base.lose, base.draw,  team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status, base.country
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -379,9 +382,9 @@
                     <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
                         <h3><span class="weight">웰터급</span> <span class="champ">CHAMPION</span></h3>
                         <div class="ranking_champ_name">
-                            <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                            <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                             <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
-                            <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
+                            <div class="ranking_ring_name"><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></div>
                         </div>
                         <div class="ranking_champ_photo">
                             <img src='<?= $rankingChampImgPath ?>'
@@ -396,7 +399,7 @@
                         <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                         </div>
-                        <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                        <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> &nbsp; &nbsp; &nbsp; <span class='record'><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></span></div>
                         <div class="ranking_list_change">
                             <?
                                 if($row['ranking_updown'] === '0'){
@@ -426,7 +429,7 @@
                 <div class="ranking_list_part middle">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, base.win, base.lose, base.draw,  team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status, base.country
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -452,9 +455,9 @@
                     <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
                         <h3><span class="weight">미들급</span> <span class="champ">CHAMPION</span></h3>
                         <div class="ranking_champ_name">
-                            <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                            <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                             <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
-                            <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
+                            <div class="ranking_ring_name"><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></div>
                         </div>
                         <div class="ranking_champ_photo">
                             <img src='<?= $rankingChampImgPath ?>'
@@ -469,7 +472,7 @@
                         <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                         </div>
-                        <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                        <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> &nbsp; &nbsp; &nbsp; <span class='record'><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></span></div>
                         <div class="ranking_list_change">
                             <?
                                 if($row['ranking_updown'] === '0'){
@@ -506,7 +509,7 @@
                 <div class="ranking_list_part heavy">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, base.win, base.lose, base.draw,  team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status, base.country
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -532,9 +535,9 @@
                     <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
                         <h3><span class="weight">중량급</span> <span class="champ">CHAMPION</span></h3>
                         <div class="ranking_champ_name">
-                            <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                            <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                             <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
-                            <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
+                            <div class="ranking_ring_name"><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></div>
                         </div>
                         <div class="ranking_champ_photo">
                             <img src='<?= $rankingChampImgPath ?>'
@@ -549,7 +552,7 @@
                         <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                         </div>
-                        <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                        <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> &nbsp; &nbsp; &nbsp; <span class='record'><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></span></div>
                         <div class="ranking_list_change">
                             <?
                                 if($row['ranking_updown'] === '0'){
@@ -580,7 +583,7 @@
                 <div class="ranking_list_part">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, base.win, base.lose, base.draw,  team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status, base.country
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -604,9 +607,9 @@
                     <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
                         <h3><span class="weight">언더그라운드</span> <span class="champ">CHAMPION</span></h3>
                         <div class="ranking_champ_name">
-                            <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                            <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                             <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
-                            <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
+                            <div class="ranking_ring_name"><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></div>
                         </div>
                         <div class="ranking_champ_photo">
                             <img src='<?= $rankingChampImgPath ?>'
@@ -621,7 +624,7 @@
                             <img src='<?= $rankingImgPath ?>'
                                             onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                             </div>
-                            <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                            <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> &nbsp; &nbsp; &nbsp; <span class='record'><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></span></div>
                             <div class="ranking_list_change">
                                 <?
                                  if($row['ranking_updown'] === '0'){
@@ -646,7 +649,7 @@
                 <div class="ranking_list_part atom">
 <?
     $sql = "SELECT 
-        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status
+        ranking.ranking, ranking.fighter_seq, base.fighter_name, base.fighter_ringname, base.win, base.lose, base.draw,  team.team_name, base.ranking_image_name, base.rankingChamp_image_name, ranking.ranking_updown, ranking.lsttm, base.fighter_status, base.country
         FROM blackcombat.tb_fighter_ranking ranking
         LEFT JOIN blackcombat.tb_fighter_base base
             ON ranking.fighter_seq = base.fighter_seq 
@@ -672,9 +675,9 @@
                     <div class="ranking_list_part_champ" onclick="location.href='<?php echo G5_URL ?>/fighter/<?= $row['fighter_seq'] ?>';">
                         <h3><span class="weight">여성부</span> <span class="champ">CHAMPION</span></h3>
                         <div class="ranking_champ_name">
-                            <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
+                            <span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span>
                             <div class="ranking_ring_name"><?= $row['fighter_ringname'] ?></div>
-                            <div class="ranking_ring_name"><?= $row['team_name'] ?></div>
+                            <div class="ranking_ring_name"><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></div>
                         </div>
                         <div class="ranking_champ_photo">
                             <img src='<?= $rankingChampImgPath ?>'
@@ -689,7 +692,7 @@
                         <img src='<?= $rankingImgPath ?>'
                                         onerror="this.src='https://www.blackcombat-official.com/theme/blackcombat/img/fighter_new/fighter_blank.png'" />
                         </div>
-                        <div class="ranking_list_name"><span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> / <?= $row['team_name'] ?></span></div>
+                        <div class="ranking_list_name"><span class="fi fi-<?= strtolower($row["country"]) ?>"></span> <span class="fighter_name"<? if($is_admin) {echo 'data-name-color="'.$row["fighter_status"].'"';} ?>><?= $row['fighter_name'] ?></span><span class="ring_name"><?= $row['fighter_ringname'] ?> &nbsp; &nbsp; &nbsp; <span class='record'><?= $row['win'] ?> / <?= $row['lose'] ?> / <?= $row['draw'] ?></span></span></div>
                         <div class="ranking_list_change">
                             <?
                                 if($row['ranking_updown'] === '0'){

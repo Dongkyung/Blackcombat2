@@ -49,14 +49,14 @@ include_once(G5_THEME_PATH.'/head.php');
     </div>
 </div>
 
-<!-- <? //if($is_admin){ ?> -->
+<? if($is_admin){ ?>
 <div>
     <div class="store_item_price" style="padding:20px 10px">
         <a href="#" onclick="window.open('/ticket_event_result.php', 'popup',  'width=500,height=500,toolbar=no,menubar=no,scrollbars=no,resizable=no,status=no,location=no'); return false;"
             style="width:400px; padding: 20px; font-size: 17px; font-weight: bold; background: #ffba3c;">멤버쉽 티켓증정 이벤트<br> 당첨결과 조회</a>
     </div>
 </div>
-<!-- <? //} ?> -->
+<? } ?>
 
 
 
@@ -130,6 +130,10 @@ include_once(G5_THEME_PATH.'/head.php');
     </div>
 </div>
 
+<div class="sponsors" style="padding-top:unset; width:100%; text-align:center;">
+    <div><a href="https://www.marqvision.com/kr/report-a-fake-blackcombat" target="_blank"><img width="1400" src="<?php echo G5_THEME_IMG_URL; ?>/KRBanner_BlackCombat_dark.png" /></a></div>
+</div>
+
 <div class="sponsors">
     <div class="sponsor_title">
         <img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_title.png" />
@@ -149,10 +153,7 @@ include_once(G5_THEME_PATH.'/head.php');
         <div class="sponsor_item"><a href="https://exxxtreme.co.kr/index.html" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_img_1.png" /></a></div>
         <div class="sponsor_item"><a href="https://bndh.co.kr/" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsors_bnd.png" /></a></div>
         <div class="sponsor_item"><a href="https://bf-am.com/home/index.php" class="sponsor_item_anchor" target="_blank"><img src="<?php echo G5_THEME_IMG_URL; ?>/mobile/sponsor_bf.png" style="width:60%"/></a></div>
-        
     </div>
-
-    <div class="sponsor_bottom"><img src="<?php echo G5_THEME_IMG_URL; ?>/main/sponsor_bottom_img.png" /></div>
 </div>
 
 <div class="training_center">

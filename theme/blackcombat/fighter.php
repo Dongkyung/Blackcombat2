@@ -36,12 +36,15 @@ if($page === '28227780'){
         .winner_name{
             color: #ffba3c;
             font-weight:bold;
-            text-size:1.2rem;
-
         }
     </style>
-    
-    <? include_once(G5_THEME_PATH.'/fighter_contents.php'); ?>
+    <? 
+    //if($is_admin){ 
+        //include_once(G5_THEME_PATH.'/fighter_contents_new.php');
+    //}else{
+        include_once(G5_THEME_PATH.'/fighter_contents.php');
+    //} 
+    ?>
 
 
 <?php
